@@ -1,0 +1,154 @@
+<!--
+  Generated template for the SpendsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar no-border-bottom color="primary">
+        <ion-title>
+            Spends
+        </ion-title>
+    </ion-navbar>
+
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="pet">
+            <ion-segment-button value="puppies">
+                By Date
+            </ion-segment-button>
+            <ion-segment-button value="kittens">
+                By Color
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div [ngSwitch]="pet">
+        <ion-list *ngSwitchCase="'puppies'" ngSelected="selected">
+            <ion-item class="style">
+                <ion-label class="style">Date</ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.month"></ion-datetime>
+            </ion-item>
+
+            <ion-card>
+                <ion-card-header>
+                    Expenses
+                </ion-card-header>
+                <ion-card-content>
+                    <p>Read More …</p>
+                </ion-card-content>
+            </ion-card>
+
+            <!-- <ion-card>
+                <ion-card-header>
+                    Tutorialsplane.com
+                </ion-card-header>
+                <ion-card-content>
+                    <p>Learn More …</p>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+                <ion-card-header>
+                    Tutorialsplane.com
+                </ion-card-header>
+                <ion-card-content>
+                    <p>Learn More …</p>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+                <ion-card-header>
+                    Tutorialsplane.com
+                </ion-card-header>
+                <ion-card-content>
+                    <p>Learn More …</p>
+                </ion-card-content>
+            </ion-card> -->
+
+            <ion-fab center bottom>
+                <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+                <ion-fab-list side="top" color="primary">
+                    <button (click)="onClickRec()" style="width:200%;height:150%;font-size:1.5em;background-color:lightgreen">Recurring Expenses<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
+                    <button (click)="onClickFreq()" style="width:200%;height:150%;font-size:1.5em;background-color:lightgreen">Frequent Expenses<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
+                    <button (click)="onClickOne()" style="width:200%;height:150%;font-size:1.5em;background-color:lightgreen">One-Time Expenses<ion-icon name="cloud-done"></ion-icon></button>
+
+                </ion-fab-list>
+            </ion-fab>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'kittens'">
+            <ion-searchbar (ionInput)="getItems($event)">Search by Color</ion-searchbar>
+            <ion-card>
+                <div class="list card">
+                    <ion-card-header style="background:orange">
+                        <ion-icon name="radio-button-off" style="font-size:2.0em;"></ion-icon>
+                        &nbsp;&nbsp;
+                        <ion-icon name="trash" style="font-size:2.0em;"></ion-icon>
+                        &nbsp;&nbsp;
+                        <ion-icon name="share" style="font-size:2.0em;"></ion-icon>
+
+                        &nbsp;&nbsp;
+                        <ion-icon name="copy" style="font-size:2.0em;"></ion-icon>
+
+
+                    </ion-card-header>
+                    <!--<hr style="border:2px solid black;">-->
+                </div>
+                <div>
+                    <ion-card-content>
+                        Spends will be seen here by Choosing different color..
+                    </ion-card-content>
+                </div>
+            </ion-card>
+
+            <ion-card>
+                <div class="list card">
+                    <ion-card-header style="background:lightgreen">
+                        <ion-icon name="radio-button-off" style="font-size:2.0em;"></ion-icon>
+                        &nbsp;&nbsp;
+                        <ion-icon name="trash" style="font-size:2.0em;"></ion-icon>
+                        &nbsp;&nbsp;
+                        <ion-icon name="share" style="font-size:2.0em;"></ion-icon>
+
+                        &nbsp;&nbsp;
+                        <ion-icon name="copy" style="font-size:2.0em;"></ion-icon>
+
+
+                    </ion-card-header>
+
+                </div>
+                <div>
+                    <ion-card-content>
+                        Spends will be seen here by Choosing different color..
+                    </ion-card-content>
+                </div>
+            </ion-card>
+
+            <!--  <ion-card>
+                <div class="list card">
+                    <ion-card-header style="background:lightcoral">
+
+                        <ion-icon name="radio-button-off" style="font-size:2.0em;"></ion-icon>
+                        &nbsp;&nbsp;
+                        <ion-icon name="trash" style="font-size:2.0em;"></ion-icon>
+                        &nbsp;&nbsp;
+                        <ion-icon name="share" style="font-size:2.0em;"></ion-icon>
+
+                        &nbsp;&nbsp;
+                        <ion-icon name="copy" style="font-size:2.0em;"></ion-icon>
+
+
+
+                    </ion-card-header>
+                    <!--<hr style="border:2px solid black;">-->
+            <!--  </div>
+                <div>
+                    <ion-card-content>
+                        The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+                    </ion-card-content>
+                </div>
+            </ion-card>-->
+
+        </ion-list>

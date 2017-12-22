@@ -1,14 +1,126 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+
+    <ion-navbar color="primary">
+        <ion-buttons end>
+            <a ion-button icon-only (click)="openPopover($event)">
+                <ion-icon name="more"></ion-icon>
+            </a>
+        </ion-buttons>
+
+        <ion-title style="float:left">
+            <h3>
+                Home
+            </h3>
+        </ion-title>
+
+
+
+        <ion-icon name="notifications" class="iconclass" style="padding-top:12px;float:right"></ion-icon>
+
+
+    </ion-navbar>
+
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+<ion-content padding class="card-background-page">
+    <ion-card>
+        <img src="https://ionicframework.com/dist/preview-app/www/assets/img/card-saopaolo.png" />
+        <div class="card-title">São Paulo</div>
+        <div class="card-subtitle">41 Listings</div>
+    </ion-card>
+
+
+
+    <ion-card>
+        <ion-list>
+            <ion-card-content>
+
+
+                <button ion-item (click)="onClick()"> <!--(click)="onClick()"-->
+      <ion-icon name="paper-plane"  item-start class="menu-icon3"></ion-icon>
+    <p class="tit">  Spends</p>
+    <p class="tit2">  Manage your expenses </p>
+       <!--<ion-icon name="arrow-forward" style= item-start class="menu-icon3" ></ion-icon>-->
+    </button>
+            </ion-card-content>
+        </ion-list>
+    </ion-card>
+
+    <ion-card>
+        <ion-list>
+            <ion-card-content>
+
+
+                <button ion-item (click)="onCLickDocument()">
+      <ion-icon name="document" item-start class="menu-icon1"></ion-icon>
+     <p class="tit">  E-Document </p>
+      <p class="tit2"> Save your Documents copy </p><p class="tit2"> & save your bills  </p>
+    </button>
+            </ion-card-content>
+        </ion-list>
+    </ion-card>
+
+
+
+    <ion-card>
+        <ion-list>
+            <ion-card-content>
+
+
+                <button ion-item (click)="onClickGraph()">
+      <ion-icon name="stats" item-start class="menu-icon"></ion-icon>
+      <p class="tit"> Expense Diary </p>
+<p class="tit2"> Track Your bills By </p><p class="tit2">Graphical representation </p>
+    </button>
+            </ion-card-content>
+        </ion-list>
+    </ion-card>
+
+
+    <!-- <ion-card>
+        <ion-list>
+            <ion-card-content>
+
+
+                <button ion-item>
+      <ion-icon name="cart" item-start class="menu-icon"></ion-icon>
+      <p class="tit">Estimate Tour</p>
+<p class="tit2"> Track Your bills By </p><p class="tit2">Graphical representation </p>
+    </button>
+            </ion-card-content>
+        </ion-list>
+    </ion-card> -->
+
+    <ion-card>
+        <ion-list>
+            <ion-card-content>
+
+
+                <button ion-item (click)="onClickNote()"> <!--(click)="onClick()"-->
+      <ion-icon name="clipboard"  item-start class="menu-icon2"></ion-icon>
+    <p class="tit">  Notes</p>
+    <p class="tit2">There is no reason manage your task in separate app</p><p class="tit2">Keep it in Notes. </p>
+       <!--<ion-icon name="arrow-forward" style= item-start class="menu-icon3" ></ion-icon>-->
+    </button>
+            </ion-card-content>
+        </ion-list>
+    </ion-card>
+
+    <ion-card>
+        <ion-list>
+            <ion-card-content>
+
+
+                <button ion-item>
+      <img src="../assets/icon/Icons8-Windows-8-Finance-Cash-Receiving.ico" style="height:40px;width:40px;" item-start >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <p class="tit"> Have Loan ??</p>
+      <p class="tit2">Track your loan</p>
+    </button>
+            </ion-card-content>
+        </ion-list>
+    </ion-card>
+
+
 </ion-content>

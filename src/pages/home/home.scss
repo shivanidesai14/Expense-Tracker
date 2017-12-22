@@ -1,3 +1,61 @@
 page-home {
-
+    .card-background-page {
+        ion-card {
+            position: relative;
+            text-align: center;
+        }
+        .card-title {
+            position: absolute;
+            top: 36%;
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color: #fff;
+        }
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 52%;
+            width: 100%;
+            color: #fff;
+        }
+    }
+    .slide-image {
+        max-height: 20%;
+        max-width: 20%;
+    }
+    .tit {
+        font-size: 1.1em;
+        color: black;
+        font-weight: bold;
+    }
+    .tit2 {
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+    .menu-icon {
+        color: yellowgreen;
+    }
+    .menu-icon1 {
+        color: lightseagreen;
+    }
+    .menu-icon2 {
+        color: lightcoral;
+    }
+    .menu-icon3 {
+        color: orange;
+    }
+    .menu-icon4 {
+        background: blue;
+    }
+    .menu-icon5 {
+        background: blue;
+    }
+    .iconclass {
+        font-size: 30px;
+        color: white;
+    }
+    .menu-icon5 {
+        color: blue;
+    }
 }

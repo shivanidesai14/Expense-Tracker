@@ -1,0 +1,66 @@
+<!--
+  Generated template for the EdocumentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Expense Category</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ul type="none">
+
+            <li>
+                <span style="font-size:30px;"><img src="../assets/icon/shopping.ico" style="height:60px;width:60px;"> Shopping</span>
+
+            </li><br><br>
+            <ul type="none">
+                <li>
+                    <span style="font-size:30px;"><img src="../assets/icon/clothes.ico" style="height:40px;width:40px;"> Clothing</span>
+
+                </li><br>
+                <li>
+                    <span style="font-size:30px;"><img src="../assets/icon/footwear.ico" style="height:40px;width:40px;"> Footwear</span>
+
+                </li><br>
+                <li>
+                    <span style="font-size:30px;"><img src="../assets/icon/computer.ico" style="height:40px;width:40px;"> Electronics</span>
+
+                </li><br>
+                <li>
+                    <span style="font-size:30px;"><img src="../assets/icon/grocery.ico" style="height:40px;width:40px;"> Grocery</span>
+
+                </li>
+            </ul>
+        </ul>
+        <ul type="none">
+
+            <li>
+                <span style="font-size:30px;"><img src="../assets/icon/vehicle.ico" style="height:60px;width:60px;"> Travel</span>
+
+            </li><br>
+            <ul type="none">
+                <li>
+                    <span style="font-size:30px;"><img src="../assets/icon/taxi.ico" style="height:40px;width:40px;"> Taxi</span>
+
+                </li>
+            </ul>
+        </ul>
+    </ion-list>
+    <ion-fab right bottom>
+        <button ion-fab style="height:80px;width:70px;"><ion-icon name="add" style="font-size:40px;"></ion-icon></button>
+        <ion-fab-list side="top" color="primary">
+            <button (click)="onClickRec()" style="width:200%;height:150%;font-size:1.5em;background-color:lightgreen">Recurring Expenses<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
+            <button (click)="onClickFreq()" style="width:200%;height:150%;font-size:1.5em;background-color:lightgreen">Frequent Expenses<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
+            <button (click)="onClickOne()" style="width:200%;height:150%;font-size:1.5em;background-color:lightgreen">One-Time Expenses<ion-icon name="cloud-done"></ion-icon></button>
+
+        </ion-fab-list>
+    </ion-fab>
+</ion-content>
