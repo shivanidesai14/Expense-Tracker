@@ -26,7 +26,7 @@ public url:string="http://localhost:3000/notes/";
 
     return this.http.delete(this.url+item.notes_id,res).map((res:Response)=>res.json());
   }
-  editTask(item)
+  editNotes(item)
   {
        let body=JSON.stringify(item);
     let h=new Headers({'Content-Type':'application/json'});
@@ -34,6 +34,13 @@ public url:string="http://localhost:3000/notes/";
 
     return this.http.post(this.url+item.notes_id,body,res).map((res:Response)=>res.json());
   }
-   
+    addNotes(item)
+  {
+    let body=JSON.stringify(item);
+    let h=new Headers({'Content-Type':'application/json'});
+    let res=new RequestOptions({headers:h});
+
+    return this.http.post(this.url,body,res).map((res:Response)=>res.json());
+  }
 
 }
