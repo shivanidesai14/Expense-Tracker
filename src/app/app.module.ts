@@ -20,6 +20,8 @@ import { OnetimePage } from "../pages/onetime/onetime";
 import { FrequentPage } from "../pages/frequent/frequent";
 import { EdocumentPage } from "../pages/edocument/edocument";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
+import { UserdbProvider } from '../providers/userdb/userdb';
+import { LogindbProvider } from '../providers/logindb/logindb';
 
 
 
@@ -42,7 +44,9 @@ import { NotesdbProvider } from '../providers/notesdb/notesdb';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NotesdbProvider
+    NotesdbProvider,
+    UserdbProvider,
+    LogindbProvider
   ]
 })
 export class AppModule {}
