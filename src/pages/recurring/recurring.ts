@@ -33,7 +33,7 @@ clr7:string = "grey";
   }
   public event = {
      finalDate:this.y+"-"+this.x+"-"+this.dt,
-   month: '2017-01-01',
+  // month: '2017-01-01',
    
   }
 

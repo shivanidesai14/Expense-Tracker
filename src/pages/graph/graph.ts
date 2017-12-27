@@ -48,6 +48,22 @@ this.testing = "pie";
     options: options
   });
 }
+ getChart1(context, chartType, data, options?) {
+  return new Chart(context, {
+
+    type: chartType,
+    data: data,
+    options: options
+  });
+}
+ getChart2(context, chartType, data, options?) {
+  return new Chart(context, {
+
+    type: chartType,
+    data: data,
+    options: options
+  });
+}
 getBarChart() {
  
   let data = {
@@ -87,7 +103,7 @@ getBarChart() {
     }
 }
 
-//return this.getChart(this.barCanvas.nativeElement, "bar", data, options);
+//return this.getChart1(this.barCanvas.nativeElement, "bar", data, options);
 }
 getDoughnutChart() {
   let data = {
@@ -140,7 +156,7 @@ getLineChart() {
     ]
   };
 
-//return this.getChart(this.lineCanvas.nativeElement, "line", data);
+//return this.getChart2(this.lineCanvas.nativeElement, "line", data);
 }
 
 }
