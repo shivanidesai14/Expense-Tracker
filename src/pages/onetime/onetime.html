@@ -28,7 +28,7 @@
     <ion-icon name="checkmark-circle-outline" class="iconclass"></ion-icon>
     <ion-item class="style">
         <ion-label class="style">Date</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.month"></ion-datetime>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.finalDate"></ion-datetime>
     </ion-item>
     <br>
     <button ion-button block style="height:50px;font-size:20px;">Select Category</button>
@@ -38,4 +38,4 @@
 
     <ion-card>
 
-        <button ion-button block style="height:50px;font-size:20px;background:orange">Tap To Add Note</button>
+        <button ion-button block style="height:50px;font-size:20px;background:orange" (click)="onetimeNote()">Tap To Add Note</button>

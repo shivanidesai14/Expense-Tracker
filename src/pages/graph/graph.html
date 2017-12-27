@@ -12,25 +12,21 @@
     </ion-navbar>
 
     <ion-toolbar no-border-top>
-        <ion-segment [(ngModel)]="pet">
-            <ion-segment-button value="puppies">
+        <ion-segment [(ngModel)]="charts">
+            <ion-segment-button value="pie">
                 By Category
             </ion-segment-button>
-            <ion-segment-button value="kittens">
+            <ion-segment-button value="bar">
                 By Month
             </ion-segment-button>
-            <!--<ion-segment-button value="cats">
-                By Expense
-            </ion-segment-button>
-            <ion-segment-button value="dogs">
-                By Income
-            </ion-segment-button>-->
         </ion-segment>
     </ion-toolbar>
 </ion-header>
+
+
 <ion-content>
-    <div [ngSwitch]="pet">
-        <ion-list *ngSwitchCase="'puppies'" ngSelected="selected">
+    <div [ngSwitch]="charts">
+        <ion-list *ngSwitchCase="'pie'" ngSelected="selected">
             <ion-card>
                 <ion-card-header>
                     Pie Chart
@@ -41,8 +37,15 @@
             </ion-card>
         </ion-list>
 
-        <ion-list *ngSwitchCase="'kittens'">
-
+        <ion-list *ngSwitchCase="'bar'">
+            <!-- <ion-card>
+                <ion-card-header>
+                    Bar Chart
+                </ion-card-header>
+                <ion-card-content>
+                    <canvas #barCanvas width="400" height="600"></canvas>
+                </ion-card-content>
+            </ion-card>-->
 
         </ion-list>
 

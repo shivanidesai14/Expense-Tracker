@@ -12,11 +12,11 @@
     </ion-navbar>
 
     <ion-toolbar no-border-top>
-        <ion-segment [(ngModel)]="pet">
-            <ion-segment-button value="puppies">
+        <ion-segment [(ngModel)]="spends">
+            <ion-segment-button value="date">
                 By Date
             </ion-segment-button>
-            <ion-segment-button value="kittens">
+            <ion-segment-button value="color">
                 By Color
             </ion-segment-button>
         </ion-segment>
@@ -24,18 +24,26 @@
 </ion-header>
 
 <ion-content>
-    <div [ngSwitch]="pet">
-        <ion-list *ngSwitchCase="'puppies'" ngSelected="selected">
+    <div [ngSwitch]="spends">
+        <ion-list *ngSwitchCase="'date'" ngSelected="selected">
             <ion-item class="style">
-                <ion-label class="style">Date</ion-label>
-                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.month"></ion-datetime>
+
+
+                <ion-label class="style">
+                    <ion-icon name="search" class="menu-icon"> Search By Date</ion-icon>
+                </ion-label>
+
+                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.finalDate"></ion-datetime>
             </ion-item>
 
             <ion-card>
                 <ion-card-header>
                     Expenses
                 </ion-card-header>
+
                 <ion-card-content>
+                    <!--  <p>{{event.finalDate}}</p>-->
+                    <!-- <p>{{this.x}}</p>-->
                     <p>Read More …</p>
                 </ion-card-content>
             </ion-card>
@@ -70,16 +78,19 @@
             <ion-fab center bottom>
                 <button ion-fab mini><ion-icon name="add"></ion-icon></button>
                 <ion-fab-list side="top" color="primary">
-                    <button (click)="onClickRec()" style="width:200%;height:150%;font-size:1.5em;background-color:lightgreen">Recurring Expenses<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
-                    <button (click)="onClickFreq()" style="width:200%;height:150%;font-size:1.5em;background-color:lightgreen">Frequent Expenses<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
-                    <button (click)="onClickOne()" style="width:200%;height:150%;font-size:1.5em;background-color:lightgreen">One-Time Expenses<ion-icon name="cloud-done"></ion-icon></button>
+                    <button (click)="onClickRec()" style="width:200%;height:150%;font-size:1.5em;background:sandybrown;">Recurring <ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
+                    <button (click)="onClickFreq()" style="width:200%;height:150%;font-size:1.5em;background:sandybrown;">Frequent <ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
+                    <button (click)="onClickOne()" style="width:200%;height:150%;font-size:1.5em;background:sandybrown;">One-Time  <ion-icon name="cloud-done"></ion-icon></button>
 
                 </ion-fab-list>
             </ion-fab>
+
+
+
         </ion-list>
 
-        <ion-list *ngSwitchCase="'kittens'">
-            <ion-searchbar (ionInput)="getItems($event)">Search by Color</ion-searchbar>
+        <ion-list *ngSwitchCase="'color'">
+            <ion-searchbar (ionInput)="getItems($event)" placeholder="Search By Color">Search by Color</ion-searchbar>
             <ion-card>
                 <div class="list card">
                     <ion-card-header style="background:orange">

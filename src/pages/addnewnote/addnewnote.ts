@@ -21,6 +21,11 @@ notes_id:number;
 fk_user_email:string="shivanidesai402@gmail.com";
 notes_desc:string;
 notes_date:string=new Date().toDateString();
+
+dt:any=new Date().getDate();
+x:any=new Date().getMonth();
+y:any=new Date().getFullYear();
+finalDate:any=this.y+"-"+this.x+"-"+this.dt;
 colour_name:string="white";
   constructor(public _data:NotesdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -39,7 +44,7 @@ colour_name:string="white";
         duration:3000,
         position:"bottom"
       });
-      this._data.addNotes(new Notes(this.notes_id,this.fk_user_email,this.notes_desc,this.notes_date,this.colour_name)).subscribe(
+      this._data.addNotes(new Notes(this.notes_id,this.fk_user_email,this.notes_desc,this.finalDate,this.colour_name)).subscribe(
 
           (data:any)=>{
             t1.present();

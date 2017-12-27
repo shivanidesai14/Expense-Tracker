@@ -16,11 +16,11 @@ import { Chart } from 'chart.js';
   templateUrl: 'graph.html',
 })
 export class GraphPage {
-pet: string = "puppies";
+charts: string = "pie";
   isAndroid: boolean = false;
 testing:String='';
   ionViewWillEnter(){
-this.testing = "puppies";
+this.testing = "pie";
 
 }
  @ViewChild('barCanvas') barCanvas;

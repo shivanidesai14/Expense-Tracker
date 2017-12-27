@@ -20,6 +20,7 @@ import { RecurringPage } from "../pages/recurring/recurring";
 import { OnetimePage } from "../pages/onetime/onetime";
 import { FrequentPage } from "../pages/frequent/frequent";
 import { EdocumentPage } from "../pages/edocument/edocument";
+import { EditnotesPage } from "../pages/editnotes/editnotes";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 
 
@@ -28,7 +29,7 @@ import { NotesdbProvider } from '../providers/notesdb/notesdb';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage
+    HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,EditnotesPage
   ],
   imports: [
     BrowserModule,HttpModule,
@@ -37,7 +38,7 @@ import { NotesdbProvider } from '../providers/notesdb/notesdb';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage
+    HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,EditnotesPage
   ],
   providers: [
     StatusBar,

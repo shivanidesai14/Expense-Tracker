@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
+import { AddnewnotePage } from "../addnewnote/addnewnote";
 
 /**
  * Generated class for the OnetimePage page.
@@ -15,6 +16,9 @@ import { Platform } from 'ionic-angular';
   templateUrl: 'onetime.html',
 })
 export class OnetimePage {
+  dt:any=new Date().getDate();
+x:any=new Date().getMonth();
+y:any=new Date().getFullYear();
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -23,8 +27,13 @@ export class OnetimePage {
     console.log('ionViewDidLoad OnetimePage');
   }
    public event = {
+      finalDate:this.y+"-"+this.x+"-"+this.dt,
    month: '2017-01-01',
    
+  }
+  onetimeNote()
+  {
+      this.navCtrl.push(AddnewnotePage);
   }
 
 }

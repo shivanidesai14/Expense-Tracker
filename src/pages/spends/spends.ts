@@ -17,11 +17,16 @@ import { FrequentPage } from "../frequent/frequent";
   templateUrl: 'spends.html',
 })
 export class SpendsPage {
-pet: string = "puppies";
+    dt:any=new Date().getDate();
+x:any=new Date().getMonth();
+y:any=new Date().getFullYear();
+
+
+spends: string = "date";
   isAndroid: boolean = false;
 testing:String='';
   ionViewWillEnter(){
-this.testing = "puppies";
+this.testing = "date";
 
 }
   constructor(platform: Platform,public navCtrl: NavController, public navParams: NavParams) {
@@ -32,7 +37,9 @@ this.testing = "puppies";
     console.log('ionViewDidLoad SpendsPage');
   }
   public event = {
-   month: '2017-01-01',
+  finalDate:this.y+"-"+this.x+"-"+this.dt,
+
+  // month: '2017-01-01',
    
   }
 onClickRec()

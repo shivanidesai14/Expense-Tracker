@@ -30,7 +30,7 @@
 
     <ion-item class="style">
         <ion-label class="style">Date</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.month"></ion-datetime>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.finalDate"></ion-datetime>
     </ion-item>
     <br>
     <button ion-button block style="height:50px;font-size:20px;">Select Category</button>
@@ -39,22 +39,30 @@
     <br>
 
     <ion-card>
-        <ion-card-header style="font-size:20px;">
+        <!-- <ion-card-header style="font-size:20px;">
             <b>Days..</b>
-        </ion-card-header>
+        </ion-card-header>-->
         <ion-card-content>
 
-            <a href="#"><button ion-button round style="width:2px;">M</button></a>
-            <button ion-button round style="width:2px;">Tu</button>
-            <button ion-button round style="width:2px;">W</button>
-            <button ion-button round style="width:2px;">Th</button>
-            <button ion-button round style="width:2px;">F</button>
-            <button ion-button round style="width:2px;">Sa</button>
-            <button ion-button round style="width:2px;">Su</button>
+            <ion-list>
+
+                <ion-item class="chk">
+                    <ion-label>One - time</ion-label>
+                    <ion-checkbox></ion-checkbox>
+                </ion-item>
+
+                <ion-item class="chk">
+                    <ion-label>Two - time </ion-label>
+                    <ion-checkbox></ion-checkbox>
+                </ion-item>
+
+            </ion-list>
+
+
         </ion-card-content>
     </ion-card>
     <br>
     <br>
-    <button ion-button block style="height:50px;font-size:20px;background:orange">Tap To Add Note</button>
+    <button ion-button block style="height:50px;font-size:20px;background:orange" (click)="frequentNotes()">Tap To Add Note</button>
 
 </ion-content>

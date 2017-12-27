@@ -11,9 +11,9 @@
         </ion-title>
     </ion-navbar>
 </ion-header>
-
+<!--(keyup)="search()"-->
 <ion-content padding>
-    <ion-searchbar [(ngModel)]="txtsearch" (keyup)="search()">Search by Color</ion-searchbar>
+    <ion-searchbar [(ngModel)]="txtsearch" (keypress)="openPopover($event)" placeholder="Search By Color">Search by Color</ion-searchbar>
 
     <ion-card *ngFor="let item of arr">
         <div class="list card">
@@ -30,7 +30,7 @@
                 <ion-icon name="share" style="font-size:1.5em;"></ion-icon>
 
                 &nbsp;&nbsp;
-                <ion-icon name="copy" style="font-size:1.5em;"></ion-icon>
+                <ion-icon name="create" (click)="onEditNote(item)" style="font-size:1.5em;"></ion-icon>
 
 
             </ion-card-header>
@@ -41,82 +41,14 @@
             <ion-card-content style="font-size:2em;">
                 {{item.notes_desc}}
             </ion-card-content>
-            <ion-label style="float:right;font-size:1.5em;">{{item.notes_date}}</ion-label>
+            <!--<ion-label style="float:right;font-size:1.5em;">{{item.notes_date}}</ion-label>-->
+            <ion-item>
+                <ion-label>Date</ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="item.notes_date"></ion-datetime>
+            </ion-item>
         </div>
     </ion-card>
 
-    <!-- <ion-card>
-        <div class="list card">
-            <ion-card-header style="background:lightgreen">
-                <ion-icon name="radio-button-off" style="font-size:2.0em;"></ion-icon>
-                &nbsp;&nbsp;
-                <ion-icon name="trash" style="font-size:2.0em;"></ion-icon>
-                &nbsp;&nbsp;
-                <ion-icon name="share" style="font-size:2.0em;"></ion-icon>
-
-                &nbsp;&nbsp;
-                <ion-icon name="copy" style="font-size:2.0em;"></ion-icon>
-
-
-            </ion-card-header>
-            <!--<hr style="border:2px solid black;">-->
-    <!--</div>
-        <div>
-            <ion-card-content>
-                The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-            </ion-card-content>
-        </div>
-    </ion-card>
-
-    <ion-card>
-        <div class="list card">
-            <ion-card-header style="background:lightcoral">
-
-                <ion-icon name="radio-button-off" style="font-size:2.0em;"></ion-icon>
-                &nbsp;&nbsp;
-                <ion-icon name="trash" style="font-size:2.0em;"></ion-icon>
-                &nbsp;&nbsp;
-                <ion-icon name="share" style="font-size:2.0em;"></ion-icon>
-
-                &nbsp;&nbsp;
-                <ion-icon name="copy" style="font-size:2.0em;"></ion-icon>
-
-
-
-            </ion-card-header>
-            <!--<hr style="border:2px solid black;">-->
-    <!--  </div>
-        <div>
-            <ion-card-content>
-                The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-            </ion-card-content>
-        </div>
-    </ion-card>
-
-    <ion-card>
-        <div class="list card">
-            <ion-card-header style="background:paleturquoise">
-
-                <ion-icon name="radio-button-off" style="font-size:2.0em;"></ion-icon>
-                &nbsp;&nbsp;
-                <ion-icon name="trash" style="font-size:2.0em;"></ion-icon>
-                &nbsp;&nbsp;
-                <ion-icon name="share" style="font-size:2.0em;"></ion-icon>
-
-                &nbsp;&nbsp;
-                <ion-icon name="copy" style="font-size:2.0em;"></ion-icon>
-
-
-
-            </ion-card-header>
-            <!--<hr style="border:2px solid black;">-->
-    <!--   </div>
-        <div>
-            <ion-card-content>
-                The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-            </ion-card-content>
-        </div>
-    </ion-card>-->
 
     <ion-fab right bottom>
         <button ion-fab color="primary" (click)="onclick()"><ion-icon name="add"></ion-icon></button>

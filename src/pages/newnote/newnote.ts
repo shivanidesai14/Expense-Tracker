@@ -4,6 +4,7 @@ import { AddnewnotePage } from "../addnewnote/addnewnote";
 import { Notes } from "../../shared/notes";
 import { NotesdbProvider } from "../../providers/notesdb/notesdb";
 import { PopoverNotePage } from "../popover-note/popover-note";
+import { EditnotesPage } from "../editnotes/editnotes";
 
 /**
  * Generated class for the NewnotePage page.
@@ -95,5 +96,10 @@ openPopover(myEvent) {
     popover.present({
       ev: myEvent
     });
+  }
+
+  onEditNote(item)
+  {
+      this.navCtrl.push(EditnotesPage,{item:'notes_desc'});
   }
 }
