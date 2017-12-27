@@ -36,8 +36,8 @@ mobno:string='';
   }
   onLogin()
   {
-    alert(this.email);
-    alert(this.pass);
+   // alert(this.email);
+    //alert(this.pass);
     let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
     this._data.getUserByLogin(item).subscribe(
       (data)=>{

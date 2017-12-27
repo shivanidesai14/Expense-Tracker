@@ -11,7 +11,7 @@ import 'rxjs/Rx';
 */
 @Injectable()
 export class LogindbProvider {
-  public url:string="http://localhost:3000/login";
+  public url:string="http://localhost:3000/login/";
   constructor(public http: Http) {
     console.log('Hello LogindbProvider Provider');
   }
