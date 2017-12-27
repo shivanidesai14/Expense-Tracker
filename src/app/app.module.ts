@@ -4,10 +4,10 @@ import { HttpModule } from "@angular/http";
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
 import { MyApp } from './app.component';
+import { IonicStorageModule } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
-import {DemoPage} from '../pages/demo/demo';
+import { DemoPage } from '../pages/demo/demo';
 import { PopoverPage } from "../pages/popover/popover";
 import { PopoverNotePage } from "../pages/popover-note/popover-note";
 import { SpendsPage } from "../pages/spends/spends";
@@ -24,6 +24,7 @@ import { EditnotesPage } from "../pages/editnotes/editnotes";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
+import { Signup1dbProvider } from '../providers/signup1db/signup1db';
 
 
 
@@ -35,6 +36,7 @@ import { LogindbProvider } from '../providers/logindb/logindb';
   ],
   imports: [
     BrowserModule,HttpModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -48,7 +50,8 @@ import { LogindbProvider } from '../providers/logindb/logindb';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NotesdbProvider,
     UserdbProvider,
-    LogindbProvider
+    LogindbProvider,
+    Signup1dbProvider
   ]
 })
 export class AppModule {}

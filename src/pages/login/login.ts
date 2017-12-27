@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SignupPage } from "../signup/signup";
+import { Storage } from '@ionic/storage';
 import { HomePage } from "../home/home";
 import { Users } from "../../shared/users";
 import { LogindbProvider } from "../../providers/logindb/logindb";
@@ -24,7 +25,9 @@ img:string='';
 dpass:string='';
 name:string='';
 mobno:string='';
-  constructor(public _data:LogindbProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public storage:Storage,
+    public _data:LogindbProvider,
+    public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -46,6 +49,11 @@ mobno:string='';
         alert("Something wrong");
         }
         else{
+          this.storage.set('name',this.email);
+          this.storage.get('name').then((val) => {
+            alert( val);
+          });
+       
           this.navCtrl.push(HomePage);
         }
       },
