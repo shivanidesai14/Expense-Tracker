@@ -1,3 +1,4 @@
+
 <!--
   Generated template for the LoginPage page.
 
@@ -23,21 +24,27 @@
         <ion-list>
 
             <ion-item>
-                <ion-label floating class="fontedit">Username</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-label floating class="fontedit" >Username</ion-label>
+                <ion-input type="text" [(ngModel)]="email"></ion-input>
             </ion-item>
 
             <ion-item>
-                <ion-label floating class="fontedit">Password</ion-label>
-                <ion-input type="password"></ion-input>
+                <ion-label floating class="fontedit" >Password</ion-label>
+                <ion-input type="password" [(ngModel)]="pass"></ion-input>
             </ion-item>
 
         </ion-list>
+<<<<<<< HEAD
         <button ion-button block (click)="login()">Login</button>
         <div>
             <h2>&nbsp;&nbsp;</h2>
         </div>
         <button ion-button block (click)="signup()">SIGNUP</button>
+=======
+        <button ion-button block (click)="onLogin()">Login</button>
+        <h5 align="center">OR</h5>
+        <button ion-button block (click)="onSignup()">SIGNUP</button>
+>>>>>>> 19a47081bad68e529368ee89cf2f438de36d9c5c
 
     </div>
 </ion-content>

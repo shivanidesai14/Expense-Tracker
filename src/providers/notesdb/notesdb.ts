@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
 /*
+
   Generated class for the NotesdbProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
