@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Users } from "../../shared/users";
+import { Signup1dbProvider } from "../../providers/signup1db/signup1db";
 import { HomePage } from "../home/home";
 
 /**
@@ -16,8 +17,15 @@ import { HomePage } from "../home/home";
   templateUrl: 'signup.html',
 })
 export class SignupPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  uid:number=0;
+  umail:string='';
+  upass:string='';
+  uname:string='';
+  umobno:string='';
+  uimg:string='../assets/userimgs/defaultimg.png';
+  udpass:string='';
+  constructor(public _data:Signup1dbProvider,
+    public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -25,7 +33,17 @@ export class SignupPage {
   }
   signup1()
   {
-    this.navCtrl.push(HomePage);
+  let item=new Users(this.uid,this.umail,this.uname,this.umobno,this.uimg,this.upass,this.udpass);
+  this._data.addUsers(item).subscribe(
+    (data)=>{
+      this.navCtrl.push(HomePage);
+    },
+    function(e)
+    {
+      alert(e);
+    }
+  );
+   
   }
 
 }

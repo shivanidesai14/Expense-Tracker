@@ -7,33 +7,43 @@
 <ion-header>
 
     <ion-navbar color="primary">
-        <ion-title>Signup</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-    <ion-icon name="../assets/img/icons8-gift.png"></ion-icon>
+    
+<ion-content scroll="false">
+    <div class="splash-bg"></div>
+    <div class="splash-info">
+     </div>
+     <div padding>
+         </div>
+         <div padding>
     <ion-list>
-
+            <div padding>
         <ion-item>
-            <ion-label floating>Username</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label floating>Mail Id</ion-label>
+            <ion-input type="email" [(ngModel)]="umail" aria-required="Enter mail id"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label floating>Password</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input type="password" [(ngModel)]="upass"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating class="fontedit">Income</ion-label>
-            <ion-input type="text"></ion-input>
+                <ion-label floating >Name</ion-label>
+                <ion-input type="text" [(ngModel)]="uname"></ion-input>
+            </ion-item>
+        <ion-item>
+            <ion-label floating >Mobile No</ion-label>
+            <ion-input type="text" [(ngModel)]="umobno"></ion-input>
         </ion-item>
-
+    </div>
+    </ion-list>
         <div padding>
             <button ion-button block (click)="signup1()">SIGNUP</button>
         </div>
-    </ion-list>
+  </div>
 </ion-content>
