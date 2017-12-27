@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController,ToastController } from 'ionic-angular';
+import {  OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
 import { Users } from "../../shared/users";
 import { Signup1dbProvider } from "../../providers/signup1db/signup1db";
 import { HomePage } from "../home/home";
@@ -16,7 +18,10 @@ import { HomePage } from "../home/home";
   selector: 'page-signup',
   templateUrl: 'signup.html',
 })
-export class SignupPage {
+export class SignupPage implements OnInit {
+
+user: FormGroup;
+
   uid:number=0;
   umail:string='';
   upass:string='';
@@ -25,7 +30,7 @@ export class SignupPage {
   uimg:string='../assets/userimgs/defaultimg.png';
   udpass:string='';
   constructor(public _data:Signup1dbProvider,
-    public navCtrl: NavController, public navParams: NavParams) {
+    public navCtrl: NavController, public navParams: NavParams,public lo:LoadingController,public to:ToastController) {
   }
 
   ionViewDidLoad() {
@@ -33,17 +38,41 @@ export class SignupPage {
   }
   signup1()
   {
+     let l1=this.lo.create({
+        content:"loading"
+      });
+      l1.present();
+      let t1=this.to.create({
+        message:"Sign-up Successfully..",
+        duration:3000,
+        position:"bottom"
+      });
   let item=new Users(this.uid,this.umail,this.uname,this.umobno,this.uimg,this.upass,this.udpass);
   this._data.addUsers(item).subscribe(
     (data)=>{
+       t1.present();
       this.navCtrl.push(HomePage);
     },
     function(e)
     {
       alert(e);
+    },
+    function()
+    {
+      l1.dismiss();
     }
   );
    
-  }
+}
+ ngOnInit() {
+
+this.user = new FormGroup({
+email: new FormControl('', [Validators.required,Validators.email]),
+password: new FormControl('', [Validators.required,Validators.minLength(5)]),
+mob: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
+name: new FormControl('', [Validators.required])
+});
+
+}
 
 }

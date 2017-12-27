@@ -12,38 +12,102 @@
 </ion-header>
 
 
-    
+
 <ion-content scroll="false">
     <div class="splash-bg"></div>
     <div class="splash-info">
-     </div>
-     <div padding>
-         </div>
-         <div padding>
-    <ion-list>
-            <div padding>
-        <ion-item>
-            <ion-label floating>Mail Id</ion-label>
-            <ion-input type="email" [(ngModel)]="umail" aria-required="Enter mail id"></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password" [(ngModel)]="upass"></ion-input>
-        </ion-item>
-
-        <ion-item>
-                <ion-label floating >Name</ion-label>
-                <ion-input type="text" [(ngModel)]="uname"></ion-input>
-            </ion-item>
-        <ion-item>
-            <ion-label floating >Mobile No</ion-label>
-            <ion-input type="text" [(ngModel)]="umobno"></ion-input>
-        </ion-item>
     </div>
-    </ion-list>
-        <div padding>
-            <button ion-button block (click)="signup1()">SIGNUP</button>
-        </div>
-  </div>
+    <div padding>
+    </div>
+    <div padding>
+        <form novalidate [formGroup]="user">
+            <ion-list>
+                <div padding>
+                    <ion-item>
+                        <ion-label floating>Mail Id</ion-label>
+                        <ion-input type="email" [(ngModel)]="umail" formControlName="email" aria-required="Enter mail id"></ion-input>
+                    </ion-item>
+
+                    <ion-item no-lines *ngIf="( user.get('email').hasError('required') || user.get('email').hasError('email') ) && user.get('email').touched">
+
+
+
+                        <div class="error" *ngIf="user.get('email').hasError('required') && user.get('email').touched">
+                            Email is required
+                        </div>
+
+                        <div class="error" *ngIf="user.get('email').hasError('email') && user.get('email').touched">
+                            Please enter valid email
+                        </div>
+
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label floating>Password</ion-label>
+                        <ion-input type="password" formControlName="password" [(ngModel)]="upass"></ion-input>
+                    </ion-item>
+
+                    <ion-item no-lines *ngIf="( user.get('password').hasError('minlength') || user.get('password').hasError('required') ) && user.get('password').touched">
+
+                        <div class="error" *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+                            Password is required
+                        </div>
+                        <div class="error" *ngIf="user.get('password').hasError('minlength') && user.get('password').touched">
+                            Minimum of 5 characters
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label floating>Name</ion-label>
+                        <ion-input type="text" [(ngModel)]="uname" formControlName="name"></ion-input>
+                    </ion-item>
+
+
+                    <ion-item no-lines *ngIf="( user.get('name').hasError('required') || user.get('name').hasError('name') ) && user.get('name').touched">
+
+
+
+                        <div class="error" *ngIf="user.get('email').hasError('required') && user.get('email').touched">
+                            Name is required
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label floating>Mobile No</ion-label>
+                        <ion-input type="text" [(ngModel)]="umobno" formControlName="mob"></ion-input>
+                    </ion-item>
+
+                    <ion-item no-lines *ngIf="( user.get('mob').hasError('required') || user.get('mob').hasError('minlength') || user.get('mob').hasError('maxlength'))&& user.get('mob').touched">
+
+
+
+                        <div class="error" *ngIf="user.get('mob').hasError('required') && user.get('email').touched">
+                            Mobile no is required
+                        </div>
+                        <div class="error" *ngIf="user.get('mob').hasError('minlength') && user.get('email').touched">
+                            Please enter valid mobile number
+                        </div>
+
+                        <div class="error" *ngIf="user.get('mob').hasError('maxlength') && user.get('email').touched">
+                            Please enter valid mobile number
+                        </div>
+
+
+                    </ion-item>
+
+
+                </div>
+            </ion-list>
+            <div padding>
+                <button ion-button block (click)="signup1()">SIGNUP</button>
+            </div>
+        </form>
+    </div>
+    <style type="text/css">
+        .error {
+            color: darkred;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    </style>
 </ion-content>
