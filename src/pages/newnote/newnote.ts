@@ -24,6 +24,7 @@ export class NewnotePage {
   }
  arr:Notes[]=[];
  arr1:Notes[]=[];
+
  txtsearch:string="";
   ionViewDidLoad() {
    // console.log('ionViewDidLoad NewnotePage');

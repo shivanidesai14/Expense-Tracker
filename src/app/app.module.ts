@@ -21,10 +21,13 @@ import { OnetimePage } from "../pages/onetime/onetime";
 import { FrequentPage } from "../pages/frequent/frequent";
 import { EdocumentPage } from "../pages/edocument/edocument";
 import { EditnotesPage } from "../pages/editnotes/editnotes";
+import {CategoryPage} from "../pages/category/category";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
 import { Signup1dbProvider } from '../providers/signup1db/signup1db';
+import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
+import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
 
 
 
@@ -32,7 +35,7 @@ import { Signup1dbProvider } from '../providers/signup1db/signup1db';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,EditnotesPage
+    HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,EditnotesPage,CategoryPage,PopoverSpendPage
   ],
   imports: [
     BrowserModule,HttpModule,
@@ -42,7 +45,7 @@ import { Signup1dbProvider } from '../providers/signup1db/signup1db';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,EditnotesPage
+    HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,EditnotesPage,CategoryPage,PopoverSpendPage
   ],
   providers: [
     StatusBar,
@@ -51,7 +54,8 @@ import { Signup1dbProvider } from '../providers/signup1db/signup1db';
     NotesdbProvider,
     UserdbProvider,
     LogindbProvider,
-    Signup1dbProvider
+    Signup1dbProvider,
+    SpendsdbProvider
   ]
 })
 export class AppModule {}

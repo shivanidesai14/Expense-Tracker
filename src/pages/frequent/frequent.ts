@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddnewnotePage } from "../addnewnote/addnewnote";
+import { CategoryPage } from "../category/category";
 /**
  * Generated class for the FrequentPage page.
  *
@@ -32,6 +33,10 @@ y:any=new Date().getFullYear();
   frequentNotes()
   {
       this.navCtrl.push(AddnewnotePage);
+  }
+   onClickCategory()
+  {
+    this.navCtrl.push(CategoryPage);
   }
 
 }

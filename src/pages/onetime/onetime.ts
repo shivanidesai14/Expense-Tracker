@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { AddnewnotePage } from "../addnewnote/addnewnote";
-
+import { CategoryPage } from "../category/category";
 /**
  * Generated class for the OnetimePage page.
  *
@@ -34,6 +34,10 @@ y:any=new Date().getFullYear();
   onetimeNote()
   {
       this.navCtrl.push(AddnewnotePage);
+  }
+   onClickCategory()
+  {
+    this.navCtrl.push(CategoryPage);
   }
 
 }

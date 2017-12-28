@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CurrencyPipe } from '@angular/common';
 import { Platform } from 'ionic-angular';
 import {AddnewnotePage} from '../addnewnote/addnewnote';
+import { CategoryPage } from "../category/category";
 
 /**
  * Generated class for the RecurringPage page.
@@ -141,6 +142,10 @@ clr7:string = "grey";
        this.clr7= "grey";
 
     }
+  }
+  onClickCategory()
+  {
+    this.navCtrl.push(CategoryPage);
   }
 
 }

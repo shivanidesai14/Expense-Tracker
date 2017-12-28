@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the EditnotesPage page.
+ * Generated class for the CategoryPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,17 +10,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-editnotes',
-  templateUrl: 'editnotes.html',
+  selector: 'page-category',
+  templateUrl: 'category.html',
 })
-export class EditnotesPage {
+export class CategoryPage {
+na:string='            ';
+na1:string="        "+"Shopping";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditnotesPage');
+    console.log('ionViewDidLoad CategoryPage');
+   // this.na1=this.na+"Shopping";
   }
-  
 
 }
