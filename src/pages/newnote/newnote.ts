@@ -20,7 +20,8 @@ import { EditnotesPage } from "../editnotes/editnotes";
 })
 export class NewnotePage {
 
-  constructor(public popoverCtrl: PopoverController,public load:LoadingController,public to:ToastController ,public _data:NotesdbProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public popoverCtrl: PopoverController,public load:LoadingController,
+    public to:ToastController ,public _data:NotesdbProvider,public navCtrl: NavController, public navParams: NavParams) {
   }
  arr:Notes[]=[];
  arr1:Notes[]=[];

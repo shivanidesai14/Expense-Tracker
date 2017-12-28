@@ -5,7 +5,7 @@ import { SpendsPage } from "../spends/spends";
 import { NewnotePage } from "../newnote/newnote";
 import { GraphPage } from "../graph/graph";
 import { EdocumentPage} from "../edocument/edocument";
-
+import { SelectcatPage } from "../selectcat/selectcat";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -35,7 +35,7 @@ openPopover(myEvent) {
   }
   onCLickDocument()
   {
-this.navCtrl.push(EdocumentPage);
+this.navCtrl.push(SelectcatPage);
   
   }
 }

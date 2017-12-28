@@ -1,0 +1,28 @@
+page-selectcat {
+    #vnav {
+        list-style-type: none; 
+        text-decoration: none; 
+        position:fixed;
+        left:0;
+        top:350px;
+        z-index:1;
+        }
+        
+        #visbox {
+        left:95px;
+        top:368px;
+        }
+        
+        .vbox {
+        position:fixed;
+        z-index:1;
+        height:40px;
+        width:120px;
+        visibility:hidden;
+        }
+        
+        #vnav:hover + #vbox {
+        visibility:visible;
+        }
+
+}
