@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController,LoadingController } from 'ionic-angular';
 import {  OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
 import { SignupPage } from "../signup/signup";
@@ -31,7 +31,7 @@ name:string='';
 mobno:string='';
   constructor(public storage:Storage,
     public _data:LogindbProvider,
-    public navCtrl: NavController, public navParams: NavParams) {
+    public navCtrl: NavController, public navParams: NavParams,public lo:LoadingController,public to:ToastController) {
   }
 
   ionViewDidLoad() {
@@ -52,24 +52,17 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
 }
   onLogin()
   {
-   // alert(this.email);
-    //alert(this.pass);
-   /* if(this.email=="")
-    {
-        alert("E-mail id must not be empty")
-    }
-    else if(this.pass=="")
-    {
-      alert("Password must not be empty");
-    }
-    else
-    {*/
+   let t1=this.to.create({
+        message:"Username & Password are incorrect",
+        duration:3000,
+        position:"bottom"
+      });
     let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
     this._data.getUserByLogin(item).subscribe(
       (data)=>{
         if(data=="")
         {
-        alert("Username and Password are incorrect");
+          t1.present();
         }
         else{
           this.storage.set('name',this.email);
@@ -86,6 +79,6 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       }
     );
   }
- // }
+
  
 }
