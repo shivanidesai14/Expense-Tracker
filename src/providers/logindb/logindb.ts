@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http,Response,RequestOptions,Headers } from '@angular/http';
 import { Observable } from "rxjs/Observable";
+import {HttpClient,HttpHeaders} from "@angular/common/http";
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
 /*
@@ -12,15 +13,13 @@ import 'rxjs/Rx';
 @Injectable()
 export class LogindbProvider {
   public url:string="http://localhost:3000/login/";
-  constructor(public http: Http) {
+  constructor(public http: HttpClient) {
     console.log('Hello LogindbProvider Provider');
   }
 getUserByLogin(item)
   {
     let body=JSON.stringify(item);
-    let h=new Headers({'content-type':'application/json'});
-    let rs=new RequestOptions({headers:h});
-    return this.http.post(this.url,body,rs).map( (res:Response)=>res.json());
+    return this.http.post(this.url,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
   }
 
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http,Response,RequestOptions,Headers } from '@angular/http';
+import {HttpClient,HttpHeaders} from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
@@ -14,12 +15,12 @@ import 'rxjs/Rx';
 @Injectable()
 export class CatsubcatdbProvider {
 url:string="http://localhost:3000/catsubcat/";
-  constructor(public http: Http) {
+  constructor(public http: HttpClient) {
     console.log('Hello CatsubcatdbProvider Provider');
   }
   getCatSubcat()
   {
-    return this.http.get(this.url).map((res:Response)=>res.json());
+    return this.http.get(this.url);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserProfilePage } from "../user-profile/user-profile";
 
 /**
  * Generated class for the PopoverPage page.
@@ -20,6 +21,10 @@ export class PopoverPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PopoverPage');
+  }
+  onClickUserProfile()
+  {
+      this.navCtrl.push(UserProfilePage);
   }
 
 }

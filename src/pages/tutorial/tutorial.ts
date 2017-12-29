@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {  } from "module";
+import { LoginPage } from "../login/login";
 
 /**
- * Generated class for the EdocumentPage page.
+ * Generated class for the TutorialPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,29 +11,19 @@ import {  } from "module";
 
 @IonicPage()
 @Component({
-  selector: 'page-edocument',
-  templateUrl: 'edocument.html',
+  selector: 'page-tutorial',
+  templateUrl: 'tutorial.html',
 })
-export class EdocumentPage {
-hi:string="";
-flag:number=0;
+export class TutorialPage {
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EdocumentPage');
+    console.log('ionViewDidLoad TutorialPage');
   }
-onClickMe()
-{
-  if(this.flag==0)
-  {
-  this.hi="hello";
-  this.flag=1;
+startApp() {
+    this.navCtrl.push(LoginPage);
 }
-else
-{
-  this.hi="";
-  this.flag=0;
-}
-}
+
 }

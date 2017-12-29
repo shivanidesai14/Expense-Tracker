@@ -1,12 +1,10 @@
 import { Component,ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { Chart } from 'chart.js';
-import { BarChartPage } from "../bar-chart/bar-chart";
-import { LineChartPage } from "../line-chart/line-chart";
-
+import { GraphPage } from "../graph/graph";
 /**
- * Generated class for the GraphPage page.
+ * Generated class for the BarChartPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,29 +12,27 @@ import { LineChartPage } from "../line-chart/line-chart";
 
 @IonicPage()
 @Component({
-  selector: 'page-graph',
-  templateUrl: 'graph.html',
+  selector: 'page-bar-chart',
+  templateUrl: 'bar-chart.html',
 })
-export class GraphPage {
-charts: string = "pie";
+export class BarChartPage {
+  charts: string = "pie";
   isAndroid: boolean = false;
 testing:String='';
   ionViewWillEnter(){
 this.testing = "pie";
-
-}
- @ViewChild('barCanvas') barCanvas;
+  }
+@ViewChild('barCanvas') barCanvas;
   @ViewChild('doughnutCanvas') doughnutCanvas;
   @ViewChild('lineCanvas') lineCanvas;
   barChart: any;
   doughnutChart: any;
   lineChart :any;
   n:number=1000;
-  constructor(public modalctrl:ModalController,platform: Platform,public navCtrl: NavController, public navParams: NavParams) {
-      this.isAndroid = platform.is('android');
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
+ ionViewDidLoad() {
     this.barChart = this.getBarChart(); 
     this.doughnutChart = this.getDoughnutChart();   
     this.lineChart = this.getLineChart();
@@ -105,7 +101,7 @@ getBarChart() {
     }
 }
 
-//return this.getChart1(this.barCanvas.nativeElement, "bar", data, options);
+return this.getChart1(this.barCanvas.nativeElement, "bar", data, options);
 }
 getDoughnutChart() {
   let data = {
@@ -126,7 +122,7 @@ getDoughnutChart() {
     }]
   };
 
- return this.getChart(this.doughnutCanvas.nativeElement, "doughnut", data);
+ //return this.getChart(this.doughnutCanvas.nativeElement, "doughnut", data);
 }
 getLineChart() {
   var data = {
@@ -160,15 +156,8 @@ getLineChart() {
 
 //return this.getChart2(this.lineCanvas.nativeElement, "line", data);
 }
-onClickBar()
+onClickClose()
 {
-    let modal = this.modalctrl.create(BarChartPage);
-    modal.present();
+  this.navCtrl.pop(GraphPage);
 }
-onClickLine()
-{
-   let modal1 = this.modalctrl.create(LineChartPage);
-    modal1.present();
-}
-
 }
