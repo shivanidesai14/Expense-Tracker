@@ -5,7 +5,7 @@ import { Notes } from "../../shared/notes";
 import { NotesdbProvider } from "../../providers/notesdb/notesdb";
 import { PopoverNotePage } from "../popover-note/popover-note";
 import { EditnotesPage } from "../editnotes/editnotes";
-
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the NewnotePage page.
  *
@@ -20,7 +20,7 @@ import { EditnotesPage } from "../editnotes/editnotes";
 })
 export class NewnotePage {
 
-  constructor(public popoverCtrl: PopoverController,public load:LoadingController,
+  constructor(public storage:Storage,public popoverCtrl: PopoverController,public load:LoadingController,
     public to:ToastController ,public _data:NotesdbProvider,public navCtrl: NavController, public navParams: NavParams) {
   }
  arr:Notes[]=[];
@@ -102,6 +102,10 @@ openPopover(myEvent) {
 
   onEditNote(item)
   {
-      this.navCtrl.push(EditnotesPage,{item:'notes_desc'});
+    this.storage.set('notes_desc',this.arr);
+      this.navCtrl.push(EditnotesPage,{
+        id : item.notes_id,
+        notes_desc:item.notes_desc
+      });
   }
 }

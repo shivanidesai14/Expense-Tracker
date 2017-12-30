@@ -9,36 +9,30 @@
         <ion-title>
             Graphs
         </ion-title>
+
     </ion-navbar>
 
-    <ion-toolbar no-border-top>
-        <ion-segment [(ngModel)]="charts">
-            <ion-segment-button value="pie">
-                By Category
-            </ion-segment-button>
-            <ion-segment-button value="bar">
-                By Month
-            </ion-segment-button>
-        </ion-segment>
-    </ion-toolbar>
+
 </ion-header>
 
 
 <ion-content>
-    <div [ngSwitch]="charts">
-        <ion-list *ngSwitchCase="'pie'" ngSelected="selected">
-            <ion-card>
-                <ion-card-header>
-                    Pie Chart
-                </ion-card-header>
-                <ion-card-content>
-                    <canvas #doughnutCanvas width="400" height="600"></canvas>
-                </ion-card-content>
-            </ion-card>
-        </ion-list>
+    <ion-card>
+        <ion-card-header>
+            Pie Chart
+        </ion-card-header>
+        <ion-card-content>
+            <canvas #doughnutCanvas width="400" height="550"></canvas>
+        </ion-card-content>
+    </ion-card>
 
 
-        <ion-list *ngSwitchCase="'bar'">
+<!--        <ion-list *ngSwitchCase="'bar'">-->
+    <button ion-button block style="height:50px;font-size:20px;" (click)="onClickBar()">Bar chart</button>
+
+    <button ion-button block style="height:50px;font-size:20px;background:orange" (click)="onClickLine()">Line Chart</button>
+    <!--  <ion-list *ngSwitchCase="'bar'">
+
             <ion-card>
                 <ion-card-header>
                     Bar Chart
@@ -49,8 +43,14 @@
                 </ion-card-content>
             </ion-card>
 
+
         </ion-list>
-        <!-- <ion-list *ngSwitchCase="'cats'">
+         <ion-list *ngSwitchCase="'cats'">
+
+        </ion-list>-->
+
+    <!-- <ion-list *ngSwitchCase="'cats'">
+
 
 
         </ion-list>
@@ -59,3 +59,4 @@
 
 
         </ion-list>-->
+</ion-content>

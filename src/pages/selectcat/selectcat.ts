@@ -24,6 +24,7 @@ arr1:category[]=[];
 arr2:subcategory[]=[];
 no1:boolean=false;
 no:number=0;
+no2:number=0;
   constructor(public _data1:CategorydbProvider,
     public _data2:SubcategorydbProvider,
     public load:LoadingController,public navCtrl: NavController, public navParams: NavParams) {
@@ -86,7 +87,8 @@ no:number=0;
   }
 onClick(no:number){
   console.log('ionViewDidLoad SelectcatPage');
- if(this.no1==false)
+ this.no2=no;
+  if(this.no1==false)
  {
   this.no1=true;
 }

@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http ,Response,Headers,RequestOptions } from '@angular/http';
 import { Observable } from "rxjs/Observable";
+import {HttpClient,HttpHeaders} from "@angular/common/http";
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
+
+import { Notes } from "../../shared/notes";
 /*
 
   Generated class for the NotesdbProvider provider.
@@ -13,35 +16,32 @@ import 'rxjs/Rx';
 @Injectable()
 export class NotesdbProvider {
 public url:string="http://localhost:3000/notes/";
-  constructor(public http: Http) {
+  constructor(public http: HttpClient) {
     console.log('Hello NotesdbProvider Provider');
   }
    getAllNotes()
   {
-    return this.http.get(this.url).map((res:Response)=>res.json());
+    return this.http.get(this.url);
   }
-    deleteNotes(item)
+    deleteNotes(item:Notes)
   {
-    let h=new Headers({'Content-Type':'application/json'});
-    let res=new RequestOptions({headers:h});
+    
 
-    return this.http.delete(this.url+item.notes_id,res).map((res:Response)=>res.json());
+    return this.http.delete(this.url+item.notes_id,{headers:new HttpHeaders().set('Content-Type','application/json')});
   }
-  editNotes(item)
+  editNotes(item:Notes)
   {
        let body=JSON.stringify(item);
-    let h=new Headers({'Content-Type':'application/json'});
-    let res=new RequestOptions({headers:h});
-
-    return this.http.post(this.url+item.notes_id,body,res).map((res:Response)=>res.json());
+        return this.http.post(this.url+item.notes_id,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
   }
-    addNotes(item)
+    addNotes(item:Notes)
   {
     let body=JSON.stringify(item);
-    let h=new Headers({'Content-Type':'application/json'});
-    let res=new RequestOptions({headers:h});
+    return this.http.post(this.url,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
+  }
 
-    return this.http.post(this.url,body,res).map((res:Response)=>res.json());
+  getNoteById(id:number){
+    return this.http.get(this.url+id);
   }
 
 }
