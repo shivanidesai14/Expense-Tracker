@@ -27,14 +27,14 @@ import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
 import { Signup1dbProvider } from '../providers/signup1db/signup1db';
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import { CatsubcatdbProvider } from '../providers/catsubcatdb/catsubcatdb';
 import { CategorydbProvider } from '../providers/categorydb/categorydb';
 import { SubcategorydbProvider } from '../providers/subcategorydb/subcategorydb';
-=======
+
 import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
 import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
->>>>>>> 03274181876e5dfdf3ec769fc3c2ffbbebe1e952
+//>>>>>>> 03274181876e5dfdf3ec769fc3c2ffbbebe1e952
 
 
 
@@ -42,11 +42,11 @@ import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
 @NgModule({
   declarations: [
     MyApp,
-<<<<<<< HEAD
-    SelectcatPage,HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,EditnotesPage
-=======
+//<<<<<<< HEAD
+    SelectcatPage,HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,EditnotesPage,
+//=======
     HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,EditnotesPage,CategoryPage,PopoverSpendPage
->>>>>>> 03274181876e5dfdf3ec769fc3c2ffbbebe1e952
+//>>>>>>> 03274181876e5dfdf3ec769fc3c2ffbbebe1e952
   ],
   imports: [
     BrowserModule,HttpModule,
@@ -56,15 +56,15 @@ import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-<<<<<<< HEAD
+//<<<<<<< HEAD
     HomePage,DemoPage,PopoverPage,SpendsPage,
     LoginPage,SignupPage,NewnotePage,AddnewnotePage,
     GraphPage,FrequentPage,RecurringPage,OnetimePage,
     SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
    
-=======
+//=======
     HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,EditnotesPage,CategoryPage,PopoverSpendPage
->>>>>>> 03274181876e5dfdf3ec769fc3c2ffbbebe1e952
+//>>>>>>> 03274181876e5dfdf3ec769fc3c2ffbbebe1e952
   ],
   providers: [
     StatusBar,
@@ -74,13 +74,13 @@ import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
     UserdbProvider,
     LogindbProvider,
     Signup1dbProvider,
-<<<<<<< HEAD
+//<<<<<<< HEAD
     CatsubcatdbProvider,
     CategorydbProvider,
-    SubcategorydbProvider
-=======
+    SubcategorydbProvider,
+//=======
     SpendsdbProvider
->>>>>>> 03274181876e5dfdf3ec769fc3c2ffbbebe1e952
+//>>>>>>> 03274181876e5dfdf3ec769fc3c2ffbbebe1e952
   ]
 })
 export class AppModule {}

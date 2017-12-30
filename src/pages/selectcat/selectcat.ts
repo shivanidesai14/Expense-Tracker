@@ -80,9 +80,20 @@ no:number=0;
           );
     
   }
+  onClick1(n:number)
+  {
+    
+  }
 onClick(no:number){
   console.log('ionViewDidLoad SelectcatPage');
+ if(this.no1==false)
+ {
   this.no1=true;
+}
+else
+{
+  this.no1=false;
+}
   let l1=this.load.create({
     
         content:"Loading..."
@@ -92,7 +103,7 @@ onClick(no:number){
     
             (data2:subcategory[])=>{
               this.arr2=data2;
-              this.no+=this.no;
+              
              // alert("successful");
             },
             function(e)
@@ -102,6 +113,7 @@ onClick(no:number){
             function()
             {
               l1.dismiss();
+              
             }
     
         );

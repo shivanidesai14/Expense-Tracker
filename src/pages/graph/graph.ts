@@ -37,7 +37,7 @@ this.testing = "pie";
   ionViewDidLoad() {
     this.barChart = this.getBarChart(); 
     this.doughnutChart = this.getDoughnutChart();   
-    this.lineChart = this.getLineChart();
+    //this.lineChart = this.getLineChart();
   }
   
  getChart(context, chartType, data, options?) {
@@ -56,16 +56,16 @@ this.testing = "pie";
     options: options
   });
 }
- getChart2(context, chartType, data, options?) {
+/* getChart2(context, chartType, data, options?) {
   return new Chart(context, {
 
     type: chartType,
     data: data,
     options: options
   });
-}
+}*/
 getBarChart() {
- 
+  this.barChart = this.getBarChart(); 
   let data = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
     datasets: [{
@@ -103,9 +103,10 @@ getBarChart() {
     }
 }
 
-//return this.getChart1(this.barCanvas.nativeElement, "bar", data, options);
+return this.getChart1(this.barCanvas.nativeElement, "bar", data, options);
 }
 getDoughnutChart() {
+  this.doughnutChart = this.getDoughnutChart();   
   let data = {
     labels: ["Food", "Entertainment", "Shopping", "Family", "Assets", "Gifts", "Health"],
     datasets: [{
