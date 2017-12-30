@@ -38,16 +38,16 @@
                 <img src={{item.cicon_image}}>
             </ion-avatar>
             <h2>{{item.cat_name}}</h2>
+
         </ion-item>
-    </ion-list>
-    <div>
-        <li *ngIf="no1">
-            <ion-list *ngFor="let item of arr2">
-                <ion-item (click)="onClick(item.cat_id)">
+        <li *ngIf="no1 && item.cat_id==no2">
+            <ion-list *ngFor="let ite of arr2">
+
+                <ion-item (click)="onClick1(ite.sub_cat_id)" style="margin-left:40px;">
                     <ion-avatar item-start>
-                        <img src={{item.icon_image}}>
+                        <h1> </h1> <img src={{ite.icon_image}}>
                     </ion-avatar>
-                    <h2>{{item.sub_cat_name}}</h2>
+                    <h2>{{ite.sub_cat_name}}</h2>
 
                 </ion-item>
 
@@ -55,7 +55,13 @@
 
         </li>
 
+    </ion-list>
 
-    </div>
+
+
+
+
+
+
 
 </ion-content>

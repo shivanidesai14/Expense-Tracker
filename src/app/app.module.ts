@@ -32,14 +32,12 @@ import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
 import { Signup1dbProvider } from '../providers/signup1db/signup1db';
-
 import { CatsubcatdbProvider } from '../providers/catsubcatdb/catsubcatdb';
 import { CategorydbProvider } from '../providers/categorydb/categorydb';
 import { SubcategorydbProvider } from '../providers/subcategorydb/subcategorydb';
 
 import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
 import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
-
 
 
 
@@ -51,7 +49,9 @@ import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
     AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,
     EditnotesPage,CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,UserProfilePage
 
+
    
+
 
   ],
   imports: [
@@ -62,11 +62,13 @@ import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+
     HomePage,DemoPage,PopoverPage,SpendsPage,
     LoginPage,SignupPage,NewnotePage,AddnewnotePage,
     GraphPage,FrequentPage,RecurringPage,OnetimePage,
     SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
     CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,UserProfilePage
+
 
   ],
   providers: [
@@ -80,7 +82,13 @@ import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
     CatsubcatdbProvider,
     CategorydbProvider,
     SubcategorydbProvider,
+
+    SpendsdbProvider,
+    CatsubcatdbProvider,
+    CategorydbProvider,
+    SubcategorydbProvider,
     SpendsdbProvider
+
 
   ]
 })

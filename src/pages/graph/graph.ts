@@ -32,7 +32,7 @@ this.testing = "pie";
   barChart: any;
   doughnutChart: any;
   lineChart :any;
-  n:number=1000;
+ 
   constructor(public modalctrl:ModalController,platform: Platform,public navCtrl: NavController, public navParams: NavParams) {
       this.isAndroid = platform.is('android');
   }
@@ -51,26 +51,11 @@ this.testing = "pie";
     options: options
   });
 }
- getChart1(context, chartType, data, options?) {
-  return new Chart(context, {
-
-    type: chartType,
-    data: data,
-    options: options
-  });
-}
- getChart2(context, chartType, data, options?) {
-  return new Chart(context, {
-
-    type: chartType,
-    data: data,
-    options: options
-  });
-}
-getBarChart() {
  
+getBarChart() {
+  this.barChart = this.getBarChart(); 
   let data = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul"],
     datasets: [{
       label: '$ of Expenses',
       data: [100, 150, 220, 400, 600, 500 , 3],
@@ -106,9 +91,10 @@ getBarChart() {
     }
 }
 
-//return this.getChart1(this.barCanvas.nativeElement, "bar", data, options);
+//return this.getChart(this.barCanvas.nativeElement, "bar", data, options);
 }
 getDoughnutChart() {
+  this.doughnutChart = this.getDoughnutChart();   
   let data = {
     labels: ["Food", "Entertainment", "Shopping", "Family", "Assets", "Gifts", "Health"],
     datasets: [{
@@ -127,7 +113,7 @@ getDoughnutChart() {
     }]
   };
 
- return this.getChart(this.doughnutCanvas.nativeElement, "doughnut", data);
+ return this.getChart(this.doughnutCanvas.nativeElement,"doughnut", data);
 }
 getLineChart() {
   var data = {
@@ -159,7 +145,7 @@ getLineChart() {
     ]
   };
 
-//return this.getChart2(this.lineCanvas.nativeElement, "line", data);
+//return this.getChart(this.lineCanvas.nativeElement, "line", data);
 }
 onClickBar()
 {

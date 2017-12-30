@@ -5,6 +5,7 @@ import { SpendsPage } from "../spends/spends";
 import { NewnotePage } from "../newnote/newnote";
 import { GraphPage } from "../graph/graph";
 import { EdocumentPage} from "../edocument/edocument";
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
