@@ -14,6 +14,7 @@ import { LineChartPage } from "../line-chart/line-chart";
 
 @IonicPage()
 @Component({
+  
   selector: 'page-graph',
   templateUrl: 'graph.html',
 })
