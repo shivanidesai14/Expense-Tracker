@@ -29,6 +29,7 @@ img:string='';
 dpass:string='';
 name:string='';
 mobno:string='';
+eid:string='';
   constructor(public storage:Storage,
     public _data:LogindbProvider,
     public navCtrl: NavController, public navParams: NavParams,public lo:LoadingController,public to:ToastController) {
@@ -67,9 +68,11 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
         else{
           this.storage.set('name',this.email);
           this.storage.get('name').then((val) => {
-            alert( val);
+            console.log( val);
+            this.eid=val;
+          //  alert(this.eid);
           });
-       
+      
           this.navCtrl.push(HomePage);
         }
       },
