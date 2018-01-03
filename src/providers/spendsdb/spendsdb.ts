@@ -32,9 +32,7 @@ public url:string="http://localhost:3000/expenses/";
   }
    deleteSpends(item:Spends)
   {
-    
-
-    return this.http.delete(this.url+item.expense_id,{headers:new HttpHeaders().set('Content-Type','application/json')});
+     return this.http.delete(this.url+item.expense_id,{headers:new HttpHeaders().set('Content-Type','application/json')});
   }
 
 }

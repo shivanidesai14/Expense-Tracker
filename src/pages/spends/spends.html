@@ -37,7 +37,8 @@
 
                 <ion-datetime displayFormat="DD/MM/YYYY" (ionChange)="searchByDate()" [(ngModel)]="event.finalDate"></ion-datetime>
             </ion-item>
-            <ion-card *ngFor="let item of arr" class="item item-text-wrap">
+
+   <!-- <ion-card *ngFor="let item of arr" class="item item-text-wrap">
 
                 <ion-card-header>
 
@@ -62,7 +63,23 @@
                 </ion-item>
 
             </ion-card>
+        -->
+        <ion-card  *ngFor="let item of arr" >
 
+              <ion-item (click)="onClickdesc(item.expense_id)">
+                <ion-avatar item-start>
+                  <img src="{{item.icon_image}}">
+                </ion-avatar>
+            
+            <div class="item row">
+                    <span align="left" class="col col-50">{{item.sub_cat_name}}</span>
+                    <span align="right" class="col col-50">{{item.expense_amt}}</span>
+                 </div>
+            
+                <p>November 5, 1955</p>
+              
+              </ion-item> 
+              </ion-card>
 
             <ion-fab center bottom style="position:fixed;">
                 <button ion-fab mini><ion-icon name="add"></ion-icon></button>
@@ -73,10 +90,8 @@
 
                 </ion-fab-list>
             </ion-fab>
+        </ion-list> 
 
-
-
-        </ion-list>
 
         <ion-list *ngSwitchCase="'color'">
             <ion-searchbar [(ngModel)]="txtsearch" (keypress)="openPopover($event)" placeholder="Search By Color">Search by Color</ion-searchbar>
@@ -91,7 +106,7 @@
 
                             <img src="{{item.icon_image}}" style="height:50px;width:50px;">
 
-                            <h1>{{item.sub_cat_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.expense_amt}}</h1>
+                            <h1>{{item.sub_cat_name}}{{item.expense_amt}}</h1>
 
                         </ion-avatar>
 
@@ -116,3 +131,4 @@
 
 
         </ion-list>
+

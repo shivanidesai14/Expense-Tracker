@@ -29,8 +29,8 @@ export class SpendsPage {
   arr1: SpendsSubcat[] = [];
   txtsearch: string = "";
   fk_user_email: string = '';
-item:Spends[]=[];
-
+  item:Spends[]=[];
+  sumexp:number=0;
   spends: string = "date";
   isAndroid: boolean = false;
   testing: String = '';
@@ -72,6 +72,7 @@ item:Spends[]=[];
       );
 
     });
+    
 
   }
 
@@ -81,7 +82,10 @@ item:Spends[]=[];
     // month: '2017-01-01',
 
   }
- 
+  onClickdesc(eid)
+  {
+      alert(eid);
+  }
   onClickRec() {
     this.navCtrl.push(RecurringPage);
   }

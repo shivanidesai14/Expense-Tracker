@@ -11,7 +11,16 @@ page-list {
         width: 100%;
         height: 100%;
     }
-    .card-subtitle {
+ 
+    
+    .item1{
+        float:left;
+    }
+   
+    .item2{ 
+        float:right;
+    }
+     .card-subtitle {
         font-size: 1.0em;
         position: absolute;
         top: 52%;

@@ -88,11 +88,8 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
   }
   u:Users[]=[];
 forgotPassword()
-{
-  
-
-      
-    
+{  
+  //  alert(this.email);
     // let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
     this._da.getUsersById(this.email).subscribe(
       (data:Users[])=>{
