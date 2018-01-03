@@ -38,13 +38,12 @@ sub_cat_name:string="";
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrequentPage');
-      this.fk_scat_id=this.navParams.get('id');
-    this.sub_cat_name=this.navParams.get('name');
+      
   }
    public event = {
 
       finalDate:this.y+"-"+this.x+"-"+this.dt,
-  // month: '2017-01-01',
+  
    
 }
 oncheck()
@@ -62,7 +61,9 @@ oncheck1()
   {
      
    
-
+     this.storage.get('id').then((val) => {
+            console.log( val);
+            this.fk_scat_id=val;
      this.storage.get('name').then((val)=>{
     console.log( val);
     this.fk_user_email=val;
@@ -92,6 +93,7 @@ oncheck1()
           }
       )
          });
+          });
   }
 
 

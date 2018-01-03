@@ -140,7 +140,7 @@ onDelSpends(item)
 
    );
 }
- /* showPrompt() {
+  showPrompt() {
     let prompt = this.alert.create({
       title: 'Delete Spend',
       message: "Are you sure you want to delete this spend???",
@@ -161,5 +161,5 @@ onDelSpends(item)
       ]
     });
     prompt.present();
-  }*/
+  }
 }

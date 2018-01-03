@@ -30,19 +30,19 @@
     <ion-item class="style">
         <ion-label class="style">Date</ion-label>
         <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.finalDate"></ion-datetime>
-    </ion-item>
-    <br>
-    <button ion-button block style="height:50px;font-size:20px;" (click)="onClickCategory()"><ion-icon name="help-circle">     Select Category</ion-icon></button><br><br>
+    </ion-item><br>
+    <img src="{{icon_image}}" style="height:60px;width:60px;" /><button ion-button style="height:60px;font-size:20px;" (click)="onClickCategory()">Select Category
+         {{sub_cat_name}}</button>
     <ion-card>
 
-        <ion-label style="font-size:20px;"> Selected Category is &nbsp;&nbsp; {{sub_cat_name}} </ion-label>
+        <!--  <ion-label style="font-size:20px;"> Selected Category is &nbsp;&nbsp; {{sub_cat_name}} </ion-label>-->
     </ion-card>
 
-    <br>
+    <button ion-button block style="height:50px;font-size:20px;background:orange">Add Note</button>
 
-    <ion-card>
+    <ion-card style="border:2px solid black">
 
-        <button ion-button block style="height:50px;font-size:20px;background:orange">Add Note</button>
 
-        <textarea placeholder="Write here.." rows="10" cols="20" style="border:0px;" [(ngModel)]="spends_notes"></textarea>
+
+        <textarea placeholder="Write here.." rows="10" cols="20" style="border:0px" [(ngModel)]="spends_notes"></textarea>
     </ion-card>

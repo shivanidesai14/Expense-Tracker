@@ -33,15 +33,32 @@ spends_notes:string='';
 msg:string="this is one time exp";
 exp_note:string=this.msg;
 sub_cat_name:string='';
-  constructor(public storage:Storage,public _data:SpendsdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
+icon_image:string='../assets/userimgs/sign-question-icon.png';
+  constructor(public storage:Storage,public _data:SpendsdbProvider,
+  public lo:LoadingController,public to:ToastController,
+  public navCtrl: NavController, public navParams: NavParams) {
   }
-
+ionViewDidEnter() {
+     this.storage.get('na').then((val) => {
+            console.log( val);
+            this.sub_cat_name=val;
+         });
+           this.storage.get('img').then((val) => {
+            console.log( val);
+            this.icon_image=val;
+         });
+}
   ionViewDidLoad() {
     
     console.log('ionViewDidLoad OnetimePage');
-    this.fk_scat_id=this.navParams.get('id');
-    this.sub_cat_name=this.navParams.get('name');
-    
+   
+
+         this.storage.set('img','');
+         this.storage.set('na','');
+      
+         
+        
+     
   }
    public event = {
       finalDate:this.y+"-"+this.x+"-"+this.dt,
@@ -51,10 +68,16 @@ sub_cat_name:string='';
   oneTimeSpendAdd()
   {
      
-    
+     
+     
+     
+        this.storage.get('id').then((val) => {
+            console.log( val);
+            this.fk_scat_id=val;
      this.storage.get('name').then((val)=>{
     console.log( val);
     this.fk_user_email=val;
+    
 
       let l1=this.lo.create({
         content:"loading"
@@ -81,6 +104,7 @@ sub_cat_name:string='';
           }
       )
          });
+           });
   }
   
   onetimeNote()
@@ -94,5 +118,6 @@ sub_cat_name:string='';
         num : 1
     });
   }
+   
 
 }
