@@ -12,10 +12,13 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class UserdbProvider {
- 
+ public url:"http://localhost:3000/userss/";
   constructor(public http: HttpClient) {
     console.log('Hello UserdbProvider Provider');
   }
- 
+ getUsersById(id:string)
+ {
+      return this.http.get(this.url+id);
+ }
 
 }

@@ -7,7 +7,8 @@
 <ion-header>
     <ion-navbar no-border-bottom color="primary">
         <ion-title>
-            Add Frequent Spends
+            Add Frequent Spends &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <ion-icon name="checkmark-circle-outline" class="iconclass" (click)="onFrequentAdd()"></ion-icon>
         </ion-title>
     </ion-navbar>
 </ion-header>
@@ -21,11 +22,11 @@
 
 
         <ion-label floating>Enter Amount</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="exp_amt"></ion-input>
 
     </ion-item>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <ion-icon name="checkmark-circle-outline" class="iconclass"></ion-icon>
+
     <br>
 
     <ion-item class="style">
@@ -34,26 +35,28 @@
     </ion-item>
     <br>
     <button ion-button block style="height:50px;font-size:20px;" (click)="onClickCategory()">Select Category</button>
+    <br>
+    <ion-card>
 
+        <ion-label style="font-size:20px;"> Selected Category is &nbsp;&nbsp; {{sub_cat_name}} </ion-label>
+    </ion-card>
 
     <br>
 
     <ion-card>
-        <!-- <ion-card-header style="font-size:20px;">
-            <b>Days..</b>
-        </ion-card-header>-->
+
         <ion-card-content>
 
             <ion-list>
 
                 <ion-item class="chk">
                     <ion-label>One - time</ion-label>
-                    <ion-checkbox></ion-checkbox>
+                    <ion-checkbox value="1" (ionChange)="oncheck()"></ion-checkbox>
                 </ion-item>
 
                 <ion-item class="chk">
                     <ion-label>Two - time </ion-label>
-                    <ion-checkbox></ion-checkbox>
+                    <ion-checkbox value="2" (ionChange)="oncheck1()"></ion-checkbox>
                 </ion-item>
 
             </ion-list>
@@ -62,7 +65,8 @@
         </ion-card-content>
     </ion-card>
     <br>
-    <br>
-    <button ion-button block style="height:50px;font-size:20px;background:orange" (click)="frequentNotes()">Tap To Add Note</button>
-
+    <ion-card>
+        <button ion-button block style="height:50px;font-size:20px;background:orange">Add Note</button>
+        <textarea placeholder="Write here.." rows="10" cols="20" style="border:0px;" [(ngModel)]="spends_notes"></textarea>
+    </ion-card>
 </ion-content>

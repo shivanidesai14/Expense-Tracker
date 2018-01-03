@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,LoadingController,ToastController }
 import { Notes } from "../../shared/notes";
 import { NotesdbProvider} from "../../providers/notesdb/notesdb";
 import { NewnotePage } from "../newnote/newnote";
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the AddnewnotePage page.
@@ -18,7 +19,7 @@ import { NewnotePage } from "../newnote/newnote";
 })
 export class AddnewnotePage {
 notes_id:number;
-fk_user_email:string="shivanidesai402@gmail.com";
+fk_user_email:string="";
 notes_desc:string;
 notes_date:string=new Date().toDateString();
 
@@ -27,14 +28,20 @@ x:any=new Date().getMonth();
 y:any=new Date().getFullYear();
 finalDate:any=this.y+"-"+this.x+"-"+this.dt;
 colour_name:string="white";
-  constructor(public _data:NotesdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public storage:Storage,public _data:NotesdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddnewnotePage');
+    
   }
+  
    onAddNotes()
   {
+     this.storage.get('name').then((val)=>{
+    console.log( val);
+    this.fk_user_email=val;
+
       let l1=this.lo.create({
         content:"loading"
       });
@@ -59,5 +66,6 @@ colour_name:string="white";
             l1.dismiss();
           }
       )
+         });
   }
 }

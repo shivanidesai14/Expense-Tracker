@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-    <ion-navbar color="primary">
+    <ion-navbar color="primary" hideBackButton>
         <ion-title>Login</ion-title>
     </ion-navbar>
 
@@ -46,7 +46,7 @@
                     <ion-input type="password" [(ngModel)]="pass" formControlName="password"></ion-input>
                 </ion-item>
 
-                <ion-item no-lines *ngIf="( user.get('password').hasError('minlength') || user.get('password').hasError('required') ) && user.get('password').touched">
+                <!-- <ion-item no-lines *ngIf="( user.get('password').hasError('minlength') || user.get('password').hasError('required') ) && user.get('password').touched">
 
                     <div class="error" *ngIf="user.get('password').hasError('required') && user.get('password').touched">
                         Password is required
@@ -54,41 +54,21 @@
                     <div class="error" *ngIf="user.get('password').hasError('minlength') && user.get('password').touched">
                         Minimum of 5 characters
                     </div>
-                </ion-item>
+                </ion-item>-->
 
             </ion-list>
 
-            <button ion-button block (click)="onLogin()">Login</button>
+            <a style="float:right;font-size:15px;" (click)="showPrompt()">Forget Password??</a>
             <div>
-                <h2>&nbsp;&nbsp;</h2>
+                <h2>&nbsp;</h2>
             </div>
+            <button ion-button block (click)="onLogin()">Login</button>
+            <Br>
+
             <button ion-button block (click)="onSignup()">SIGNUP</button>
 
 
 
-     <!--   <ion-list>
-
-
-
-            <!--   <ion-list>
-
-
-
-
-            <ion-item>
-                <ion-label floating class="fontedit" >Password</ion-label>
-                <ion-input type="password" [(ngModel)]="pass"></ion-input>
-            </ion-item>
-
-        </ion-list>
-
-        <button ion-button block (click)="onLogin()">Login</button>
-        <div>
-            <h6>&nbsp;&nbsp;</h6>
-        </div>
-        <button ion-button block (click)="onSignup()">Sign-up</button>
->>>>>>> d9fd4822ee96666f470d19ece5e05409efa94f48
-    -->
         </form>
     </div>
 </ion-content>

@@ -6,13 +6,29 @@ import { NewnotePage } from "../newnote/newnote";
 import { GraphPage } from "../graph/graph";
 import { EdocumentPage} from "../edocument/edocument";
 
+
+
+import { SelectcatPage } from "../selectcat/selectcat";
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
 
-  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController) {
+
+export class HomePage {
+eid:string='';
+  constructor(public storage:Storage,public popoverCtrl: PopoverController,public navCtrl: NavController) {
+
+  }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad LoginPage');
+   this.storage.get('name').then((val)=>{
+    console.log( val);
+    this.eid=val;
+   
+  });
 
   }
 openPopover(myEvent) {
@@ -23,7 +39,9 @@ openPopover(myEvent) {
   }
   onClick()
   {
+   
       this.navCtrl.push(SpendsPage);
+
   }
   onClickNote()
   {

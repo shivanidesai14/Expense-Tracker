@@ -42,8 +42,8 @@
         </ion-item>
         <li *ngIf="no1 && item.cat_id==no2">
             <ion-list *ngFor="let ite of arr2">
-
-                <ion-item (click)="onClick1(ite.sub_cat_id)" style="margin-left:40px;">
+                <!--onClick1(ite.sub_cat_id)-->
+                <ion-item (click)="onClick1(ite)" style="margin-left:40px;">
                     <ion-avatar item-start>
                         <h1> </h1> <img src={{ite.icon_image}}>
                     </ion-avatar>

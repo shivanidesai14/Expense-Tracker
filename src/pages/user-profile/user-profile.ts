@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the UserProfilePage page.
@@ -15,10 +16,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UserProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public storage:Storage,public navCtrl: NavController, public navParams: NavParams) {
   }
-
+fk_user_email:string='';
   ionViewDidLoad() {
+     this.storage.get('name').then((val)=>{
+    console.log( val);
+    this.fk_user_email=val;
+     });
     console.log('ionViewDidLoad UserProfilePage');
   }
 

@@ -9,6 +9,7 @@
     <ion-navbar no-border-bottom color="primary">
         <ion-title>
             Add One-Time Spends
+            <ion-icon name="checkmark-circle-outline" class="iconclass" style="float:right" (click)="oneTimeSpendAdd()"></ion-icon>
         </ion-title>
     </ion-navbar>
 </ion-header>
@@ -21,21 +22,27 @@
 
 
         <ion-label floating>Enter Amount</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="expense_amt"></ion-input>
 
     </ion-item>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <ion-icon name="checkmark-circle-outline" class="iconclass"></ion-icon>
+
     <ion-item class="style">
         <ion-label class="style">Date</ion-label>
         <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.finalDate"></ion-datetime>
     </ion-item>
     <br>
-    <button ion-button block style="height:50px;font-size:20px;" (click)="onClickCategory()"><ion-icon name="help-circle">     Select Category</ion-icon></button>
+    <button ion-button block style="height:50px;font-size:20px;" (click)="onClickCategory()"><ion-icon name="help-circle">     Select Category</ion-icon></button><br><br>
+    <ion-card>
 
+        <ion-label style="font-size:20px;"> Selected Category is &nbsp;&nbsp; {{sub_cat_name}} </ion-label>
+    </ion-card>
 
     <br>
 
     <ion-card>
 
-        <button ion-button block style="height:50px;font-size:20px;background:orange" (click)="onetimeNote()">Tap To Add Note</button>
+        <button ion-button block style="height:50px;font-size:20px;background:orange">Add Note</button>
+
+        <textarea placeholder="Write here.." rows="10" cols="20" style="border:0px;" [(ngModel)]="spends_notes"></textarea>
+    </ion-card>

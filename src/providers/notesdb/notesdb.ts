@@ -40,7 +40,8 @@ public url:string="http://localhost:3000/notes/";
     return this.http.post(this.url,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
   }
 
-  getNoteById(id:number){
+  getNotesById(id:string){
+
     return this.http.get(this.url+id);
   }
 

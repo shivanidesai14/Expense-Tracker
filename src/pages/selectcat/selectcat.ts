@@ -5,6 +5,8 @@ import { category } from "../../shared/category";
 import { CategorydbProvider } from "../../providers/categorydb/categorydb";
 import { subcategory } from "../../shared/subcategory";
 import { SubcategorydbProvider } from "../../providers/subcategorydb/subcategorydb";
+import { OnetimePage } from "../onetime/onetime";
+import { FrequentPage } from "../frequent/frequent";
 
 /**
  * Generated class for the SelectcatPage page.
@@ -25,6 +27,8 @@ arr2:subcategory[]=[];
 no1:boolean=false;
 no:number=0;
 no2:number=0;
+flag:number;
+flag1:number;
   constructor(public _data1:CategorydbProvider,
     public _data2:SubcategorydbProvider,
     public load:LoadingController,public navCtrl: NavController, public navParams: NavParams) {
@@ -56,7 +60,7 @@ no2:number=0;
       
   }*/
   ionViewDidLoad() {
-    
+    this.flag=this.navParams.get('num');
     console.log('ionViewDidLoad SelectcatPage');
     let l1=this.load.create({
       
@@ -81,9 +85,32 @@ no2:number=0;
           );
     
   }
-  onClick1(n:number)
+  onClick1(ite)
   {
+    if(this.flag==1)
+    {
+    this.navCtrl.push(OnetimePage,{
+
+        id : ite.sub_cat_id,
+        name : ite.sub_cat_name
+
+    })
+  }
+  else
+  {
+    this.navCtrl.push(FrequentPage,{
+
+     
+
+      id : ite.sub_cat_id,
+        name : ite.sub_cat_name
+     
+
+    })
     
+  }
+   
+
   }
 onClick(no:number){
   console.log('ionViewDidLoad SelectcatPage');

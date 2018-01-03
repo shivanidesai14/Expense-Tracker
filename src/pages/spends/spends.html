@@ -33,19 +33,26 @@
                     <ion-icon name="search" class="menu-icon"> Search By Date</ion-icon>
                 </ion-label>
 
-                <ion-datetime displayFormat="DD/MM/YYYY" (ionchange)="search()" [(ngModel)]="event.finalDate"></ion-datetime>
-            </ion-item>
 
-            <ion-card *ngFor="let item of arr">
+
+                <ion-datetime displayFormat="DD/MM/YYYY" (ionChange)="searchByDate()" [(ngModel)]="event.finalDate"></ion-datetime>
+            </ion-item>
+            <ion-card *ngFor="let item of arr" class="item item-text-wrap">
 
                 <ion-card-header>
-                    <h1>{{item.sub_cat_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.expense_amt}}</h1>
+
+                    <ion-avatar item-start>
+
+                        <img src="{{item.icon_image}}" style="height:50px;width:50px;">
+
+                        <h1>{{item.sub_cat_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.expense_amt}}</h1>
+
+                    </ion-avatar>
+
 
                 </ion-card-header>
 
                 <ion-card-content>
-                    <!--  <p>{{event.finalDate}}</p>-->
-                    <!-- <p>{{this.x}}</p>-->
                     <h2>{{item.exp_note}}</h2>
                 </ion-card-content>
                 <ion-item>
@@ -56,34 +63,8 @@
 
             </ion-card>
 
-            <!-- <ion-card>
-                <ion-card-header>
-                    Tutorialsplane.com
-                </ion-card-header>
-                <ion-card-content>
-                    <p>Learn More …</p>
-                </ion-card-content>
-            </ion-card>
 
-            <ion-card>
-                <ion-card-header>
-                    Tutorialsplane.com
-                </ion-card-header>
-                <ion-card-content>
-                    <p>Learn More …</p>
-                </ion-card-content>
-            </ion-card>
-
-            <ion-card>
-                <ion-card-header>
-                    Tutorialsplane.com
-                </ion-card-header>
-                <ion-card-content>
-                    <p>Learn More …</p>
-                </ion-card-content>
-            </ion-card> -->
-
-            <ion-fab center bottom>
+            <ion-fab center bottom style="position:fixed;">
                 <button ion-fab mini><ion-icon name="add"></ion-icon></button>
                 <ion-fab-list side="top" color="primary">
                     <button (click)="onClickRec()" style="width:200%;height:150%;font-size:1.5em;background:sandybrown;">Recurring <ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
@@ -102,23 +83,26 @@
             <ion-card *ngFor="let item of arr">
                 <div class="list card">
                     <ion-card-header [ngClass]="{c1:item.colour_name=='orange',c2:item.colour_name=='lightgreen',c3:item.colour_name=='lightcoral',c4:item.colour_name=='paleturquoise'}">
-                        <ion-icon name="radio-button-off" style="font-size:1.5em;"></ion-icon>
+                        <ion-icon name="radio-button-off" style="font-size:1.5em;" (click)="openPopover($event)"></ion-icon>
                         &nbsp;&nbsp;
-                        <ion-icon name="trash" style="font-size:1.5em;"></ion-icon>
-                        &nbsp;&nbsp;
-                        <ion-icon name="share" style="font-size:1.5em;"></ion-icon>
+                        <ion-icon name="trash" (click)="onDelSpends(item)" style="font-size:1.5em;"></ion-icon><br>
 
-                        &nbsp;&nbsp;
-                        <ion-icon name="copy" style="font-size:1.5em;"></ion-icon>
+                        <ion-avatar item-start>
 
+                            <img src="{{item.icon_image}}" style="height:50px;width:50px;">
+
+                            <h1>{{item.sub_cat_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.expense_amt}}</h1>
+
+                        </ion-avatar>
 
                     </ion-card-header>
                     <!--<hr style="border:2px solid black;">-->
                 </div>
                 <div>
                     <ion-card-content>
-                        <h1>{{item.sub_cat_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.expense_amt}}</h1>
-                        <br> {{item.exp_note}}
+
+
+                        <h2>{{item.exp_note}}</h2>
                     </ion-card-content>
                 </div>
                 <ion-item>
