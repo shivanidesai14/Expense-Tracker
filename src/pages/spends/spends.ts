@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController, PopoverController,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController,PopoverController,AlertController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { RecurringPage } from "../recurring/recurring";
 import { OnetimePage } from "../onetime/onetime";
@@ -8,6 +8,7 @@ import { SpendsSubcat } from "../../shared/spendsSubcat"
 import { Spends } from "../../shared/spends";
 import { SpendsdbProvider } from "../../providers/spendsdb/spendsdb";
 import { PopoverSpendPage } from "../popover-spend/popover-spend";
+import { ViewspendsPage } from "../viewspends/viewspends";
 import { Storage } from '@ionic/storage';
 /**
  * Generated class for the SpendsPage page.
@@ -29,8 +30,8 @@ export class SpendsPage {
   arr1: SpendsSubcat[] = [];
   txtsearch: string = "";
   fk_user_email: string = '';
-item:Spends[]=[];
-
+  item:Spends[]=[];
+  sumexp:number=0;
   spends: string = "date";
   isAndroid: boolean = false;
   testing: String = '';
@@ -41,9 +42,9 @@ item:Spends[]=[];
   }
   constructor(public storage: Storage, public popoverCtrl: PopoverController,
    public _data: SpendsdbProvider, public load: LoadingController, public to: ToastController,
-    platform: Platform, public navCtrl: NavController, public navParams: NavParams,
-    public alert:AlertController ) {
+    platform: Platform, public navCtrl: NavController, public navParams: NavParams,public alert:AlertController ) {
     this.isAndroid = platform.is('android');
+    
   }
 
   ionViewDidLoad() {
@@ -72,6 +73,7 @@ item:Spends[]=[];
       );
 
     });
+    
 
   }
 
@@ -81,7 +83,14 @@ item:Spends[]=[];
     // month: '2017-01-01',
 
   }
- 
+  onClickdesc(eid)
+  {
+    this.navCtrl.push(ViewspendsPage,{
+      id : eid
+    })
+     
+
+  }
   onClickRec() {
     this.navCtrl.push(RecurringPage);
   }
@@ -108,6 +117,7 @@ item:Spends[]=[];
   searchByDate() {
    
     if (this.event.finalDate != '') {
+      alert(this.event.finalDate);
       this.arr = this.arr1.filter((x) => x.expense_date.match(this.event.finalDate))
     }
     else {

@@ -95,6 +95,8 @@ forgotPassword()
       
     
     //let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
+  //  alert(this.email);
+    // let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
     this._da.getUsersById(this.email).subscribe(
       (data:Users[])=>{
         if(data.length==1)

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {  OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
 import { IonicPage, NavController, NavParams,LoadingController,ToastController } from 'ionic-angular';
 import { AddnewnotePage } from "../addnewnote/addnewnote";
 import { SelectcatPage } from "../selectcat/selectcat";
@@ -33,16 +35,46 @@ exp_note:string='this is demo for frequent expense';
 spends_notes:string="";
 expense_amt:number;
 sub_cat_name:string="";
+icon_image:string="";
+flag:boolean=false;
+no:number=1;
+spend: FormGroup;
   constructor(public storage:Storage,public _data:SpendsdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
   }
+  ngOnInit() {
 
+this.spend = new FormGroup({
+amt: new FormControl('', [Validators.required]),
+
+});
+
+}
+ionViewDidEnter() {
+   
+     this.storage.get('na').then((val) => {
+            console.log( val);
+            this.sub_cat_name=val;
+         });
+           this.storage.get('img').then((val) => {
+            console.log( val);
+            this.icon_image=val;
+         });
+}
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrequentPage');
       
+        this.storage.set('img','');
+         this.storage.set('na','');
+         
+      
+        if(this.icon_image=='')
+         {
+            this.icon_image='../assets/userimgs/sign-question-icon.png';
+         }
   }
    public event = {
 
-      finalDate:this.y+"-"+this.x+"-"+this.dt,
+      finalDate:this.dt+"-"+this.x+"-"+this.y,
   
    
 }
@@ -56,11 +88,46 @@ oncheck1()
    this.expense_amt=this.exp_amt*2;
   
 }
+onCLick(no)
+{
+  if(this.no==1)
+  {
+  this.flag=true;
+  this.no=0;
+}
+else
+{
+  this.flag=false;
+  this.no=1;
+}
+}
 
  onFrequentAdd()
   {
      
    
+      let t1=this.to.create({
+        message:"Date must not be empty",
+        duration:4000,
+        position:"bottom"
+      });
+      let t2=this.to.create({
+        message:"Select category first",
+        duration:4000,
+        position:"bottom"
+      });
+      
+    
+     if(this.event.finalDate=="")
+     {
+       t1.present();
+     }
+     else if(this.sub_cat_name=="")
+     {
+       t2.present();
+     }
+     else
+     {
      this.storage.get('id').then((val) => {
             console.log( val);
             this.fk_scat_id=val;
@@ -95,7 +162,7 @@ oncheck1()
          });
           });
   }
-
+  }
 
   frequentNotes()
   {

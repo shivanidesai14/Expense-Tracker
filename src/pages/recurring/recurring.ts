@@ -33,7 +33,7 @@ clr7:string = "grey";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   public event = {
-     finalDate:this.y+"-"+this.x+"-"+this.dt,
+      finalDate:this.dt+"-"+this.x+"-"+this.y,
   // month: '2017-01-01',
    
   }

@@ -39,7 +39,8 @@
 
 
 
-                <ion-datetime displayFormat="DD/MM/YYYY" (ionChange)="searchByDate()" [(ngModel)]="event.finalDate"></ion-datetime>
+                <ion-datetime displayFormat="DD-MM-YYYY" (ionChange)="searchByDate()" [(ngModel)]="event.finalDate"></ion-datetime>
+
             </ion-item>
 
             <ion-footer style="position:fixed;height:50px;">
@@ -48,81 +49,65 @@
                 </ion-toolbar>
             </ion-footer>
 
+            <ion-card *ngFor="let item of arr">
 
-
-            <ion-card *ngFor="let item of arr" class="item item-text-wrap">
-
-                <ion-card-header>
-
+                <ion-item (click)="onClickdesc(item.expense_id)">
                     <ion-avatar item-start>
-
-                        <img src="{{item.icon_image}}" style="height:50px;width:50px;">
-
-                        <h1>{{item.sub_cat_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.expense_amt}}</h1>
-
+                        <img src="{{item.icon_image}}" style="height:60px;width:60px;">
                     </ion-avatar>
 
+                    <div class="item row">
+                        <span align="left" class="col col-50">{{item.sub_cat_name}}</span>
+                        <span align="right" class="col col-50">{{item.expense_amt}}</span>
+                    </div>
 
-                </ion-card-header>
+                    <p>{{item.expense_date}}</p>
 
-                <ion-card-content>
-                    <h2>{{item.exp_note}}</h2>
-                </ion-card-content>
-                <ion-item>
-
-                    <ion-label>Date</ion-label>
-                    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="item.expense_date"></ion-datetime>
                 </ion-item>
-
             </ion-card>
 
-
-            <ion-fab bottom style="position:fixed;margin-left:280px;margin-bottom:45px;">
+            <ion-fab bottom style="position:fixed;margin-left:280px;margin-bottom:45px">
                 <button ion-fab><ion-icon name="add"></ion-icon></button>
                 <ion-fab-list side="top" color="primary">
-                    <button (click)="onClickRec()"><ion-icon name="cloud-done"></ion-icon> <div>Books</div></button>&nbsp;&nbsp;
-                    <button (click)="onClickFreq()">Frequent <ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
-                    <button (click)="onClickOne()">One-Time  <ion-icon name="cloud-done"></ion-icon></button>
+                    <button (click)="onClickRec() " style="font-size:20px; "> Recurring<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
+                    <button (click)="onClickFreq() " style="font-size:20px; ">Frequent <ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
+                    <button (click)="onClickOne() " style="font-size:20px; ">One-Time  <ion-icon name="cloud-done"></ion-icon></button>
 
                 </ion-fab-list>
             </ion-fab>
 
 
-
         </ion-list>
-
         <ion-list *ngSwitchCase="'color'">
-            <ion-searchbar [(ngModel)]="txtsearch" (keypress)="openPopover($event)" placeholder="Search By Color">Search by Color</ion-searchbar>
-            <ion-card *ngFor="let item of arr">
-                <div class="list card">
-                    <ion-card-header [ngClass]="{c1:item.colour_name=='orange',c2:item.colour_name=='lightgreen',c3:item.colour_name=='lightcoral',c4:item.colour_name=='paleturquoise'}">
-                        <ion-icon name="radio-button-off" style="font-size:1.5em;" (click)="openPopover($event)"></ion-icon>
+
+            <ion-searchbar [(ngModel)]="txtsearch " (keypress)="openPopover($event) " placeholder="Search By Color ">Search by Color</ion-searchbar>
+            <ion-card *ngFor="let item of arr ">
+                <div class="list card ">
+                    <ion-card-header [ngClass]="{c1:item.colour_name=='orange' ,c2:item.colour_name=='lightgreen' ,c3:item.colour_name=='lightcoral' ,c4:item.colour_name=='paleturquoise' } ">
+                        <ion-icon name="radio-button-off" (click)="openPopover($event) "></ion-icon>
                         &nbsp;&nbsp;
-                        <ion-icon name="trash" (click)="onDelSpends(item)" style="font-size:1.5em;"></ion-icon><br>
-
-                        <ion-avatar item-start>
-
-                            <img src="{{item.icon_image}}" style="height:50px;width:50px;">
-
-                            <h1>{{item.sub_cat_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.expense_amt}}</h1>
-
-                        </ion-avatar>
-
+                        <ion-icon name="trash" (click)="onDelSpends(item) "></ion-icon>
                     </ion-card-header>
-                    <!--<hr style="border:2px solid black;">-->
+
                 </div>
                 <div>
                     <ion-card-content>
 
+                        <ion-item (click)="onClickdesc(item.expense_id) ">
+                            <ion-avatar item-start>
+                                <img src="{{item.icon_image}} " style="height:60px;width:60px; ">
+                            </ion-avatar>
 
-                        <h2>{{item.exp_note}}</h2>
+                            <div class="item row ">
+                                <span align="left " class="col col-50 ">{{item.sub_cat_name}}</span>
+                                <span align="right " class="col col-50 ">{{item.expense_amt}}</span>
+                            </div>
+
+                            <p>{{item.expense_date}}</p>
+
+                        </ion-item>
                     </ion-card-content>
                 </div>
-                <ion-item>
-
-                    <ion-label>Date</ion-label>
-                    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="item.expense_date"></ion-datetime>
-                </ion-item>
             </ion-card>
 
 
