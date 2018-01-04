@@ -8,6 +8,7 @@ import { SpendsSubcat } from "../../shared/spendsSubcat"
 import { Spends } from "../../shared/spends";
 import { SpendsdbProvider } from "../../providers/spendsdb/spendsdb";
 import { PopoverSpendPage } from "../popover-spend/popover-spend";
+import { PopoverMenuPage } from "../popover-menu/popover-menu";
 import { ViewspendsPage } from "../viewspends/viewspends";
 import { Storage } from '@ionic/storage';
 /**
@@ -62,6 +63,10 @@ export class SpendsPage {
         (data: SpendsSubcat[]) => {
           this.arr = data;
           this.arr1 = data;
+          for(var i=0;i<this.arr.length;i++)
+          {
+            this.sumexp=this.sumexp+this.arr[i].expense_amt;
+          }
         },
         function (e) {
           alert(e);
@@ -110,6 +115,12 @@ export class SpendsPage {
   }
   openPopover(myEvent) {
     let popover = this.popoverCtrl.create(PopoverSpendPage);
+    popover.present({
+      ev: myEvent
+    });
+  }
+  openPopoverMenu(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverMenuPage);
     popover.present({
       ev: myEvent
     });

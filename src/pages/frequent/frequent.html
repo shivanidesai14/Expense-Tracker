@@ -17,25 +17,14 @@
 
 <ion-content padding>
 
-    <form novalidate [formGroup]="spend">
-        <ion-item>
+    <ion-item>
 
 
-            <ion-label floating>Enter Amount</ion-label>
-            <ion-input type="text" [(ngModel)]="exp_amt" formControlName="amt"></ion-input>
+        <ion-label floating>Enter Amount</ion-label>
+        <ion-input type="text" [(ngModel)]="exp_amt"></ion-input>
 
-        </ion-item>
-        <ion-item no-lines *ngIf="( spend.get('amt').hasError('required') || spend.get('amt').hasError('amt') ) && spend.get('amt').touched">
+    </ion-item>
 
-
-
-            <div class="error" *ngIf="spend.get('amt').hasError('required') && spend.get('amt').touched">
-                Amount is required
-            </div>
-
-        </ion-item>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </form>
     <br>
 
     <ion-item class="style">
@@ -43,17 +32,14 @@
         <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.finalDate"></ion-datetime>
     </ion-item>
     <br>
-    <img src="{{this.icon_image}}" style="height:60px;width:60px;" /><button ion-button style="height:60px;font-size:20px;" (click)="onClickCategory()">Select Category
-         {{sub_cat_name}}</button>
-
-    <br>
-    <ion-card>
-
-        <!--  <ion-label style="font-size:20px;"> Selected Category is &nbsp;&nbsp; {{sub_cat_name}} </ion-label>-->
-    </ion-card>
-
-    <br>
-
+    <table>
+        <tr>
+            <td><img src="{{this.icon_image}}" style="height:60px;width:60px;"></td>
+            <td>
+                <ion-input type="text" placeholder="Select Category" style="font-size:25px;width:200px;" (click)="onClickCategory()" [(ngModel)]="sub_cat_name"></ion-input>
+            </td>
+        </tr>
+    </table>
     <ion-card>
 
         <ion-card-content>
@@ -76,9 +62,7 @@
         </ion-card-content>
     </ion-card>
     <br>
-    <button ion-button block style="height:50px;font-size:20px;background:orange" (click)="onCLick(no)">Tap To Add Note</button><br><br>
-    <ion-card>
 
-        <textarea placeholder="Write here.." *ngIf="flag" rows="12" cols="27" style="border:1px solid peru;font-size:20px;" [(ngModel)]="spends_notes"></textarea>
-    </ion-card>
+    <textarea placeholder="Write here.." rows="12" cols="27" style="border:1px solid lightblue;font-size:20px;margin-left:20px;" [(ngModel)]="spends_notes"></textarea>
+
 </ion-content>

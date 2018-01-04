@@ -19,12 +19,12 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img src="{{item.icon_image}}" style="height:60px;width:60px;">
+                <img src="{{item.icon_image}}">
             </ion-avatar>
 
             <div class="item row">
                 <span align="left" class="col col-50">{{item.sub_cat_name}}</span>
-                <span align="right" class="col col-50">{{item.expense_amt}}</span>
+                <span align="right" class="col col-50">{{item.expense_amt | currency:'INR':true}}</span>
             </div>
 
             <p>{{item.expense_date}}</p>
