@@ -6,9 +6,17 @@
 -->
 <ion-header>
     <ion-navbar no-border-bottom color="primary">
-        <ion-title>
-            Spends
+        <ion-buttons end>
+            <a ion-button icon-only (click)="openPopoverMenu($event)">
+                <ion-icon name="more"></ion-icon>
+            </a>
+        </ion-buttons>
+        <ion-title style="float:left;">
+            <h2>
+                Spends
+            </h2>
         </ion-title>
+        <ion-label align="right" style="padding-top:7px;float:right;font-size:20px;color:white"> {{sumexp | currency:'INR':true}}</ion-label>
     </ion-navbar>
 
     <ion-toolbar no-border-top>
@@ -44,10 +52,25 @@
             </ion-item>
 
             <ion-footer style="position:fixed;height:50px;">
+<<<<<<< HEAD
                 <ion-toolbar class="item row">
                     <span align="left" class="col col-50">Total Spends</span>
                     <span  class="col col-50" style="float:right">{{this.sumexp}}</span>
           
+=======
+                <ion-toolbar>
+
+                    <table>
+                        <tr>
+                            <td>
+                                <ion-label style="font-size:20px;">TOTAL SPENDS</ion-label>
+                            </td>
+                            <td>
+                                <ion-label style="font-size:20px;margin-left:75px">{{sumexp | currency:'INR':true}}</ion-label>
+                            </td>
+                        </tr>
+                    </table>
+>>>>>>> db4e1c7a7949da65f7c89a28d81850e47acfe7c4
                 </ion-toolbar>
             </ion-footer>
 
@@ -55,12 +78,12 @@
 
                 <ion-item (click)="onClickdesc(item.expense_id)">
                     <ion-avatar item-start>
-                        <img src="{{item.icon_image}}" style="height:60px;width:60px;">
+                        <img src="{{item.icon_image}}">
                     </ion-avatar>
 
                     <div class="item row">
                         <span align="left" class="col col-50">{{item.sub_cat_name}}</span>
-                        <span align="right" class="col col-50">{{item.expense_amt}}</span>
+                        <span align="right" class="col col-50"> {{item.expense_amt | currency:'INR':true}}</span>
                     </div>
 
                     <p>{{item.expense_date}}</p>
@@ -68,7 +91,7 @@
                 </ion-item>
             </ion-card>
 
-            <ion-fab bottom style="position:fixed;margin-left:280px;margin-bottom:45px">
+            <ion-fab bottom style="position:fixed;margin-left:260px;margin-bottom:45px">
                 <button ion-fab><ion-icon name="add"></ion-icon></button>
                 <ion-fab-list side="top" color="primary">
                     <button (click)="onClickRec() " style="font-size:20px; "> Recurring<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
@@ -97,12 +120,12 @@
 
                         <ion-item (click)="onClickdesc(item.expense_id) ">
                             <ion-avatar item-start>
-                                <img src="{{item.icon_image}} " style="height:60px;width:60px; ">
+                                <img src="{{item.icon_image}} ">
                             </ion-avatar>
 
                             <div class="item row ">
                                 <span align="left " class="col col-50 ">{{item.sub_cat_name}}</span>
-                                <span align="right " class="col col-50 ">{{item.expense_amt}}</span>
+                                <span align="right " class="col col-50 "> {{item.expense_amt | currency:'INR':true}}</span>
                             </div>
 
                             <p>{{item.expense_date}}</p>

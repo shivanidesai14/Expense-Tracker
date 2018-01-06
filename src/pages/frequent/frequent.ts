@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {  OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
 import { IonicPage, NavController, NavParams,LoadingController,ToastController } from 'ionic-angular';
 import { AddnewnotePage } from "../addnewnote/addnewnote";
@@ -26,29 +25,29 @@ export class FrequentPage {
 x:any=new Date().getMonth();
 y:any=new Date().getFullYear();
 value:number=0;
-exp_amt:number;
+exp_amt:number=0;
 expense_id:number;
 fk_user_email:string='';
 fk_scat_id:number;
 colour_name:string="white";
-exp_note:string='this is demo for frequent expense';
+
 spends_notes:string="";
-expense_amt:number;
+tmp_msg:string='this is demo for frequent expense';
+
+exp_note:string;
+expense_amt:number=0;
 sub_cat_name:string="";
 icon_image:string="";
 flag:boolean=false;
 no:number=1;
-spend: FormGroup;
+
+
+url:string='../assets/userimgs/sign-question-icon.png';
   constructor(public storage:Storage,public _data:SpendsdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
   }
-  ngOnInit() {
 
-this.spend = new FormGroup({
-amt: new FormControl('', [Validators.required]),
 
-});
 
-}
 ionViewDidEnter() {
    
      this.storage.get('na').then((val) => {
@@ -62,15 +61,10 @@ ionViewDidEnter() {
 }
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrequentPage');
-      
-        this.storage.set('img','');
+         this.storage.set('img',this.url);
          this.storage.set('na','');
-         
       
-        if(this.icon_image=='')
-         {
-            this.icon_image='../assets/userimgs/sign-question-icon.png';
-         }
+      
   }
    public event = {
 
@@ -104,19 +98,13 @@ else
 
  onFrequentAdd()
   {
-     
-   
+     this.exp_note=this.tmp_msg +" "+ this.spends_notes;
       let t1=this.to.create({
-        message:"Date must not be empty",
+        message:"Field must not be empty",
         duration:4000,
         position:"bottom"
       });
-      let t2=this.to.create({
-        message:"Select category first",
-        duration:4000,
-        position:"bottom"
-      });
-      
+     
     
      if(this.event.finalDate=="")
      {
@@ -124,7 +112,11 @@ else
      }
      else if(this.sub_cat_name=="")
      {
-       t2.present();
+       t1.present();
+     }
+     else if(this.exp_amt==0)
+     {
+        t1.present();
      }
      else
      {

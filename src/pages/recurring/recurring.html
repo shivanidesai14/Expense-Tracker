@@ -35,10 +35,14 @@
         <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.finalDate"></ion-datetime>
     </ion-item>
     <br>
-    <button ion-button block style="height:50px;font-size:20px;" (click)="onClickCategory()">Select Category</button>
-
-
-    <br>
+    <table>
+        <tr>
+            <td><img src="{{this.icon_image}}" style="height:60px;width:60px;"></td>
+            <td>
+                <ion-input type="text" placeholder="Select Category" style="font-size:25px;width:200px;" (click)="onClickCategory()" [(ngModel)]="sub_cat_name"></ion-input>
+            </td>
+        </tr>
+    </table><br>
 
     <ion-card>
         <ion-card-header style="font-size:20px;">

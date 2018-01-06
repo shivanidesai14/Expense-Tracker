@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import { CurrencyPipe } from '@angular/common';
 import { Platform } from 'ionic-angular';
 import {AddnewnotePage} from '../addnewnote/addnewnote';
@@ -29,8 +30,37 @@ clr4:string = "grey";
 clr5:string = "grey";
 clr6:string = "grey";
 clr7:string = "grey";
+exp_amt:number=0;
+expense_id:number;
+fk_user_email:string='';
+fk_scat_id:number;
+colour_name:string="white";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+spends_notes:string="";
+tmp_msg:string='this is demo for frequent expense';
+
+exp_note:string;
+expense_amt:number=0;
+sub_cat_name:string="";
+icon_image:string="";
+flag:boolean=false;
+no:number=1;
+
+
+url:string='../assets/userimgs/sign-question-icon.png';
+ionViewDidEnter() {
+   
+     this.storage.get('na').then((val) => {
+            console.log( val);
+            this.sub_cat_name=val;
+         });
+           this.storage.get('img').then((val) => {
+            console.log( val);
+            this.icon_image=val;
+         });
+}
+
+  constructor(public storage:Storage,public navCtrl: NavController, public navParams: NavParams) {
   }
   public event = {
       finalDate:this.dt+"-"+this.x+"-"+this.y,
@@ -40,6 +70,9 @@ clr7:string = "grey";
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecurringPage');
+      this.storage.set('img',this.url);
+         this.storage.set('na','');
+
   }
   recurringNote()
   {

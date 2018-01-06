@@ -30,6 +30,7 @@ import {CategoryPage} from "../pages/category/category";
 import { TutorialPage } from "../pages/tutorial/tutorial";
 import { UserProfilePage } from "../pages/user-profile/user-profile";
 import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
+import { PopoverMenuPage } from "../pages/popover-menu/popover-menu";
 import { SpendsNotePage } from "../pages/spends-note/spends-note";
 import { ViewspendsPage } from "../pages/viewspends/viewspends";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
@@ -50,7 +51,7 @@ import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
     SelectcatPage,HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,
     AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,
     EditnotesPage,CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,UserProfilePage,
-    SpendsNotePage,ViewspendsPage
+    SpendsNotePage,ViewspendsPage,PopoverMenuPage
 
 
    
@@ -71,7 +72,7 @@ import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
     GraphPage,FrequentPage,RecurringPage,OnetimePage,
     SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
     CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
-    UserProfilePage,SpendsNotePage,ViewspendsPage
+    UserProfilePage,SpendsNotePage,ViewspendsPage,PopoverMenuPage
 
 
   ],
