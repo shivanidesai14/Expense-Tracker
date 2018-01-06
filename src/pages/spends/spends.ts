@@ -62,6 +62,11 @@ export class SpendsPage {
         (data: SpendsSubcat[]) => {
           this.arr = data;
           this.arr1 = data;
+          for(var i=0;i<this.arr.length;i++)
+          {
+            this.sumexp=this.sumexp+this.arr[i].expense_amt;
+          }
+         // alert(this.sumexp);
         },
         function (e) {
           alert(e);
