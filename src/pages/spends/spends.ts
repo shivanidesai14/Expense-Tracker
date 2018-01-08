@@ -67,10 +67,6 @@ export class SpendsPage {
           {
             this.sumexp=this.sumexp+this.arr[i].expense_amt;
           }
-<<<<<<< HEAD
-         // alert(this.sumexp);
-=======
->>>>>>> db4e1c7a7949da65f7c89a28d81850e47acfe7c4
         },
         function (e) {
           alert(e);

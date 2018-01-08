@@ -104,7 +104,8 @@ search()
     this.arr=this.arr1;
   }
 }
-openPopover(myEvent) {
+openPopover(myEvent,id1:any) {
+  this.storage.set('noteid',id1);
     let popover = this.popoverCtrl.create(PopoverNotePage);
     popover.present({
       ev: myEvent

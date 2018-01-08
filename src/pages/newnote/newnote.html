@@ -20,11 +20,12 @@
 
             <ion-card-header [ngClass]="{c1:item.colour_name=='orange',c2:item.colour_name=='lightgreen',c3:item.colour_name=='lightcoral',c4:item.colour_name=='paleturquoise'}">
 
-                <ion-icon name="radio-button-off" icon-only (click)="openPopover($event)" style="font-size:1.5em;"></ion-icon>
+                <ion-icon name="radio-button-off" icon-only (click)="openPopover($event,item.notes_id)" style="font-size:1.5em;"></ion-icon>
                 &nbsp;&nbsp;
 
 
 
+                
                 <ion-icon name="trash" (click)="onDel(item)" style="font-size:1.5em;"></ion-icon>
                 &nbsp;&nbsp;
                 <ion-icon name="share" style="font-size:1.5em;" (click)="openMenu()"></ion-icon>
