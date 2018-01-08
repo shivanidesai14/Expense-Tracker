@@ -13,19 +13,22 @@
 </ion-header>
 <!--(keyup)="search()"-->
 <ion-content padding>
-    <ion-searchbar [(ngModel)]="txtsearch" (mouseup)="openPopover($event)" placeholder="Search Or Filter By Color">Search by Color</ion-searchbar>
+    <ion-searchbar [(ngModel)]="txtsearch" (mouseup)="openPopover1($event)" placeholder="Search Or Filter By Color">Search by Color</ion-searchbar>
 
     <ion-card *ngFor="let item of arr">
         <div class="list card">
 
-            <ion-card-header [ngClass]="{c1:item.colour_name=='orange',c2:item.colour_name=='lightgreen',c3:item.colour_name=='lightcoral',c4:item.colour_name=='paleturquoise'}">
+            <ion-card-header [ngClass]="{c1:item.colour_name=='white' ,c2:item.colour_name=='orange' ,c3:item.colour_name=='lightgreen' ,c4:item.colour_name=='lightcoral',c5:item.colour_name=='darkturquoise'}">
 
-                <ion-icon name="radio-button-off" icon-only (click)="openPopover($event)"></ion-icon>
+
+                <ion-icon name="radio-button-off" icon-only (click)="openPopover($event,item.notes_id)"></ion-icon>
+
                 &nbsp;&nbsp;
 
 
 
                 <ion-icon name="trash" (click)="onDel(item)"></ion-icon>
+
                 &nbsp;&nbsp;
                 <ion-icon name="share" (click)="openMenu()"></ion-icon>
 

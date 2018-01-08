@@ -49,12 +49,6 @@ arr1:category[]=[];
       
           );
   }
-  onClick(id : number)
-  {
-  
-   this.navCtrl.push(ViewCategorySpendsPage,{
-     'id' : id
-   })
-  }
+
 
 }

@@ -4,6 +4,7 @@ import { AddnewnotePage } from "../addnewnote/addnewnote";
 import { Notes } from "../../shared/notes";
 import { NotesdbProvider } from "../../providers/notesdb/notesdb";
 import { PopoverNotePage } from "../popover-note/popover-note";
+import { PopoverNote1pagePage } from "../popover-note1page/popover-note1page";
 import { EditnotesPage } from "../editnotes/editnotes";
 import { Storage } from '@ionic/storage';
 import { SocialSharing } from '@ionic-native/social-sharing';
@@ -104,8 +105,17 @@ search()
     this.arr=this.arr1;
   }
 }
-openPopover(myEvent) {
+openPopover(myEvent,id1:any) {
+  this.storage.set('noteid',id1);
     let popover = this.popoverCtrl.create(PopoverNotePage);
+    popover.present({
+      ev: myEvent
+    });
+  }
+
+  openPopover1(myEvent,id1:any) {
+  this.storage.set('noteid',id1);
+    let popover = this.popoverCtrl.create(PopoverNote1pagePage);
     popover.present({
       ev: myEvent
     });

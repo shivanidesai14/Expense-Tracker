@@ -81,7 +81,7 @@
                 </ion-item>
             </ion-card>
 
-            <!--<ion-fab bottom style="position:fixed;margin-left:260px;margin-bottom:45px">
+            <ion-fab bottom style="position:fixed;margin-left:260px;margin-bottom:45px">
                 <button ion-fab><ion-icon name="add"></ion-icon></button>
                 <ion-fab-list side="top" color="primary">
                     <button (click)="onClickRec() " style="font-size:20px; "> Recurring<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
@@ -89,38 +89,6 @@
                     <button (click)="onClickOne() " style="font-size:20px; ">One-Time  <ion-icon name="cloud-done"></ion-icon></button>
 
                 </ion-fab-list>
-            </ion-fab>-->
-
-
-            <ion-fab bottom right>
-                <button ion-fab>
-          <ion-icon name="add"></ion-icon>
-        </button>
-                <ion-fab-list side="top">
-                    <button ion-fab (click)="123()">
-            <ion-icon name="cloud"></ion-icon>
-            <div class="label">Reccuring Spends</div>
-          </button>
-                </ion-fab-list>
-
-                <ion-fab-list side="top">
-                    <button ion-fab class="button3" (click)="123()">
-            <ion-icon name="cloud-done"></ion-icon>
-            <div class="label">One-time Spends</div>
-          </button>
-                </ion-fab-list>
-
-
-                <ion-fab-list side="top">
-                    <button ion-fab class="button4" (click)="123()">
-            <ion-icon name="cloud-outline"></ion-icon>
-            <div class="label">Frequent Spends</div>
-          </button>
-                </ion-fab-list>
-
-
-
-
             </ion-fab>
 
 
@@ -133,7 +101,7 @@
             <ion-searchbar [(ngModel)]="txtsearch " (keypress)="openPopover($event) " placeholder="Search By Color ">Search by Color</ion-searchbar>
             <ion-card *ngFor="let item of arr ">
                 <div class="list card ">
-                    <ion-card-header [ngClass]="{c1:item.colour_name=='orange' ,c2:item.colour_name=='lightgreen' ,c3:item.colour_name=='lightcoral' ,c4:item.colour_name=='paleturquoise'} ">
+                    <ion-card-header [ngClass]="{c1:item.colour_name=='white' ,c2:item.colour_name=='orange' ,c3:item.colour_name=='lightgreen' ,c4:item.colour_name=='lightcoral',c5:item.colour_name=='darkturquoise'} ">
                         <ion-icon name="radio-button-off" (click)="openPopover($event) "></ion-icon>
                         &nbsp;&nbsp;
                         <ion-icon name="trash" (click)="onDelSpends(item) "></ion-icon>
