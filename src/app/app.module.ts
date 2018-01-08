@@ -33,6 +33,8 @@ import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
 import { PopoverMenuPage } from "../pages/popover-menu/popover-menu";
 import { SpendsNotePage } from "../pages/spends-note/spends-note";
 import { ViewspendsPage } from "../pages/viewspends/viewspends";
+import { ViewCategorySpendsPage } from "../pages/view-category-spends/view-category-spends";
+import { TotalSpendsPage } from "../pages/total-spends/total-spends";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
@@ -51,7 +53,7 @@ import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
     SelectcatPage,HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,
     AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,
     EditnotesPage,CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,UserProfilePage,
-    SpendsNotePage,ViewspendsPage,PopoverMenuPage
+    SpendsNotePage,ViewspendsPage,PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage
 
 
    
@@ -72,7 +74,7 @@ import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
     GraphPage,FrequentPage,RecurringPage,OnetimePage,
     SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
     CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
-    UserProfilePage,SpendsNotePage,ViewspendsPage,PopoverMenuPage
+    UserProfilePage,SpendsNotePage,ViewspendsPage,PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage
 
 
   ],

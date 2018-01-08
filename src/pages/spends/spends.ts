@@ -10,6 +10,7 @@ import { SpendsdbProvider } from "../../providers/spendsdb/spendsdb";
 import { PopoverSpendPage } from "../popover-spend/popover-spend";
 import { PopoverMenuPage } from "../popover-menu/popover-menu";
 import { ViewspendsPage } from "../viewspends/viewspends";
+import { TotalSpendsPage } from "../total-spends/total-spends";
 import { Storage } from '@ionic/storage';
 /**
  * Generated class for the SpendsPage page.
@@ -182,5 +183,9 @@ onDelSpends(item)
       ]
     });
     prompt.present();
+  }
+  totSpendByCat()
+  {
+      this.navCtrl.push(TotalSpendsPage);
   }
 }

@@ -7,6 +7,7 @@ import { subcategory } from "../../shared/subcategory";
 import { SubcategorydbProvider } from "../../providers/subcategorydb/subcategorydb";
 import { OnetimePage } from "../onetime/onetime";
 import { FrequentPage } from "../frequent/frequent";
+import { RecurringPage } from "../recurring/recurring";
 import { Storage } from "@ionic/storage";
 
 /**
@@ -89,6 +90,14 @@ flag1:number;
         
     this.navCtrl.pop(FrequentPage);
     
+  }
+  else
+  {
+       this.storage.set('id',ite.sub_cat_id);
+       this.storage.set('na',ite.sub_cat_name);
+       this.storage.set('img',ite.icon_image);
+        
+    this.navCtrl.pop(RecurringPage);
   }
   } 
 

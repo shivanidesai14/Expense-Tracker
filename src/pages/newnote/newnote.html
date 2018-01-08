@@ -13,24 +13,24 @@
 </ion-header>
 <!--(keyup)="search()"-->
 <ion-content padding>
-    <ion-searchbar [(ngModel)]="txtsearch" (keypress)="openPopover($event)" placeholder="Search By Color">Search by Color</ion-searchbar>
+    <ion-searchbar [(ngModel)]="txtsearch" (mouseup)="openPopover($event)" placeholder="Search Or Filter By Color">Search by Color</ion-searchbar>
 
     <ion-card *ngFor="let item of arr">
         <div class="list card">
 
             <ion-card-header [ngClass]="{c1:item.colour_name=='orange',c2:item.colour_name=='lightgreen',c3:item.colour_name=='lightcoral',c4:item.colour_name=='paleturquoise'}">
 
-                <ion-icon name="radio-button-off" icon-only (click)="openPopover($event)" style="font-size:1.5em;"></ion-icon>
+                <ion-icon name="radio-button-off" icon-only (click)="openPopover($event)"></ion-icon>
                 &nbsp;&nbsp;
 
 
 
-                <ion-icon name="trash" (click)="onDel(item)" style="font-size:1.5em;"></ion-icon>
+                <ion-icon name="trash" (click)="onDel(item)"></ion-icon>
                 &nbsp;&nbsp;
-                <ion-icon name="share" style="font-size:1.5em;" (click)="openMenu()"></ion-icon>
+                <ion-icon name="share" (click)="openMenu()"></ion-icon>
 
                 &nbsp;&nbsp;
-                <ion-icon name="create" (click)="onEditNote(item)" style="font-size:1.5em;"></ion-icon>
+                <ion-icon name="create" (click)="onEditNote(item)"> </ion-icon>
 
 
             </ion-card-header>
@@ -38,7 +38,7 @@
             <!--<hr style="border:2px solid black;">-->
         </div>
         <div>
-            <ion-card-content style="font-size:2em;">
+            <ion-card-content>
                 {{item.notes_desc}}
             </ion-card-content>
             <!--<ion-label style="float:right;font-size:1.5em;">{{item.notes_date}}</ion-label>-->

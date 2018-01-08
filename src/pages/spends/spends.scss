@@ -1,5 +1,5 @@
 page-list {
-    .card-title {
+    /*  .card-title {
         width: 100%;
         height: 100%;
     }
@@ -11,16 +11,13 @@ page-list {
         width: 100%;
         height: 100%;
     }
- 
-    
-    .item1{
-        float:left;
+    .item1 {
+        float: left;
     }
-   
-    .item2{ 
-        float:right;
+    .item2 {
+        float: right;
     }
-     .card-subtitle {
+    .card-subtitle {
         font-size: 1.0em;
         position: absolute;
         top: 52%;
@@ -39,12 +36,6 @@ page-list {
     .menu-icon {
         color: black;
     }
-    .fab[mini] {
-        margin: 8px;
-        width: 90px;
-        height: 90px;
-        line-height: 40px;
-    }
     .c1 {
         background: orange;
     }
@@ -59,19 +50,65 @@ page-list {
     }
     .myclass {
         width: 50%;
-    }
-    button[ion-fab] {
-        overflow: visible;
-        position: relative;
-        ion-label {
-            position: absolute;
-            top: -8px;
-            right: 40px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.7);
-            line-height: 24px;
-            padding: 4px 8px;
-            border-radius: 4px;
+    }*/
+    ion-fab {
+        .button2 {
+            box-shadow: 0 4px 10px #6b6b6b;
         }
+        .button3 {
+            text-align: center;
+            overflow: visible;
+            margin-bottom: 50px;
+            div.label2 {
+                position: absolute;
+                right: 48px;
+                background: rgba(248, 248, 248, 1);
+                height: 24px;
+                line-height: 16px;
+                padding-left: 8px;
+                padding-right: 8px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-top: 5px;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+            }
+        }
+        .button-inner {
+            overflow: visible;
+        }
+    }
+    .fab {
+        contain: initial;
+    }
+    ion-fab {
+        .button2 {
+            box-shadow: 0 4px 90px #6b6b6b;
+        }
+        .button4 {
+            text-align: center;
+            overflow: visible;
+            margin-bottom: 90px;
+            div.label2 {
+                position: absolute;
+                right: 48px;
+                background: rgba(248, 248, 248, 1);
+                height: 24px;
+                line-height: 16px;
+                padding-left: 8px;
+                padding-right: 8px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-top: 5px;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+            }
+        }
+        .button-inner {
+            overflow: visible;
+        }
+    }
+    .fab {
+        contain: initial;
     }
 }
