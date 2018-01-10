@@ -44,6 +44,7 @@ import { CatsubcatdbProvider } from '../providers/catsubcatdb/catsubcatdb';
 import { CategorydbProvider } from '../providers/categorydb/categorydb';
 import { SubcategorydbProvider } from '../providers/subcategorydb/subcategorydb';
 import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
+import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
 
 
 
@@ -95,7 +96,8 @@ import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
     CatsubcatdbProvider,
     CategorydbProvider,
     SubcategorydbProvider,
-    SpendsdbProvider,SocialSharing
+    SpendsdbProvider,SocialSharing,
+    SubcatexpdbProvider
 
 
   ]
