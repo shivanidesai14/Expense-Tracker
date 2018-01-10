@@ -13,8 +13,8 @@
 </ion-header>
 <!--(keyup)="search()"-->
 <ion-content padding>
-    <ion-searchbar [(ngModel)]="txtsearch" (mouseup)="openPopover1($event)" placeholder="Search Or Filter By Color">Search by Color</ion-searchbar>
-
+    <ion-searchbar [(ngModel)]="txtsearch" (click)="openPopover1($event)" placeholder="Search Or Filter By Color">Search by Color</ion-searchbar>
+<div *ngIf="flag;else demo">
     <ion-card *ngFor="let item of arr">
         <div class="list card">
 
@@ -51,8 +51,11 @@
             </ion-item>
         </div>
     </ion-card>
-
-
+</div>
+<ng-template #demo>
+ <h1>No Records Found</h1>
+    </ng-template>
+ 
     <ion-fab right bottom>
         <button ion-fab color="primary" (click)="onclick()"><ion-icon name="add"></ion-icon></button>
     </ion-fab>
