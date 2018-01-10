@@ -66,10 +66,7 @@ ionViewDidEnter() {
      
         this.storage.set('img',this.url);
          this.storage.set('na','');
-        
-     
-        
-  }
+}
    public event = {
        finalDate:this.dt+"-"+this.x+"-"+this.y,
    month: '2017-01-01',

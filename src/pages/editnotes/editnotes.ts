@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController, ToastController
 import { Storage } from '@ionic/storage';
 import { Notes } from "../../shared/notes";
 import { NotesdbProvider } from "../../providers/notesdb/notesdb";
-
+import { NewnotePage } from "../newnote/newnote";
 
 /**
  * Generated class for the EditnotesPage page.
@@ -19,11 +19,16 @@ import { NotesdbProvider } from "../../providers/notesdb/notesdb";
 })
 export class EditnotesPage {
 
-  constructor(public _data: NotesdbProvider, public lo: LoadingController, public to: ToastController, public storage: Storage, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public _data: NotesdbProvider, public lo: LoadingController,
+     public to: ToastController, public storage: Storage,
+      public navCtrl: NavController, public navParams: NavParams) {
   }
   id: number;
   arr: Notes[] = [];
   notes_desc: string = "";
+  ncolor:string='';
+  ndate:string;
+  nfk_user_mail:string;
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditnotesPage');
     this.storage.get('notes_desc').then((val => {
@@ -34,10 +39,29 @@ export class EditnotesPage {
    
   }
   onEditNotes(item) {
-
-    
-
-  }
-
+    this._data.getNoteDesc(this.id).subscribe(
+      
+            (data:Notes[])=>{
+            
+               this.arr=data;
+              
+               this.ncolor=this.arr[0].colour_name;
+               this.ndate=this.arr[0].notes_date;
+               this.nfk_user_mail=this.arr[0].fk_user_email;
+              
+              let item=new Notes(this.id,this.nfk_user_mail,this.notes_desc,this.ndate,this.ncolor);
+              this._data.editNotes(item).subscribe(
+      
+                (data:Notes[])=>{
+               
+                 this.navCtrl.push(NewnotePage);
+             }
+        
+              )
+             }
+          )
+      
+        }
+        
 
 }

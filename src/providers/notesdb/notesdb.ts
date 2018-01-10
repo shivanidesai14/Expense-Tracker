@@ -17,6 +17,7 @@ import { Notes } from "../../shared/notes";
 export class NotesdbProvider {
 public url:string="http://localhost:3000/notes/";
 public url2:string="http://localhost:3000/notedesc/";
+public url3:string="http://localhost:3000/notecolor/";
   constructor(public http: HttpClient) {
     console.log('Hello NotesdbProvider Provider');
   }
@@ -48,5 +49,10 @@ public url2:string="http://localhost:3000/notedesc/";
   }
   getNoteDesc(id:number){
     return this.http.get(this.url2+id);
+  }
+  getNoteByColor(item:Notes)
+  {
+    let body=JSON.stringify(item);
+    return this.http.post(this.url3,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
   }
 }

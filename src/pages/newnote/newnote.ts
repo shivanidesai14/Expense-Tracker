@@ -30,37 +30,98 @@ export class NewnotePage {
  arr1:Notes[]=[];
 fk_user_email:string='';
  txtsearch:string="";
+ cflag:number;
+ color:string;
+ flag:number=0;
   ionViewDidLoad() {
+
     console.log('ionViewDidLoad NewnotePage');
-    this.storage.get('name').then((val)=>{
-    console.log( val);
-    this.fk_user_email=val;
+    this.storage.get('colorflag').then((val)=>{
+      console.log(val);
+      this.cflag=val;
+    //  alert(this.cflag);
+      this.storage.set('colorflag','null');
+      if(this.cflag>0)
+      {
+        //alert('welcome to if');
+        this.storage.get('colorname').then((val)=>{
+          console.log( val);
+          this.color=val;
+          this.storage.set('colorname','null');
+          this.storage.get('name').then((val)=>{
+            console.log( val);
+            this.fk_user_email=val;
 
+            let item=new Notes(0,this.fk_user_email,'','',this.color);
+
+          let l1=this.load.create({
+      
+          content:"Loading..."
+        });
+        l1.present();
+          this._data.getNoteByColor(item).subscribe(
+      
+              (data:Notes[])=>{
+       // alert('successful');       
+                this.arr=data;
+                if(this.arr.length>0)
+                {
+                  this.flag=1;
+                }
+              },
+              function(e)
+              {
+                alert(e);
+              },
+              function()
+              {
+                l1.dismiss();
+              }
+      
+          );
+          });
    
-  
- let l1=this.load.create({
-
-    content:"Loading..."
-  });
-  l1.present();
-    this._data.getNotesById(this.fk_user_email).subscribe(
-
-        (data:Notes[])=>{
+          })  
+        
+       
+       
+        
+      }
+      else
+      {
+      //  alert('welcome to else');
+        this.storage.get('name').then((val)=>{
+          console.log( val);
+          this.fk_user_email=val;
+      
          
-          this.arr=data;
-        },
-        function(e)
-        {
-          alert(e);
-        },
-        function()
-        {
-          l1.dismiss();
-        }
-
-    );
-    });
-
+        
+       let l1=this.load.create({
+      
+          content:"Loading..."
+        });
+        l1.present();
+          this._data.getNotesById(this.fk_user_email).subscribe(
+      
+              (data:Notes[])=>{
+               
+                this.arr=data;
+                this.flag=1;
+              },
+              function(e)
+              {
+                alert(e);
+              },
+              function()
+              {
+                l1.dismiss();
+              }
+      
+          );
+          });
+      }
+    }
+  )
   }
   
   onclick()
@@ -113,8 +174,8 @@ openPopover(myEvent,id1:any) {
     });
   }
 
-  openPopover1(myEvent,id1:any) {
-  this.storage.set('noteid',id1);
+  openPopover1(myEvent) {
+  
     let popover = this.popoverCtrl.create(PopoverNote1pagePage);
     popover.present({
       ev: myEvent
