@@ -16,6 +16,8 @@ import { Notes } from "../../shared/notes";
 @Injectable()
 export class NotesdbProvider {
 public url:string="http://localhost:3000/notes/";
+public url2:string="http://localhost:3000/notedesc/";
+public url3:string="http://localhost:3000/notecolor/";
   constructor(public http: HttpClient) {
     console.log('Hello NotesdbProvider Provider');
   }
@@ -31,8 +33,9 @@ public url:string="http://localhost:3000/notes/";
   }
   editNotes(item:Notes)
   {
-       let body=JSON.stringify(item);
-        return this.http.post(this.url+item.notes_id,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
+       // alert('provider to update');
+        let body=JSON.stringify(item);
+        return this.http.put(this.url+item.notes_id,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
   }
     addNotes(item:Notes)
   {
@@ -44,5 +47,12 @@ public url:string="http://localhost:3000/notes/";
 
     return this.http.get(this.url+id);
   }
-
+  getNoteDesc(id:number){
+    return this.http.get(this.url2+id);
+  }
+  getNoteByColor(item:Notes)
+  {
+    let body=JSON.stringify(item);
+    return this.http.post(this.url3,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
+  }
 }

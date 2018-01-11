@@ -32,7 +32,7 @@ this.testing = "pie";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
- ionViewDidLoad() {
+   ionViewDidLoad() {
     this.barChart = this.getBarChart(); 
     this.doughnutChart = this.getDoughnutChart();   
     this.lineChart = this.getLineChart();
@@ -46,26 +46,10 @@ this.testing = "pie";
     options: options
   });
 }
- getChart1(context, chartType, data, options?) {
-  return new Chart(context, {
-
-    type: chartType,
-    data: data,
-    options: options
-  });
-}
- getChart2(context, chartType, data, options?) {
-  return new Chart(context, {
-
-    type: chartType,
-    data: data,
-    options: options
-  });
-}
 getBarChart() {
  
   let data = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    labels: ["Red", "Brown", "Blue", "Yellow", "Green", "Purple", "Orange"],
     datasets: [{
       label: '$ of Expenses',
       data: [100, 150, 220, 400, 600, 500 , 3],
@@ -101,11 +85,11 @@ getBarChart() {
     }
 }
 
-return this.getChart1(this.barCanvas.nativeElement, "bar", data, options);
+return this.getChart(this.barCanvas.nativeElement, "bar", data, options);
 }
 getDoughnutChart() {
   let data = {
-    labels: ["Food", "Entertainment", "Shopping", "Family", "Assets", "Gifts", "Health"],
+    labels: ["Red", "Brown", "Blue", "Yellow", "Green", "Purple", "Orange"],
     datasets: [{
       label: '# of Votes',
       data: [12, 19, 3, 5, 2, 3],
@@ -122,7 +106,7 @@ getDoughnutChart() {
     }]
   };
 
- //return this.getChart(this.doughnutCanvas.nativeElement, "doughnut", data);
+ // return this.getChart(this.doughnutCanvas.nativeElement, "doughnut", data);
 }
 getLineChart() {
   var data = {
@@ -154,8 +138,10 @@ getLineChart() {
     ]
   };
 
-//return this.getChart2(this.lineCanvas.nativeElement, "line", data);
+ // return this.getChart(this.lineCanvas.nativeElement, "line", data);
 }
+
+
 onClickClose()
 {
   this.navCtrl.pop(GraphPage);

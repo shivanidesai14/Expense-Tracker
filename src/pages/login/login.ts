@@ -86,16 +86,22 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       }
     );
   }
+  emailid:string='';
   u:Users[]=[];
 forgotPassword()
-{  
+{
+  
+
+      
+    
+    //let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
   //  alert(this.email);
     // let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
     this._da.getUsersById(this.email).subscribe(
       (data:Users[])=>{
         if(data.length==1)
         {
-          alert("hello")
+          alert("hello");
           var message="Hello "+data[0].user_name+". You have requested to reset the password. your password is '"+data[0].user_pass+"'. Password is one of the confidential thing, Don't share it with anyone.";
             this._data.sendMail(new email(message,this.email,"Resetting the password of Expense Tracker.")).subscribe(
               (data1:any)=>{

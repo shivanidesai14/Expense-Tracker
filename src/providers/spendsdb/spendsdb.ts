@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from "rxjs/Observable";
 import 'rxjs/Rx';
 import {Spends } from "../../shared/spends";
+
 /*
   Generated class for the SpendsdbProvider provider.
 
@@ -33,6 +34,11 @@ public url:string="http://localhost:3000/expenses/";
    deleteSpends(item:Spends)
   {
      return this.http.delete(this.url+item.expense_id,{headers:new HttpHeaders().set('Content-Type','application/json')});
+  }
+  public url1:string="http://localhost:3000/spends/";
+  getExpenseById(id:number)
+  {
+     return this.http.get(this.url1+id);
   }
 
 }

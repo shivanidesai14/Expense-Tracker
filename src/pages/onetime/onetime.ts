@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController,ToastController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
+import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
 import { AddnewnotePage } from "../addnewnote/addnewnote";
 import { SelectcatPage } from "../selectcat/selectcat";
 import { Spends } from "../../shared/spends";
@@ -8,6 +9,7 @@ import { SpendsdbProvider } from "../../providers/spendsdb/spendsdb";
 import { Storage } from '@ionic/storage';
 import { SpendsPage } from "../spends/spends";
 import { SpendsNotePage } from "../spends-note/spends-note";
+
 /**
  * Generated class for the OnetimePage page.
  *
@@ -24,37 +26,89 @@ export class OnetimePage {
   dt:any=new Date().getDate();
 x:any=new Date().getMonth();
 y:any=new Date().getFullYear();
-expense_amt:number;
+expense_amt:number=0;
 expense_id:number;
 fk_user_email:string='';
 fk_scat_id:number;
 colour_name:string="white";
 spends_notes:string='';
-msg:string="this is one time exp";
-exp_note:string=this.msg;
+tmp_msg:string="this is one time exp";
+exp_note:string;
 sub_cat_name:string='';
-  constructor(public storage:Storage,public _data:SpendsdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
-  }
+icon_image:string='';
+flag:boolean=false;
+no:number=1;
+spend: FormGroup;
+fl:boolean=false;
 
+url:string='../assets/userimgs/sign-question-icon.png';
+
+  constructor(public storage:Storage,public _data:SpendsdbProvider,
+  public lo:LoadingController,public to:ToastController,
+  public navCtrl: NavController, public navParams: NavParams) {
+  }
+ionViewDidEnter() {
+   
+     this.storage.get('na').then((val) => {
+            console.log( val);
+            this.sub_cat_name=val;
+         });
+           this.storage.get('img').then((val) => {
+            console.log( val);
+            this.icon_image=val;
+         });
+}
+ 
   ionViewDidLoad() {
     
     console.log('ionViewDidLoad OnetimePage');
-    this.fk_scat_id=this.navParams.get('id');
-    this.sub_cat_name=this.navParams.get('name');
-    
-  }
+   
+     
+        this.storage.set('img',this.url);
+         this.storage.set('na','');
+}
    public event = {
-      finalDate:this.y+"-"+this.x+"-"+this.dt,
+       finalDate:this.dt+"-"+this.x+"-"+this.y,
    month: '2017-01-01',
    
   }
+  onCLickT()
+  {
+    this.navCtrl.push(SpendsPage);
+  }
   oneTimeSpendAdd()
   {
+     this.exp_note=this.tmp_msg +" "+ this.spends_notes;
+      let t1=this.to.create({
+        message:"Field must not be empty",
+        duration:4000,
+        position:"bottom"
+      });
      
     
+    
+     if(this.event.finalDate=="")
+     {
+       t1.present();
+     }
+     else if(this.sub_cat_name=="")
+     {
+       t1.present();
+     }
+     else if(this.expense_amt==0)
+     {
+          t1.present();
+     }
+     else
+     {
+     
+        this.storage.get('id').then((val) => {
+            console.log( val);
+            this.fk_scat_id=val;
      this.storage.get('name').then((val)=>{
     console.log( val);
     this.fk_user_email=val;
+    
 
       let l1=this.lo.create({
         content:"loading"
@@ -81,8 +135,23 @@ sub_cat_name:string='';
           }
       )
          });
+           });
   }
-  
+  }
+  onCLick(no)
+{
+  if(this.no==1)
+  {
+  this.flag=true;
+  this.no=0;
+}
+else
+{
+  this.flag=false;
+  this.no=1;
+}
+}
+
   onetimeNote()
   {
       this.navCtrl.push(SpendsNotePage);
@@ -94,5 +163,6 @@ sub_cat_name:string='';
         num : 1
     });
   }
+   
 
 }

@@ -7,6 +7,8 @@ import { subcategory } from "../../shared/subcategory";
 import { SubcategorydbProvider } from "../../providers/subcategorydb/subcategorydb";
 import { OnetimePage } from "../onetime/onetime";
 import { FrequentPage } from "../frequent/frequent";
+import { RecurringPage } from "../recurring/recurring";
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the SelectcatPage page.
@@ -31,34 +33,10 @@ flag:number;
 flag1:number;
   constructor(public _data1:CategorydbProvider,
     public _data2:SubcategorydbProvider,
+    public storage:Storage,
     public load:LoadingController,public navCtrl: NavController, public navParams: NavParams) {
   }
 
- /* ionViewDidLoad() {
-    console.log('ionViewDidLoad SelectcatPage');
-    let l1=this.load.create({
-      
-          content:"Loading..."
-        });
-        l1.present();
-          this._data.getCatSubcat().subscribe(
-      
-              (data:catscat[])=>{
-                this.arr=data;
-                alert("successful");
-              },
-              function(e)
-              {
-                alert(e);
-              },
-              function()
-              {
-                l1.dismiss();
-              }
-      
-          );
-      
-  }*/
   ionViewDidLoad() {
     this.flag=this.navParams.get('num');
     console.log('ionViewDidLoad SelectcatPage');
@@ -89,29 +67,41 @@ flag1:number;
   {
     if(this.flag==1)
     {
-    this.navCtrl.push(OnetimePage,{
+    /*this.navCtrl.push(OnetimePage,{
 
         id : ite.sub_cat_id,
         name : ite.sub_cat_name
 
-    })
+    })*/
+      this.storage.set('id',ite.sub_cat_id);
+       this.storage.set('na',ite.sub_cat_name);
+         this.storage.set('img',ite.icon_image);
+
+        
+    this.navCtrl.pop(OnetimePage);
+  }
+  
+ 
+  else if (this.flag==2)
+  {
+    this.storage.set('id',ite.sub_cat_id);
+       this.storage.set('na',ite.sub_cat_name);
+       this.storage.set('img',ite.icon_image);
+        
+    this.navCtrl.pop(FrequentPage);
+    
   }
   else
   {
-    this.navCtrl.push(FrequentPage,{
-
-     
-
-      id : ite.sub_cat_id,
-        name : ite.sub_cat_name
-     
-
-    })
-    
+       this.storage.set('id',ite.sub_cat_id);
+       this.storage.set('na',ite.sub_cat_name);
+       this.storage.set('img',ite.icon_image);
+        
+    this.navCtrl.pop(RecurringPage);
   }
-   
+  } 
 
-  }
+  
 onClick(no:number){
   console.log('ionViewDidLoad SelectcatPage');
  this.no2=no;

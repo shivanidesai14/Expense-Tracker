@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController, PopoverController,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController,PopoverController,AlertController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { RecurringPage } from "../recurring/recurring";
 import { OnetimePage } from "../onetime/onetime";
@@ -8,6 +8,9 @@ import { SpendsSubcat } from "../../shared/spendsSubcat"
 import { Spends } from "../../shared/spends";
 import { SpendsdbProvider } from "../../providers/spendsdb/spendsdb";
 import { PopoverSpendPage } from "../popover-spend/popover-spend";
+import { PopoverMenuPage } from "../popover-menu/popover-menu";
+import { ViewspendsPage } from "../viewspends/viewspends";
+import { TotalSpendsPage } from "../total-spends/total-spends";
 import { Storage } from '@ionic/storage';
 /**
  * Generated class for the SpendsPage page.
@@ -41,9 +44,9 @@ export class SpendsPage {
   }
   constructor(public storage: Storage, public popoverCtrl: PopoverController,
    public _data: SpendsdbProvider, public load: LoadingController, public to: ToastController,
-    platform: Platform, public navCtrl: NavController, public navParams: NavParams,
-    public alert:AlertController ) {
+    platform: Platform, public navCtrl: NavController, public navParams: NavParams,public alert:AlertController ) {
     this.isAndroid = platform.is('android');
+    
   }
 
   ionViewDidLoad() {
@@ -61,6 +64,10 @@ export class SpendsPage {
         (data: SpendsSubcat[]) => {
           this.arr = data;
           this.arr1 = data;
+          for(var i=0;i<this.arr.length;i++)
+          {
+            this.sumexp=this.sumexp+this.arr[i].expense_amt;
+          }
         },
         function (e) {
           alert(e);
@@ -84,7 +91,11 @@ export class SpendsPage {
   }
   onClickdesc(eid)
   {
-      alert(eid);
+    this.navCtrl.push(ViewspendsPage,{
+      id : eid
+    })
+     
+
   }
   onClickRec() {
     this.navCtrl.push(RecurringPage);
@@ -109,9 +120,16 @@ export class SpendsPage {
       ev: myEvent
     });
   }
+  openPopoverMenu(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverMenuPage);
+    popover.present({
+      ev: myEvent
+    });
+  }
   searchByDate() {
    
     if (this.event.finalDate != '') {
+      alert(this.event.finalDate);
       this.arr = this.arr1.filter((x) => x.expense_date.match(this.event.finalDate))
     }
     else {
@@ -144,7 +162,7 @@ onDelSpends(item)
 
    );
 }
- /* showPrompt() {
+  showPrompt() {
     let prompt = this.alert.create({
       title: 'Delete Spend',
       message: "Are you sure you want to delete this spend???",
@@ -165,5 +183,9 @@ onDelSpends(item)
       ]
     });
     prompt.present();
-  }*/
+  }
+  totSpendByCat()
+  {
+      this.navCtrl.push(TotalSpendsPage);
+  }
 }

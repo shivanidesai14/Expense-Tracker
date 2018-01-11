@@ -6,7 +6,12 @@
 -->
 <ion-header>
     <ion-navbar no-border-bottom color="primary">
-        <ion-title>
+        <ion-buttons end>
+            <a ion-button icon-only (click)="openPopoverMenu($event)">
+                <ion-icon name="more"></ion-icon>
+            </a>
+        </ion-buttons>
+        <ion-title style="float:left;">
             Spends
         </ion-title>
     </ion-navbar>
@@ -25,6 +30,10 @@
 
 <ion-content>
     <div [ngSwitch]="spends">
+
+
+
+
         <ion-list *ngSwitchCase="'date'" ngSelected="selected">
             <ion-item class="style">
 
@@ -35,100 +44,91 @@
 
 
 
-                <ion-datetime displayFormat="DD/MM/YYYY" (ionChange)="searchByDate()" [(ngModel)]="event.finalDate"></ion-datetime>
+                <ion-datetime displayFormat="DD-MM-YYYY" (ionChange)="searchByDate()" [(ngModel)]="event.finalDate"></ion-datetime>
+
             </ion-item>
 
-   <!-- <ion-card *ngFor="let item of arr" class="item item-text-wrap">
+            <ion-footer style="position:fixed;height:50px;" (click)="totSpendByCat()">
+                <ion-toolbar>
 
-                <ion-card-header>
+                    <table style="background:#32C8A3">
+                        <tr>
+                            <td>
+                                <ion-label style="font-size:20px;">TOTAL SPENDS</ion-label>
+                            </td>
+                            <td>
+                                <ion-label style="font-size:20px;margin-left:75px">{{sumexp | currency:'INR':true}}</ion-label>
+                            </td>
+                        </tr>
+                    </table>
+                </ion-toolbar>
+            </ion-footer>
 
+            <ion-card *ngFor="let item of arr">
+
+                <ion-item (click)="onClickdesc(item.expense_id)">
                     <ion-avatar item-start>
-
-                        <img src="{{item.icon_image}}" style="height:50px;width:50px;">
-
-                        <h1>{{item.sub_cat_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.expense_amt}}</h1>
-
+                        <img src="{{item.icon_image}}">
                     </ion-avatar>
 
+                    <div class="item row">
+                        <span align="left" class="col col-50">{{item.sub_cat_name}}</span>
+                        <span align="right" class="col col-50"> {{item.expense_amt | currency:'INR':true}}</span>
+                    </div>
 
-                </ion-card-header>
+                    <p>{{item.expense_date}}</p>
 
-                <ion-card-content>
-                    <h2>{{item.exp_note}}</h2>
-                </ion-card-content>
-                <ion-item>
-
-                    <ion-label>Date</ion-label>
-                    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="item.expense_date"></ion-datetime>
                 </ion-item>
-
             </ion-card>
-        -->
-        <ion-card  *ngFor="let item of arr" >
 
-              <ion-item (click)="onClickdesc(item.expense_id)">
-                <ion-avatar item-start>
-                  <img src="{{item.icon_image}}">
-                </ion-avatar>
-            
-            <div class="item row">
-                    <span align="left" class="col col-50">{{item.sub_cat_name}}</span>
-                    <span align="right" class="col col-50">{{item.expense_amt}}</span>
-                 </div>
-            
-                <p>November 5, 1955</p>
-              
-              </ion-item> 
-              </ion-card>
-
-            <ion-fab center bottom style="position:fixed;">
-                <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+            <ion-fab bottom style="position:fixed;margin-left:260px;margin-bottom:45px">
+                <button ion-fab><ion-icon name="add"></ion-icon></button>
                 <ion-fab-list side="top" color="primary">
-                    <button (click)="onClickRec()" style="width:200%;height:150%;font-size:1.5em;background:sandybrown;">Recurring <ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
-                    <button (click)="onClickFreq()" style="width:200%;height:150%;font-size:1.5em;background:sandybrown;">Frequent <ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
-                    <button (click)="onClickOne()" style="width:200%;height:150%;font-size:1.5em;background:sandybrown;">One-Time  <ion-icon name="cloud-done"></ion-icon></button>
+                    <button (click)="onClickRec() " style="font-size:20px; "> Recurring<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
+                    <button (click)="onClickFreq() " style="font-size:20px; ">Frequent <ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
+                    <button (click)="onClickOne() " style="font-size:20px; ">One-Time  <ion-icon name="cloud-done"></ion-icon></button>
 
                 </ion-fab-list>
             </ion-fab>
-        </ion-list> 
 
 
+
+
+
+        </ion-list>
         <ion-list *ngSwitchCase="'color'">
-            <ion-searchbar [(ngModel)]="txtsearch" (keypress)="openPopover($event)" placeholder="Search By Color">Search by Color</ion-searchbar>
-            <ion-card *ngFor="let item of arr">
-                <div class="list card">
-                    <ion-card-header [ngClass]="{c1:item.colour_name=='orange',c2:item.colour_name=='lightgreen',c3:item.colour_name=='lightcoral',c4:item.colour_name=='paleturquoise'}">
-                        <ion-icon name="radio-button-off" style="font-size:1.5em;" (click)="openPopover($event)"></ion-icon>
+
+            <ion-searchbar [(ngModel)]="txtsearch " (keypress)="openPopover($event) " placeholder="Search By Color ">Search by Color</ion-searchbar>
+            <ion-card *ngFor="let item of arr ">
+                <div class="list card ">
+                    <ion-card-header [ngClass]="{c1:item.colour_name=='white' ,c2:item.colour_name=='orange' ,c3:item.colour_name=='lightgreen' ,c4:item.colour_name=='lightcoral',c5:item.colour_name=='darkturquoise'} ">
+                        <ion-icon name="radio-button-off" (click)="openPopover($event) "></ion-icon>
                         &nbsp;&nbsp;
-                        <ion-icon name="trash" (click)="onDelSpends(item)" style="font-size:1.5em;"></ion-icon><br>
-
-                        <ion-avatar item-start>
-
-                            <img src="{{item.icon_image}}" style="height:50px;width:50px;">
-
-                            <h1>{{item.sub_cat_name}}{{item.expense_amt}}</h1>
-
-                        </ion-avatar>
-
+                        <ion-icon name="trash" (click)="onDelSpends(item) "></ion-icon>
                     </ion-card-header>
-                    <!--<hr style="border:2px solid black;">-->
+
                 </div>
                 <div>
                     <ion-card-content>
 
+                        <ion-item (click)="onClickdesc(item.expense_id) ">
+                            <ion-avatar item-start>
+                                <img src="{{item.icon_image}} ">
+                            </ion-avatar>
 
-                        <h2>{{item.exp_note}}</h2>
+                            <div class="item row ">
+                                <span align="left " class="col col-50 ">{{item.sub_cat_name}}</span>
+                                <span align="right " class="col col-50 "> {{item.expense_amt | currency:'INR':true}}</span>
+                            </div>
+
+                            <p>{{item.expense_date}}</p>
+
+                        </ion-item>
                     </ion-card-content>
                 </div>
-                <ion-item>
-
-                    <ion-label>Date</ion-label>
-                    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="item.expense_date"></ion-datetime>
-                </ion-item>
             </ion-card>
 
 
 
 
         </ion-list>
-
