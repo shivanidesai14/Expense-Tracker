@@ -31,6 +31,8 @@ import { TutorialPage } from "../pages/tutorial/tutorial";
 import { UserProfilePage } from "../pages/user-profile/user-profile";
 import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
 import { SpendsNotePage } from "../pages/spends-note/spends-note";
+import { LoanPage } from "../pages/loan/loan";
+import { CalculateLoanPage } from "../pages/calculate-loan/calculate-loan";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
@@ -39,6 +41,7 @@ import { CatsubcatdbProvider } from '../providers/catsubcatdb/catsubcatdb';
 import { CategorydbProvider } from '../providers/categorydb/categorydb';
 import { SubcategorydbProvider } from '../providers/subcategorydb/subcategorydb';
 import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
+import { LoandbProvider } from '../providers/loandb/loandb';
 
 
 
@@ -49,7 +52,7 @@ import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
     SelectcatPage,HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,
     AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,
     EditnotesPage,CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,UserProfilePage,
-    SpendsNotePage
+    SpendsNotePage,LoanPage,CalculateLoanPage
 
 
    
@@ -70,7 +73,7 @@ import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
     GraphPage,FrequentPage,RecurringPage,OnetimePage,
     SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
     CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
-    UserProfilePage,SpendsNotePage
+    UserProfilePage,SpendsNotePage,LoanPage,CalculateLoanPage
 
 
   ],
@@ -90,7 +93,8 @@ import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
     CatsubcatdbProvider,
     CategorydbProvider,
     SubcategorydbProvider,
-    SpendsdbProvider,SocialSharing
+    SpendsdbProvider,SocialSharing,
+    LoandbProvider
 
 
   ]

@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '
 import { Users } from "../../shared/users";
 import { Signup1dbProvider } from "../../providers/signup1db/signup1db";
 import { HomePage } from "../home/home";
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the SignupPage page.
@@ -29,7 +30,7 @@ user: FormGroup;
   umobno:string='';
   uimg:string='../assets/userimgs/defaultimg.png';
   udpass:string='';
-  constructor(public _data:Signup1dbProvider,
+  constructor(public storage:Storage,public _data:Signup1dbProvider,
     public navCtrl: NavController, public navParams: NavParams,public lo:LoadingController,public to:ToastController) {
   }
 
@@ -51,6 +52,8 @@ user: FormGroup;
   this._data.addUsers(item).subscribe(
     (data)=>{
        t1.present();
+       this.storage.set('uname',this.uname);
+       this.storage.set('uno',this.umobno);
       this.navCtrl.push(HomePage);
     },
     function(e)
