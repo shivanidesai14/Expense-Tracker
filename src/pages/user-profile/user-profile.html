@@ -20,7 +20,7 @@
             <ion-icon name="log-out" float-left></ion-icon>
         </h2>
         <h2>
-            <ion-icon name="brush" float-right></ion-icon>
+            <ion-icon name="color-wand" float-right click="onUpdateProfile()"></ion-icon>
         </h2>
         <div class="splash-logo">
             <ion-icon class="iconclass " name="camera"></ion-icon>
@@ -32,33 +32,53 @@
             </ion-card-content>
         </ion-card>
     </div>
-
-    <ion-card style="height:20%;width:95%">
+    <div>
+        <br>
+    </div>
+    <ion-card style="height:20%;width:95%;border-top: 1px solid rgb(0, 140, 255)">
+        <ion-card-header>
+            My Spends
+        </ion-card-header>
         <ion-card-content>
-            <ion-item style="font-size:17px;text-align:left">My Spends</ion-item>
             <ion-item style="text-align:right"><button ion-button color="default" clear><b>VIEW ALL SPENDS</b></button></ion-item>
         </ion-card-content>
     </ion-card>
-
-    <ion-card style="height:20%;width:95%">
+    <div>
+        <br>
+    </div>
+    <ion-card style="height:20%;width:95%;border-top: 1px solid rgb(0, 140, 255)">
+        <ion-card-header>
+            My Reports
+        </ion-card-header>
         <ion-card-content>
-            <ion-item style="font-size:17px;text-align:left">My Reports</ion-item>
-            <ion-item style="text-align:right"><button ion-button color="default" clear><b>VIEW ALL GRAPHS</b></button></ion-item>
+            <ion-item style="text-align:right"><button ion-button color="default" clear><b>VIEW ALL REPORTS</b></button></ion-item>
         </ion-card-content>
     </ion-card>
-
-    <ion-card style="height:20%;width:95%">
+    <div>
+        <br>
+    </div>
+    <ion-card style="height:20%;width:95%;border-top: 1px solid rgb(0, 140, 255)">
+        <ion-card-header>
+            My Loans
+        </ion-card-header>
         <ion-card-content>
-            <ion-item style="font-size:17px;text-align:left">My Loans</ion-item>
             <ion-item style="text-align:right"><button ion-button color="default" clear><b>VIEW ALL LOANS</b></button></ion-item>
         </ion-card-content>
     </ion-card>
-
-    <ion-card style="height:20%;width:95%">
+    <div>
+        <br>
+    </div>
+    <ion-card style="height:20%;width:95%;border-top: 1px solid rgb(0, 140, 255)">
+        <ion-card-header>
+            Change Password
+        </ion-card-header>
         <ion-card-content>
-            <ion-item style="font-size:17px;text-align:left">Change Password</ion-item>
             <ion-item style="text-align:right"><button ion-button color="default" clear><b>CHANGE PASSWORD</b></button></ion-item>
         </ion-card-content>
     </ion-card>
+    <div>
+        <br>
+    </div>
+    <button ion-button block>LOG-OUT</button>
 
 </ion-content>
