@@ -114,7 +114,8 @@ export class SpendsPage {
       this.arr = this.arr1;
     }
   }
-  openPopover(myEvent) {
+  openPopover(myEvent,id1:any) {
+     this.storage.set('spendsid',id1);
     let popover = this.popoverCtrl.create(PopoverSpendPage);
     popover.present({
       ev: myEvent
