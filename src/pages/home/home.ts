@@ -1,3 +1,4 @@
+import { LoanPage } from './../loan/loan';
 import { Component } from '@angular/core';
 import { NavController,PopoverController } from 'ionic-angular';
 import { PopoverPage } from '../popover/popover';
@@ -46,6 +47,10 @@ openPopover(myEvent) {
   onClickNote()
   {
        this.navCtrl.push(NewnotePage);
+  }
+  onClickLoan()
+  {
+       this.navCtrl.push(LoanPage);
   }
   onClickGraph()
   {

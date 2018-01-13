@@ -1,0 +1,50 @@
+<!--
+  Generated template for the CalculateLoanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Calculate Loan</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <table>
+            <tr>
+                <td>Loan Amount</td>
+                <td>Loan Rate</td>
+            </tr>
+            <tr>
+                <td><b>{{this.loan_amt}}</b></td>
+                <td><b>{{this.loan_rate}}</b></td>
+            </tr>
+            <tr>
+                <td>Loan Duration</td>
+                <td>Loan Date</td>
+            </tr>
+            <tr>
+                <td><b>{{this.loan_yrs}}</b></td>
+                <td><b>{{this.loan_date}}</b></td>
+            </tr>
+        </table>
+    </ion-item>
+    <ion-item-group>
+        <ion-item-divider color="light">Results</ion-item-divider>
+        <ion-item>Monthly Payment</ion-item>
+
+        <ion-item>Total Payments</ion-item>
+
+        <ion-item>Total Interest Paid</ion-item>
+        <ion-item>Pay-off Date</ion-item>
+        <ion-label><b>{{this.finalPay}}</b></ion-label>
+    </ion-item-group>
+    <button ion-button color="light"><b>MONTHLY AT</b></button>
+    <button ion-button color="light"><b>YEARLY AT</b></button>
+
+</ion-content>

@@ -32,10 +32,15 @@ import { UserProfilePage } from "../pages/user-profile/user-profile";
 import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
 import { PopoverMenuPage } from "../pages/popover-menu/popover-menu";
 import { SpendsNotePage } from "../pages/spends-note/spends-note";
+<<<<<<< HEAD
+import { LoanPage } from "../pages/loan/loan";
+import { CalculateLoanPage } from "../pages/calculate-loan/calculate-loan";
+=======
 import { ViewspendsPage } from "../pages/viewspends/viewspends";
 import { ViewCategorySpendsPage } from "../pages/view-category-spends/view-category-spends";
 import { PopoverNote1pagePage } from "../pages/popover-note1page/popover-note1page";
 import { TotalSpendsPage } from "../pages/total-spends/total-spends";
+>>>>>>> 343e268bf9ca5db78817716183d3218482991711
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
@@ -44,7 +49,11 @@ import { CatsubcatdbProvider } from '../providers/catsubcatdb/catsubcatdb';
 import { CategorydbProvider } from '../providers/categorydb/categorydb';
 import { SubcategorydbProvider } from '../providers/subcategorydb/subcategorydb';
 import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
+<<<<<<< HEAD
 import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
+=======
+import { LoandbProvider } from '../providers/loandb/loandb';
+>>>>>>> a5b825510069e6d10a1766259dc5af3e23c019bb
 
 
 
@@ -55,7 +64,11 @@ import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
     SelectcatPage,HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,
     AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,
     EditnotesPage,CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,UserProfilePage,
+<<<<<<< HEAD
+    SpendsNotePage,LoanPage,CalculateLoanPage
+=======
     SpendsNotePage,ViewspendsPage,PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,PopoverNote1pagePage
+>>>>>>> 343e268bf9ca5db78817716183d3218482991711
 
 
    
@@ -76,7 +89,11 @@ import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
     GraphPage,FrequentPage,RecurringPage,OnetimePage,
     SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
     CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
+<<<<<<< HEAD
+    UserProfilePage,SpendsNotePage,LoanPage,CalculateLoanPage
+=======
     UserProfilePage,SpendsNotePage,ViewspendsPage,PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,PopoverNote1pagePage
+>>>>>>> 343e268bf9ca5db78817716183d3218482991711
 
 
   ],
@@ -97,7 +114,11 @@ import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
     CategorydbProvider,
     SubcategorydbProvider,
     SpendsdbProvider,SocialSharing,
+<<<<<<< HEAD
     SubcatexpdbProvider
+=======
+    LoandbProvider
+>>>>>>> a5b825510069e6d10a1766259dc5af3e23c019bb
 
 
   ]
