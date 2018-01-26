@@ -44,7 +44,11 @@ import { CatsubcatdbProvider } from '../providers/catsubcatdb/catsubcatdb';
 import { CategorydbProvider } from '../providers/categorydb/categorydb';
 import { SubcategorydbProvider } from '../providers/subcategorydb/subcategorydb';
 import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
+<<<<<<< HEAD
+import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
+=======
 import { LoandbProvider } from '../providers/loandb/loandb';
+>>>>>>> a5b825510069e6d10a1766259dc5af3e23c019bb
 
 
 
@@ -97,7 +101,11 @@ import { LoandbProvider } from '../providers/loandb/loandb';
     CategorydbProvider,
     SubcategorydbProvider,
     SpendsdbProvider,SocialSharing,
+<<<<<<< HEAD
+    SubcatexpdbProvider
+=======
     LoandbProvider
+>>>>>>> a5b825510069e6d10a1766259dc5af3e23c019bb
 
 
   ]

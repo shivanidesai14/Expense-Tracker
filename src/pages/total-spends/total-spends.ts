@@ -5,6 +5,8 @@ import { CategorydbProvider } from "../../providers/categorydb/categorydb";
 import { subcategory } from "../../shared/subcategory";
 import { SubcategorydbProvider } from "../../providers/subcategorydb/subcategorydb";
 import { ViewCategorySpendsPage } from "../view-category-spends/view-category-spends";
+import { subcatexp } from "../../shared/SubCatExpJoin";
+import { SubcatexpdbProvider } from "../../providers/subcatexpdb/subcatexpdb";
 import { Storage } from "@ionic/storage";
 
 /**
@@ -21,8 +23,9 @@ import { Storage } from "@ionic/storage";
 })
 export class TotalSpendsPage {
 arr1:category[]=[];
+arr:subcatexp[]=[];
   constructor( public storage:Storage,public load:LoadingController,public _data1:CategorydbProvider,
-  public navCtrl: NavController, public navParams: NavParams) {
+  public navCtrl: NavController, public navParams: NavParams,public data:SubcatexpdbProvider) {
   }
 
   ionViewDidLoad() {
@@ -33,10 +36,12 @@ arr1:category[]=[];
         });
         l1.present();
           this._data1.getAllCategories().subscribe(
-      
+
+
               (data1:category[])=>{
                 this.arr1=data1;
-               // alert("successful");
+
+                      
               },
               function(e)
               {
@@ -49,6 +54,11 @@ arr1:category[]=[];
       
           );
   }
-
+onClick(id:number)
+{
+  this.navCtrl.push(ViewCategorySpendsPage,{
+    'cat_id':id
+  })
+}
 
 }

@@ -102,7 +102,7 @@
             <ion-card *ngFor="let item of arr ">
                 <div class="list card ">
                     <ion-card-header [ngClass]="{c1:item.colour_name=='white' ,c2:item.colour_name=='orange' ,c3:item.colour_name=='lightgreen' ,c4:item.colour_name=='lightcoral',c5:item.colour_name=='darkturquoise'} ">
-                        <ion-icon name="radio-button-off" (click)="openPopover($event) "></ion-icon>
+                        <ion-icon name="radio-button-off" (click)="openPopover($event,item.expense_id)"></ion-icon>
                         &nbsp;&nbsp;
                         <ion-icon name="trash" (click)="onDelSpends(item) "></ion-icon>
                     </ion-card-header>

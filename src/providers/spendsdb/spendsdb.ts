@@ -15,6 +15,7 @@ import {Spends } from "../../shared/spends";
 @Injectable()
 export class SpendsdbProvider {
 public url:string="http://localhost:3000/expenses/";
+public url2:string="http://localhost:3000/spendsbyid/";
   constructor(public http: HttpClient) {
     console.log('Hello SpendsdbProvider Provider');
   }
@@ -39,6 +40,10 @@ public url:string="http://localhost:3000/expenses/";
   getExpenseById(id:number)
   {
      return this.http.get(this.url1+id);
+  }
+  getSpendsById(id:number)
+  {
+    return this.http.get(this.url2+id);
   }
 
 }

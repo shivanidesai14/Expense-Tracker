@@ -8,6 +8,7 @@
     <ion-navbar no-border-bottom color="primary">
         <ion-title>
             View Category Spends
+
         </ion-title>
     </ion-navbar>
 </ion-header>
@@ -15,15 +16,21 @@
 
 <ion-content padding>
 
-    <ion-list *ngFor="let ite of arr">
-        <!--onClick1(ite.sub_cat_id)-->
-        <ion-item (click)="onClick1(ite)" style="margin-left:40px;">
+
+    <ion-card *ngFor="let item of arr">
+
+        <ion-item>
             <ion-avatar item-start>
-                <h1> </h1> <img src={{ite.icon_image}}>
+                <img src="{{item.icon_image}}">
             </ion-avatar>
-            <h2>{{ite.sub_cat_name}}</h2>
+
+            <div class="item row">
+                <span align="left" class="col col-50">{{item.sub_cat_name}}</span>
+                <span align="right" class="col col-50"> {{item.expense_amt | currency:'INR':true}}</span>
+            </div>
+
+            <p>{{item.expense_date}}</p>
 
         </ion-item>
-
-    </ion-list>
+    </ion-card>
 </ion-content>

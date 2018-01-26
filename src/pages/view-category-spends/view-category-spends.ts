@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { subcategory } from "../../shared/subcategory";
-import { SubcategorydbProvider } from "../../providers/subcategorydb/subcategorydb";
+import { subcatexp } from "../../shared/SubCatExpJoin";
+import { SubcatexpdbProvider } from "../../providers/subcatexpdb/subcatexpdb";
 
 
 
@@ -19,10 +19,12 @@ import { SubcategorydbProvider } from "../../providers/subcategorydb/subcategory
   templateUrl: 'view-category-spends.html',
 })
 export class ViewCategorySpendsPage {
-arr:subcategory[]=[];
+arr:subcatexp[]=[];
 cat_id:number;
+fk_user_email:string="";
+sumexp:number=0;
   constructor(
-    public _data2:SubcategorydbProvider,
+    public _data:SubcatexpdbProvider,
     public storage:Storage,
     public load:LoadingController, public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -30,35 +32,40 @@ cat_id:number;
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewCategorySpendsPage');
 
-     this.cat_id=this.navParams.get('id');
-     alert(this.cat_id);
+  this.cat_id=this.navParams.get('cat_id');
+       this.storage.get('name').then((val) => {
+      console.log(val);
+      this.fk_user_email = val;
+        let l1 = this.load.create({
 
-
-
-      let l1=this.load.create({
-    
-        content:"Loading..."
+        content: "Loading..."
       });
       l1.present();
-        this._data2.getScategoriesById(this.cat_id).subscribe(
-    
-            (data2:subcategory[])=>{
-              this.arr=data2;
-              
-             // alert("successful");
-            },
-            function(e)
-            {
-              alert(e);
-            },
-            function()
-            {
-              l1.dismiss();
-              
-            }
-    
-        );
-  
-  }
+      let item=new subcatexp(0,"",this.cat_id,"","",0,"",0,"",0,"","",0,"","");
+      this._data.getAllSubCatByJoin(this.fk_user_email,item).subscribe(
 
+        (data: subcatexp[]) => {
+          
+          this.arr = data;
+         
+          
+        },
+        function (e) {
+          alert(e);
+        },
+        function () {
+          l1.dismiss();
+        }
+
+      );
+
+    });
+    
+
+
+
+
+       
+  }
 }
+    
