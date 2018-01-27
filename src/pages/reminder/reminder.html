@@ -8,27 +8,34 @@
 <ion-header>
     <ion-navbar no-border-bottom color="primary">
         <ion-title>
-            Add Reminder
-            <ion-icon name="checkmark-circle-outline" class="iconclass" style="float:right" (click)="oneTimeSpendAdd()"></ion-icon>
+            Reminder
         </ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
+    <ion-card *ngFor="let item of arr">
 
-    <ion-item>
-
-
-        <ion-label floating>Enter Reminder Title</ion-label>
-        <ion-input type="text" style="font-size:15px;" [(ngModel)]="rem_title"></ion-input>
+        <ion-item>
 
 
-    </ion-item><br>
+            <div class="item row">
+                <span class="col col-50">{{item.rem_title}}</span>
+                <span align="right" class="col col-50"><ion-icon name="create" (click)="onEditReminder(item)"></ion-icon>&nbsp;&nbsp;<ion-icon name="trash" (click)="onRemDel(item)"></ion-icon></span>
+            </div>
 
-    <ion-item class="style">
-        <ion-label class="style">Select Date</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.finalDate"></ion-datetime>
-    </ion-item><br><br>
-    <textarea placeholder="Reminder desc.." rows="12" cols="27" style="border:1px solid lightblue;font-size:20px;margin-left:20px;" [(ngModel)]="Rem_desc"></textarea>
+            <div class="item row">
+                <span align="left" class="col col-50"><p>{{item.rem_desc}}</p></span>
+                <span align="right" class="col col-50"> <p>{{item.rem_date}}</p></span>
+            </div>
+
+
+        </ion-item>
+    </ion-card>
+    <ion-fab right bottom>
+        <button ion-fab color="primary" (click)="onclick()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+
+
 </ion-content>

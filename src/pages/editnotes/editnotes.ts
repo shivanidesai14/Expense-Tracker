@@ -39,6 +39,10 @@ export class EditnotesPage {
    
   }
   onEditNotes(item) {
+    let t1=this.to.create({
+      message:"Updated..",
+      duration:3000
+   });
     this._data.getNoteDesc(this.id).subscribe(
       
             (data:Notes[])=>{
@@ -53,7 +57,7 @@ export class EditnotesPage {
               this._data.editNotes(item).subscribe(
       
                 (data:Notes[])=>{
-               
+               t1.present();
                  this.navCtrl.push(NewnotePage);
              }
         

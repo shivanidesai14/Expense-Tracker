@@ -143,7 +143,7 @@ export class SpendsPage {
   searchByDate() {
 
     if (this.event.finalDate != '') {
-      alert(this.event.finalDate);
+  
       this.arr = this.arr1.filter((x) => x.expense_date.match(this.event.finalDate))
     }
     else {

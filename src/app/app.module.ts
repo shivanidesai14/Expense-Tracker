@@ -40,6 +40,8 @@ import { ViewCategorySpendsPage } from "../pages/view-category-spends/view-categ
 import { PopoverNote1pagePage } from "../pages/popover-note1page/popover-note1page";
 import { TotalSpendsPage } from "../pages/total-spends/total-spends";
 import { ChangepassPage } from "../pages/changepass/changepass";
+import { AddReminderPage } from "../pages/add-reminder/add-reminder";
+import { EditreminderPage } from "../pages/editreminder/editreminder";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
@@ -50,6 +52,7 @@ import { SubcategorydbProvider } from '../providers/subcategorydb/subcategorydb'
 import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
 import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
 import { LoandbProvider } from '../providers/loandb/loandb';
+import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
 
 
 
@@ -60,7 +63,8 @@ import { LoandbProvider } from '../providers/loandb/loandb';
     SelectcatPage, HomePage, DemoPage, PopoverPage, SpendsPage, LoginPage, SignupPage, NewnotePage,
     AddnewnotePage, GraphPage, FrequentPage, RecurringPage, OnetimePage, EdocumentPage, PopoverNotePage,
     EditnotesPage, CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
-    SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, PopoverNote1pagePage, ReminderPage, ChangepassPage
+    SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, 
+    PopoverNote1pagePage, ReminderPage, ChangepassPage,AddReminderPage,EditreminderPage
 
 
 
@@ -81,8 +85,10 @@ import { LoandbProvider } from '../providers/loandb/loandb';
     LoginPage, SignupPage, NewnotePage, AddnewnotePage,
     GraphPage, FrequentPage, RecurringPage, OnetimePage,
     SelectcatPage, EdocumentPage, PopoverNotePage, EditnotesPage,
-    CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, LoanPage, CalculateLoanPage,
-    UserProfilePage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, PopoverNote1pagePage, ReminderPage, ChangepassPage
+    CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, 
+    LoanPage, CalculateLoanPage, UserProfilePage, SpendsNotePage, ViewspendsPage, 
+    PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, PopoverNote1pagePage,
+     ReminderPage, ChangepassPage,AddReminderPage,EditreminderPage
 
 
 
@@ -106,6 +112,7 @@ import { LoandbProvider } from '../providers/loandb/loandb';
     SpendsdbProvider, SocialSharing,
     SubcatexpdbProvider,
     LoandbProvider,
+    ReminderdbProvider,
 
 
 
