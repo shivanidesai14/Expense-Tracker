@@ -21,5 +21,12 @@ export class UserdbProvider {
  {
       return this.http.get(this.url+id);
  }
+ public url1:string="http://localhost:3000/chagepass/";
+ changePassword(id:string,item:Users)
+ {
+
+  let body=JSON.stringify(item);
+  return this.http.put(this.url+id,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
+ }
 
 }

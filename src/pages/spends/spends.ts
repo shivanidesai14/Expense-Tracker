@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController,PopoverController,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, FabContainer, ToastController, PopoverController, AlertController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { RecurringPage } from "../recurring/recurring";
 import { OnetimePage } from "../onetime/onetime";
@@ -12,6 +12,8 @@ import { PopoverMenuPage } from "../popover-menu/popover-menu";
 import { ViewspendsPage } from "../viewspends/viewspends";
 import { TotalSpendsPage } from "../total-spends/total-spends";
 import { Storage } from '@ionic/storage';
+
+
 /**
  * Generated class for the SpendsPage page.
  *
@@ -25,6 +27,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'spends.html',
 })
 export class SpendsPage {
+
   dt: any = new Date().getDate();
   x: any = new Date().getMonth();
   y: any = new Date().getFullYear();
@@ -32,21 +35,27 @@ export class SpendsPage {
   arr1: SpendsSubcat[] = [];
   txtsearch: string = "";
   fk_user_email: string = '';
-  item:Spends[]=[];
-  sumexp:number=0;
+  item: Spends[] = [];
+  sumexp: number = 0;
   spends: string = "date";
   isAndroid: boolean = false;
   testing: String = '';
-  tot:number;
-  ionViewWillEnter() {
-    this.testing = "date";
+  tot: number;
+
+  constructor(public storage: Storage, public popoverCtrl: PopoverController,
+    public _data: SpendsdbProvider, public load: LoadingController, public to: ToastController,
+    platform: Platform, public navCtrl: NavController, public navParams: NavParams,
+    public alert: AlertController, public fab: FabContainer) {
+    this.isAndroid = platform.is('android');
 
   }
-  constructor(public storage: Storage, public popoverCtrl: PopoverController,
-   public _data: SpendsdbProvider, public load: LoadingController, public to: ToastController,
-    platform: Platform, public navCtrl: NavController, public navParams: NavParams,public alert:AlertController ) {
-    this.isAndroid = platform.is('android');
-    
+  ionViewWillEnter() {
+    this.testing = "date";
+    this.fab.close();
+
+  }
+  ionViewDidEnter() {
+    // this.fab.close();
   }
 
   ionViewDidLoad() {
@@ -64,9 +73,8 @@ export class SpendsPage {
         (data: SpendsSubcat[]) => {
           this.arr = data;
           this.arr1 = data;
-          for(var i=0;i<this.arr.length;i++)
-          {
-            this.sumexp=this.sumexp+this.arr[i].expense_amt;
+          for (var i = 0; i < this.arr.length; i++) {
+            this.sumexp = this.sumexp + this.arr[i].expense_amt;
           }
         },
         function (e) {
@@ -79,7 +87,7 @@ export class SpendsPage {
       );
 
     });
-    
+
 
   }
 
@@ -89,18 +97,23 @@ export class SpendsPage {
     // month: '2017-01-01',
 
   }
-  onClickdesc(eid)
-  {
-    this.navCtrl.push(ViewspendsPage,{
-      id : eid
+  onClickdesc(eid) {
+    this.navCtrl.push(ViewspendsPage, {
+      id: eid
     })
-     
+
 
   }
-  onClickRec() {
+  /*onClickFab(pageName: string, fab: FabContainer) {
+    fab.close();
+    //console.log(pageName);
+    this.navCtrl.push(pageName);
+  }*/
+  onClickRec(fab: FabContainer) {
+    this.fab.close();
     this.navCtrl.push(RecurringPage);
   }
-  onClickFreq() {
+  onClickFreq(fab: FabContainer) {
     this.navCtrl.push(FrequentPage);
   }
   onClickOne() {
@@ -114,8 +127,8 @@ export class SpendsPage {
       this.arr = this.arr1;
     }
   }
-  openPopover(myEvent,id1:any) {
-     this.storage.set('spendsid',id1);
+  openPopover(myEvent, id1: any) {
+    this.storage.set('spendsid', id1);
     let popover = this.popoverCtrl.create(PopoverSpendPage);
     popover.present({
       ev: myEvent
@@ -128,7 +141,7 @@ export class SpendsPage {
     });
   }
   searchByDate() {
-   
+
     if (this.event.finalDate != '') {
       alert(this.event.finalDate);
       this.arr = this.arr1.filter((x) => x.expense_date.match(this.event.finalDate))
@@ -137,32 +150,29 @@ export class SpendsPage {
       this.arr = this.arr1;
     }
   }
-onDelSpends(item)
-{
-   let t1=this.to.create({
-      message:"Deleted..",
-      duration:3000
-   });
-   let l1=this.load.create({
-      content:"deleting..."
-   });
-   l1.present();
-   this._data.deleteSpends(item).subscribe(
-      (data:any)=>{
+  onDelSpends(item) {
+    let t1 = this.to.create({
+      message: "Deleted..",
+      duration: 3000
+    });
+    let l1 = this.load.create({
+      content: "deleting..."
+    });
+    l1.present();
+    this._data.deleteSpends(item).subscribe(
+      (data: any) => {
         t1.present();
-        this.arr.splice(this.arr.indexOf(item),1);
+        this.arr.splice(this.arr.indexOf(item), 1);
       },
-      function(err)
-      {
+      function (err) {
         alert(err);
       },
-      function()
-      {
+      function () {
         l1.dismiss();
       }
 
-   );
-}
+    );
+  }
   showPrompt() {
     let prompt = this.alert.create({
       title: 'Delete Spend',
@@ -177,7 +187,7 @@ onDelSpends(item)
         {
           text: 'Yes',
           handler: data => {
-            
+
             this.onDelSpends(this.item);
           }
         }
@@ -185,8 +195,7 @@ onDelSpends(item)
     });
     prompt.present();
   }
-  totSpendByCat()
-  {
-      this.navCtrl.push(TotalSpendsPage);
+  totSpendByCat() {
+    this.navCtrl.push(TotalSpendsPage);
   }
 }

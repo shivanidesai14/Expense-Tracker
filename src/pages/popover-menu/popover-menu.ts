@@ -4,6 +4,7 @@ import { SpendsPage } from "../spends/spends";
 import { GraphPage } from "../graph/graph";
 import { EdocumentPage } from "../edocument/edocument";
 import { UserProfilePage } from "../user-profile/user-profile";
+import { HomePage } from "../home/home";
 /**
  * Generated class for the PopoverMenuPage page.
  *
@@ -29,6 +30,10 @@ export class PopoverMenuPage {
    
       this.navCtrl.push(SpendsPage);
 
+  }
+  onClickHome()
+  {
+      this.navCtrl.push(HomePage);
   }
   onClickGraph()
   {

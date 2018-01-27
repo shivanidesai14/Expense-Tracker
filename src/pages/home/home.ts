@@ -6,11 +6,13 @@ import { SpendsPage } from "../spends/spends";
 import { NewnotePage } from "../newnote/newnote";
 import { GraphPage } from "../graph/graph";
 import { EdocumentPage} from "../edocument/edocument";
-
-
+import { ReminderPage } from "../reminder/reminder";
+import { Users } from "../../shared/users";
+import { UserdbProvider } from "../../providers/userdb/userdb";
 
 import { SelectcatPage } from "../selectcat/selectcat";
 import { Storage } from '@ionic/storage';
+import { importType } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'page-home',
@@ -20,16 +22,34 @@ import { Storage } from '@ionic/storage';
 
 export class HomePage {
 eid:string='';
-  constructor(public storage:Storage,public popoverCtrl: PopoverController,public navCtrl: NavController) {
+arr:Users[]=[];
+fk_user_email:string;
+  constructor(public storage:Storage,public popoverCtrl: PopoverController,
+    public navCtrl: NavController,public data:UserdbProvider) {
 
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
-   this.storage.get('name').then((val)=>{
-    console.log( val);
-    this.eid=val;
-   
-  });
+    this.storage.get('name').then((val) => {
+      console.log(val);
+      this.fk_user_email = val;
+      this.data.getUsersById(this.fk_user_email).subscribe(
+
+        (data: Users[]) => {
+          this.arr = data;
+          
+        },
+        function (e) {
+          alert(e);
+        },
+        function () {
+          
+        }
+
+      );
+
+    });
+    
 
   }
 openPopover(myEvent) {
@@ -38,6 +58,11 @@ openPopover(myEvent) {
       ev: myEvent
     });
   }
+  onReminder()
+  {
+    this.navCtrl.push(ReminderPage)
+  }
+ 
   onClick()
   {
    

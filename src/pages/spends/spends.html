@@ -14,7 +14,9 @@
         <ion-title style="float:left;">
             Spends
         </ion-title>
+
     </ion-navbar>
+
 
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="spends">
@@ -27,8 +29,42 @@
         </ion-segment>
     </ion-toolbar>
 </ion-header>
+<ion-content padding>
+    <ion-fab bottom right style="margin-bottom:22px;">
+        <button ion-fab>
+        <ion-icon name="add"></ion-icon>
+      </button>
+        <ion-fab-list side="top">
+            <button ion-fab (click)="onClickRec()">
+          <ion-icon name="cloud"></ion-icon>
+          <div class="label">Reccuring Spends</div>
+        </button>
+        </ion-fab-list>
 
-<ion-content>
+        <ion-fab-list side="top">
+            <button ion-fab class="button3" (click)="onClickOne() ">
+          <ion-icon name="cloud-done"></ion-icon>
+          <div class="label">One-time Spends</div>
+        </button>
+        </ion-fab-list>
+
+
+        <ion-fab-list side="top">
+            <button ion-fab class="button4" (click)="onClickFreq() ">
+          <ion-icon name="cloud-outline"></ion-icon>
+          <div class="label">Frequent Spends</div>
+        </button>
+        </ion-fab-list>
+
+
+
+
+    </ion-fab>
+
+
+
+
+
     <div [ngSwitch]="spends">
 
 
@@ -47,8 +83,8 @@
                 <ion-datetime displayFormat="DD-MM-YYYY" (ionChange)="searchByDate()" [(ngModel)]="event.finalDate"></ion-datetime>
 
             </ion-item>
-
             <ion-footer style="position:fixed;height:50px;" (click)="totSpendByCat()">
+
                 <ion-toolbar>
 
                     <table style="background:#32C8A3">
@@ -80,19 +116,6 @@
 
                 </ion-item>
             </ion-card>
-
-            <ion-fab bottom style="position:fixed;margin-left:260px;margin-bottom:45px">
-                <button ion-fab><ion-icon name="add"></ion-icon></button>
-                <ion-fab-list side="top" color="primary">
-                    <button (click)="onClickRec() " style="font-size:20px; "> Recurring<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
-                    <button (click)="onClickFreq() " style="font-size:20px; ">Frequent <ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
-                    <button (click)="onClickOne() " style="font-size:20px; ">One-Time  <ion-icon name="cloud-done"></ion-icon></button>
-
-                </ion-fab-list>
-            </ion-fab>
-
-
-
 
 
         </ion-list>

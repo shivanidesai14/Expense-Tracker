@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import { SocialSharing } from '@ionic-native/social-sharing';
 import { IonicPage, NavController, NavParams ,LoadingController,ToastController,PopoverController,ActionSheetController,Platform} from 'ionic-angular';
 import { AddnewnotePage } from "../addnewnote/addnewnote";
 import { Notes } from "../../shared/notes";
@@ -6,8 +8,8 @@ import { NotesdbProvider } from "../../providers/notesdb/notesdb";
 import { PopoverNotePage } from "../popover-note/popover-note";
 import { PopoverNote1pagePage } from "../popover-note1page/popover-note1page";
 import { EditnotesPage } from "../editnotes/editnotes";
-import { Storage } from '@ionic/storage';
-import { SocialSharing } from '@ionic-native/social-sharing';
+import { PopoverMenuPage } from "../popover-menu/popover-menu";
+
 /**
  * Generated class for the NewnotePage page.
  *
@@ -123,7 +125,12 @@ fk_user_email:string='';
     }
   )
   }
-  
+  openPopoverMenu(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverMenuPage);
+    popover.present({
+      ev: myEvent
+    });
+  }
   onclick()
   {
     this.navCtrl.push(AddnewnotePage);

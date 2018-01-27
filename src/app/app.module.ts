@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, FabContainer } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
@@ -14,7 +14,7 @@ import { PopoverPage } from "../pages/popover/popover";
 import { PopoverNotePage } from "../pages/popover-note/popover-note";
 import { SpendsPage } from "../pages/spends/spends";
 import { LoginPage } from "../pages/login/login";
-import {  SignupPage} from "../pages/signup/signup";
+import { SignupPage } from "../pages/signup/signup";
 import { NewnotePage } from "../pages/newnote/newnote";
 import { AddnewnotePage } from "../pages/addnewnote/addnewnote";
 import { GraphPage } from "../pages/graph/graph";
@@ -24,23 +24,22 @@ import { SelectcatPage } from "../pages/selectcat/selectcat";
 import { FrequentPage } from "../pages/frequent/frequent";
 import { EdocumentPage } from "../pages/edocument/edocument";
 import { EditnotesPage } from "../pages/editnotes/editnotes";
-import { BarChartPage} from "../pages/bar-chart/bar-chart";
+import { BarChartPage } from "../pages/bar-chart/bar-chart";
 import { LineChartPage } from "../pages/line-chart/line-chart";
-import {CategoryPage} from "../pages/category/category";
+import { CategoryPage } from "../pages/category/category";
 import { TutorialPage } from "../pages/tutorial/tutorial";
 import { UserProfilePage } from "../pages/user-profile/user-profile";
 import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
 import { PopoverMenuPage } from "../pages/popover-menu/popover-menu";
 import { SpendsNotePage } from "../pages/spends-note/spends-note";
-<<<<<<< HEAD
 import { LoanPage } from "../pages/loan/loan";
+import { ReminderPage } from "../pages/reminder/reminder";
 import { CalculateLoanPage } from "../pages/calculate-loan/calculate-loan";
-=======
 import { ViewspendsPage } from "../pages/viewspends/viewspends";
 import { ViewCategorySpendsPage } from "../pages/view-category-spends/view-category-spends";
 import { PopoverNote1pagePage } from "../pages/popover-note1page/popover-note1page";
 import { TotalSpendsPage } from "../pages/total-spends/total-spends";
->>>>>>> 343e268bf9ca5db78817716183d3218482991711
+import { ChangepassPage } from "../pages/changepass/changepass";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
@@ -49,11 +48,8 @@ import { CatsubcatdbProvider } from '../providers/catsubcatdb/catsubcatdb';
 import { CategorydbProvider } from '../providers/categorydb/categorydb';
 import { SubcategorydbProvider } from '../providers/subcategorydb/subcategorydb';
 import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
-<<<<<<< HEAD
 import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
-=======
 import { LoandbProvider } from '../providers/loandb/loandb';
->>>>>>> a5b825510069e6d10a1766259dc5af3e23c019bb
 
 
 
@@ -61,22 +57,19 @@ import { LoandbProvider } from '../providers/loandb/loandb';
 @NgModule({
   declarations: [
     MyApp,
-    SelectcatPage,HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,
-    AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,
-    EditnotesPage,CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,UserProfilePage,
-<<<<<<< HEAD
-    SpendsNotePage,LoanPage,CalculateLoanPage
-=======
-    SpendsNotePage,ViewspendsPage,PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,PopoverNote1pagePage
->>>>>>> 343e268bf9ca5db78817716183d3218482991711
+    SelectcatPage, HomePage, DemoPage, PopoverPage, SpendsPage, LoginPage, SignupPage, NewnotePage,
+    AddnewnotePage, GraphPage, FrequentPage, RecurringPage, OnetimePage, EdocumentPage, PopoverNotePage,
+    EditnotesPage, CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
+    SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, PopoverNote1pagePage, ReminderPage, ChangepassPage
 
 
-   
+
+
 
 
   ],
   imports: [
-    BrowserModule,HttpModule,HttpClientModule,
+    BrowserModule, HttpModule, HttpClientModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
@@ -84,23 +77,20 @@ import { LoandbProvider } from '../providers/loandb/loandb';
   entryComponents: [
     MyApp,
 
-    HomePage,DemoPage,PopoverPage,SpendsPage,
-    LoginPage,SignupPage,NewnotePage,AddnewnotePage,
-    GraphPage,FrequentPage,RecurringPage,OnetimePage,
-    SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
-    CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
-<<<<<<< HEAD
-    UserProfilePage,SpendsNotePage,LoanPage,CalculateLoanPage
-=======
-    UserProfilePage,SpendsNotePage,ViewspendsPage,PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,PopoverNote1pagePage
->>>>>>> 343e268bf9ca5db78817716183d3218482991711
+    HomePage, DemoPage, PopoverPage, SpendsPage,
+    LoginPage, SignupPage, NewnotePage, AddnewnotePage,
+    GraphPage, FrequentPage, RecurringPage, OnetimePage,
+    SelectcatPage, EdocumentPage, PopoverNotePage, EditnotesPage,
+    CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, LoanPage, CalculateLoanPage,
+    UserProfilePage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, PopoverNote1pagePage, ReminderPage, ChangepassPage
+
 
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     NotesdbProvider,
     UserdbProvider,
     LogindbProvider,
@@ -108,19 +98,17 @@ import { LoandbProvider } from '../providers/loandb/loandb';
     CatsubcatdbProvider,
     CategorydbProvider,
     SubcategorydbProvider,
-
+    FabContainer,
     SpendsdbProvider,
     CatsubcatdbProvider,
     CategorydbProvider,
     SubcategorydbProvider,
-    SpendsdbProvider,SocialSharing,
-<<<<<<< HEAD
-    SubcatexpdbProvider
-=======
-    LoandbProvider
->>>>>>> a5b825510069e6d10a1766259dc5af3e23c019bb
+    SpendsdbProvider, SocialSharing,
+    SubcatexpdbProvider,
+    LoandbProvider,
+
 
 
   ]
 })
-export class AppModule {}
+export class AppModule { }

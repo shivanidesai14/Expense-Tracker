@@ -45,5 +45,11 @@ public url2:string="http://localhost:3000/spendsbyid/";
   {
     return this.http.get(this.url2+id);
   }
+   editSpends(item:Spends)
+  {
+       // alert('provider to update');
+        let body=JSON.stringify(item);
+        return this.http.put(this.url+item.expense_id,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
+  }
 
 }
