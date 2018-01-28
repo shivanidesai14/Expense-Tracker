@@ -20,8 +20,9 @@
             <ion-icon name="log-out" float-left></ion-icon>
         </h2>
         <h2>
-            <ion-icon name="color-wand" float-right click="onUpdateProfile()"></ion-icon>
+            <ion-icon float-right (click)="onEditProfile()" ios="ios-color-wand" md="md-color-wand"></ion-icon>
         </h2>
+
         <div class="splash-logo">
             <ion-icon class="iconclass " name="camera"></ion-icon>
         </div>
@@ -40,7 +41,7 @@
             My Spends
         </ion-card-header>
         <ion-card-content>
-            <ion-item style="text-align:right"><button ion-button color="default" clear><b>VIEW ALL SPENDS</b></button></ion-item>
+            <ion-item style="text-align:right"><button ion-button color="default" clear (click)="onClickSpends()"><b>VIEW ALL SPENDS</b></button></ion-item>
         </ion-card-content>
     </ion-card>
     <div>
@@ -51,7 +52,7 @@
             My Reports
         </ion-card-header>
         <ion-card-content>
-            <ion-item style="text-align:right"><button ion-button color="default" clear><b>VIEW ALL REPORTS</b></button></ion-item>
+            <ion-item style="text-align:right"><button ion-button color="default" clear (click)="onClickGraph()"><b>VIEW ALL REPORTS</b></button></ion-item>
         </ion-card-content>
     </ion-card>
     <div>
@@ -62,7 +63,7 @@
             My Loans
         </ion-card-header>
         <ion-card-content>
-            <ion-item style="text-align:right"><button ion-button color="default" clear><b>VIEW ALL LOANS</b></button></ion-item>
+            <ion-item style="text-align:right"><button ion-button color="default" clear (click)="onClickLoan()"><b>VIEW ALL LOANS</b></button></ion-item>
         </ion-card-content>
     </ion-card>
     <div>

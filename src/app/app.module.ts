@@ -33,6 +33,7 @@ import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
 import { PopoverMenuPage } from "../pages/popover-menu/popover-menu";
 import { SpendsNotePage } from "../pages/spends-note/spends-note";
 import { ViewspendsPage } from "../pages/viewspends/viewspends";
+import { EditprofilePage } from "../pages/editprofile/editprofile";
 import { ViewCategorySpendsPage } from "../pages/view-category-spends/view-category-spends";
 import { PopoverNote1pagePage } from "../pages/popover-note1page/popover-note1page";
 import { TotalSpendsPage } from "../pages/total-spends/total-spends";
@@ -44,11 +45,11 @@ import { CatsubcatdbProvider } from '../providers/catsubcatdb/catsubcatdb';
 import { CategorydbProvider } from '../providers/categorydb/categorydb';
 import { SubcategorydbProvider } from '../providers/subcategorydb/subcategorydb';
 import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
-<<<<<<< HEAD
+
 import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
-=======
+
 import { LoandbProvider } from '../providers/loandb/loandb';
->>>>>>> a5b825510069e6d10a1766259dc5af3e23c019bb
+
 
 
 
@@ -59,7 +60,7 @@ import { LoandbProvider } from '../providers/loandb/loandb';
     SelectcatPage,HomePage,DemoPage,PopoverPage,SpendsPage,LoginPage,SignupPage,NewnotePage,
     AddnewnotePage,GraphPage,FrequentPage,RecurringPage,OnetimePage,EdocumentPage,PopoverNotePage,
     EditnotesPage,CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,UserProfilePage,
-    SpendsNotePage,ViewspendsPage,PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,PopoverNote1pagePage
+    SpendsNotePage,ViewspendsPage,PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,PopoverNote1pagePage,EditprofilePage
 
 
    
@@ -80,7 +81,7 @@ import { LoandbProvider } from '../providers/loandb/loandb';
     GraphPage,FrequentPage,RecurringPage,OnetimePage,
     SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
     CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
-    UserProfilePage,SpendsNotePage,ViewspendsPage,PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,PopoverNote1pagePage
+    UserProfilePage,SpendsNotePage,ViewspendsPage,PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,PopoverNote1pagePage,EditprofilePage
 
 
   ],
@@ -101,11 +102,9 @@ import { LoandbProvider } from '../providers/loandb/loandb';
     CategorydbProvider,
     SubcategorydbProvider,
     SpendsdbProvider,SocialSharing,
-<<<<<<< HEAD
-    SubcatexpdbProvider
-=======
+    SubcatexpdbProvider,
     LoandbProvider
->>>>>>> a5b825510069e6d10a1766259dc5af3e23c019bb
+
 
 
   ]

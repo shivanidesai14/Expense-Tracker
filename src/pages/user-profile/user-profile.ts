@@ -1,3 +1,7 @@
+import { EditprofilePage } from './../editprofile/editprofile';
+import { SpendsPage } from './../spends/spends';
+import { LoanPage } from './../loan/loan';
+import { GraphPage } from './../graph/graph';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -27,4 +31,20 @@ fk_user_email:string='';
     console.log('ionViewDidLoad UserProfilePage');
   }
 
+  onClickGraph()
+  {
+    this.navCtrl.push(GraphPage);
+  }
+  onClickLoan()
+  {
+    this.navCtrl.push(LoanPage);
+  }
+  onClickSpends()
+  {
+    this.navCtrl.push(SpendsPage);
+  }
+  onEditProfile()
+  {
+    this.navCtrl.push(EditprofilePage);
+  }
 }
