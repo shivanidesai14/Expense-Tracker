@@ -103,6 +103,100 @@ sexp_note:string='';
     });
     
   }
+  onClickGreen()
+  {
+    this.storage.get('spendsid').then((val) => {
+      console.log( val);
+      this.sexpense_id=val;
+    
+    this._data1.getSpendsById(this.sexpense_id).subscribe(
 
+      (data:Spends[])=>{
+      
+         this.arr=data;
+           this.scolour_name="lightgreen";
+         this.sexp_note=this.arr[0].exp_note;
+         this.sfk_scat_id=this.arr[0].fk_scat_id;
+         this.sexpense_date=this.arr[0].expense_date
+         this.sexpense_amt=this.arr[0].expense_amt;
+         this.sfk_user_email=this.arr[0].fk_user_email;
+        
+        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note);
+        this._data1.editSpends(item).subscribe(
+
+          (data:Spends[])=>{
+         
+           this.navCtrl.push(SpendsPage);
+       }
   
+        )
+       }
+    )
+
+    });
+  }
+  onClickBrown()
+  {
+    this.storage.get('spendsid').then((val) => {
+      console.log( val);
+      this.sexpense_id=val;
+    
+    this._data1.getSpendsById(this.sexpense_id).subscribe(
+
+      (data:Spends[])=>{
+      
+         this.arr=data;
+           this.scolour_name="lightcoral";
+         this.sexp_note=this.arr[0].exp_note;
+         this.sfk_scat_id=this.arr[0].fk_scat_id;
+         this.sexpense_date=this.arr[0].expense_date
+         this.sexpense_amt=this.arr[0].expense_amt;
+         this.sfk_user_email=this.arr[0].fk_user_email;
+        
+        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note);
+        this._data1.editSpends(item).subscribe(
+
+          (data:Spends[])=>{
+         
+           this.navCtrl.push(SpendsPage);
+       }
+  
+        )
+       }
+    )
+
+    });
+  }
+  onClickBlack()
+  {
+    this.storage.get('spendsid').then((val) => {
+      console.log( val);
+      this.sexpense_id=val;
+    
+    this._data1.getSpendsById(this.sexpense_id).subscribe(
+
+      (data:Spends[])=>{
+      
+         this.arr=data;
+           this.scolour_name="darkturquoise";
+         this.sexp_note=this.arr[0].exp_note;
+         this.sfk_scat_id=this.arr[0].fk_scat_id;
+         this.sexpense_date=this.arr[0].expense_date
+         this.sexpense_amt=this.arr[0].expense_amt;
+         this.sfk_user_email=this.arr[0].fk_user_email;
+        
+        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note);
+        this._data1.editSpends(item).subscribe(
+
+          (data:Spends[])=>{
+         
+           this.navCtrl.push(SpendsPage);
+       }
+  
+        )
+       }
+    )
+
+    });
+  }
 }

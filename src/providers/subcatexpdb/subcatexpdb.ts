@@ -5,6 +5,7 @@ import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 
 import 'rxjs/Rx';
+import { SpendsSubcat } from '../../shared/spendsSubcat';
 
 /*
   Generated class for the SubcatexpdbProvider provider.
@@ -15,6 +16,9 @@ import 'rxjs/Rx';
 @Injectable()
 export class SubcatexpdbProvider {
 url:string="http://localhost:3000/subcatexp/"
+url1:string="http://localhost:3000/expbycolor/"
+
+
   constructor(public http: HttpClient) {
     console.log('Hello SubcatexpdbProvider Provider');
   }
@@ -24,5 +28,10 @@ url:string="http://localhost:3000/subcatexp/"
         let body=JSON.stringify(item);
         return this.http.post(this.url+id,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
   }
-
+  
+  getExpenseByColor(item:SpendsSubcat)
+  {
+    let body=JSON.stringify(item);
+    return this.http.post(this.url1,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
+  }
 }

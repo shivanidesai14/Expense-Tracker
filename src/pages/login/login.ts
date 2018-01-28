@@ -147,5 +147,15 @@ forgotPassword()
     });
     prompt.present();
   }
+  public type = 'password';
+  public showPass = true;
+  showPassword() {
+    this.showPass = !this.showPass;
  
+    if(this.showPass){
+      this.type = 'password';
+    } else {
+      this.type = 'text';
+    }
+  }
 }

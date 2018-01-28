@@ -42,6 +42,7 @@ import { TotalSpendsPage } from "../pages/total-spends/total-spends";
 import { ChangepassPage } from "../pages/changepass/changepass";
 import { AddReminderPage } from "../pages/add-reminder/add-reminder";
 import { EditreminderPage } from "../pages/editreminder/editreminder";
+import { PopoverSpend1Page } from "../pages/popover-spend1/popover-spend1";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
@@ -64,7 +65,7 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
     AddnewnotePage, GraphPage, FrequentPage, RecurringPage, OnetimePage, EdocumentPage, PopoverNotePage,
     EditnotesPage, CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
     SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, 
-    PopoverNote1pagePage, ReminderPage, ChangepassPage,AddReminderPage,EditreminderPage
+    PopoverNote1pagePage, ReminderPage, ChangepassPage,AddReminderPage,EditreminderPage,PopoverSpend1Page
 
 
 
@@ -88,7 +89,7 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
     CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, 
     LoanPage, CalculateLoanPage, UserProfilePage, SpendsNotePage, ViewspendsPage, 
     PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, PopoverNote1pagePage,
-     ReminderPage, ChangepassPage,AddReminderPage,EditreminderPage
+     ReminderPage, ChangepassPage,AddReminderPage,EditreminderPage,PopoverSpend1Page
 
 
 

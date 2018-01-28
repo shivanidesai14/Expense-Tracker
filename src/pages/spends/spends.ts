@@ -7,11 +7,14 @@ import { FrequentPage } from "../frequent/frequent";
 import { SpendsSubcat } from "../../shared/spendsSubcat"
 import { Spends } from "../../shared/spends";
 import { SpendsdbProvider } from "../../providers/spendsdb/spendsdb";
+import { SubcatexpdbProvider } from "../../providers/subcatexpdb/subcatexpdb";
 import { PopoverSpendPage } from "../popover-spend/popover-spend";
 import { PopoverMenuPage } from "../popover-menu/popover-menu";
 import { ViewspendsPage } from "../viewspends/viewspends";
 import { TotalSpendsPage } from "../total-spends/total-spends";
+import { PopoverSpend1Page } from "../popover-spend1/popover-spend1";
 import { Storage } from '@ionic/storage';
+import { Item } from 'ionic-angular/components/item/item';
 
 
 /**
@@ -33,7 +36,6 @@ export class SpendsPage {
   y: any = new Date().getFullYear();
   arr: SpendsSubcat[] = [];
   arr1: SpendsSubcat[] = [];
-  txtsearch: string = "";
   fk_user_email: string = '';
   item: Spends[] = [];
   sumexp: number = 0;
@@ -41,9 +43,13 @@ export class SpendsPage {
   isAndroid: boolean = false;
   testing: String = '';
   tot: number;
+  txtsearch:string="";
+  cflag:number;
+  color:string;
+  flag:number=0;
 
   constructor(public storage: Storage, public popoverCtrl: PopoverController,
-    public _data: SpendsdbProvider, public load: LoadingController, public to: ToastController,
+    public _data: SpendsdbProvider,public data:SubcatexpdbProvider, public load: LoadingController, public to: ToastController,
     platform: Platform, public navCtrl: NavController, public navParams: NavParams,
     public alert: AlertController, public fab: FabContainer) {
     this.isAndroid = platform.is('android');
@@ -60,6 +66,63 @@ export class SpendsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpendsPage');
+    this.storage.get('colorflag').then((val)=>{
+      console.log(val);
+      this.cflag=val;
+    //  alert(this.cflag);
+      this.storage.set('colorflag','null');
+      if(this.cflag>0)
+      {
+        //alert('welcome to if');
+        this.storage.get('colorname').then((val)=>{
+          console.log( val);
+          this.color=val;
+          this.storage.set('colorname','null');
+          this.storage.get('name').then((val)=>{
+            console.log( val);
+            this.fk_user_email=val;
+
+            let item=new SpendsSubcat(0,this.fk_user_email,0,"",0,this.color,"","","");
+
+          let l1=this.load.create({
+      
+          content:"Loading..."
+        });
+        l1.present();
+          this.data.getExpenseByColor(item).subscribe(
+      
+              (data:SpendsSubcat[])=>{
+       // alert('successful');       
+                this.arr=data;
+                this.spends="color";
+                for (var i = 0; i < this.arr.length; i++) {
+                  this.sumexp = this.sumexp + this.arr[i].expense_amt;
+                }
+                if(this.arr.length>0)
+                {
+                  this.flag=1;
+                }
+              },
+              function(e)
+              {
+                alert(e);
+              },
+              function()
+              {
+                l1.dismiss();
+              }
+      
+          );
+          });
+   
+          });
+        
+       
+       
+        
+      }
+      else
+      {
     this.storage.get('name').then((val) => {
       console.log(val);
       this.fk_user_email = val;
@@ -88,7 +151,8 @@ export class SpendsPage {
 
     });
 
-
+  }
+});
   }
 
   public event = {
@@ -140,6 +204,14 @@ export class SpendsPage {
       ev: myEvent
     });
   }
+  openPopover1(myEvent) {
+  
+    let popover = this.popoverCtrl.create(PopoverSpend1Page);
+    popover.present({
+      ev: myEvent
+    });
+  }
+
   searchByDate() {
 
     if (this.event.finalDate != '') {
@@ -173,7 +245,8 @@ export class SpendsPage {
 
     );
   }
-  showPrompt() {
+  showPrompt(item)
+  {
     let prompt = this.alert.create({
       title: 'Delete Spend',
       message: "Are you sure you want to delete this spend???",
@@ -187,8 +260,8 @@ export class SpendsPage {
         {
           text: 'Yes',
           handler: data => {
-
-            this.onDelSpends(this.item);
+            
+            this.onDelSpends(item);
           }
         }
       ]
