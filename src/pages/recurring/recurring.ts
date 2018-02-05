@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { Component,ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams,Navbar, LoadingController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { CurrencyPipe } from '@angular/common';
 import { Platform } from 'ionic-angular';
@@ -22,7 +22,7 @@ import { EdocumentPage } from "../edocument/edocument";
   templateUrl: 'recurring.html',
 })
 export class RecurringPage {
-
+  @ViewChild('navbar') navBar: Navbar;
   expense_amt:number = 0;
   exp_amt:number = 0;
  cnt:number=0;
@@ -105,16 +105,15 @@ export class RecurringPage {
     // month: '2017-01-01',
 
   }
-ionViewDidUnLoad()
-{
 
-alert("hello")
-}
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecurringPage');
     this.storage.set('img', this.url);
     this.storage.set('na', '');
-    // alert(this.tmp);
+    this.navBar.backButtonClick = () => {
+      this.navCtrl.push(SpendsPage);
+  };
   }
   recurringNote() {
     this.navCtrl.push(AddnewnotePage);
@@ -252,10 +251,10 @@ alert("hello")
       //alert(this.sdayname);
       if (this.sdayname == this.mon)
        {
-         
-        this.exp_amt = this.exp_amt + this.expense_amt;
         
-        //alert(this.exp_amt);
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+        
+        alert(this.exp_amt);
       }
       else if (this.sdayname == this.tue || this.sdayname == this.mon) 
       {
@@ -319,7 +318,7 @@ alert("hello")
 
 
     }
-    alert(this.exp_amt);
+   // alert(this.exp_amt);
     this.exp_note = this.tmp_msg + " " + this.spends_notes;
     let t1 = this.to.create({
       message: "Field must not be empty",
