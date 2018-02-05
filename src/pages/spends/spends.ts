@@ -30,7 +30,7 @@ import { Item } from 'ionic-angular/components/item/item';
   templateUrl: 'spends.html',
 })
 export class SpendsPage {
-
+//fab:FabContainer;
   dt: any = new Date().getDate();
   x: any = new Date().getMonth();
   y: any = new Date().getFullYear();
@@ -47,17 +47,17 @@ export class SpendsPage {
   cflag:number;
   color:string;
   flag:number=0;
-
+  fab:FabContainer;
   constructor(public storage: Storage, public popoverCtrl: PopoverController,
     public _data: SpendsdbProvider,public data:SubcatexpdbProvider, public load: LoadingController, public to: ToastController,
     platform: Platform, public navCtrl: NavController, public navParams: NavParams,
-    public alert: AlertController, public fab: FabContainer) {
+    public alert: AlertController) {
     this.isAndroid = platform.is('android');
 
   }
   ionViewWillEnter() {
     this.testing = "date";
-    this.fab.close();
+  //  this.fab.close();
 
   }
   ionViewDidEnter() {
@@ -65,7 +65,8 @@ export class SpendsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SpendsPage');
+    console.log('ionViewDidLoad Spend(sPage');
+  
     this.storage.get('colorflag').then((val)=>{
       console.log(val);
       this.cflag=val;

@@ -128,9 +128,6 @@ alert("hello")
     else {
       this.clr1 = "#1976d2";
       this.mon = "Mon";
-
-
-
     }
 
   }
@@ -253,9 +250,9 @@ alert("hello")
       if (this.sdayname == this.mon)
        {
          
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt=(+this.exp_amt) + (+this.expense_amt);
         
-        //alert(this.exp_amt);
+        alert(this.exp_amt);
       }
       else if (this.sdayname == this.tue || this.sdayname == this.mon) 
       {
@@ -370,20 +367,10 @@ alert("hello")
               l1.dismiss();
             }
           )
-        });
+       });
       });
     }
-
-
-
-
-
-
-
-
-
-
-  }
+   }
   onClickCategory() {
     this.navCtrl.push(SelectcatPage);
   }
