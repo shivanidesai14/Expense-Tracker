@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams,PopoverController } from 'ionic-angular';
+import { PopoverMenuPage } from "../popover-menu/popover-menu";
 
 /**
  * Generated class for the EdocumentPage page.
@@ -16,11 +16,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EdocumentPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,public popoverCtrl: PopoverController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EdocumentPage');
   }
-
+  openPopoverMenu(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverMenuPage);
+    popover.present({
+      ev: myEvent
+    });
+  }
 }

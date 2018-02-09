@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar no-border-bottom color="primary">
+    <ion-navbar no-border-bottom color="greenmajanta" hideBackButton>
         <ion-buttons end>
             <a ion-button icon-only (click)="openPopoverMenu($event)">
                 <ion-icon name="more"></ion-icon>
@@ -14,7 +14,9 @@
         <ion-title style="float:left;">
             Spends
         </ion-title>
+
     </ion-navbar>
+
 
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="spends">
@@ -27,8 +29,42 @@
         </ion-segment>
     </ion-toolbar>
 </ion-header>
+<ion-content padding>
+    <ion-fab bottom right style="margin-bottom:22px;">
+        <button ion-fab>
+        <ion-icon name="add"></ion-icon>
+      </button>
+        <ion-fab-list side="top">
+            <button ion-fab (click)="onClickRec()">
+          <ion-icon name="cloud"></ion-icon>
+          <div class="label">Reccuring Spends</div>
+        </button>
+        </ion-fab-list>
 
-<ion-content>
+        <ion-fab-list side="top">
+            <button ion-fab class="button3" (click)="onClickOne()">
+          <ion-icon name="cloud-done"></ion-icon>
+          <div class="label">One-time Spends</div>
+        </button>
+        </ion-fab-list>
+
+
+        <ion-fab-list side="top">
+            <button ion-fab class="button4" (click)="onClickFreq() ">
+          <ion-icon name="cloud-outline"></ion-icon>
+          <div class="label">Frequent Spends</div>
+        </button>
+        </ion-fab-list>
+
+
+
+
+    </ion-fab>
+
+
+
+
+
     <div [ngSwitch]="spends">
 
 
@@ -44,14 +80,14 @@
 
 
 
-                <ion-datetime displayFormat="DD-MM-YYYY" (ionChange)="searchByDate()" [(ngModel)]="event.finalDate"></ion-datetime>
+                <ion-datetime displayFormat="YYYY-MM-DD" (ionChange)="searchByDate()" [(ngModel)]="event.finalDate"></ion-datetime>
 
             </ion-item>
-
             <ion-footer style="position:fixed;height:50px;" (click)="totSpendByCat()">
+
                 <ion-toolbar>
 
-                    <table style="background:#32C8A3">
+                    <table style="background:#B2DFDB">
                         <tr>
                             <td>
                                 <ion-label style="font-size:20px;">TOTAL SPENDS</ion-label>
@@ -75,36 +111,27 @@
                         <span align="left" class="col col-50">{{item.sub_cat_name}}</span>
                         <span align="right" class="col col-50"> {{item.expense_amt | currency:'INR':true}}</span>
                     </div>
+                    <div class="item row">
+                        <span align="left" class="col col-50"><p>{{item.expense_date}}</p></span>
 
-                    <p>{{item.expense_date}}</p>
+                    </div>
+
 
                 </ion-item>
             </ion-card>
-
-            <ion-fab bottom style="position:fixed;margin-left:260px;margin-bottom:45px">
-                <button ion-fab><ion-icon name="add"></ion-icon></button>
-                <ion-fab-list side="top" color="primary">
-                    <button (click)="onClickRec() " style="font-size:20px; "> Recurring<ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
-                    <button (click)="onClickFreq() " style="font-size:20px; ">Frequent <ion-icon name="cloud-done"></ion-icon></button>&nbsp;&nbsp;
-                    <button (click)="onClickOne() " style="font-size:20px; ">One-Time  <ion-icon name="cloud-done"></ion-icon></button>
-
-                </ion-fab-list>
-            </ion-fab>
-
-
-
 
 
         </ion-list>
         <ion-list *ngSwitchCase="'color'">
 
-            <ion-searchbar [(ngModel)]="txtsearch " (keypress)="openPopover($event) " placeholder="Search By Color ">Search by Color</ion-searchbar>
+            <ion-searchbar [(ngModel)]="txtsearch " (click)="openPopover1($event)" placeholder="Search By Color ">Search by Color</ion-searchbar>
             <ion-card *ngFor="let item of arr ">
                 <div class="list card ">
-                    <ion-card-header [ngClass]="{c1:item.colour_name=='white' ,c2:item.colour_name=='orange' ,c3:item.colour_name=='lightgreen' ,c4:item.colour_name=='lightcoral',c5:item.colour_name=='darkturquoise'} ">
+                    <ion-card-header [ngClass]="{c1:item.colour_name=='white' ,c2:item.colour_name=='orange' ,c3:item.colour_name=='lightgreen' ,c4:item.colour_name=='lightcoral',c5:item.colour_name=='darkturquoise'}">
+
                         <ion-icon name="radio-button-off" (click)="openPopover($event,item.expense_id)"></ion-icon>
                         &nbsp;&nbsp;
-                        <ion-icon name="trash" (click)="onDelSpends(item) "></ion-icon>
+                        <ion-icon name="trash" (click)="showPrompt(item)"></ion-icon>
                     </ion-card-header>
 
                 </div>
@@ -127,7 +154,22 @@
                     </ion-card-content>
                 </div>
             </ion-card>
+            <ion-footer style="position:fixed;height:50px;" (click)="totSpendByCat()">
 
+                <ion-toolbar>
+
+                    <table style="background:#B2DFDB">
+                        <tr>
+                            <td>
+                                <ion-label style="font-size:20px;">TOTAL SPENDS</ion-label>
+                            </td>
+                            <td>
+                                <ion-label style="font-size:20px;margin-left:75px">{{sumexp | currency:'INR':true}}</ion-label>
+                            </td>
+                        </tr>
+                    </table>
+                </ion-toolbar>
+            </ion-footer>
 
 
 

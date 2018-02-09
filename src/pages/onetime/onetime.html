@@ -6,7 +6,7 @@
 -->
 
 <ion-header>
-    <ion-navbar no-border-bottom color="primary">
+    <ion-navbar #navbar no-border-bottom color="greenmajanta">
         <ion-title>
             Add One-Time Spends
             <ion-icon name="checkmark-circle-outline" class="iconclass" style="float:right" (click)="oneTimeSpendAdd()"></ion-icon>
@@ -49,4 +49,4 @@
 
 
 
-    <textarea placeholder="Write here.." rows="12" cols="27" style="border:1px solid lightblue;font-size:20px;margin-left:20px;" [(ngModel)]="spends_notes"></textarea>
+    <textarea placeholder="Write Note.." rows="12" cols="27" style="border:1px solid lightblue;font-size:20px;margin-left:20px;" [(ngModel)]="spends_notes"></textarea>

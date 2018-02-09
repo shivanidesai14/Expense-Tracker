@@ -1,9 +1,10 @@
 import { Component,ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController,PopoverController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import { BarChartPage } from "../bar-chart/bar-chart";
 import { LineChartPage } from "../line-chart/line-chart";
+import { PopoverMenuPage } from "../popover-menu/popover-menu";
 
 /**
  * Generated class for the GraphPage page.
@@ -33,7 +34,8 @@ this.testing = "pie";
   doughnutChart: any;
   lineChart :any;
   n:number=1000;
-  constructor(public modalctrl:ModalController,platform: Platform,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public modalctrl:ModalController,platform: Platform,
+    public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
       this.isAndroid = platform.is('android');
   }
 
@@ -49,6 +51,12 @@ this.testing = "pie";
     type: chartType,
     data: data,
     options: options
+  });
+}
+openPopoverMenu(myEvent) {
+  let popover = this.popoverCtrl.create(PopoverMenuPage);
+  popover.present({
+    ev: myEvent
   });
 }
 getBarChart() {

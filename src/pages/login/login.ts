@@ -70,6 +70,7 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
           t1.present();
         }
         else{
+          this.storage.set('pass',this.pass);
           this.storage.set('name',this.email);
           this.storage.get('name').then((val) => {
             console.log( val);
@@ -146,5 +147,15 @@ forgotPassword()
     });
     prompt.present();
   }
+  public type = 'password';
+  public showPass = true;
+  showPassword() {
+    this.showPass = !this.showPass;
  
+    if(this.showPass){
+      this.type = 'password';
+    } else {
+      this.type = 'text';
+    }
+  }
 }

@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-    <ion-navbar>
+    <ion-navbar color="greenmajanta">
         <ion-title>Calculate Loan</ion-title>
     </ion-navbar>
 
@@ -38,9 +38,11 @@
         <ion-item-divider color="light">Results</ion-item-divider>
         <ion-item>Monthly Payment</ion-item>
 
+        <ion-label><b>{{this.monPay}}</b></ion-label>
         <ion-item>Total Payments</ion-item>
-
+        <ion-label><b>{{this.totPay}}</b></ion-label>
         <ion-item>Total Interest Paid</ion-item>
+        <ion-label><b>{{this.interest}}</b></ion-label>
         <ion-item>Pay-off Date</ion-item>
         <ion-label><b>{{this.finalPay}}</b></ion-label>
     </ion-item-group>

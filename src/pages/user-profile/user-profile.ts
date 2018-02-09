@@ -5,7 +5,7 @@ import { GraphPage } from './../graph/graph';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
+import { ChangepassPage } from "../changepass/changepass";
 /**
  * Generated class for the UserProfilePage page.
  *
@@ -29,6 +29,10 @@ fk_user_email:string='';
     this.fk_user_email=val;
      });
     console.log('ionViewDidLoad UserProfilePage');
+  }
+  chagepass()
+  {
+    this.navCtrl.push(ChangepassPage);
   }
 
   onClickGraph()

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController,ToastController } from 'ionic-angular';
+import { Component,ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams,Navbar,LoadingController,ToastController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
 import { AddnewnotePage } from "../addnewnote/addnewnote";
@@ -23,6 +23,7 @@ import { SpendsNotePage } from "../spends-note/spends-note";
   templateUrl: 'onetime.html',
 })
 export class OnetimePage {
+  @ViewChild('navbar') navBar: Navbar;
   dt:any=new Date().getDate();
 x:any=new Date().getMonth();
 y:any=new Date().getFullYear();
@@ -66,6 +67,9 @@ ionViewDidEnter() {
      
         this.storage.set('img',this.url);
          this.storage.set('na','');
+         this.navBar.backButtonClick = () => {
+          this.navCtrl.push(SpendsPage);
+      };
 }
    public event = {
        finalDate:this.dt+"-"+this.x+"-"+this.y,
