@@ -49,8 +49,10 @@ export class SpendsPage {
   flag:number=0;
   fab:FabContainer;
   constructor(public storage: Storage, public popoverCtrl: PopoverController,
-    public _data: SpendsdbProvider,public data:SubcatexpdbProvider, public load: LoadingController, public to: ToastController,
-    platform: Platform, public navCtrl: NavController, public navParams: NavParams,
+    public _data: SpendsdbProvider,public data:SubcatexpdbProvider,
+     public load: LoadingController, public to: ToastController,
+    platform: Platform, public navCtrl: NavController,
+     public navParams: NavParams,
     public alert: AlertController) {
     this.isAndroid = platform.is('android');
 

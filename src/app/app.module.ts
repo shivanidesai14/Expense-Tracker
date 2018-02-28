@@ -61,18 +61,19 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
 @NgModule({
   declarations: [
     MyApp,
-    SelectcatPage, HomePage, DemoPage, PopoverPage, SpendsPage, LoginPage, SignupPage, NewnotePage,
-    AddnewnotePage, GraphPage, FrequentPage, RecurringPage, OnetimePage, EdocumentPage, PopoverNotePage,
-    EditnotesPage, CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
-    SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, 
-    PopoverNote1pagePage, ReminderPage, ChangepassPage,AddReminderPage,EditreminderPage,PopoverSpend1Page
+    SelectcatPage, HomePage, DemoPage, PopoverPage, SpendsPage, LoginPage, 
+    SignupPage, NewnotePage,
+    AddnewnotePage, GraphPage, FrequentPage,
+     RecurringPage, OnetimePage, EdocumentPage, PopoverNotePage,
+    EditnotesPage, CategoryPage, PopoverSpendPage,
+     LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
+    SpendsNotePage, LoanPage, CalculateLoanPage,
+     SpendsNotePage, ViewspendsPage, PopoverMenuPage, 
+     TotalSpendsPage, ViewCategorySpendsPage, 
+    PopoverNote1pagePage, ReminderPage, ChangepassPage,
+    AddReminderPage,EditreminderPage,PopoverSpend1Page
 
-
-
-
-
-
-  ],
+],
   imports: [
     BrowserModule, HttpModule, HttpClientModule,
     IonicStorageModule.forRoot(),
@@ -89,7 +90,8 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
     CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, 
     LoanPage, CalculateLoanPage, UserProfilePage, SpendsNotePage, ViewspendsPage, 
     PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, PopoverNote1pagePage,
-     ReminderPage, ChangepassPage,AddReminderPage,EditreminderPage,PopoverSpend1Page
+     ReminderPage, ChangepassPage,
+     AddReminderPage,EditreminderPage,PopoverSpend1Page
 
 
 

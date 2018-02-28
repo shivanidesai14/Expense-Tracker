@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar no-border-bottom color="primary">
+    <ion-navbar #navbar no-border-bottom color="primary">
         <ion-title>
             View Spends
         </ion-title>
@@ -27,7 +27,10 @@
                 <span align="right" class="col col-50">{{item.expense_amt | currency:'INR':true}}</span>
             </div>
 
-            <p>{{item.expense_date}}</p>
+            <div class="item row">
+                <span align="left" class="col col-50"><p>{{item.expense_date}}</p></span>
+                <span align="right" class="col col-50"><ion-icon name="trash" (click)="showPrompt(item)"></ion-icon></span>
+            </div>
 
         </ion-item>
         <ion-label style="margin-left:90px;">{{item.exp_note}}</ion-label>

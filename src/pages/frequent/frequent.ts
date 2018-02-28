@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
-import { IonicPage, NavController, NavParams,LoadingController,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Navbar,LoadingController,ToastController } from 'ionic-angular';
 import { AddnewnotePage } from "../addnewnote/addnewnote";
 import { SelectcatPage } from "../selectcat/selectcat";
 import { Spends } from "../../shared/spends";
@@ -19,8 +19,10 @@ import { SpendsPage } from "../spends/spends";
 @Component({
   selector: 'page-frequent',
   templateUrl: 'frequent.html',
+  
 })
 export class FrequentPage {
+  @ViewChild('navbar') navBar: Navbar;
  dt:any=new Date().getDate();
 x:any=new Date().getMonth();
 y:any=new Date().getFullYear();
@@ -58,6 +60,12 @@ ionViewDidEnter() {
             console.log( val);
             this.icon_image=val;
          });
+      
+          this.navBar.backButtonClick = () => {
+              this.navCtrl.push(SpendsPage);
+          };
+      
+      
 }
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrequentPage');

@@ -23,9 +23,9 @@ import { EdocumentPage } from "../edocument/edocument";
 })
 export class RecurringPage {
 
-  expense_amt:number = 0;
-  exp_amt:number = 0;
- cnt:number=0;
+  expense_amt: number = 0;
+  exp_amt: number = 0;
+  cnt: number = 0;
 
   a: number = 0.259;
   ab: number = 0;
@@ -40,7 +40,7 @@ export class RecurringPage {
   clr5: string = "#1976d2";
   clr6: string = "grey";
   clr7: string = "grey";
- 
+
   expense_id: number;
   fk_user_email: string = '';
   fk_scat_id: number;
@@ -74,7 +74,7 @@ export class RecurringPage {
   tmp_msg: string = 'this is demo for Recurring expense';
 
   exp_note: string;
-  
+
   sub_cat_name: string = "";
   icon_image: string = "";
   flag: boolean = false;
@@ -105,11 +105,10 @@ export class RecurringPage {
     // month: '2017-01-01',
 
   }
-ionViewDidUnLoad()
-{
+  ionViewDidUnLoad() {
 
-alert("hello")
-}
+    alert("hello")
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecurringPage');
     this.storage.set('img', this.url);
@@ -227,7 +226,7 @@ alert("hello")
 
     this.year = this.tmp + "";
     this.day = this.year.substr(0, 3);
-   // alert(this.day);
+    // alert(this.day);
     this.year1 = this.year.substr(8, 9);
     this.year2 = this.year1.substr(0, 2);
     //alert(this.year2);
@@ -247,74 +246,56 @@ alert("hello")
       this.days = this.newdate + "";
       this.sdayname = this.days.substr(0, 3);
       //alert(this.sdayname);
-      if (this.sdayname == this.mon)
-       {
-         
-        this.exp_amt=(+this.exp_amt) + (+this.expense_amt);
-        
+      if (this.sdayname == this.mon) {
+
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
         alert(this.exp_amt);
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.mon) 
-      {
+      else if (this.sdayname == this.tue || this.sdayname == this.mon) {
 
-        this.exp_amt=this.exp_amt+this.expense_amt;
-
-        
+        this.exp_amt = this.exp_amt + this.expense_amt;
       }
-      else if (this.sdayname == this.mon || this.sdayname == this.wed) 
-      {
+      else if (this.sdayname == this.mon || this.sdayname == this.wed) {
 
-        this.exp_amt=this.exp_amt+this.expense_amt;  
+        this.exp_amt = this.exp_amt + this.expense_amt;
       }
-      else if (this.sdayname == this.mon || this.sdayname == this.thu) 
-      {
+      else if (this.sdayname == this.mon || this.sdayname == this.thu) {
 
-        this.exp_amt=this.exp_amt+this.expense_amt;  
+        this.exp_amt = this.exp_amt + this.expense_amt;
       }
-      else if (this.sdayname == this.mon || this.sdayname == this.fri) 
-      {
+      else if (this.sdayname == this.mon || this.sdayname == this.fri) {
 
-        this.exp_amt=this.exp_amt+this.expense_amt;  
+        this.exp_amt = this.exp_amt + this.expense_amt;
       }
-      else if (this.sdayname == this.mon || this.sdayname == this.sat) 
-      {
+      else if (this.sdayname == this.mon || this.sdayname == this.sat) {
 
-        this.exp_amt=this.exp_amt+this.expense_amt;  
+        this.exp_amt = this.exp_amt + this.expense_amt;
       }
-      else if (this.sdayname == this.mon || this.sdayname == this.sun) 
-      {
+      else if (this.sdayname == this.mon || this.sdayname == this.sun) {
 
-        this.exp_amt=this.exp_amt+this.expense_amt;  
+        this.exp_amt = this.exp_amt + this.expense_amt;
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.wed) 
-      {
+      else if (this.sdayname == this.tue || this.sdayname == this.wed) {
 
-        this.exp_amt=this.exp_amt+this.expense_amt;  
+        this.exp_amt = this.exp_amt + this.expense_amt;
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.thu) 
-      {
+      else if (this.sdayname == this.tue || this.sdayname == this.thu) {
 
-        this.exp_amt=this.exp_amt+this.expense_amt;  
+        this.exp_amt = this.exp_amt + this.expense_amt;
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.fri) 
-      {
+      else if (this.sdayname == this.tue || this.sdayname == this.fri) {
 
-        this.exp_amt=this.exp_amt+this.expense_amt;  
+        this.exp_amt = this.exp_amt + this.expense_amt;
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.sat) 
-      {
+      else if (this.sdayname == this.tue || this.sdayname == this.sat) {
 
-        this.exp_amt=this.exp_amt+this.expense_amt;  
+        this.exp_amt = this.exp_amt + this.expense_amt;
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.sun) 
-      {
+      else if (this.sdayname == this.tue || this.sdayname == this.sun) {
 
-        this.exp_amt=this.exp_amt+this.expense_amt;  
+        this.exp_amt = this.exp_amt + this.expense_amt;
       }
-
-
-
-
     }
     alert(this.exp_amt);
     this.exp_note = this.tmp_msg + " " + this.spends_notes;
@@ -367,10 +348,10 @@ alert("hello")
               l1.dismiss();
             }
           )
-       });
+        });
       });
     }
-   }
+  }
   onClickCategory() {
     this.navCtrl.push(SelectcatPage);
   }

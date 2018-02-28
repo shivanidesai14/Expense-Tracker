@@ -5,6 +5,7 @@ import { ReminderdbProvider } from "../../providers/reminderdb/reminderdb";
 import { Reminder } from "../../shared/reminder";
 import { AddReminderPage } from '../add-reminder/add-reminder';
 import { EditreminderPage } from "../editreminder/editreminder";
+import { PopoverMenuPage } from "../popover-menu/popover-menu";
 /**
  * Generated class for the ReminderPage page.
  *
@@ -95,6 +96,12 @@ export class ReminderPage {
       }
 
    );
+  }
+  openPopoverMenu(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverMenuPage);
+    popover.present({
+      ev: myEvent
+    });
   }
   
   onEditReminder(item)
