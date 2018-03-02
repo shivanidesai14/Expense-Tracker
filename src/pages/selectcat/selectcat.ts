@@ -8,6 +8,7 @@ import { SubcategorydbProvider } from "../../providers/subcategorydb/subcategory
 import { OnetimePage } from "../onetime/onetime";
 import { FrequentPage } from "../frequent/frequent";
 import { RecurringPage } from "../recurring/recurring";
+import { AddnewcatPage } from "../addnewcat/addnewcat";
 import { Storage } from "@ionic/storage";
 
 /**
@@ -31,6 +32,7 @@ no:number=0;
 no2:number=0;
 flag:number;
 flag1:number;
+fk_user_email:string="";
   constructor(public _data1:CategorydbProvider,
     public _data2:SubcategorydbProvider,
     public storage:Storage,
@@ -40,12 +42,17 @@ flag1:number;
   ionViewDidLoad() {
     this.flag=this.navParams.get('num');
     console.log('ionViewDidLoad SelectcatPage');
+    
+    
+    this.storage.get('name').then((val)=>{
+      console.log( val);
+      this.fk_user_email=val;    
     let l1=this.load.create({
       
           content:"Loading..."
         });
         l1.present();
-          this._data1.getAllCategories().subscribe(
+          this._data1. getCategoriesById(this.fk_user_email).subscribe(
       
               (data1:category[])=>{
                 this.arr1=data1;
@@ -61,6 +68,7 @@ flag1:number;
               }
       
           );
+        });
     
   }
   onClick1(ite)
@@ -78,7 +86,7 @@ flag1:number;
          this.storage.set('img',ite.icon_image);
 
         
-    this.navCtrl.pop(OnetimePage);
+    this.navCtrl.pop();
   }
   
  
@@ -88,7 +96,7 @@ flag1:number;
        this.storage.set('na',ite.sub_cat_name);
        this.storage.set('img',ite.icon_image);
         
-    this.navCtrl.pop(FrequentPage);
+    this.navCtrl.pop();
     
   }
   else
@@ -97,7 +105,7 @@ flag1:number;
        this.storage.set('na',ite.sub_cat_name);
        this.storage.set('img',ite.icon_image);
         
-    this.navCtrl.pop(RecurringPage);
+    this.navCtrl.pop();
   }
   } 
 
@@ -138,5 +146,9 @@ else
         );
   
 
+}
+onClickNewCategory()
+{
+  this.navCtrl.push(AddnewcatPage);
 }
 }

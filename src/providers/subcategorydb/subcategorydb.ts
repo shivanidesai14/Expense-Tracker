@@ -21,6 +21,7 @@ export class SubcategorydbProvider {
   }
   getScategoriesById(id:Number)
   {
+    alert(id);
     return this.http.get(this.url+id);
 
 }
