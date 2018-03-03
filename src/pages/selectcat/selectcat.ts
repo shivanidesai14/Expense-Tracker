@@ -10,6 +10,7 @@ import { FrequentPage } from "../frequent/frequent";
 import { RecurringPage } from "../recurring/recurring";
 import { AddnewcatPage } from "../addnewcat/addnewcat";
 import { Storage } from "@ionic/storage";
+import { Item } from 'ionic-angular/components/item/item';
 
 /**
  * Generated class for the SelectcatPage page.
@@ -33,6 +34,11 @@ no2:number=0;
 flag:number;
 flag1:number;
 fk_user_email:string="";
+sub_cat_id:number;
+sub_cat_name:string="";
+icon_image:string="";
+s_fk_user_email:string="";
+
   constructor(public _data1:CategorydbProvider,
     public _data2:SubcategorydbProvider,
     public storage:Storage,
@@ -52,7 +58,7 @@ fk_user_email:string="";
           content:"Loading..."
         });
         l1.present();
-          this._data1. getCategoriesById(this.fk_user_email).subscribe(
+          this._data1.getCategoriesById(this.fk_user_email).subscribe(
       
               (data1:category[])=>{
                 this.arr1=data1;
@@ -111,6 +117,9 @@ fk_user_email:string="";
 
   
 onClick(no:number){
+  this.storage.get('name').then((val)=>{
+    console.log( val);
+    this.fk_user_email=val;  
   console.log('ionViewDidLoad SelectcatPage');
  this.no2=no;
   if(this.no1==false)
@@ -126,7 +135,8 @@ else
         content:"Loading..."
       });
       l1.present();
-        this._data2.getScategoriesById(no).subscribe(
+      let item=new subcategory(this.sub_cat_id,this.sub_cat_name,no,this.icon_image,this.fk_user_email)
+        this._data2.getSelectedcats(item).subscribe(
     
             (data2:subcategory[])=>{
               this.arr2=data2;
@@ -145,7 +155,7 @@ else
     
         );
   
-
+      });
 }
 onClickNewCategory()
 {

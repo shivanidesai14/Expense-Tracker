@@ -18,7 +18,7 @@
 <ion-content padding>
     <table>
         <tr>
-            <td><img src="../assets/userimgs/sign-question-icon.png" style="height:50px;width:60px;"></td>
+            <td><img src="../assets/userimgs/sign-question-icon.png" style="height:50px;width:50px;"></td>
             <td>
                 <ion-item>
                     <ion-input type="text" placeholder="Category Name" style="font-size:20px;width:250px;" [(ngModel)]="cat_name"></ion-input>
@@ -28,9 +28,11 @@
         <Br>
         <br>
         <tr>
-            <td><img src="../assets/userimgs/sign-question-icon.png" style="height:50px;width:60px;"></td>
+            <td><img src="{{this.picon_image}}" style="height:50px;width:50px;"></td>
             <td>
-                <ion-input type="text" placeholder="Select Parent Category" style="font-size:20px;width:250px;" [(ngModel)]="par_cat_name" (click)="parCat()"></ion-input>
+                <ion-item>
+                    <ion-input type="text" placeholder="Select Parent Category" style="font-family:Microsoft Sans Serif;font-size:20px;width:250px;" [(ngModel)]="pcat_name" (click)="parCat()"></ion-input>
+                </ion-item>
             </td>
         </tr>
     </table>

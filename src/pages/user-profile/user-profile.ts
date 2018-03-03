@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ChangepassPage } from "../changepass/changepass";
+import { LoginPage } from "../login/login";
 /**
  * Generated class for the UserProfilePage page.
  *
@@ -51,4 +52,5 @@ fk_user_email:string='';
   {
     this.navCtrl.push(EditprofilePage);
   }
+ 
 }
