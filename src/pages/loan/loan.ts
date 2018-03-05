@@ -23,7 +23,7 @@ export class LoanPage {
   isAndroid: boolean = false;
   arr: loanclass[] = [];
 
-  fk_user_email: String = "bhattdrashti266@gmail.com";
+  fk_user_email:string="";
   loan_id: Number;
   loan_amt: Number;
   loan_yrs: Number;
@@ -50,6 +50,9 @@ export class LoanPage {
 
 
   onCalLoan() {
+    this.storage.get('name').then((val)=>{
+      console.log( val);
+      this.fk_user_email=val;
    this.arr[0]=new loanclass(0,this.fk_user_email,this.loan_date,this.loan_amt,this.loan_rate,this.loan_yrs,this.loan_emi);
    //this.navCtrl.push(CalculateLoanPage,{'arr':this.arr});
    /*this.navCtrl.push(CalculateLoanPage,{
@@ -90,8 +93,9 @@ export class LoanPage {
  {
    l1.dismiss();
  })
- 
+    });
    }
+
     
   }
 
