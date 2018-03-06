@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { Component,ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams,Navbar, LoadingController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { CurrencyPipe } from '@angular/common';
 import { Platform } from 'ionic-angular';
@@ -22,10 +22,10 @@ import { EdocumentPage } from "../edocument/edocument";
   templateUrl: 'recurring.html',
 })
 export class RecurringPage {
-
-  expense_amt: number = 0;
-  exp_amt: number = 0;
-  cnt: number = 0;
+  @ViewChild('navbar') navBar: Navbar;
+  expense_amt:number = 0;
+  exp_amt:number = 0;
+ cnt:number=0;
 
   a: number = 0.259;
   ab: number = 0;
@@ -40,7 +40,7 @@ export class RecurringPage {
   clr5: string = "#1976d2";
   clr6: string = "grey";
   clr7: string = "grey";
-
+ 
   expense_id: number;
   fk_user_email: string = '';
   fk_scat_id: number;
@@ -48,6 +48,9 @@ export class RecurringPage {
   date: any;
   mo: any;
   month: any;
+
+  tmp_mo:any;
+  tmp_mom:any;
   year: string;
   yr: any;
   day: string;
@@ -74,7 +77,7 @@ export class RecurringPage {
   tmp_msg: string = 'this is demo for Recurring expense';
 
   exp_note: string;
-
+  
   sub_cat_name: string = "";
   icon_image: string = "";
   flag: boolean = false;
@@ -105,15 +108,16 @@ export class RecurringPage {
     // month: '2017-01-01',
 
   }
-  ionViewDidUnLoad() {
 
-    alert("hello")
-  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecurringPage');
     this.storage.set('img', this.url);
     this.storage.set('na', '');
-    // alert(this.tmp);
+    this.navBar.backButtonClick = () => {
+      this.navCtrl.push(SpendsPage);
+  };
+ 
   }
   recurringNote() {
     this.navCtrl.push(AddnewnotePage);
@@ -127,6 +131,9 @@ export class RecurringPage {
     else {
       this.clr1 = "#1976d2";
       this.mon = "Mon";
+
+
+
     }
 
   }
@@ -185,11 +192,11 @@ export class RecurringPage {
   onclickSa() {
     if (this.clr6 == "grey") {
       this.clr6 = "#1976d2";
-      this.sat = "";
+      this.sat = "Sat";
     }
     else {
       this.clr6 = "grey";
-      this.sat = "Sat";
+      this.sat = "";
 
     }
 
@@ -199,20 +206,27 @@ export class RecurringPage {
   onclickSu() {
     if (this.clr7 == "grey") {
       this.clr7 = "#1976d2";
-      this.sun = "";
+      this.sun = "Sun";
     }
     else {
       this.clr7 = "grey";
-      this.sun = "Sun";
+      this.sun = "";
+      alert(this.sun)
     }
   }
+   hello:string;
   Recurringadd() {
     this.date = this.event.finalDate.substr(8, 11);
     //alert(this.date);
 
     this.mo = this.event.finalDate.substr(5, 8);
     this.month = this.mo.substr(0, 2);
-    //alert(this.month);
+
+
+    this.tmp_mo = this.event.finalDate.substr(5, 8);
+    this.tmp_mom = this.tmp_mo.substr(0, 2);
+    this.tmp_mom=this.tmp_mom-1;
+    
 
     this.yr = this.event.finalDate.substr(0, 4);
     //alert(this.yr);
@@ -226,7 +240,7 @@ export class RecurringPage {
 
     this.year = this.tmp + "";
     this.day = this.year.substr(0, 3);
-    // alert(this.day);
+   // alert(this.day);
     this.year1 = this.year.substr(8, 9);
     this.year2 = this.year1.substr(0, 2);
     //alert(this.year2);
@@ -240,64 +254,510 @@ export class RecurringPage {
     for (this.i = this.date; this.i <= this.year2; this.i++) {
       //alert(this.i)
       //alert(this.month);
-      this.newdate = new Date(this.yr, this.month, this.i)
+      
+      this.newdate = new Date(this.yr,this.tmp_mom, this.i);
 
       //alert(this.newdate);
       this.days = this.newdate + "";
       this.sdayname = this.days.substr(0, 3);
       //alert(this.sdayname);
-      if (this.sdayname == this.mon) {
+      if (this.sdayname == this.mon)
+       {
+        
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+        
+        //alert(this.exp_amt);
+      }
+      else if (this.sdayname == this.tue || this.sdayname == this.mon) 
+      {
 
         this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-        alert(this.exp_amt);
+        
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.mon) {
+      else if (this.sdayname == this.mon || this.sdayname == this.wed) 
+      {
 
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
       }
-      else if (this.sdayname == this.mon || this.sdayname == this.wed) {
+      else if (this.sdayname == this.mon || this.sdayname == this.thu) 
+      {
 
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
       }
-      else if (this.sdayname == this.mon || this.sdayname == this.thu) {
+      else if (this.sdayname == this.mon || this.sdayname == this.fri) 
+      {
 
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
       }
-      else if (this.sdayname == this.mon || this.sdayname == this.fri) {
+      else if (this.sdayname == this.mon || this.sdayname == this.sat) 
+      {
 
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
       }
-      else if (this.sdayname == this.mon || this.sdayname == this.sat) {
+      else if (this.sdayname == this.mon || this.sdayname == this.sun) 
+      {
 
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
       }
-      else if (this.sdayname == this.mon || this.sdayname == this.sun) {
+      else if (this.sdayname == this.tue || this.sdayname == this.wed) 
+      {
 
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.wed) {
+      else if (this.sdayname == this.tue || this.sdayname == this.thu) 
+      {
 
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.thu) {
+      else if (this.sdayname == this.tue || this.sdayname == this.fri) 
+      {
 
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.fri) {
+      else if (this.sdayname == this.tue || this.sdayname == this.sat) 
+      {
 
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.sat) {
+      else if (this.sdayname == this.tue || this.sdayname == this.sun) 
+      {
 
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
       }
-      else if (this.sdayname == this.tue || this.sdayname == this.sun) {
+      else if (this.sdayname == this.wed || this.sdayname == this.thu) 
+      {
 
-        this.exp_amt = this.exp_amt + this.expense_amt;
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
       }
+      else if (this.sdayname == this.wed || this.sdayname == this.fri) 
+      {
+
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
+      }
+      else if (this.sdayname == this.wed || this.sdayname == this.sat) 
+      {
+
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
+      }
+      else if (this.sdayname == this.wed || this.sdayname == this.sun) 
+      {
+
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
+      }
+      else if (this.sdayname == this.thu || this.sdayname == this.fri) 
+      {
+
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
+      }
+      else if (this.sdayname == this.thu || this.sdayname == this.sat) 
+      {
+
+          this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
+      }
+      else if (this.sdayname == this.thu || this.sdayname == this.sun) 
+      {
+
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
+      }
+      else if (this.sdayname == this.fri || this.sdayname == this.sat) 
+      {
+
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
+      }
+      else if (this.sdayname == this.fri || this.sdayname == this.sun) 
+      {
+
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
+      }
+      else if (this.sdayname == this.sat || this.sdayname == this.sun) 
+      {
+
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
+      }
+
+     else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed)
+      {
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+     }
+     else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.thu)
+      {
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+     }
+     else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.fri)
+      {
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+     }
+     else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.sat)
+     {
+      this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+     
     }
-    alert(this.exp_amt);
+    else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.sun)
+      {
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+     }
+     else if (this.sdayname == this.mon || this.sdayname== this.thu || this.sdayname==this.wed)
+      {
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+     }
+     else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.wed)
+     {
+      this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+     
+    }
+    else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.wed)
+    {
+     this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+    
+   }
+   else if (this.sdayname == this.mon || this.sdayname== this.sun || this.sdayname==this.wed)
+   {
+    this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+   
+    }
+    else if (this.sdayname == this.mon || this.sdayname== this.thu || this.sdayname==this.fri)
+    {
+     this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+    
+     }
+     else if (this.sdayname == this.mon || this.sdayname== this.thu || this.sdayname==this.sat)
+     {
+      this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+     
+      }
+      else if (this.sdayname == this.mon || this.sdayname== this.thu || this.sdayname==this.sun)
+      {
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+       }
+       else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.tue)
+       {
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+       
+        }
+        else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.thu)
+        {
+         this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+        
+         }
+         else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.sat)
+         {
+          this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+         
+          }
+          else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.sat)
+          {
+           this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+          
+          }
+          else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.tue)
+          {
+           this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+          
+           }
+           else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.wed)
+           {
+            this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+           
+            }
+            else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.thu)
+            {
+             this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+            
+             }
+             else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.fri)
+             {
+              this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+             
+              }
+              else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.sun)
+              {
+               this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+              
+               }
+              
+
+    else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.thu)
+    {
+     this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+    
+   }
+   else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.fri)
+   {
+    this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+   
+  }
+  else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.sat)
+  {
+   this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+  
+ }
+ else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.sun)
+ {
+  this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+ 
+}
+else if (this.sdayname == this.tue || this.sdayname== this.thu || this.sdayname==this.fri)
+{
+ this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.tue || this.sdayname== this.thu || this.sdayname==this.sat)
+{
+this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.tue || this.sdayname== this.thu || this.sdayname==this.sun)
+{
+this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.tue || this.sdayname== this.fri || this.sdayname==this.sat)
+{
+this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.tue || this.sdayname== this.fri || this.sdayname==this.sun)
+{
+this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.tue || this.sdayname== this.sat || this.sdayname==this.sun)
+{
+this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.fri)
+{
+ this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.sat)
+{
+ this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.sun)
+{
+ this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.wed || this.sdayname== this.fri || this.sdayname==this.sat)
+{
+ this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.wed || this.sdayname== this.fri || this.sdayname==this.sun)
+{
+ this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.thu || this.sdayname== this.fri || this.sdayname==this.sat)
+{
+ this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.fri || this.sdayname== this.thu || this.sdayname==this.sun)
+{
+ this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.thu || this.sdayname== this.sat || this.sdayname==this.sun)
+{
+ this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.fri || this.sdayname== this.sat || this.sdayname==this.sun)
+{
+ this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.fri)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.sat)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.sun)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.fri || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.sat || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.sun || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.wed || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.wed || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.sun || this.sdayname==this.wed || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.fri || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.sat || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.sun || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.fri || this.sdayname==this.sat)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.fri || this.sdayname==this.sun)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.thu || this.sdayname== this.fri || this.sdayname==this.sat || this.sdayname==this.sun)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.fri)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.sat)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.sun)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.thu || this.sdayname==this.fri || this.sdayname==this.sat)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.thu || this.sdayname==this.fri || this.sdayname==this.sun)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.fri || this.sdayname==this.sat || this.sdayname==this.sun)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.thu || this.sdayname== this.fri || this.sdayname==this.sat || this.sdayname==this.sun || this.sdayname==this.mon)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.fri || this.sdayname== this.sat || this.sdayname==this.sun || this.sdayname==this.mon || this.sdayname==this.tue)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.sat || this.sdayname== this.sun || this.sdayname==this.mon || this.sdayname==this.tue || this.sdayname==this.wed)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.sun || this.sdayname== this.mon || this.sdayname==this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.fri || this.sdayname==this.sat)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.fri || this.sdayname==this.sun)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.sun || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.fri || this.sdayname==this.sat)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.fri || this.sdayname==this.sat || this.sdayname==this.sun || this.sdayname==this.mon)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.thu || this.sdayname== this.fri || this.sdayname==this.sat || this.sdayname==this.sun || this.sdayname==this.mon || this.sdayname==this.tue)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.fri || this.sdayname== this.sat || this.sdayname==this.sun || this.sdayname==this.mon || this.sdayname==this.tue || this.sdayname==this.wed)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.sat || this.sdayname== this.sun || this.sdayname==this.mon || this.sdayname==this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.sun || this.sdayname== this.mon || this.sdayname==this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.fri)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if (this.sdayname == this.sun || this.sdayname == this.tue || this.sdayname == this.wed || this.sdayname == this.thu || this.sdayname == this.fri || this.sdayname == this.sat || this.sdayname == this.mon)
+{
+       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+      
+}
+else if(this.sdayname == this.sat || this.sdayname==this.sun)
+{
+  this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+}
+    }
+  
     this.exp_note = this.tmp_msg + " " + this.spends_notes;
     let t1 = this.to.create({
       message: "Field must not be empty",
@@ -351,6 +811,16 @@ export class RecurringPage {
         });
       });
     }
+
+
+
+
+
+
+
+
+
+
   }
   onClickCategory() {
     this.navCtrl.push(SelectcatPage);

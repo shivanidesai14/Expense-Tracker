@@ -34,7 +34,8 @@ flag1:number;
   constructor(public _data1:CategorydbProvider,
     public _data2:SubcategorydbProvider,
     public storage:Storage,
-    public load:LoadingController,public navCtrl: NavController, public navParams: NavParams) {
+    public load:LoadingController,public navCtrl: NavController,
+     public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -78,7 +79,7 @@ flag1:number;
          this.storage.set('img',ite.icon_image);
 
         
-    this.navCtrl.pop(OnetimePage);
+    this.navCtrl.pop();
   }
   
  
@@ -88,7 +89,7 @@ flag1:number;
        this.storage.set('na',ite.sub_cat_name);
        this.storage.set('img',ite.icon_image);
         
-    this.navCtrl.pop(FrequentPage);
+    this.navCtrl.pop();
     
   }
   else
@@ -97,7 +98,7 @@ flag1:number;
        this.storage.set('na',ite.sub_cat_name);
        this.storage.set('img',ite.icon_image);
         
-    this.navCtrl.pop(RecurringPage);
+    this.navCtrl.pop();
   }
   } 
 

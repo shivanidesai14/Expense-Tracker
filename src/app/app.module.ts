@@ -36,6 +36,7 @@ import { LoanPage } from "../pages/loan/loan";
 import { ReminderPage } from "../pages/reminder/reminder";
 import { CalculateLoanPage } from "../pages/calculate-loan/calculate-loan";
 import { ViewspendsPage } from "../pages/viewspends/viewspends";
+import { EditprofilePage } from "../pages/editprofile/editprofile";
 import { ViewCategorySpendsPage } from "../pages/view-category-spends/view-category-spends";
 import { PopoverNote1pagePage } from "../pages/popover-note1page/popover-note1page";
 import { TotalSpendsPage } from "../pages/total-spends/total-spends";
@@ -54,6 +55,7 @@ import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
 import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
 import { LoandbProvider } from '../providers/loandb/loandb';
 import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
+import { LinechartdbProvider } from '../providers/linechartdb/linechartdb';
 
 
 
@@ -61,6 +63,7 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
 @NgModule({
   declarations: [
     MyApp,
+
     SelectcatPage, HomePage, DemoPage, PopoverPage, SpendsPage, LoginPage, 
     SignupPage, NewnotePage,
     AddnewnotePage, GraphPage, FrequentPage,
@@ -71,9 +74,18 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
      SpendsNotePage, ViewspendsPage, PopoverMenuPage, 
      TotalSpendsPage, ViewCategorySpendsPage, 
     PopoverNote1pagePage, ReminderPage, ChangepassPage,
-    AddReminderPage,EditreminderPage,PopoverSpend1Page
+    AddReminderPage,EditreminderPage,PopoverSpend1Page,
+    EditprofilePage
 
 ],
+
+
+
+
+
+
+  
+
   imports: [
     BrowserModule, HttpModule, HttpClientModule,
     IonicStorageModule.forRoot(),
@@ -83,16 +95,14 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
   entryComponents: [
     MyApp,
 
-    HomePage, DemoPage, PopoverPage, SpendsPage,
-    LoginPage, SignupPage, NewnotePage, AddnewnotePage,
-    GraphPage, FrequentPage, RecurringPage, OnetimePage,
-    SelectcatPage, EdocumentPage, PopoverNotePage, EditnotesPage,
-    CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, 
-    LoanPage, CalculateLoanPage, UserProfilePage, SpendsNotePage, ViewspendsPage, 
-    PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, PopoverNote1pagePage,
-     ReminderPage, ChangepassPage,
-     AddReminderPage,EditreminderPage,PopoverSpend1Page
-
+    HomePage,DemoPage,PopoverPage,SpendsPage,
+    LoginPage,SignupPage,NewnotePage,AddnewnotePage,
+    GraphPage,FrequentPage,RecurringPage,OnetimePage,
+    SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
+    CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
+    UserProfilePage,SpendsNotePage,ViewspendsPage,
+    PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,
+    PopoverNote1pagePage,EditprofilePage
 
 
   ],
@@ -109,16 +119,11 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
     SubcategorydbProvider,
     FabContainer,
     SpendsdbProvider,
-    CatsubcatdbProvider,
-    CategorydbProvider,
-    SubcategorydbProvider,
     SpendsdbProvider, SocialSharing,
     SubcatexpdbProvider,
     LoandbProvider,
     ReminderdbProvider,
-
-
-
-  ]
+    LinechartdbProvider
+]
 })
 export class AppModule { }

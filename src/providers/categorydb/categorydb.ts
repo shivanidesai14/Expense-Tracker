@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 
 import 'rxjs/Rx';
 
+
 /*
   Generated class for the CategorydbProvider provider.
 
