@@ -17,8 +17,10 @@
 <ion-content scroll="false">
     <div class="splash-bg"></div>
     <div class="splash-info">
-    </div>
-    <div padding>
+        <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected($event)">
+        <div class="splash-logo">
+            <ion-icon class="iconclass" (click)="onAdd()" name="camera"></ion-icon>
+        </div>
     </div>
     <div padding>
         <form novalidate [formGroup]="user">

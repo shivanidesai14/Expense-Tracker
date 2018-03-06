@@ -5,6 +5,8 @@ import { GraphPage } from "../graph/graph";
 import { EdocumentPage } from "../edocument/edocument";
 import { UserProfilePage } from "../user-profile/user-profile";
 import { HomePage } from "../home/home";
+import { LoginPage } from "../login/login";
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the PopoverMenuPage page.
  *
@@ -19,7 +21,7 @@ import { HomePage } from "../home/home";
 })
 export class PopoverMenuPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public storage:Storage,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -49,5 +51,5 @@ this.navCtrl.push(EdocumentPage);
     this.navCtrl.push(UserProfilePage);
   
   }
-
+  
 }

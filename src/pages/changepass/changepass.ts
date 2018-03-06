@@ -4,6 +4,7 @@ import { UserdbProvider } from "../../providers/userdb/userdb";
 import { Users } from "../../shared/users";
 import { Storage } from '@ionic/storage';
 import { Item } from 'ionic-angular/components/item/item';
+import { UserProfilePage } from '../user-profile/user-profile';
 /**
  * Generated class for the ChangepassPage page.
  *
@@ -100,6 +101,7 @@ cuser_id:number;
           this.data.changePassword(this.fk_user_email,item).subscribe(
             (data:Users[])=>{
               to3.present();
+              this.navCtrl.push(UserProfilePage);
              
           }
           ),

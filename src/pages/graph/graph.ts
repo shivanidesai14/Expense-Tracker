@@ -102,10 +102,10 @@ getBarChart() {
 }
 getDoughnutChart() {
   let data = {
-    labels: ["Red", "Brown", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: ["Red", "Brown", "Blue", "Yellow", "Green", "Purple", "Orange","Dark Orange","Mehndi","Dark Green","Sea Blue","light green","light purple"],
     datasets: [{
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      data: [12, 19, 3, 5, 2, 3 ,6 ,3 ,5 ,8 , 4, 9 ,6],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(244, 164, 96, 0.8)',
@@ -113,9 +113,18 @@ getDoughnutChart() {
         'rgba(255, 206, 86, 0.2)',
         'rgba(75, 192, 192, 0.2)',
         'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
+        'rgba(255, 159, 64, 0.2)',
+
+        'rgba( 255, 227, 191, 0.5)',
+        'rgba( 237, 234, 139, 0.5)',
+        'rgba( 139, 237, 163, 0.5)',
+        'rgba( 159, 201, 249, 0.4)',
+        'rgba( 255, 150, 81, 0.5)',
+        'rgba( 31, 165, 163, 0.3)',
+
+       
       ],
-      hoverBackgroundColor: ["#FF6384", "#551a8b", "#36A2EB", "#FFCE56", "#FF6384", "#36A2EB", "#FFCE56"]
+      hoverBackgroundColor: ["#FF6384", "#551a8b", "#36A2EB", "#FFCE56", "#FF6384", "#36A2EB", "#FFCE56","#ff8f00","#ddd70b","#0fc43c","#97efe5","#eff9ca","#efa0ff"]
     }]
   };
 

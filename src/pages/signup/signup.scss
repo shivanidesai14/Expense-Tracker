@@ -1,29 +1,41 @@
 page-signup {
-    .fontedit
-    {
-      font-weight: bold; 
+    .fontedit {
+        font-weight: bold;
     }
     .splash-bg {
-      position: relative;
-      background: url('../assets/imgs/i8.jpg') no-repeat transparent;
-      background-size: cover;
-      height: 42%;
-      z-index: 1;
-      background-repeat: repeat-x;
-      animation: animatedBackground 5s linear infinite;
-  }
-  @keyframes animatedBackground {
-      from {
-          background-position: 0 0;
-      }
-      to {
-          background-position: 100% 0;
-      }
-  }
-  .splash-info {
-      position: relative;
-      z-index: 2;
-      margin-top: -68px;
-      text-align: center;
-  }
+        position: relative;
+        background: url('../assets/imgs/i8.jpg') no-repeat transparent;
+        background-size: cover;
+        height: 42%;
+        z-index: 1;
+        background-repeat: repeat-x;
+        animation: animatedBackground 5s linear infinite;
+    }
+    @keyframes animatedBackground {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: 100% 0;
+        }
+    }
+    .splash-info {
+        position: relative;
+        z-index: 2;
+        margin-top: -68px;
+        text-align: center;
+    }
+    .iconclass {
+        margin-top: 20px;
+        font-size: 60px;
+    }
+    .splash-logo {
+        margin: auto;
+        // background: url('../assets/imgs/3901.png') repeat transparent;
+        background-size: 100%;
+        width: 100px;
+        height: 100px;
+        background: lightgray;
+        border-radius: 50%;
+    }
 }

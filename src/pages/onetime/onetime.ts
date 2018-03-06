@@ -115,7 +115,8 @@ ionViewDidEnter() {
     
 
       let l1=this.lo.create({
-        content:"loading"
+        content:"loading",
+        
       });
       l1.present();
       let t1=this.to.create({

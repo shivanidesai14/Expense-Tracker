@@ -44,6 +44,8 @@ import { ChangepassPage } from "../pages/changepass/changepass";
 import { AddReminderPage } from "../pages/add-reminder/add-reminder";
 import { EditreminderPage } from "../pages/editreminder/editreminder";
 import { PopoverSpend1Page } from "../pages/popover-spend1/popover-spend1";
+import { AddnewcatPage } from "../pages/addnewcat/addnewcat";
+import { SelectParCatPage } from "../pages/select-par-cat/select-par-cat";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
@@ -75,7 +77,8 @@ import { LinechartdbProvider } from '../providers/linechartdb/linechartdb';
      TotalSpendsPage, ViewCategorySpendsPage, 
     PopoverNote1pagePage, ReminderPage, ChangepassPage,
     AddReminderPage,EditreminderPage,PopoverSpend1Page,
-    EditprofilePage
+    EditprofilePage,PopoverSpend1Page,EditprofilePage,AddnewcatPage,
+    SelectParCatPage
 
 ],
 
@@ -102,7 +105,7 @@ import { LinechartdbProvider } from '../providers/linechartdb/linechartdb';
     CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
     UserProfilePage,SpendsNotePage,ViewspendsPage,
     PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,
-    PopoverNote1pagePage,EditprofilePage
+    PopoverNote1pagePage,EditprofilePage,AddnewcatPage,SelectParCatPage
 
 
   ],

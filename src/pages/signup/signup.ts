@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController,ToastController } from 'ionic-angular';
 import {  OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
@@ -6,6 +6,8 @@ import { Users } from "../../shared/users";
 import { Signup1dbProvider } from "../../providers/signup1db/signup1db";
 import { HomePage } from "../home/home";
 import { Storage } from "@ionic/storage";
+
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 /**
  * Generated class for the SignupPage page.
@@ -22,20 +24,26 @@ import { Storage } from "@ionic/storage";
 export class SignupPage implements OnInit {
 
 user: FormGroup;
-
-  uid:number=0;
+@ViewChild("fileInput") fileInput;
+  uid:any;
   umail:string='';
   upass:string='';
   uname:string='';
   umobno:string='';
   uimg:string='../assets/userimgs/defaultimg.png';
   udpass:string='';
+  selectedFile: File = null;
   constructor(public storage:Storage,public _data:Signup1dbProvider,
-    public navCtrl: NavController, public navParams: NavParams,public lo:LoadingController,public to:ToastController) {
+    public navCtrl: NavController, public navParams: NavParams,
+    public lo:LoadingController,public to:ToastController,private http:HttpClient) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
+  }
+  onFileSelected(value) {
+    this.selectedFile = <File>value.target.files[0];
+
   }
   signup1()
   {
@@ -72,12 +80,32 @@ user: FormGroup;
         position:"bottom"
       });
   let item=new Users(this.uid,this.umail,this.uname,this.umobno,this.uimg,this.upass,this.udpass);
-  this._data.addUsers(item).subscribe(
-    (data)=>{
-       t1.present();
-       this.storage.set('uname',this.uname);
-       this.storage.set('uno',this.umobno);
-      this.navCtrl.push(HomePage);
+ this._data.addUsers(item).subscribe(
+   (data)=>{
+ /* const fd = new FormData();
+
+    fd.append("user_id",this.uid);
+    fd.append("user_email",this.umail);
+    fd.append("user_name",this.uname);
+    fd.append("user_mob_no",this.umobno);
+    fd.append("user_img", this.selectedFile, this.selectedFile.name);
+    fd.append("user_pass",this.upass);
+    fd.append("user_dpass",this.udpass);
+    
+    
+            
+    
+
+    this.http.post("http://localhost:3000/userss/", fd)
+    .subscribe(res => {
+      console.log(res);
+  
+    },*/
+
+      t1.present();
+      this.storage.set('uname',this.uname);
+      this.storage.set('uno',this.umobno);
+     this.navCtrl.push(HomePage);
     },
     function(e)
     {
@@ -100,5 +128,7 @@ name: new FormControl('', [Validators.required])
 });
 
 }
-
+onAdd(){
+  this.fileInput.nativeElement.click();
+}
 }

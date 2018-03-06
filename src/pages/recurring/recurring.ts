@@ -268,6 +268,56 @@ export class RecurringPage {
         
         //alert(this.exp_amt);
       }
+      if (this.sdayname == this.tue)
+       {
+        
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+        
+        //alert(this.exp_amt);
+      }
+      if (this.sdayname == this.wed)
+       {
+        
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+        
+        //alert(this.exp_amt);
+      }
+      if (this.sdayname == this.thu)
+       {
+        
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+        
+        //alert(this.exp_amt);
+      }
+      if (this.sdayname == this.fri)
+       {
+        
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+        
+        //alert(this.exp_amt);
+      }
+      if (this.sdayname == this.sat)
+       {
+        
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+        
+        //alert(this.exp_amt);
+      }
+      if (this.sdayname == this.sun)
+       {
+        
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+        
+        //alert(this.exp_amt);
+      }
+      this.sdayname="";
+            /*if (this.sdayname == this.mon)
+       {
+        
+        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
+        
+        //alert(this.exp_amt);
+      }
       else if (this.sdayname == this.tue || this.sdayname == this.mon) 
       {
 
@@ -755,7 +805,7 @@ else if (this.sdayname == this.sun || this.sdayname == this.tue || this.sdayname
 else if(this.sdayname == this.sat || this.sdayname==this.sun)
 {
   this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-}
+}*/
     }
   
     this.exp_note = this.tmp_msg + " " + this.spends_notes;
