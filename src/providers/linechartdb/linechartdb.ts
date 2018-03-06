@@ -15,16 +15,23 @@ import 'rxjs/add/operator/map';
 export class LinechartdbProvider {
 str1:any="";
   url:string="http://localhost:3000/linechart/";
+  urldouchart:string="http://localhost:3000/doughnut/";
+  urlbarchart:string="http://localhost:3000/bchart/";
   constructor(public http: HttpClient) {
     console.log('Hello LinechartdbProvider Provider');
   }
   getexpforline(id:string)
   {
-    //alert('hello');
-   // alert(id);
-    //alert(mail);
     return this.http.get(this.url+id);
-    
+  }
+  getexps(id:string,mon:number)
+  {
+     return this.http.get(this.urldouchart+id+"/"+mon);
+  }
+  getexpforbar(id:string)
+  {
+ 
+    return this.http.get(this.urlbarchart+id)
   }
 
 }
