@@ -35,10 +35,7 @@ emailid:string;
    
     console.log('ionViewDidLoad EditprofilePage');
 
-    /*this.user_email = this.navParams.get('email');
-    this.user_name = this.navParams.get('name');
-    this.user_mob_no = this.navParams.get('mob_no');
-*/  this.storage.get('name').then((val)=>{
+    this.storage.get('name').then((val)=>{
     this.emailid=val;
     alert(this.emailid);
     this.data.getUsersById(this.emailid).subscribe(

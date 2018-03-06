@@ -16,7 +16,6 @@
         </ion-title>
     </ion-navbar>
 </ion-header>
-<!--(keyup)="search()"-->
 <ion-content padding>
     <ion-searchbar [(ngModel)]="txtsearch" (click)="openPopover1($event)" placeholder="Search Or Filter By Color">Search by Color</ion-searchbar>
     <div *ngIf="flag;else demo">
@@ -42,14 +41,11 @@
 
 
                 </ion-card-header>
-
-                <!--<hr style="border:2px solid black;">-->
             </div>
             <div>
                 <ion-card-content>
                     {{item.notes_desc}}
                 </ion-card-content>
-                <!--<ion-label style="float:right;font-size:1.5em;">{{item.notes_date}}</ion-label>-->
                 <ion-item>
                     <ion-label>Date</ion-label>
                     <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="item.notes_date"></ion-datetime>

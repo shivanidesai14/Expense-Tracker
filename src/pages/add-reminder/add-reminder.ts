@@ -20,7 +20,6 @@ export class AddReminderPage {
   dt: any = new Date().getDate();
   x: any = new Date().getMonth();
   y: any = new Date().getFullYear();
-  //finalDate:any=this.y+"-"+ this.x +"-"+this.dt;
   rem_title:string="";
   rem_desc:string="";
   fk_user_email:string="";
@@ -35,8 +34,6 @@ export class AddReminderPage {
   }
   public event = {
     finalDate: this.y + "-" + this.x + "-" + this.dt,
-
-    // month: '2017-01-01',
 
   }
 

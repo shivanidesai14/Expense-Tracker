@@ -3,13 +3,13 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
 import { IonicApp, IonicErrorHandler, IonicModule, FabContainer } from 'ionic-angular';
+import { Camera, CameraOptions } from "@ionic-native/camera";
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { HomePage } from '../pages/home/home';
-import { DemoPage } from '../pages/demo/demo';
 import { PopoverPage } from "../pages/popover/popover";
 import { PopoverNotePage } from "../pages/popover-note/popover-note";
 import { SpendsPage } from "../pages/spends/spends";
@@ -64,11 +64,11 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
 @NgModule({
   declarations: [
     MyApp,
-    SelectcatPage, HomePage, DemoPage, PopoverPage, SpendsPage, LoginPage, SignupPage, NewnotePage,
+    SelectcatPage, HomePage, PopoverPage, SpendsPage, LoginPage, SignupPage, NewnotePage,
     AddnewnotePage, GraphPage, FrequentPage, RecurringPage, OnetimePage, EdocumentPage, PopoverNotePage,
     EditnotesPage, CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
-    SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, 
-    PopoverNote1pagePage, ReminderPage, ChangepassPage,AddReminderPage,EditreminderPage,PopoverSpend1Page,EditprofilePage,AddnewcatPage,
+    SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage,
+    PopoverNote1pagePage, ReminderPage, ChangepassPage, AddReminderPage, EditreminderPage, PopoverSpend1Page, EditprofilePage, AddnewcatPage,
     SelectParCatPage
 
 
@@ -86,21 +86,22 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
   entryComponents: [
     MyApp,
 
-    HomePage, DemoPage, PopoverPage, SpendsPage,
+    HomePage, PopoverPage, SpendsPage,
     LoginPage, SignupPage, NewnotePage, AddnewnotePage,
     GraphPage, FrequentPage, RecurringPage, OnetimePage,
     SelectcatPage, EdocumentPage, PopoverNotePage, EditnotesPage,
-    CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, 
-    LoanPage, CalculateLoanPage, UserProfilePage, SpendsNotePage, ViewspendsPage, 
+    CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage,
+    LoanPage, CalculateLoanPage, UserProfilePage, SpendsNotePage, ViewspendsPage,
     PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, PopoverNote1pagePage,
-     ReminderPage, ChangepassPage,AddReminderPage,EditreminderPage,PopoverSpend1Page,
-     EditprofilePage,AddnewcatPage,SelectParCatPage
+    ReminderPage, ChangepassPage, AddReminderPage, EditreminderPage, PopoverSpend1Page,
+    EditprofilePage, AddnewcatPage, SelectParCatPage
 
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     NotesdbProvider,
     UserdbProvider,
@@ -112,7 +113,7 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
     FabContainer,
     SpendsdbProvider,
     SpendsdbProvider,
-     SocialSharing,
+    SocialSharing,
     SubcatexpdbProvider,
     LoandbProvider,
     ReminderdbProvider,

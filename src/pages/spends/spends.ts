@@ -57,13 +57,10 @@ export class SpendsPage {
   }
   ionViewWillEnter() {
     this.testing = "date";
-    this.fab.close();
+
 
   }
-  ionViewDidEnter() {
-    // this.fab.close();
-  }
-
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpendsPage');
     this.storage.get('colorflag').then((val)=>{
@@ -168,11 +165,7 @@ export class SpendsPage {
 
 
   }
-  /*onClickFab(pageName: string, fab: FabContainer) {
-    fab.close();
-    //console.log(pageName);
-    this.navCtrl.push(pageName);
-  }*/
+ 
   onClickRec(fab: FabContainer) {
     this.fab.close();
     this.navCtrl.push(RecurringPage);

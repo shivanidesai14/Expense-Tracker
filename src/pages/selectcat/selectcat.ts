@@ -81,12 +81,7 @@ s_fk_user_email:string="";
   {
     if(this.flag==1)
     {
-    /*this.navCtrl.push(OnetimePage,{
-
-        id : ite.sub_cat_id,
-        name : ite.sub_cat_name
-
-    })*/
+   
       this.storage.set('id',ite.sub_cat_id);
        this.storage.set('na',ite.sub_cat_name);
          this.storage.set('img',ite.icon_image);
@@ -140,8 +135,7 @@ else
     
             (data2:subcategory[])=>{
               this.arr2=data2;
-              
-             // alert("successful");
+
             },
             function(e)
             {

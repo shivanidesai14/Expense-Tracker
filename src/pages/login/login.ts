@@ -51,7 +51,6 @@ msg:string;
 this.user = new FormGroup({
 email: new FormControl('', [Validators.required,Validators.email]),
 password: new FormControl('', [Validators.required,Validators.minLength(5)]),
-//mob: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)])
 });
 
 }
@@ -62,6 +61,17 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
         duration:3000,
         position:"bottom"
       });
+      let t2=this.to.create({
+        message:"Fields must not be empty",
+        duration:3000,
+        position:"bottom"
+      });
+      if(this.email==""  || this.pass == "")
+      {
+        t2.present();
+      }
+      else
+      {
     let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
     this._data.getUserByLogin(item).subscribe(
       (data)=>{
@@ -70,7 +80,7 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
           t1.present();
         }
         else{
-         // this.storage.set('pass',this.pass);
+          this.storage.set('pass',this.pass);
           this.storage.set('name',this.email);
           this.storage.get('name').then((val) => {
             console.log( val);
@@ -87,17 +97,12 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       }
     );
   }
+  }
   emailid:string='';
   u:Users[]=[];
 forgotPassword()
 {
-  
 
-      
-    
-    //let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
-  //  alert(this.email);
-    // let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
     this._da.getUsersById(this.email).subscribe(
       (data:Users[])=>{
         if(data.length==1)

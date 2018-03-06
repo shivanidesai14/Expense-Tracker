@@ -27,7 +27,8 @@ export class AddnewcatPage {
   cat_name:string="";
   par_cat_name:string="";
   cat_id:number;
-  cicon_image:string="../assets/icon/breakfast.ico";
+  cicon_image:string="../assets/icon/Letter c.ico";
+  paicon_image:string="../assets/icon/Letter P.ico";
   fk_user_email:string="";
 
   pcat_name:string="";
@@ -87,7 +88,7 @@ export class AddnewcatPage {
           duration:3000,
           position:"bottom"
         });
-        this._data.addCategories(new category(this.cat_id,this.cat_name,this.cicon_image,this.fk_user_email)).subscribe(
+        this._data.addCategories(new category(this.cat_id,this.cat_name,this.paicon_image,this.fk_user_email)).subscribe(
   
             (data:any)=>{
               t1.present();

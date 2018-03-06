@@ -58,12 +58,6 @@ export class SelectParCatPage {
     onClick(item)
   {
    
-    /*this.navCtrl.push(OnetimePage,{
-
-        id : ite.sub_cat_id,
-        name : ite.sub_cat_name
-
-    })*/
       this.storage.set('id',item.cat_id);
        this.storage.set('na',item.cat_name);
          this.storage.set('img',item.cicon_image);

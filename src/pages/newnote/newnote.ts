@@ -41,11 +41,9 @@ fk_user_email:string='';
     this.storage.get('colorflag').then((val)=>{
       console.log(val);
       this.cflag=val;
-    //  alert(this.cflag);
       this.storage.set('colorflag','null');
       if(this.cflag>0)
       {
-        //alert('welcome to if');
         this.storage.get('colorname').then((val)=>{
           console.log( val);
           this.color=val;
@@ -63,8 +61,7 @@ fk_user_email:string='';
         l1.present();
           this._data.getNoteByColor(item).subscribe(
       
-              (data:Notes[])=>{
-       // alert('successful');       
+              (data:Notes[])=>{       
                 this.arr=data;
                 if(this.arr.length>0)
                 {
@@ -91,7 +88,6 @@ fk_user_email:string='';
       }
       else
       {
-      //  alert('welcome to else');
         this.storage.get('name').then((val)=>{
           console.log( val);
           this.fk_user_email=val;

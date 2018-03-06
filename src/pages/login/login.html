@@ -46,16 +46,6 @@
                     <ion-input type="password" [(ngModel)]="pass" formControlName="password"></ion-input>
                 </ion-item>
 
-                <!-- <ion-item no-lines *ngIf="( user.get('password').hasError('minlength') || user.get('password').hasError('required') ) && user.get('password').touched">
-
-                    <div class="error" *ngIf="user.get('password').hasError('required') && user.get('password').touched">
-                        Password is required
-                    </div>
-                    <div class="error" *ngIf="user.get('password').hasError('minlength') && user.get('password').touched">
-                        Minimum of 5 characters
-                    </div>
-                </ion-item>-->
-
             </ion-list>
 
             <a style="float:right;font-size:15px;" (click)="showPrompt()">Forget Password??</a>

@@ -8,6 +8,7 @@ import { HomePage } from "../home/home";
 import { Storage } from "@ionic/storage";
 
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the SignupPage page.
@@ -30,7 +31,7 @@ user: FormGroup;
   upass:string='';
   uname:string='';
   umobno:string='';
-  uimg:string='../assets/userimgs/defaultimg.png';
+  //uimg:string='../assets/userimgs/defaultimg.png';
   udpass:string='';
   selectedFile: File = null;
   constructor(public storage:Storage,public _data:Signup1dbProvider,
@@ -70,7 +71,12 @@ user: FormGroup;
     }
     else
     {
-     let l1=this.lo.create({
+      let t3=this.to.create({
+        message:"Sign up successfully",
+        duration:3000,
+        position:"bottom"
+      });
+    /* let l1=this.lo.create({
         content:"loading"
       });
       l1.present();
@@ -78,17 +84,17 @@ user: FormGroup;
         message:"Sign-up Successfully..",
         duration:3000,
         position:"bottom"
-      });
-  let item=new Users(this.uid,this.umail,this.uname,this.umobno,this.uimg,this.upass,this.udpass);
- this._data.addUsers(item).subscribe(
-   (data)=>{
- /* const fd = new FormData();
+      });*/
+ // let item=new Users(this.uid,this.umail,this.uname,this.umobno,this.uimg,this.upass,this.udpass);
+ //this._data.addUsers(item).subscribe(
+  // (data)=>{
+ const fd = new FormData();
 
     fd.append("user_id",this.uid);
     fd.append("user_email",this.umail);
     fd.append("user_name",this.uname);
     fd.append("user_mob_no",this.umobno);
-    fd.append("user_img", this.selectedFile, this.selectedFile.name);
+    fd.append("image", this.selectedFile, this.selectedFile.name);
     fd.append("user_pass",this.upass);
     fd.append("user_dpass",this.udpass);
     
@@ -99,22 +105,24 @@ user: FormGroup;
     this.http.post("http://localhost:3000/userss/", fd)
     .subscribe(res => {
       console.log(res);
-  
-    },*/
 
-      t1.present();
+      t3.present();
+      this.navCtrl.push(LoginPage);  
+    }/*,
+
+      /*t1.present();
       this.storage.set('uname',this.uname);
       this.storage.set('uno',this.umobno);
      this.navCtrl.push(HomePage);
-    },
-    function(e)
+    },*/
+  /*  function(e)
     {
       alert(e);
     },
     function()
     {
       l1.dismiss();
-    }
+    }*/
   );
 }
 }
