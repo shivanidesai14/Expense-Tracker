@@ -30,7 +30,7 @@ import { Item } from 'ionic-angular/components/item/item';
   templateUrl: 'spends.html',
 })
 export class SpendsPage {
-//fab:FabContainer;
+
   dt: any = new Date().getDate();
   x: any = new Date().getMonth();
   y: any = new Date().getFullYear();
@@ -47,28 +47,22 @@ export class SpendsPage {
   cflag:number;
   color:string;
   flag:number=0;
-  fab:FabContainer;
+
   constructor(public storage: Storage, public popoverCtrl: PopoverController,
-    public _data: SpendsdbProvider,public data:SubcatexpdbProvider,
-     public load: LoadingController, public to: ToastController,
-    platform: Platform, public navCtrl: NavController,
-     public navParams: NavParams,
-    public alert: AlertController) {
+    public _data: SpendsdbProvider,public data:SubcatexpdbProvider, public load: LoadingController, public to: ToastController,
+    platform: Platform, public navCtrl: NavController, public navParams: NavParams,
+    public alert: AlertController, public fab: FabContainer) {
     this.isAndroid = platform.is('android');
 
   }
   ionViewWillEnter() {
     this.testing = "date";
-  //  this.fab.close();
+
 
   }
-  ionViewDidEnter() {
-    // this.fab.close();
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Spend(sPage');
   
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SpendsPage');
     this.storage.get('colorflag').then((val)=>{
       console.log(val);
       this.cflag=val;
@@ -171,11 +165,7 @@ export class SpendsPage {
 
 
   }
-  /*onClickFab(pageName: string, fab: FabContainer) {
-    fab.close();
-    //console.log(pageName);
-    this.navCtrl.push(pageName);
-  }*/
+ 
   onClickRec(fab: FabContainer) {
     this.fab.close();
     this.navCtrl.push(RecurringPage);

@@ -92,6 +92,7 @@ getLineChart() {
   }).forEach(item => this.eamt.push(item.exp_amt));
   
      });
+     //this.eamt=this.eamt+"";
      console.log(this.eamt);
      
   });
@@ -123,7 +124,7 @@ getLineChart() {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data:this.eamt.values,
+        data:[this.eamt.values],
          spanGaps: false,
       }
      

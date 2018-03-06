@@ -25,10 +25,7 @@ export class RecurringPage {
   @ViewChild('navbar') navBar: Navbar;
   expense_amt:number = 0;
   exp_amt:number = 0;
- cnt:number=0;
-
-  a: number = 0.259;
-  ab: number = 0;
+ 
   dt: any = new Date().getDate();
 
   x: any = new Date().getMonth();
@@ -217,7 +214,7 @@ export class RecurringPage {
    hello:string;
   Recurringadd() {
     this.date = this.event.finalDate.substr(8, 11);
-    //alert(this.date);
+   
 
     this.mo = this.event.finalDate.substr(5, 8);
     this.month = this.mo.substr(0, 2);
@@ -229,583 +226,73 @@ export class RecurringPage {
     
 
     this.yr = this.event.finalDate.substr(0, 4);
-    //alert(this.yr);
+ 
 
 
 
 
     this.tmp = new Date(this.yr, this.month, 0);
-    //alert(this.tmp);
+    
 
 
     this.year = this.tmp + "";
     this.day = this.year.substr(0, 3);
-   // alert(this.day);
+
     this.year1 = this.year.substr(8, 9);
     this.year2 = this.year1.substr(0, 2);
-    //alert(this.year2);
-
-
-
-    /*this.sday=this.days.substr(8,9);
-    this.sdayfinal=this.sday.substr(0,2);
-    alert(this.sdayfinal);*/
 
     for (this.i = this.date; this.i <= this.year2; this.i++) {
-      //alert(this.i)
-      //alert(this.month);
       
       this.newdate = new Date(this.yr,this.tmp_mom, this.i);
-
-      //alert(this.newdate);
       this.days = this.newdate + "";
       this.sdayname = this.days.substr(0, 3);
-      //alert(this.sdayname);
       if (this.sdayname == this.mon)
        {
         
         this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
         
-        //alert(this.exp_amt);
       }
       if (this.sdayname == this.tue)
        {
         
         this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-        
-        //alert(this.exp_amt);
+      
       }
       if (this.sdayname == this.wed)
        {
         
         this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
         
-        //alert(this.exp_amt);
+     
       }
       if (this.sdayname == this.thu)
        {
         
         this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
         
-        //alert(this.exp_amt);
+     
       }
       if (this.sdayname == this.fri)
        {
         
         this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
         
-        //alert(this.exp_amt);
       }
       if (this.sdayname == this.sat)
        {
         
         this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
         
-        //alert(this.exp_amt);
+      
       }
       if (this.sdayname == this.sun)
        {
         
         this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
         
-        //alert(this.exp_amt);
       }
       this.sdayname="";
-            /*if (this.sdayname == this.mon)
-       {
-        
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-        
-        //alert(this.exp_amt);
-      }
-      else if (this.sdayname == this.tue || this.sdayname == this.mon) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-        
-      }
-      else if (this.sdayname == this.mon || this.sdayname == this.wed) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      }
-      else if (this.sdayname == this.mon || this.sdayname == this.thu) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      }
-      else if (this.sdayname == this.mon || this.sdayname == this.fri) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      }
-      else if (this.sdayname == this.mon || this.sdayname == this.sat) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      }
-      else if (this.sdayname == this.mon || this.sdayname == this.sun) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      }
-      else if (this.sdayname == this.tue || this.sdayname == this.wed) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      }
-      else if (this.sdayname == this.tue || this.sdayname == this.thu) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      }
-      else if (this.sdayname == this.tue || this.sdayname == this.fri) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      }
-      else if (this.sdayname == this.tue || this.sdayname == this.sat) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      }
-      else if (this.sdayname == this.tue || this.sdayname == this.sun) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
-      }
-      else if (this.sdayname == this.wed || this.sdayname == this.thu) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
-      }
-      else if (this.sdayname == this.wed || this.sdayname == this.fri) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
-      }
-      else if (this.sdayname == this.wed || this.sdayname == this.sat) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
-      }
-      else if (this.sdayname == this.wed || this.sdayname == this.sun) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
-      }
-      else if (this.sdayname == this.thu || this.sdayname == this.fri) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
-      }
-      else if (this.sdayname == this.thu || this.sdayname == this.sat) 
-      {
-
-          this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
-      }
-      else if (this.sdayname == this.thu || this.sdayname == this.sun) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
-      }
-      else if (this.sdayname == this.fri || this.sdayname == this.sat) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
-      }
-      else if (this.sdayname == this.fri || this.sdayname == this.sun) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
-      }
-      else if (this.sdayname == this.sat || this.sdayname == this.sun) 
-      {
-
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt); 
-      }
-
-     else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed)
-      {
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-     }
-     else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.thu)
-      {
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-     }
-     else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.fri)
-      {
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-     }
-     else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.sat)
-     {
-      this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-     
-    }
-    else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.sun)
-      {
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-     }
-     else if (this.sdayname == this.mon || this.sdayname== this.thu || this.sdayname==this.wed)
-      {
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-     }
-     else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.wed)
-     {
-      this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-     
-    }
-    else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.wed)
-    {
-     this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-    
-   }
-   else if (this.sdayname == this.mon || this.sdayname== this.sun || this.sdayname==this.wed)
-   {
-    this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-   
-    }
-    else if (this.sdayname == this.mon || this.sdayname== this.thu || this.sdayname==this.fri)
-    {
-     this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-    
-     }
-     else if (this.sdayname == this.mon || this.sdayname== this.thu || this.sdayname==this.sat)
-     {
-      this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-     
-      }
-      else if (this.sdayname == this.mon || this.sdayname== this.thu || this.sdayname==this.sun)
-      {
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-       }
-       else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.tue)
-       {
-        this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-       
-        }
-        else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.thu)
-        {
-         this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-        
-         }
-         else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.sat)
-         {
-          this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-         
-          }
-          else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.sat)
-          {
-           this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
           
-          }
-          else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.tue)
-          {
-           this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-          
-           }
-           else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.wed)
-           {
-            this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-           
-            }
-            else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.thu)
-            {
-             this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-            
-             }
-             else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.fri)
-             {
-              this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-             
-              }
-              else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.sun)
-              {
-               this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-              
-               }
-              
-
-    else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.thu)
-    {
-     this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-    
-   }
-   else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.fri)
-   {
-    this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-   
-  }
-  else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.sat)
-  {
-   this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-  
- }
- else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.sun)
- {
-  this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
- 
-}
-else if (this.sdayname == this.tue || this.sdayname== this.thu || this.sdayname==this.fri)
-{
- this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.tue || this.sdayname== this.thu || this.sdayname==this.sat)
-{
-this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.tue || this.sdayname== this.thu || this.sdayname==this.sun)
-{
-this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.tue || this.sdayname== this.fri || this.sdayname==this.sat)
-{
-this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.tue || this.sdayname== this.fri || this.sdayname==this.sun)
-{
-this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.tue || this.sdayname== this.sat || this.sdayname==this.sun)
-{
-this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.fri)
-{
- this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.sat)
-{
- this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.sun)
-{
- this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.wed || this.sdayname== this.fri || this.sdayname==this.sat)
-{
- this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.wed || this.sdayname== this.fri || this.sdayname==this.sun)
-{
- this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.thu || this.sdayname== this.fri || this.sdayname==this.sat)
-{
- this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.fri || this.sdayname== this.thu || this.sdayname==this.sun)
-{
- this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.thu || this.sdayname== this.sat || this.sdayname==this.sun)
-{
- this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.fri || this.sdayname== this.sat || this.sdayname==this.sun)
-{
- this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.fri)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.sat)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.sun)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.fri || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.sat || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.sun || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.fri || this.sdayname==this.wed || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.sat || this.sdayname==this.wed || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.sun || this.sdayname==this.wed || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.fri || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.sat || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.sun || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.fri || this.sdayname==this.sat)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.fri || this.sdayname==this.sun)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.thu || this.sdayname== this.fri || this.sdayname==this.sat || this.sdayname==this.sun)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.fri)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.sat)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.sun)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.thu || this.sdayname==this.fri || this.sdayname==this.sat)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.tue || this.sdayname== this.wed || this.sdayname==this.thu || this.sdayname==this.fri || this.sdayname==this.sun)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.fri || this.sdayname==this.sat || this.sdayname==this.sun)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.thu || this.sdayname== this.fri || this.sdayname==this.sat || this.sdayname==this.sun || this.sdayname==this.mon)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.fri || this.sdayname== this.sat || this.sdayname==this.sun || this.sdayname==this.mon || this.sdayname==this.tue)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.sat || this.sdayname== this.sun || this.sdayname==this.mon || this.sdayname==this.tue || this.sdayname==this.wed)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.sun || this.sdayname== this.mon || this.sdayname==this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.fri || this.sdayname==this.sat)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.mon || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.fri || this.sdayname==this.sun)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.sun || this.sdayname== this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.fri || this.sdayname==this.sat)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.wed || this.sdayname== this.thu || this.sdayname==this.fri || this.sdayname==this.sat || this.sdayname==this.sun || this.sdayname==this.mon)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.thu || this.sdayname== this.fri || this.sdayname==this.sat || this.sdayname==this.sun || this.sdayname==this.mon || this.sdayname==this.tue)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.fri || this.sdayname== this.sat || this.sdayname==this.sun || this.sdayname==this.mon || this.sdayname==this.tue || this.sdayname==this.wed)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.sat || this.sdayname== this.sun || this.sdayname==this.mon || this.sdayname==this.tue || this.sdayname==this.wed || this.sdayname==this.thu)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.sun || this.sdayname== this.mon || this.sdayname==this.tue || this.sdayname==this.wed || this.sdayname==this.thu || this.sdayname==this.fri)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if (this.sdayname == this.sun || this.sdayname == this.tue || this.sdayname == this.wed || this.sdayname == this.thu || this.sdayname == this.fri || this.sdayname == this.sat || this.sdayname == this.mon)
-{
-       this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-      
-}
-else if(this.sdayname == this.sat || this.sdayname==this.sun)
-{
-  this.exp_amt = (+this.exp_amt) + (+this.expense_amt);
-}*/
     }
   
     this.exp_note = this.tmp_msg + " " + this.spends_notes;
