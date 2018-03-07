@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import { GraphPage } from "../graph/graph";
+import { Storage } from '@ionic/storage';
+import { LinechartdbProvider } from "../../providers/linechartdb/linechartdb";
+import { linechart } from "../../shared/linechart";
 
 /**
  * Generated class for the LineChartPage page.
@@ -17,26 +20,39 @@ import { GraphPage } from "../graph/graph";
   templateUrl: 'line-chart.html',
 })
 export class LineChartPage {
-
+public arr:any[]=[];
    charts: string = "pie";
   isAndroid: boolean = false;
 testing:String='';
+fk_user_email:string='';
+public eamt :any = [];
+
+j:number=0;
+
   ionViewWillEnter(){
 this.testing = "pie";
   }
-@ViewChild('barCanvas') barCanvas;
-  @ViewChild('doughnutCanvas') doughnutCanvas;
   @ViewChild('lineCanvas') lineCanvas;
-  barChart: any;
-  doughnutChart: any;
+
   lineChart :any;
   n:number=1000;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public storage:Storage,public _data:LinechartdbProvider) {
   }
 
    ionViewDidLoad() {
+<<<<<<< HEAD
      
     this.lineChart = this.getLineChart();
+=======
+    
+    this.defineChartData();
+     this.lineChart = this.getLineChart();
+    
+  }
+  defineChartData()
+  {
+>>>>>>> d564aec00c733f8c186f57074791e19214875c8e
   }
   
  getChart(context, chartType, data, options?) {
@@ -45,12 +61,60 @@ this.testing = "pie";
     type: chartType,
     data: data,
     options: options
+<<<<<<< HEAD
   });
 }
 
+=======
+
+  });
+}
+
+
+>>>>>>> d564aec00c733f8c186f57074791e19214875c8e
 getLineChart() {
+  
+  this.storage.get('name').then((val)=>{
+    console.log( val);
+  this.fk_user_email=val;
+   this._data.getexpforline(this.fk_user_email).subscribe(
+     (data:any)=>{
+
+
+       while(this.j<data.length)
+       {
+         this.arr[this.j]=new linechart(null,null);
+       this.arr[this.j].exp_amt=data[this.j]["sum(expense_amt)"];
+        this.arr[this.j].exp_month=data[this.j].exp_month;
+       this.j++;
+    }
+    //  let k:any;
+    //  for(k in this.arr.values)
+    //  {
+    //     this.eamt.push(this.arr[k].exp_amt);
+    //  }
+    
+    // console.log(this.eamt);
+    this.arr.map(item => {
+      return {
+          exp_amt: item.exp_amt,
+         // exp_month: item.exp_month
+      }
+  }).forEach(item => this.eamt.push(item.exp_amt));
+  
+     });
+     //this.eamt=this.eamt+"";
+     console.log(this.eamt);
+     
+  });
+  
+  
+
   var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July", "August"],
+
+    
+  
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug","Sep","Oct","Nov","Dec"],
     datasets: [
       {
         label: "Initial Dataset",
@@ -71,8 +135,8 @@ getLineChart() {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40, 32],
-        spanGaps: false,
+        data:[this.eamt.values],
+         spanGaps: false,
       }
      
     ]

@@ -8,6 +8,7 @@ import 'rxjs/Rx';
 import { category } from '../../shared/category';
 import { Item } from 'ionic-angular/components/item/item';
 
+
 /*
   Generated class for the CategorydbProvider provider.
 

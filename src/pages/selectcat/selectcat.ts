@@ -42,7 +42,8 @@ s_fk_user_email:string="";
   constructor(public _data1:CategorydbProvider,
     public _data2:SubcategorydbProvider,
     public storage:Storage,
-    public load:LoadingController,public navCtrl: NavController, public navParams: NavParams) {
+    public load:LoadingController,public navCtrl: NavController,
+     public navParams: NavParams) {
   }
 
   ionViewDidLoad() {

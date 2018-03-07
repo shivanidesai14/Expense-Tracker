@@ -57,6 +57,7 @@ import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
 import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
 import { LoandbProvider } from '../providers/loandb/loandb';
 import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
+import { LinechartdbProvider } from '../providers/linechartdb/linechartdb';
 
 
 
@@ -71,12 +72,15 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
     PopoverNote1pagePage, ReminderPage, ChangepassPage, AddReminderPage, EditreminderPage, PopoverSpend1Page, EditprofilePage, AddnewcatPage,
     SelectParCatPage
 
+],
 
 
 
 
 
-  ],
+
+  
+
   imports: [
     BrowserModule, HttpModule, HttpClientModule,
     IonicStorageModule.forRoot(),
@@ -86,15 +90,14 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
   entryComponents: [
     MyApp,
 
-    HomePage, PopoverPage, SpendsPage,
-    LoginPage, SignupPage, NewnotePage, AddnewnotePage,
-    GraphPage, FrequentPage, RecurringPage, OnetimePage,
-    SelectcatPage, EdocumentPage, PopoverNotePage, EditnotesPage,
-    CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage,
-    LoanPage, CalculateLoanPage, UserProfilePage, SpendsNotePage, ViewspendsPage,
-    PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage, PopoverNote1pagePage,
-    ReminderPage, ChangepassPage, AddReminderPage, EditreminderPage, PopoverSpend1Page,
-    EditprofilePage, AddnewcatPage, SelectParCatPage
+    HomePage,PopoverPage,SpendsPage,
+    LoginPage,SignupPage,NewnotePage,AddnewnotePage,
+    GraphPage,FrequentPage,RecurringPage,OnetimePage,
+    SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
+    CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
+    UserProfilePage,SpendsNotePage,ViewspendsPage,
+    PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,
+    PopoverNote1pagePage,EditprofilePage,AddnewcatPage,SelectParCatPage
 
 
   ],
@@ -112,14 +115,11 @@ import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
     SubcategorydbProvider,
     FabContainer,
     SpendsdbProvider,
-    SpendsdbProvider,
-    SocialSharing,
+    SpendsdbProvider, SocialSharing,
     SubcatexpdbProvider,
     LoandbProvider,
     ReminderdbProvider,
-
-
-
-  ]
+    LinechartdbProvider
+]
 })
 export class AppModule { }

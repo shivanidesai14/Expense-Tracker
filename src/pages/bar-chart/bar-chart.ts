@@ -23,19 +23,19 @@ testing:String='';
 this.testing = "pie";
   }
 @ViewChild('barCanvas') barCanvas;
-  @ViewChild('doughnutCanvas') doughnutCanvas;
-  @ViewChild('lineCanvas') lineCanvas;
   barChart: any;
-  doughnutChart: any;
-  lineChart :any;
   n:number=1000;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
    ionViewDidLoad() {
     this.barChart = this.getBarChart(); 
+<<<<<<< HEAD
     
   }
+=======
+    }
+>>>>>>> d564aec00c733f8c186f57074791e19214875c8e
   
  getChart(context, chartType, data, options?) {
   return new Chart(context, {
@@ -86,6 +86,10 @@ getBarChart() {
 
 return this.getChart(this.barCanvas.nativeElement, "bar", data, options);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> d564aec00c733f8c186f57074791e19214875c8e
 onClickClose()
 {
   this.navCtrl.pop();
