@@ -23,18 +23,41 @@
 
 <ion-content>
     <ion-card>
+        <h3>Total Expenses For current Month</h3>
+        <ion-list>
+            <ion-item>
+                <ion-label>Select Month</ion-label>
+                <ion-select [(ngModel)]="month" (ionChange)="onSelectMonth($event)">
+                    <ion-option value="1">Jan</ion-option>
+                    <ion-option value="2">Feb</ion-option>
+                    <ion-option value=03>Mar</ion-option>
+                    <ion-option value="4">Apr</ion-option>
+                    <ion-option value="5">May</ion-option>
+                    <ion-option value="6">Jun</ion-option>
+                    <ion-option value="7">Jul</ion-option>
+                    <ion-option value="8">Aug</ion-option>
+                    <ion-option value="9">Sep</ion-option>
+                    <ion-option value="10">Oct</ion-option>
+                    <ion-option value="11">Nov</ion-option>
+                    <ion-option value="12">Dec</ion-option>
+
+                </ion-select>
+            </ion-item>
+        </ion-list>
         <ion-card-header>
             Pie Chart
         </ion-card-header>
         <ion-card-content>
             <canvas #doughnutCanvas width="400" height="550"></canvas>
+
         </ion-card-content>
+
     </ion-card>
 
 
 
     <button ion-button block style="height:50px;font-size:20px;" (click)="onClickBar()">Bar chart</button>
 
-    <button ion-button block style="height:50px;font-size:20px;background:orange" (click)="onClickLine()">Line Chart</button> =
+    <button ion-button block style="height:50px;font-size:20px;background:orange" (click)="onClickLine()">Line Chart</button>
 
 </ion-content>

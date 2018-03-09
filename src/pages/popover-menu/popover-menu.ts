@@ -51,5 +51,9 @@ this.navCtrl.push(EdocumentPage);
     this.navCtrl.push(UserProfilePage);
   
   }
+  onlogout()
+  {
+    this.navCtrl.push(LoginPage);
+  }
   
 }

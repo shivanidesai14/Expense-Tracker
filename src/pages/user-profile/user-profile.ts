@@ -2,11 +2,16 @@ import { EditprofilePage } from './../editprofile/editprofile';
 import { SpendsPage } from './../spends/spends';
 import { LoanPage } from './../loan/loan';
 import { GraphPage } from './../graph/graph';
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { ChangepassPage } from "../changepass/changepass";
+import { Users } from "../../shared/users";
+import { UserdbProvider } from "../../providers/userdb/userdb";
 import { LoginPage } from "../login/login";
+import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 /**
  * Generated class for the UserProfilePage page.
  *
@@ -19,18 +24,77 @@ import { LoginPage } from "../login/login";
   selector: 'page-user-profile',
   templateUrl: 'user-profile.html',
 })
-export class UserProfilePage {
 
-  constructor(public storage:Storage,public navCtrl: NavController, public navParams: NavParams) {
+export class UserProfilePage {
+arr:Users[]=[];
+selectedFile: File = null;
+user: FormGroup;
+euid:any;
+eumail:string='';
+eupass:string='';
+euname:string='';
+eumobno:string='';
+eudpass:string='';
+url:string;
+@ViewChild("fileInput") fileInput;
+  constructor(public storage:Storage,public navCtrl: NavController,
+     public navParams: NavParams,public data:UserdbProvider,private http:HttpClient,public to:ToastController) {
   }
+  
 fk_user_email:string='';
   ionViewDidLoad() {
-     this.storage.get('name').then((val)=>{
-    console.log( val);
-    this.fk_user_email=val;
-     });
     console.log('ionViewDidLoad UserProfilePage');
+   this.getdata();
   }
+  getdata()
+  {
+    this.storage.get('name').then((val) => {
+      console.log(val);
+      this.fk_user_email = val;
+      this.data.getUsersById(this.fk_user_email).subscribe(
+
+        (data: Users[]) => {
+          this.arr = data;
+          
+        },
+        function (e) {
+          alert(e);
+        },
+        function () {
+          
+        }
+
+      );
+
+    });
+  }
+  processWebImage(event) {
+    let reader = new FileReader();
+    reader.onload = (readerEvent) => {
+
+      let imageData = (readerEvent.target as any).result;
+      this.user.patchValue({ 'profilePic': imageData });
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+    this.selectedFile = <File>event.target.files[0];
+  }
+  getProfileImageStyle() {
+    return 'url(' + this.user.controls['profilePic'].value + ')'
+  }
+  getPicture() {
+   
+      this.fileInput.nativeElement.click();
+  
+  }
+  ngOnInit() {
+
+    this.user = new FormGroup({
+    profilePic:new FormControl('')
+    });
+    
+    }
+   
   chagepass()
   {
     this.navCtrl.push(ChangepassPage);
@@ -50,7 +114,65 @@ fk_user_email:string='';
   }
   onEditProfile()
   {
-    this.navCtrl.push(EditprofilePage);
+    let t1=this.to.create({
+      message:"Updated Successfully..",
+      duration:3000,
+      position:"bottom"
+    });
+    this.storage.get('name').then((val) => {
+      console.log(val);
+      this.fk_user_email = val;
+      this.data.getUsersById(this.fk_user_email).subscribe(
+
+        (data: Users[]) => {
+          this.arr = data;
+          this.euid=this.arr[0].user_id;
+          this.eumail=this.arr[0].user_email;
+          this.euname=this.arr[0].user_name;
+          this.eumobno=this.arr[0].user_mob_no;
+          this.eupass=this.arr[0].user_pass;
+          this.eudpass=this.arr[0].user_dpass;
+
+          const fd = new FormData();
+
+          fd.append("user_id",this.euid);
+          fd.append("user_email",this.eumail);
+          fd.append("user_name",this.euname);
+          fd.append("user_mob_no",this.eumobno);
+          fd.append("image", this.selectedFile, this.selectedFile.name);
+          fd.append("user_pass",this.eupass);
+          fd.append("user_dpass",this.eudpass);
+       
+    this.data.updateUsers(this.fk_user_email,fd).subscribe(
+
+      (data: Users[]) => {
+       
+        t1.present();
+        this.getdata();
+        
+      })
+  
+  },
+        function (e) {
+          alert(e);
+        },
+        function () {
+          
+        }
+
+      );
+
+    });
   }
- 
+  onFileSelected(value) {
+    this.selectedFile = <File>value.target.files[0];
+
+  }
+  onAdd(){
+    this.fileInput.nativeElement.click();
+  }
+  onlogout()
+  {
+    this.navCtrl.push(LoginPage);
+  }
 }

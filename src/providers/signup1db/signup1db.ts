@@ -17,11 +17,11 @@ export class Signup1dbProvider {
   constructor(public http: HttpClient) {
     console.log('Hello Signup1dbProvider Provider');
   }
-  addUsers(item)
+  fd = new FormData();
+  addUsers(fd)
   {
     
-    let body=JSON.stringify(item);
-    return this.http.post(this.url,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
+    return this.http.post(this.url,fd);
   }
 
 }

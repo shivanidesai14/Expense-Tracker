@@ -15,22 +15,25 @@
 
 
 <ion-content scroll="false">
-    <div class="splash-bg"></div>
-    <div class="splash-info">
-        <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected($event)">
-        <div class="splash-logo">
-            <ion-icon class="iconclass" (click)="onAdd()" name="camera"></ion-icon>
+    <form novalidate [formGroup]="user" *ngIf="user">
+
+
+        <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+        <div class="profile-image-wrapper" (click)="getPicture()">
+            <div class="profile-image-placeholder" *ngIf="!this.user.controls.profilePic.value">
+                <ion-icon name="camera" style="margin-top:27px;"></ion-icon>
+            </div>
+            <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.user.controls.profilePic.value"></div>
         </div>
-    </div>
-    <div padding>
-        <form novalidate [formGroup]="user">
+
+        <div padding>
+
             <ion-list>
                 <div padding>
                     <ion-item>
                         <ion-label floating>Mail Id</ion-label>
                         <ion-input type="email" [(ngModel)]="umail" formControlName="email" aria-required="Enter mail id"></ion-input>
                     </ion-item>
-
                     <ion-item no-lines *ngIf="( user.get('email').hasError('required') || user.get('email').hasError('email') ) && user.get('email').touched">
 
 
@@ -104,13 +107,14 @@
             <div padding>
                 <button ion-button block (click)="signup1()" style="background:#009688">SIGNUP</button>
             </div>
-        </form>
-    </div>
-    <style type="text/css">
-        .error {
-            color: darkred;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-    </style>
+
+        </div>
+        <style type="text/css">
+            .error {
+                color: darkred;
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+        </style>
+    </form>
 </ion-content>

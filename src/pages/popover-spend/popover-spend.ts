@@ -26,6 +26,8 @@ sexpense_date:string='';
 sexpense_amt:number;
 scolour_name:string='';
 sexp_note:string='';
+sexp_month:number;
+sexp_year:number;
   constructor(public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams, public storage:Storage,public _data1:SpendsdbProvider) {
   }
 
@@ -53,8 +55,10 @@ sexp_note:string='';
          this.sexpense_date=this.arr[0].expense_date
          this.sexpense_amt=this.arr[0].expense_amt;
          this.sfk_user_email=this.arr[0].fk_user_email;
+         this.sexp_month=this.arr[0].exp_month;
+         this.sexp_year=this.arr[0].exp_year;
         
-        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note);
+        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note,this.sexp_month,this.sexp_year);
         this._data1.editSpends(item).subscribe(
 
           (data:Spends[])=>{
@@ -87,8 +91,10 @@ sexp_note:string='';
          this.sexpense_date=this.arr[0].expense_date
          this.sexpense_amt=this.arr[0].expense_amt;
          this.sfk_user_email=this.arr[0].fk_user_email;
+         this.sexp_month=this.arr[0].exp_month;
+         this.sexp_year=this.arr[0].exp_year;
         
-        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note);
+        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note,this.sexp_month,this.sexp_year);
         this._data1.editSpends(item).subscribe(
 
           (data:Spends[])=>{
@@ -120,8 +126,10 @@ sexp_note:string='';
          this.sexpense_date=this.arr[0].expense_date
          this.sexpense_amt=this.arr[0].expense_amt;
          this.sfk_user_email=this.arr[0].fk_user_email;
+         this.sexp_month=this.arr[0].exp_month;
+         this.sexp_year=this.arr[0].exp_year;
         
-        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note);
+        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note,this.sexp_month,this.sexp_year);
         this._data1.editSpends(item).subscribe(
 
           (data:Spends[])=>{
@@ -152,8 +160,9 @@ sexp_note:string='';
          this.sexpense_date=this.arr[0].expense_date
          this.sexpense_amt=this.arr[0].expense_amt;
          this.sfk_user_email=this.arr[0].fk_user_email;
-        
-        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note);
+         this.sexp_month=this.arr[0].exp_month;
+         this.sexp_year=this.arr[0].exp_year;
+        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note,this.sexp_month,this.sexp_year);
         this._data1.editSpends(item).subscribe(
 
           (data:Spends[])=>{
@@ -184,8 +193,10 @@ sexp_note:string='';
          this.sexpense_date=this.arr[0].expense_date
          this.sexpense_amt=this.arr[0].expense_amt;
          this.sfk_user_email=this.arr[0].fk_user_email;
-        
-        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note);
+         this.sexp_month=this.arr[0].exp_month;
+         this.sexp_year=this.arr[0].exp_year;
+
+        let item=new Spends(this.sexpense_id,this.sfk_user_email,this.sfk_scat_id,this.sexpense_date,this.sexpense_amt,this.scolour_name,this.sexp_note,this.sexp_month,this.sexp_year);
         this._data1.editSpends(item).subscribe(
 
           (data:Spends[])=>{

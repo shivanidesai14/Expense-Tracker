@@ -31,7 +31,6 @@ user: FormGroup;
   upass:string='';
   uname:string='';
   umobno:string='';
-  //uimg:string='../assets/userimgs/defaultimg.png';
   udpass:string='';
   selectedFile: File = null;
   constructor(public storage:Storage,public _data:Signup1dbProvider,
@@ -42,9 +41,25 @@ user: FormGroup;
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
   }
-  onFileSelected(value) {
-    this.selectedFile = <File>value.target.files[0];
 
+  processWebImage(event) {
+    let reader = new FileReader();
+    reader.onload = (readerEvent) => {
+
+      let imageData = (readerEvent.target as any).result;
+      this.user.patchValue({ 'profilePic': imageData });
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+    this.selectedFile = <File>event.target.files[0];
+  }
+  getProfileImageStyle() {
+    return 'url(' + this.user.controls['profilePic'].value + ')'
+  }
+  getPicture() {
+  
+      this.fileInput.nativeElement.click();
+  
   }
   signup1()
   {
@@ -76,7 +91,7 @@ user: FormGroup;
         duration:3000,
         position:"bottom"
       });
-    /* let l1=this.lo.create({
+    let l1=this.lo.create({
         content:"loading"
       });
       l1.present();
@@ -84,10 +99,8 @@ user: FormGroup;
         message:"Sign-up Successfully..",
         duration:3000,
         position:"bottom"
-      });*/
- // let item=new Users(this.uid,this.umail,this.uname,this.umobno,this.uimg,this.upass,this.udpass);
- //this._data.addUsers(item).subscribe(
-  // (data)=>{
+      });
+
  const fd = new FormData();
 
     fd.append("user_id",this.uid);
@@ -100,29 +113,20 @@ user: FormGroup;
     
     
             
-    
-
-    this.http.post("http://localhost:3000/userss/", fd)
-    .subscribe(res => {
-      console.log(res);
+    this._data.addUsers(fd).subscribe(
+       (data)=>{
 
       t3.present();
       this.navCtrl.push(LoginPage);  
-    }/*,
-
-      /*t1.present();
-      this.storage.set('uname',this.uname);
-      this.storage.set('uno',this.umobno);
-     this.navCtrl.push(HomePage);
-    },*/
-  /*  function(e)
+    },
+     function(e)
     {
       alert(e);
     },
     function()
     {
       l1.dismiss();
-    }*/
+    }
   );
 }
 }
@@ -132,7 +136,8 @@ this.user = new FormGroup({
 email: new FormControl('', [Validators.required,Validators.email]),
 password: new FormControl('', [Validators.required,Validators.minLength(5)]),
 mob: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
-name: new FormControl('', [Validators.required])
+name: new FormControl('', [Validators.required]),
+profilePic:new FormControl('')
 });
 
 }

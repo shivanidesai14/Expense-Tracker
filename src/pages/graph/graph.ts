@@ -5,7 +5,9 @@ import { Chart } from 'chart.js';
 import { BarChartPage } from "../bar-chart/bar-chart";
 import { LineChartPage } from "../line-chart/line-chart";
 import { PopoverMenuPage } from "../popover-menu/popover-menu";
-
+import { LinechartdbProvider } from "../../providers/linechartdb/linechartdb";
+import { doughnutchart } from "../../shared/doughnutchart";
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the GraphPage page.
  *
@@ -21,27 +23,96 @@ import { PopoverMenuPage } from "../popover-menu/popover-menu";
 })
 export class GraphPage {
 charts: string = "pie";
+
   isAndroid: boolean = false;
 testing:String='';
   ionViewWillEnter(){
 this.testing = "pie";
 
 }
- @ViewChild('barCanvas') barCanvas;
+ 
   @ViewChild('doughnutCanvas') doughnutCanvas;
-  @ViewChild('lineCanvas') lineCanvas;
-  barChart: any;
+ 
+ 
   doughnutChart: any;
-  lineChart :any;
+ 
   n:number=1000;
+  strdata:string="";
+  strlabel:string='';
+  jsondata:any;
+  jsonlabel:any;
+  fk_user_email:string="";
+  j:number=0;
+  x:any=new Date().getMonth();
+  month:any;
+  f:number=0;
+  public arr:any[]=[];
+  
   constructor(public modalctrl:ModalController,platform: Platform,
-    public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
+    public navCtrl: NavController, public navParams: NavParams,
+     public popoverCtrl: PopoverController,public _data:LinechartdbProvider,
+    public storage:Storage) {
       this.isAndroid = platform.is('android');
   }
 
   ionViewDidLoad() {
+      this.definechartdata();
+     
     
-    this.doughnutChart = this.getDoughnutChart();   
+      
+ }
+ onSelectMonth(selectedValue: any) 
+ { 
+   console.log('Selected', selectedValue); 
+   this.x=selectedValue;
+   this.strdata='';
+  this.strlabel='';
+  this.arr=[];
+  this.j=0;
+  this.f=1;
+   this.definechartdata();
+}
+  definechartdata()
+  {
+    this.strdata="[";
+    this.strlabel='[';
+    this.f=0;
+    this.storage.get('name').then((val)=>{
+      console.log(val);
+    this.fk_user_email=val;
+     this._data.getexps(this.fk_user_email,this.x).subscribe(
+       (data:any)=>{
+  
+  
+         while(this.j<data.length)
+         {
+           this.arr[this.j]=new doughnutchart(null,null);
+           this.arr[this.j].cat_name=data[this.j].cat_name;
+            this.arr[this.j].exp_amt=data[this.j]["sum(exp_tbl.expense_amt)"];
+
+          if(this.j<data.length-1)
+          {
+          
+           this.strdata=this.strdata + this.arr[this.j].exp_amt +"," ;
+            this.strlabel=this.strlabel + '"' +this.arr[this.j].cat_name+'"'+',';
+          }
+          else
+          {
+         
+            this.strdata=this.strdata + this.arr[this.j].exp_amt ;
+            this.strlabel=this.strlabel+'"'+this.arr[this.j].cat_name+'"';
+          }
+        
+
+         this.j++;
+       }
+     
+       this.doughnutChart = this.getDoughnutChart();   
+         });   
+    });
+  
+
+   
     
   }
   
@@ -59,38 +130,44 @@ openPopoverMenu(myEvent) {
     ev: myEvent
   });
 }
-
 getDoughnutChart() {
+  this.strdata=this.strdata+"]";
+  this.strlabel=this.strlabel+"]";
+  
+  
+    this.jsondata =  JSON.parse(this.strdata);
+    this.jsonlabel =  JSON.parse(this.strlabel);
+
   let data = {
-    labels: ["Red", "Brown", "Blue", "Yellow", "Green", "Purple", "Orange","Dark Orange","Mehndi","Dark Green","Sea Blue","light green","light purple"],
+    labels:this.jsonlabel,
     datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3 ,6 ,3 ,5 ,8 , 4, 9 ,6],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(244, 164, 96, 0.8)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-
-        'rgba( 255, 227, 191, 0.5)',
-        'rgba( 237, 234, 139, 0.5)',
-        'rgba( 139, 237, 163, 0.5)',
-        'rgba( 159, 201, 249, 0.4)',
-        'rgba( 255, 150, 81, 0.5)',
-        'rgba( 31, 165, 163, 0.3)',
-
-       
+      label: 'Rs of Expenses',
+      data: this.jsondata,
+      backgroundColor:['rgba(255, 99, 132, 0.2)',
+      'rgba(244, 164, 96, 0.8)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      
+      'rgba( 255, 227, 191, 0.5)',
+      'rgba( 237, 234, 139, 0.5)',
+      'rgba( 139, 237, 163, 0.5)',
+      'rgba( 159, 201, 249, 0.4)',
+      'rgba( 255, 150, 81, 0.5)',
+      'rgba( 31, 165, 163, 0.3)',
+      
       ],
-      hoverBackgroundColor: ["#FF6384", "#551a8b", "#36A2EB", "#FFCE56", "#FF6384", "#36A2EB", "#FFCE56","#ff8f00","#ddd70b","#0fc43c","#97efe5","#eff9ca","#efa0ff"]
+      hoverBackgroundColor: [
+        "#FF6384", "#551a8b", "#36A2EB", "#FFCE56", "#FF6384", "#36A2EB", "#FFCE56","#ff8f00",
+        "#ddd70b","#0fc43c","#97efe5","#eff9ca","#efa0ff"
+      ],
     }]
   };
 
   return this.getChart(this.doughnutCanvas.nativeElement, "doughnut", data);
 }
-
 onClickBar()
 {
   this.navCtrl.push(BarChartPage);

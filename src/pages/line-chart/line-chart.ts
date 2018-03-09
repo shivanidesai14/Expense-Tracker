@@ -24,11 +24,12 @@ public arr:any[]=[];
    charts: string = "pie";
   isAndroid: boolean = false;
 testing:String='';
+ jsonObj:any;
 fk_user_email:string='';
-public eamt :any = [];
+flag:number=0;
 
+public str:string;
 j:number=0;
-
   ionViewWillEnter(){
 this.testing = "pie";
   }
@@ -41,18 +42,45 @@ this.testing = "pie";
   }
 
    ionViewDidLoad() {
-<<<<<<< HEAD
-     
-    this.lineChart = this.getLineChart();
-=======
+     this.definechartdata();
     
-    this.defineChartData();
-     this.lineChart = this.getLineChart();
-    
+      
+      
   }
-  defineChartData()
+  definechartdata()
   {
->>>>>>> d564aec00c733f8c186f57074791e19214875c8e
+    this.str="[";
+    
+     this.storage.get('name').then((val)=>{
+       console.log( val);
+     this.fk_user_email=val;
+      this._data.getexpforline(this.fk_user_email).subscribe(
+        (data:any)=>{
+   
+   
+          while(this.j<data.length)
+          {
+            this.arr[this.j]=new linechart(null,null);
+          this.arr[this.j].exp_amt=data[this.j]["sum(expense_amt)"];
+           this.arr[this.j].exp_month=data[this.j].exp_month;
+           if(this.j<data.length-1)
+           {
+            this.str=this.str + this.arr[this.j].exp_amt +",";
+           
+           }
+           else
+           {
+            this.str=this.str + this.arr[this.j].exp_amt ;
+           }
+         
+   //        alert(this.str);
+          this.j++;
+        }
+        this.flag=1;
+   this.lineChart = this.getLineChart();  
+          });   
+     });
+   
   }
   
  getChart(context, chartType, data, options?) {
@@ -61,63 +89,21 @@ this.testing = "pie";
     type: chartType,
     data: data,
     options: options
-<<<<<<< HEAD
-  });
-}
-
-=======
 
   });
 }
 
 
->>>>>>> d564aec00c733f8c186f57074791e19214875c8e
 getLineChart() {
   
-  this.storage.get('name').then((val)=>{
-    console.log( val);
-  this.fk_user_email=val;
-   this._data.getexpforline(this.fk_user_email).subscribe(
-     (data:any)=>{
-
-
-       while(this.j<data.length)
-       {
-         this.arr[this.j]=new linechart(null,null);
-       this.arr[this.j].exp_amt=data[this.j]["sum(expense_amt)"];
-        this.arr[this.j].exp_month=data[this.j].exp_month;
-       this.j++;
-    }
-    //  let k:any;
-    //  for(k in this.arr.values)
-    //  {
-    //     this.eamt.push(this.arr[k].exp_amt);
-    //  }
-    
-    // console.log(this.eamt);
-    this.arr.map(item => {
-      return {
-          exp_amt: item.exp_amt,
-         // exp_month: item.exp_month
-      }
-  }).forEach(item => this.eamt.push(item.exp_amt));
-  
-     });
-     //this.eamt=this.eamt+"";
-     console.log(this.eamt);
-     
-  });
-  
-  
-
+  this.str=this.str+"]";
+// alert(this.str)
+  this.jsonObj =  JSON.parse(this.str);
   var data = {
-
-    
-  
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug","Sep","Oct","Nov","Dec"],
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug","Sep","Oct","Nov","Dec"],
     datasets: [
       {
-        label: "Initial Dataset",
+        label: "Expenses By Month",
         fill: false,
         lineTension: 0.1,
         backgroundColor: "rgba(75,192,192,0.4)",
@@ -135,7 +121,7 @@ getLineChart() {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data:[this.eamt.values],
+        data:this.jsonObj,
          spanGaps: false,
       }
      

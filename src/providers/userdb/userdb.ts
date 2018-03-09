@@ -32,10 +32,11 @@ export class UserdbProvider {
   let body=JSON.stringify(item);
   return this.http.put(this.url+id,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
  }
- updateUsers(item:Users)
+  fd = new FormData();
+
+ updateUsers(id:string,fd)
   {
-       // alert('provider to update');
-        let body=JSON.stringify(item);
-        return this.http.put(this.url+item.user_email,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
+       
+    return this.http.put(this.url+id, fd)
   }
 }

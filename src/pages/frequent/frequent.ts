@@ -42,7 +42,9 @@ sub_cat_name:string="";
 icon_image:string="";
 flag:boolean=false;
 no:number=1;
-
+tmp_month:any;
+month:any;
+year:any;
 
 url:string='../assets/userimgs/sign-question-icon.png';
   constructor(public storage:Storage,public _data:SpendsdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
@@ -128,6 +130,10 @@ else
      }
      else
      {
+      this.tmp_month = this.event.finalDate.substr(5, 8);
+      this.month = this.tmp_month.substr(0, 2);
+
+      this.year = this.event.finalDate.substr(0, 4);
      this.storage.get('id').then((val) => {
             console.log( val);
             this.fk_scat_id=val;
@@ -144,7 +150,7 @@ else
         duration:3000,
         position:"bottom"
       });
-      this._data.addSpends(new Spends(this.expense_id,this.fk_user_email,this.fk_scat_id,this.event.finalDate,this.expense_amt,this.colour_name,this.exp_note)).subscribe(
+      this._data.addSpends(new Spends(this.expense_id,this.fk_user_email,this.fk_scat_id,this.event.finalDate,this.expense_amt,this.colour_name,this.exp_note,this.month,this.year)).subscribe(
 
           (data:any)=>{
             t1.present();

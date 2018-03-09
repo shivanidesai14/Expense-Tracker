@@ -30,11 +30,11 @@ export class RecurringPage {
 
   x: any = new Date().getMonth();
   y: any = new Date().getFullYear();
-  clr1: string = "#1976d2";
-  clr2: string = "#1976d2";
-  clr3: string = "#1976d2";
-  clr4: string = "#1976d2";
-  clr5: string = "#1976d2";
+  clr1: string = "grey";
+  clr2: string = "grey";
+  clr3: string = "grey";
+  clr4: string = "grey";
+  clr5: string = "grey";
   clr6: string = "grey";
   clr7: string = "grey";
  
@@ -66,7 +66,7 @@ export class RecurringPage {
   sday: string;
   sdayname: any;
   sdayfinal: string;
-
+monthh:any;
   i: any;
   newdate: any;
 
@@ -121,13 +121,13 @@ export class RecurringPage {
   }
   onclickM() {
 
-    if (this.clr1 == "#1976d2") {
-      this.clr1 = "grey";
-      this.mon = "";
-    }
-    else {
+    if (this.clr1 == "grey") {
       this.clr1 = "#1976d2";
       this.mon = "Mon";
+    }
+    else {
+      this.clr1 = "grey";
+      this.mon = "";
 
 
 
@@ -135,25 +135,25 @@ export class RecurringPage {
 
   }
   onclickTu() {
-    if (this.clr2 == "#1976d2") {
-      this.clr2 = "grey";
-      this.tue = "";
-    }
-    else {
+    if (this.clr2 == "grey") {
       this.clr2 = "#1976d2";
       this.tue = "Tue";
+    }
+    else {
+      this.clr2 = "grey";
+      this.tue = "";
 
     }
 
   }
   onclickW() {
-    if (this.clr3 == "#1976d2") {
-      this.clr3 = "grey";
-      this.wed = "";
-    }
-    else {
+    if (this.clr3 == "grey") {
       this.clr3 = "#1976d2";
       this.wed = "Wed";
+    }
+    else {
+      this.clr3 = "grey";
+      this.wed = "";
 
     }
 
@@ -162,25 +162,25 @@ export class RecurringPage {
 
   }
   onclickTh() {
-    if (this.clr4 == "#1976d2") {
-      this.clr4 = "grey";
-      this.thu = "";
+    if (this.clr4 == "grey") {
+      this.clr4 = "#1976d2";
+      this.thu = "Thu";
     }
     else {
-      this.clr4 = "#1976d2";
-      this.thu = "Thu"
+      this.clr4 = "grey";
+      this.thu = "";
 
     }
   }
 
   onclickF() {
-    if (this.clr5 == "#1976d2") {
-      this.clr5 = "grey";
-      this.fri = "";
-    }
-    else {
+    if (this.clr5 == "grey") {
       this.clr5 = "#1976d2";
       this.fri = "Fri"
+    }
+    else {
+    this.clr5="grey";
+    this.fri="";
 
     }
 
@@ -208,7 +208,7 @@ export class RecurringPage {
     else {
       this.clr7 = "grey";
       this.sun = "";
-      alert(this.sun)
+
     }
   }
    hello:string;
@@ -220,8 +220,11 @@ export class RecurringPage {
     this.month = this.mo.substr(0, 2);
 
 
+
+
     this.tmp_mo = this.event.finalDate.substr(5, 8);
     this.tmp_mom = this.tmp_mo.substr(0, 2);
+    this.monthh = this.tmp_mo.substr(0, 2);
     this.tmp_mom=this.tmp_mom-1;
     
 
@@ -301,6 +304,11 @@ export class RecurringPage {
       duration: 4000,
       position: "bottom"
     });
+    let t2 = this.to.create({
+      message: "Must select the days",
+      duration: 4000,
+      position: "bottom"
+    });
 
 
 
@@ -312,6 +320,10 @@ export class RecurringPage {
     }
     else if (this.expense_amt == 0) {
       t1.present();
+    }
+    else if(this.mon=="" && this.tue=="" && this.wed=="" && this.thu=="" && this.fri=="" && this.sat=="" &&  this.sun=="")
+    {
+      t2.present();
     }
     else {
 
@@ -332,7 +344,7 @@ export class RecurringPage {
             duration: 3000,
             position: "bottom"
           });
-          this._data.addSpends(new Spends(this.expense_id, this.fk_user_email, this.fk_scat_id, this.event.finalDate, this.exp_amt, this.colour_name, this.exp_note)).subscribe(
+          this._data.addSpends(new Spends(this.expense_id, this.fk_user_email, this.fk_scat_id, this.event.finalDate, this.exp_amt, this.colour_name, this.exp_note,this.monthh,this.yr)).subscribe(
 
             (data: any) => {
               t1.present();
