@@ -30,12 +30,12 @@ testing:String='';
 this.testing = "pie";
 
 }
- 
+ gender:any;
   @ViewChild('doughnutCanvas') doughnutCanvas;
  
  
   doughnutChart: any;
- 
+ flag:number=0;
   n:number=1000;
   strdata:string="";
   strlabel:string='';
@@ -117,7 +117,10 @@ getDoughnutChart() {
   this.strdata=this.strdata+"]";
   this.strlabel=this.strlabel+"]";
   
-  
+  if(this.strdata=="[]")
+  {
+    this.flag=1;
+  }
     this.jsondata =  JSON.parse(this.strdata);
     this.jsonlabel =  JSON.parse(this.strlabel);
 

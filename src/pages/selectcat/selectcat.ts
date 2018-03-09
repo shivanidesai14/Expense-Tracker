@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController,ToastController,ModalController } from 'ionic-angular';
 
 import { category } from "../../shared/category";
 import { CategorydbProvider } from "../../providers/categorydb/categorydb";
@@ -43,7 +43,8 @@ s_fk_user_email:string="";
     public _data2:SubcategorydbProvider,
     public storage:Storage,
     public load:LoadingController,public navCtrl: NavController,
-     public navParams: NavParams) {
+     public navParams: NavParams,
+    public modalctrl:ModalController) {
   }
 
   ionViewDidLoad() {
@@ -160,6 +161,11 @@ else
 }
 onClickNewCategory()
 {
-  this.navCtrl.push(AddnewcatPage);
+ // this.navCtrl.push(AddnewcatPage);
+ let modal=this.modalctrl.create(AddnewcatPage);
+ modal.onDidDismiss(data=>{
+   this.ionViewDidLoad();
+ });
+ modal.present();
 }
 }

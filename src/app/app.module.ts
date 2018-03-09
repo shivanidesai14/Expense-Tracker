@@ -105,7 +105,8 @@ import { LinechartdbProvider } from '../providers/linechartdb/linechartdb';
     CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
     UserProfilePage,SpendsNotePage,ViewspendsPage,
     PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,
-    PopoverNote1pagePage,EditprofilePage,AddnewcatPage,SelectParCatPage
+    PopoverNote1pagePage,EditprofilePage,AddnewcatPage,SelectParCatPage,LoanPage,
+    CalculateLoanPage
 
 
   ],
