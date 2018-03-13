@@ -1,0 +1,46 @@
+<!--
+  Generated template for the AddedocumentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar no-border-bottom color="greenmajanta">
+        <ion-title>
+            Add E-document
+            <ion-icon name="checkmark-circle-outline" class="iconclass2" style="float:right;" (click)="onClickAddEdoc()"></ion-icon>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+
+
+        <ion-label floating>Enter Edoc tite</ion-label>
+        <ion-input type="text" [(ngModel)]="edoc_title"></ion-input>
+
+
+    </ion-item><br><br>
+
+    <label style="font-size:15px">Choose image one
+                <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected($event)">
+
+                <ion-icon name="add" (click)="onAdd()"></ion-icon>
+     </label>
+
+    <label style="font-size:15px">Choose image two
+                <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected1($event)">
+
+                <ion-icon name="add" (click)="onAdd()"></ion-icon>
+    </label>
+
+    <label style="font-size:15px">Choose image three
+        <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected1($event)">
+
+        <ion-icon name="add" (click)="onAdd()"></ion-icon>
+</label>
+
+
+</ion-content>

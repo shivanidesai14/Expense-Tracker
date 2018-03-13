@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
-import { IonicPage, NavController, NavParams,Navbar,LoadingController,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ViewController,Navbar,LoadingController,ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { category } from "../../shared/category";
 import { subcategory } from "../../shared/subcategory";
@@ -42,7 +42,8 @@ export class AddnewcatPage {
   url:string='../assets/userimgs/sign-question-icon.png';
   constructor(public storage:Storage,public _data:CategorydbProvider,public _data1:SubcategorydbProvider,
     public to:ToastController,public lo:LoadingController,public navCtrl: NavController,
-     public navParams: NavParams) {
+     public navParams: NavParams,
+    public viewctrl:ViewController) {
   }
 
   ionViewDidLoad() {
@@ -92,7 +93,8 @@ export class AddnewcatPage {
   
             (data:any)=>{
               t1.present();
-              this.navCtrl.push(SelectcatPage);
+              this.viewctrl.dismiss(data);
+              //this.navCtrl.push(SelectcatPage);
             },
             function(e)
             {
@@ -126,7 +128,8 @@ export class AddnewcatPage {
   
             (data:any)=>{
               t1.present();
-              this.navCtrl.push(SelectcatPage);
+              this.viewctrl.dismiss(data);
+              //this.navCtrl.push(SelectcatPage);
             },
             function(e)
             {

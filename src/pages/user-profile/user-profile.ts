@@ -1,9 +1,8 @@
-import { EditprofilePage } from './../editprofile/editprofile';
 import { SpendsPage } from './../spends/spends';
 import { LoanPage } from './../loan/loan';
 import { GraphPage } from './../graph/graph';
 import { Component,ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,PopoverController } from 'ionic-angular';
 import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
@@ -12,6 +11,7 @@ import { Users } from "../../shared/users";
 import { UserdbProvider } from "../../providers/userdb/userdb";
 import { LoginPage } from "../login/login";
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { PopoverMenuPage } from "../popover-menu/popover-menu";
 /**
  * Generated class for the UserProfilePage page.
  *
@@ -38,7 +38,8 @@ eudpass:string='';
 url:string;
 @ViewChild("fileInput") fileInput;
   constructor(public storage:Storage,public navCtrl: NavController,
-     public navParams: NavParams,public data:UserdbProvider,private http:HttpClient,public to:ToastController) {
+     public navParams: NavParams,public data:UserdbProvider,private http:HttpClient
+     ,public to:ToastController,public popoverCtrl: PopoverController) {
   }
   
 fk_user_email:string='';
@@ -174,5 +175,11 @@ fk_user_email:string='';
   onlogout()
   {
     this.navCtrl.push(LoginPage);
+  }
+  openPopoverMenu(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverMenuPage);
+    popover.present({
+      ev: myEvent
+    });
   }
 }

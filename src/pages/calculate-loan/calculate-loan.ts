@@ -54,11 +54,10 @@ export class CalculateLoanPage {
     this.totPay = this.monPay + this.interest;
   }*/
   payOffDate() {
-    if (this.loan_yrs >= 12) {
-      this.y += 1;
-    }
-    this.finalPay = this.dt + "-" + this.x + "-" + this.y;
+      
+    alert(this.loan_amt);
   }
+
   public event = {
     finalDate: this.y + "-" + this.x + "-" + this.dt,
     // month: '2017-01-01'

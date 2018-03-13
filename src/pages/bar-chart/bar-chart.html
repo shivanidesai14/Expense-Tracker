@@ -11,7 +11,9 @@
                 Graphs
             </h3>
         </ion-title>
-        <ion-icon name="close-circle" class="iconclass" style="padding-top:12px;float:right" (click)="onClickClose()"></ion-icon>
+        <ion-buttons end>
+            <button ion-button (click)="onClickClose()">Cancel</button>
+        </ion-buttons>
     </ion-navbar>
 
 
@@ -19,12 +21,15 @@
 
 
 <ion-content>
+
+
     <ion-card>
-            <h3>Total Expenses By Each Category</h3>
+        <h3>Total Expenses By Each Category</h3>
         <ion-card-header>
             Bar Chart
         </ion-card-header>
         <ion-card-content>
+
             <canvas #barCanvas width="400" height="670"></canvas>
         </ion-card-content>
     </ion-card>

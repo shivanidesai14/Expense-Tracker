@@ -6,6 +6,7 @@ import { GraphPage } from "../graph/graph";
 import { Storage } from '@ionic/storage';
 import { LinechartdbProvider } from "../../providers/linechartdb/linechartdb";
 import { linechart } from "../../shared/linechart";
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 
 /**
  * Generated class for the LineChartPage page.
@@ -38,10 +39,18 @@ this.testing = "pie";
   lineChart :any;
   n:number=1000;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public storage:Storage,public _data:LinechartdbProvider) {
+    public storage:Storage,public _data:LinechartdbProvider,public load :LoadingController) {
   }
 
    ionViewDidLoad() {
+    let l1 = this.load.create({
+
+      spinner:"hide",
+      content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+      cssClass:"loader",
+      duration:1000
+    });
+    l1.present();
      this.definechartdata();
     
       

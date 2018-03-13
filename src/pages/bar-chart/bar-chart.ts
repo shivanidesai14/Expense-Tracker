@@ -1,5 +1,5 @@
 import { Component,ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import { GraphPage } from "../graph/graph";
@@ -36,18 +36,27 @@ this.testing = "pie";
   barChart: any;
   n:number=1000;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public _data:LinechartdbProvider,public storage:Storage) {
+  public _data:LinechartdbProvider,public storage:Storage,public load : LoadingController) {
   }
 
    ionViewDidLoad() {
      
     this.strdata="[";
     this.strlabel='[';
+    let l1 = this.load.create({
+
+      spinner:"hide",
+      content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+      cssClass:"loader",
+      duration:1000
+    });
+    l1.present();
      this.definechartdata();
     
     }
     definechartdata()
     {
+      
       this.storage.get('name').then((val)=>{
         console.log( val);
       this.fk_user_email=val;

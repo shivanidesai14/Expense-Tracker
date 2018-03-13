@@ -45,6 +45,7 @@ import { EditreminderPage } from "../pages/editreminder/editreminder";
 import { PopoverSpend1Page } from "../pages/popover-spend1/popover-spend1";
 import { AddnewcatPage } from "../pages/addnewcat/addnewcat";
 import { SelectParCatPage } from "../pages/select-par-cat/select-par-cat";
+import { AddedocumentPage } from "../pages/addedocument/addedocument";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
@@ -57,6 +58,7 @@ import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
 import { LoandbProvider } from '../providers/loandb/loandb';
 import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
 import { LinechartdbProvider } from '../providers/linechartdb/linechartdb';
+import { EdocumentdbProvider } from '../providers/edocumentdb/edocumentdb';
 
 
 
@@ -69,7 +71,7 @@ import { LinechartdbProvider } from '../providers/linechartdb/linechartdb';
      PopoverNotePage, EditnotesPage, CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
     SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage,
     PopoverNote1pagePage, ReminderPage, ChangepassPage, AddReminderPage, EditreminderPage, PopoverSpend1Page, AddnewcatPage,
-    SelectParCatPage,PopoverSpend1Page,AddReminderPage,EditreminderPage
+    SelectParCatPage,PopoverSpend1Page,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage
 
 ],
 
@@ -97,7 +99,7 @@ import { LinechartdbProvider } from '../providers/linechartdb/linechartdb';
     UserProfilePage,SpendsNotePage,ViewspendsPage,
     PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,
     PopoverNote1pagePage,AddnewcatPage,SelectParCatPage,PopoverSpend1Page,
-    ReminderPage,AddReminderPage,EditreminderPage
+    ReminderPage,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage
 
 
   ],
@@ -119,7 +121,8 @@ import { LinechartdbProvider } from '../providers/linechartdb/linechartdb';
     SubcatexpdbProvider,
     LoandbProvider,
     ReminderdbProvider,
-    LinechartdbProvider
+    LinechartdbProvider,
+    EdocumentdbProvider
 ]
 })
 export class AppModule { }

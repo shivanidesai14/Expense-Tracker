@@ -82,8 +82,7 @@ export class SpendsPage {
             let item=new SpendsSubcat(0,this.fk_user_email,0,"",0,this.color,"","","");
 
           let l1=this.load.create({
-      
-          content:"Loading..."
+                 content : "Loading .."
         });
         l1.present();
           this.data.getExpenseByColor(item).subscribe(
@@ -125,7 +124,10 @@ export class SpendsPage {
       this.fk_user_email = val;
       let l1 = this.load.create({
 
-        content: "Loading..."
+        spinner:"hide",
+        content:"<div style='text-align:center;background:black';><img src='../assets/imgs/2.gif' height='80' width='80'></div>",
+        cssClass:"loader",
+        duration:2000
       });
       l1.present();
       this._data.getALlSpendsById(this.fk_user_email).subscribe(

@@ -1,5 +1,5 @@
 import { Component,ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController,PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController,PopoverController,LoadingController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import { BarChartPage } from "../bar-chart/bar-chart";
@@ -8,6 +8,7 @@ import { PopoverMenuPage } from "../popover-menu/popover-menu";
 import { LinechartdbProvider } from "../../providers/linechartdb/linechartdb";
 import { doughnutchart } from "../../shared/doughnutchart";
 import { Storage } from '@ionic/storage';
+
 /**
  * Generated class for the GraphPage page.
  *
@@ -30,12 +31,12 @@ testing:String='';
 this.testing = "pie";
 
 }
- 
+ gender:any;
   @ViewChild('doughnutCanvas') doughnutCanvas;
  
  
   doughnutChart: any;
- 
+ flag:number=0;
   n:number=1000;
   strdata:string="";
   strlabel:string='';
@@ -51,11 +52,19 @@ this.testing = "pie";
   constructor(public modalctrl:ModalController,platform: Platform,
     public navCtrl: NavController, public navParams: NavParams,
      public popoverCtrl: PopoverController,public _data:LinechartdbProvider,
-    public storage:Storage) {
+    public storage:Storage,public load:LoadingController) {
       this.isAndroid = platform.is('android');
   }
 
   ionViewDidLoad() {
+    let l1 = this.load.create({
+
+      spinner:"hide",
+      content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+      cssClass:"loader",
+      duration:1000
+    });
+    l1.present();
       this.definechartdata();
      
     
@@ -64,12 +73,14 @@ this.testing = "pie";
  onSelectMonth(selectedValue: any) 
  { 
    console.log('Selected', selectedValue); 
+
    this.x=selectedValue;
    this.strdata='';
   this.strlabel='';
   this.arr=[];
   this.j=0;
   this.f=1;
+  
    this.definechartdata();
 }
   definechartdata()
@@ -134,7 +145,10 @@ getDoughnutChart() {
   this.strdata=this.strdata+"]";
   this.strlabel=this.strlabel+"]";
   
-  
+  if(this.strdata=="[]")
+  {
+    this.flag=1;
+  }
     this.jsondata =  JSON.parse(this.strdata);
     this.jsonlabel =  JSON.parse(this.strlabel);
 
