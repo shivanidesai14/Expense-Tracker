@@ -52,9 +52,7 @@ s_fk_user_email:string="";
     console.log('ionViewDidLoad SelectcatPage');
     
     
-    this.storage.get('name').then((val)=>{
-      console.log( val);
-      this.fk_user_email=val;    
+    this.fk_user_email=localStorage.getItem('name');
     let l1=this.load.create({
       
           content:"Loading..."
@@ -76,7 +74,7 @@ s_fk_user_email:string="";
               }
       
           );
-        });
+      
     
   }
   onClick1(ite)
@@ -84,9 +82,9 @@ s_fk_user_email:string="";
     if(this.flag==1)
     {
    
-      this.storage.set('id',ite.sub_cat_id);
-       this.storage.set('na',ite.sub_cat_name);
-         this.storage.set('img',ite.icon_image);
+      localStorage.setItem('id',ite.sub_cat_id);
+      localStorage.setItem('na',ite.sub_cat_name);
+      localStorage.setItem('img',ite.icon_image);
 
         
     this.navCtrl.pop();
@@ -95,18 +93,20 @@ s_fk_user_email:string="";
  
   else if (this.flag==2)
   {
-    this.storage.set('id',ite.sub_cat_id);
-       this.storage.set('na',ite.sub_cat_name);
-       this.storage.set('img',ite.icon_image);
+   
+    localStorage.setItem('id',ite.sub_cat_id);
+    localStorage.setItem('na',ite.sub_cat_name);
+    localStorage.setItem('img',ite.icon_image);
         
     this.navCtrl.pop();
     
   }
   else
   {
-       this.storage.set('id',ite.sub_cat_id);
-       this.storage.set('na',ite.sub_cat_name);
-       this.storage.set('img',ite.icon_image);
+      
+    localStorage.setItem('id',ite.sub_cat_id);
+    localStorage.setItem('na',ite.sub_cat_name);
+    localStorage.setItem('img',ite.icon_image);
         
     this.navCtrl.pop();
   }
@@ -114,9 +114,7 @@ s_fk_user_email:string="";
 
   
 onClick(no:number){
-  this.storage.get('name').then((val)=>{
-    console.log( val);
-    this.fk_user_email=val;  
+  this.fk_user_email=localStorage.getItem('name');
   console.log('ionViewDidLoad SelectcatPage');
  this.no2=no;
   if(this.no1==false)
@@ -151,7 +149,7 @@ else
     
         );
   
-      });
+      
 }
 onClickNewCategory()
 {

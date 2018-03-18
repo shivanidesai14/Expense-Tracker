@@ -19,7 +19,7 @@ import { SpendsPage } from "../spends/spends";
 })
 export class PopoverSpendPage {
 arr:Spends[]=[];
-sexpense_id:number;
+sexpense_id:any;
 sfk_user_email:string='';
 sfk_scat_id:number;
 sexpense_date:string='';
@@ -40,9 +40,7 @@ sexp_year:number;
  onClickRed()
   {
    
-    this.storage.get('spendsid').then((val) => {
-      console.log( val);
-      this.sexpense_id=val;
+      this.sexpense_id=localStorage.getItem('spendsid');
     
     this._data1.getSpendsById(this.sexpense_id).subscribe(
 
@@ -70,15 +68,12 @@ sexp_year:number;
        }
     )
 
-    });
     
   }
      onClickYellow()
   {
    
-    this.storage.get('spendsid').then((val) => {
-      console.log( val);
-      this.sexpense_id=val;
+    this.sexpense_id=localStorage.getItem('spendsid');
     
     this._data1.getSpendsById(this.sexpense_id).subscribe(
 
@@ -106,14 +101,11 @@ sexp_year:number;
        }
     )
 
-    });
     
   }
   onClickGreen()
   {
-    this.storage.get('spendsid').then((val) => {
-      console.log( val);
-      this.sexpense_id=val;
+    this.sexpense_id=localStorage.getItem('spendsid');
     
     this._data1.getSpendsById(this.sexpense_id).subscribe(
 
@@ -141,14 +133,10 @@ sexp_year:number;
        }
     )
 
-    });
   }
   onClickBrown()
   {
-    this.storage.get('spendsid').then((val) => {
-      console.log( val);
-      this.sexpense_id=val;
-    
+    this.sexpense_id=localStorage.getItem('spendsid');
     this._data1.getSpendsById(this.sexpense_id).subscribe(
 
       (data:Spends[])=>{
@@ -174,13 +162,10 @@ sexp_year:number;
        }
     )
 
-    });
   }
   onClickBlack()
   {
-    this.storage.get('spendsid').then((val) => {
-      console.log( val);
-      this.sexpense_id=val;
+    this.sexpense_id=localStorage.getItem('spendsid');
     
     this._data1.getSpendsById(this.sexpense_id).subscribe(
 
@@ -208,6 +193,6 @@ sexp_year:number;
        }
     )
 
-    });
+  
   }
 }

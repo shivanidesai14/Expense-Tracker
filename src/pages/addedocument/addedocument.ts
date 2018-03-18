@@ -1,4 +1,5 @@
 import { Component,ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
 import { IonicPage, NavController, NavParams,PopoverController,ToastController,LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
@@ -25,6 +26,7 @@ export class AddedocumentPage {
   dt: any = new Date().getDate();
   x: any = new Date().getMonth();
   y: any = new Date().getFullYear();
+  user: FormGroup;
   @ViewChild("fileInput") fileInput;
   selectedFile: File = null;
   selectedFile1: File = null;
@@ -48,20 +50,44 @@ export class AddedocumentPage {
   onAdd(){
     this.fileInput.nativeElement.click();
   }
+  processWebImage(event) {
+    let reader = new FileReader();
+    reader.onload = (readerEvent) => {
 
+      let imageData = (readerEvent.target as any).result;
+      this.user.patchValue({ 'profilePic': imageData });
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+    this.selectedFile = <File>event.target.files[0];
+  }
+  getProfileImageStyle() {
+    return 'url(' + this.user.controls['profilePic'].value + ')'
+  }
+  getPicture() {
+   
+      this.fileInput.nativeElement.click();
+  
+  }
+  ngOnInit() {
+
+    this.user = new FormGroup({
+    profilePic:new FormControl('')
+    });
+    
+    }
+   
   onClickAddEdoc()
   {
     alert("hello");
-    this.storage.get('name').then((val) => {
-      console.log(val);
-      this.fk_user_email = val;
+    this.fk_user_email=localStorage.getItem('name');
       const fd = new FormData();
 
     fd.append("edoc_id",this.edoc_id);
     fd.append("edoc_title",this.edoc_title);
     fd.append("fk_user_email",this.fk_user_email);
     fd.append("image", this.selectedFile, this.selectedFile.name);
-    fd.append("image","hello");
+    fd.append("image_2","hello");
     fd.append("image_3","hello2");
 
     this.http.post("http://localhost:3000/edoc/", fd)
@@ -75,7 +101,7 @@ export class AddedocumentPage {
       alert(error);
     }
   
-  });
+
 
     
   }

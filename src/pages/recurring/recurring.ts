@@ -40,7 +40,7 @@ export class RecurringPage {
  
   expense_id: number;
   fk_user_email: string = '';
-  fk_scat_id: number;
+  fk_scat_id: any;
   colour_name: string = "white";
   date: any;
   mo: any;
@@ -84,14 +84,10 @@ monthh:any;
   url: string = '../assets/userimgs/sign-question-icon.png';
   ionViewDidEnter() {
 
-    this.storage.get('na').then((val) => {
-      console.log(val);
-      this.sub_cat_name = val;
-    });
-    this.storage.get('img').then((val) => {
-      console.log(val);
-      this.icon_image = val;
-    });
+      this.sub_cat_name = localStorage.getItem('na');
+  
+      this.icon_image = localStorage.getItem('img');
+    
   }
 
   constructor(public lo: LoadingController, public to: ToastController,
@@ -109,8 +105,8 @@ monthh:any;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecurringPage');
-    this.storage.set('img', this.url);
-    this.storage.set('na', '');
+    localStorage.setItem('img', this.url);
+    localStorage.setItem('na', '');
     this.navBar.backButtonClick = () => {
       this.navCtrl.push(SpendsPage);
   };
@@ -327,12 +323,8 @@ monthh:any;
     }
     else {
 
-      this.storage.get('id').then((val) => {
-        console.log(val);
-        this.fk_scat_id = val;
-        this.storage.get('name').then((val) => {
-          console.log(val);
-          this.fk_user_email = val;
+        this.fk_scat_id = localStorage.getItem('id');
+        this.fk_user_email=localStorage.getItem('name');
 
 
           let l1 = this.lo.create({
@@ -357,8 +349,7 @@ monthh:any;
               l1.dismiss();
             }
           )
-        });
-      });
+        
     }
 
 

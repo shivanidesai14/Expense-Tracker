@@ -31,9 +31,7 @@ export class ReminderPage {
   y: any = new Date().getFullYear();
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReminderPage');
-    this.storage.get('name').then((val) => {
-      console.log(val);
-      this.fk_user_email = val;
+    this.fk_user_email=localStorage.getItem('name');
       let l1 = this.load.create({
 
         content: "Loading..."
@@ -53,8 +51,6 @@ export class ReminderPage {
         }
 
       );
-
-    });
 
   }
   

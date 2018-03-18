@@ -88,9 +88,7 @@ this.testing = "pie";
     this.strdata="[";
     this.strlabel='[';
     this.f=0;
-    this.storage.get('name').then((val)=>{
-      console.log(val);
-    this.fk_user_email=val;
+    this.fk_user_email=localStorage.getItem('name');
      this._data.getexps(this.fk_user_email,this.x).subscribe(
        (data:any)=>{
   
@@ -120,7 +118,7 @@ this.testing = "pie";
      
        this.doughnutChart = this.getDoughnutChart();   
          });   
-    });
+    
   
 
    

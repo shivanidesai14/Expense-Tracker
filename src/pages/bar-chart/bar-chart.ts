@@ -57,18 +57,18 @@ this.testing = "pie";
     definechartdata()
     {
       
-      this.storage.get('name').then((val)=>{
-        console.log( val);
-      this.fk_user_email=val;
+      this.fk_user_email=localStorage.getItem('name');
        this._data.getexpforbar(this.fk_user_email).subscribe(
          (data:any)=>{
     
     
+          
            while(this.j<data.length)
            {
              this.arr[this.j]=new barchart(null,null);
             
               this.arr[this.j].exp_amt=data[this.j]["sum(exp_tbl.expense_amt)"];
+            
               this.arr[this.j].cat_name=data[this.j].cat_name;
             if(this.j<data.length-1)
             {
@@ -85,11 +85,12 @@ this.testing = "pie";
           
   
            this.j++;
+           
          }
-       
+      
          this.barChart = this.getBarChart(); 
            });   
-      });
+      
    }
   
  getChart(context, chartType, data, options?) {

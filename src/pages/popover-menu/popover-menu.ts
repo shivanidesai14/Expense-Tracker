@@ -53,6 +53,9 @@ this.navCtrl.push(EdocumentPage);
   }
   onlogout()
   {
+    localStorage.clear();
+    localStorage.removeItem('name');
+    localStorage.removeItem('pass');
     this.navCtrl.push(LoginPage);
   }
   

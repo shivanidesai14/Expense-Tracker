@@ -15,7 +15,7 @@ import { NewnotePage } from "../newnote/newnote";
   templateUrl: 'popover-note1page.html',
 })
 export class PopoverNote1pagePage {
-flag:number;
+flag:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public storage:Storage) {
   }
@@ -27,15 +27,15 @@ flag:number;
   {
     this.flag=1;
   //  alert(this.flag);
-  this.storage.set('colorname',"black");
-  this.storage.set('colorflag',this.flag);
+  localStorage.setItem('colorname',"black");
+  localStorage.setItem('colorflag',this.flag);
   this.navCtrl.push(NewnotePage);
   }
   onClickYellow()
   {
     this.flag=2;
-    this.storage.set('colorname',"orange");
-  this.storage.set('colorflag',this.flag);
+    localStorage.setItem('colorname',"orange");
+    localStorage.setItem('colorflag',this.flag);
   this.navCtrl.push(NewnotePage);
    // alert(this.flag);
   }
@@ -43,24 +43,24 @@ flag:number;
   onClickGreen()
   {
     this.flag=3;
-    this.storage.set('colorname',"lightgreen");    
-  this.storage.set('colorflag',this.flag);
+    localStorage.setItem('colorname',"lightgreen");    
+    localStorage.setItem('colorflag',this.flag);
   this.navCtrl.push(NewnotePage);
   }
 
   onClickBrown()
   {
     this.flag=4;
-    this.storage.set('colorname',"lightcoral");
-  this.storage.set('colorflag',this.flag);
+    localStorage.setItem('colorname',"lightcoral");
+    localStorage.setItem('colorflag',this.flag);
   this.navCtrl.push(NewnotePage);
   }
 
   onClickBlack()
   {
     this.flag=5;
-    this.storage.set('colorname',"darkturquoise");
-  this.storage.set('colorflag',this.flag);
+    localStorage.setItem('colorname',"darkturquoise");
+    localStorage.setItem('colorflag',this.flag);
   this.navCtrl.push(NewnotePage);
   }
 

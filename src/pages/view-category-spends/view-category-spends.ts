@@ -33,9 +33,7 @@ sumexp:number=0;
     console.log('ionViewDidLoad ViewCategorySpendsPage');
 
   this.cat_id=this.navParams.get('cat_id');
-       this.storage.get('name').then((val) => {
-      console.log(val);
-      this.fk_user_email = val;
+  this.fk_user_email=localStorage.getItem('name');
         let l1 = this.load.create({
 
         content: "Loading..."
@@ -59,8 +57,7 @@ sumexp:number=0;
 
       );
 
-    });
-    
+  
 
 
 

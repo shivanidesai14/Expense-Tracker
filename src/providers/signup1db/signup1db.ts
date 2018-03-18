@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http,RequestOptions,Headers,Response } from '@angular/http';
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
+import { Users } from "../../shared/users";
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
 
@@ -14,6 +15,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class Signup1dbProvider {
   public url:string="http://localhost:3000/userss/";
+  public url1:string="http://localhost:3000/signup/";
   constructor(public http: HttpClient) {
     console.log('Hello Signup1dbProvider Provider');
   }
@@ -23,5 +25,9 @@ export class Signup1dbProvider {
     
     return this.http.post(this.url,fd);
   }
-
+addNormalUsers(item:Users)
+{
+  let body=JSON.stringify(item);
+    return this.http.post(this.url1,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
+}
 }

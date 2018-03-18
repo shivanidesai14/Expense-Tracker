@@ -26,7 +26,9 @@ notes_date:string=new Date().toDateString();
 dt:any=new Date().getDate();
 x:any=new Date().getMonth();
 y:any=new Date().getFullYear();
-finalDate:any=this.y+"-"+this.x+"-"+this.dt;
+
+finalDate:any;
+
 colour_name:string="white";
   constructor(public storage:Storage,public _data:NotesdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -38,9 +40,16 @@ colour_name:string="white";
   
    onAddNotes()
   {
-     this.storage.get('name').then((val)=>{
-    console.log( val);
-    this.fk_user_email=val;
+    if(this.x==1 || this.x==2 || this.x==3 || this.x==4 || this.x==5 || this.x==6 || this.x==7 || this.x==8 || this.x== 9)
+    {
+      this.finalDate=this.y+"-"+0+this.x+"-"+this.dt;
+    }
+    else
+    {
+      this.finalDate=this.y+"-"+this.x+"-"+this.dt;
+    }
+   
+    this.fk_user_email=localStorage.getItem('name');
 
       let l1=this.lo.create({
         content:"loading"
@@ -66,6 +75,6 @@ colour_name:string="white";
             l1.dismiss();
           }
       )
-         });
+         
   }
 }

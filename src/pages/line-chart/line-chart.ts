@@ -60,9 +60,7 @@ this.testing = "pie";
   {
     this.str="[";
     
-     this.storage.get('name').then((val)=>{
-       console.log( val);
-     this.fk_user_email=val;
+     this.fk_user_email=localStorage.getItem('name');
       this._data.getexpforline(this.fk_user_email).subscribe(
         (data:any)=>{
    
@@ -88,7 +86,7 @@ this.testing = "pie";
         this.flag=1;
    this.lineChart = this.getLineChart();  
           });   
-     });
+     
    
   }
   

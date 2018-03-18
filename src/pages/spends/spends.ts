@@ -44,7 +44,7 @@ export class SpendsPage {
   testing: String = '';
   tot: number;
   txtsearch:string="";
-  cflag:number;
+  cflag:any;
   color:string;
   flag:number=0;
 
@@ -63,21 +63,14 @@ export class SpendsPage {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpendsPage');
-    this.storage.get('colorflag').then((val)=>{
-      console.log(val);
-      this.cflag=val;
-    //  alert(this.cflag);
-      this.storage.set('colorflag','null');
+   
+      this.cflag=localStorage.getItem('colorflag');
+      localStorage.setItem('colorflag','null');
       if(this.cflag>0)
       {
-        //alert('welcome to if');
-        this.storage.get('colorname').then((val)=>{
-          console.log( val);
-          this.color=val;
-          this.storage.set('colorname','null');
-          this.storage.get('name').then((val)=>{
-            console.log( val);
-            this.fk_user_email=val;
+          this.color=localStorage.getItem('colorname');
+          localStorage.setItem('colorname','null');
+            this.fk_user_email=localStorage.getItem('name');
 
             let item=new SpendsSubcat(0,this.fk_user_email,0,"",0,this.color,"","","");
 
@@ -87,8 +80,7 @@ export class SpendsPage {
         l1.present();
           this.data.getExpenseByColor(item).subscribe(
       
-              (data:SpendsSubcat[])=>{
-       // alert('successful');       
+              (data:SpendsSubcat[])=>{    
                 this.arr=data;
                 this.spends="color";
                 for (var i = 0; i < this.arr.length; i++) {
@@ -109,19 +101,13 @@ export class SpendsPage {
               }
       
           );
-          });
-   
-          });
-        
-       
+               
        
         
       }
       else
       {
-    this.storage.get('name').then((val) => {
-      console.log(val);
-      this.fk_user_email = val;
+        this.fk_user_email=localStorage.getItem('name');
       let l1 = this.load.create({
 
         spinner:"hide",
@@ -148,10 +134,10 @@ export class SpendsPage {
 
       );
 
-    });
+    
 
   }
-});
+
   }
 
   public event = {
@@ -187,7 +173,7 @@ export class SpendsPage {
     }
   }
   openPopover(myEvent, id1: any) {
-    this.storage.set('spendsid', id1);
+    localStorage.setItem('spendsid', id1);
     let popover = this.popoverCtrl.create(PopoverSpendPage);
     popover.present({
       ev: myEvent

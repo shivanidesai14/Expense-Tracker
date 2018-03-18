@@ -22,54 +22,63 @@
 
 <ion-content scroll="false">
 
-    <div class="splash-bg"></div>
-    <div class="splash-info">
-        <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected($event)">
-        <div *ngFor="let item of arr">
-            <img src="http://localhost:3000/images/{{item.user_img}}" class="splash-logo" (click)="onAdd()" style="height:90px;width:90px">
-        </div>
 
-        <ion-card class="card1" *ngFor="let item of arr">
+
+
+
+    <form novalidate [formGroup]="user" *ngIf="user">
+        <div class="splash-bg">
+
+            <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+            <div class="profile-image-wrapper" (click)="getPicture()">
+                <div class="profile-image-placeholder" *ngIf="!this.user.controls.profilePic.value">
+                    <img src="http://localhost:3000/images/{{eimage}}" class="splash-logo" (click)="onAdd()" style="height:90px;width:90px">
+                </div>
+                <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.user.controls.profilePic.value"></div>
+
+            </div>
+
+            <ion-card class="card1" *ngFor="let item of arr">
+                <ion-card-content>
+                    <ion-item style="font-size:20px;text-align:top;margin-left:80px;">Hello {{item.user_name}}</ion-item>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div>
+            <br>
+        </div>
+        <ion-card style="height:20%;width:95%;border-top: 2px solid #26A69A">
+            <ion-card-header>
+                My Spends
+            </ion-card-header>
             <ion-card-content>
-                <ion-item style="font-size:15px;text-align:top;margin-left:80px;">Hello {{item.user_name}}</ion-item>
+                <ion-item style="text-align:right"><button ion-button color="default" clear (click)="onClickSpends()"><b>VIEW ALL SPENDS</b></button></ion-item>
             </ion-card-content>
         </ion-card>
-    </div>
-    <div>
-        <br>
-    </div>
-    <ion-card style="height:20%;width:95%;border-top: 2px solid #26A69A">
-        <ion-card-header>
-            My Spends
-        </ion-card-header>
-        <ion-card-content>
-            <ion-item style="text-align:right"><button ion-button color="default" clear (click)="onClickSpends()"><b>VIEW ALL SPENDS</b></button></ion-item>
-        </ion-card-content>
-    </ion-card>
-    <ion-card style="height:20%;width:95%;border-top: 2px solid #26A69A">
-        <ion-card-header>
-            My Reports
-        </ion-card-header>
-        <ion-card-content>
-            <ion-item style="text-align:right"><button ion-button color="default" clear (click)="onClickGraph()"><b>VIEW ALL REPORTS</b></button></ion-item>
-        </ion-card-content>
-    </ion-card>
-    <ion-card style="height:20%;width:95%;border-top: 2px solid #26A69A">
-        <ion-card-header>
-            My Loans
-        </ion-card-header>
-        <ion-card-content>
-            <ion-item style="text-align:right"><button ion-button color="default" clear (click)="onClickLoan()"><b>VIEW ALL LOANS</b></button></ion-item>
-        </ion-card-content>
-    </ion-card>
-    <ion-card style="height:20%;width:95%;border-top: 2px solid #26A69A">
-        <ion-card-header>
-            Change Password
-        </ion-card-header>
-        <ion-card-content>
-            <ion-item style="text-align:right"><button ion-button color="default" clear (click)="chagepass()"><b>CHANGE PASSWORD</b></button></ion-item>
-        </ion-card-content>
-    </ion-card>
-    <button ion-button block (click)="onlogout()" style="background:#009688">LOG-OUT</button>
-
+        <ion-card style="height:20%;width:95%;border-top: 2px solid #26A69A">
+            <ion-card-header>
+                My Reports
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item style="text-align:right"><button ion-button color="default" clear (click)="onClickGraph()"><b>VIEW ALL REPORTS</b></button></ion-item>
+            </ion-card-content>
+        </ion-card>
+        <ion-card style="height:20%;width:95%;border-top: 2px solid #26A69A">
+            <ion-card-header>
+                My Loans
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item style="text-align:right"><button ion-button color="default" clear (click)="onClickLoan()"><b>VIEW ALL LOANS</b></button></ion-item>
+            </ion-card-content>
+        </ion-card>
+        <ion-card style="height:20%;width:95%;border-top: 2px solid #26A69A">
+            <ion-card-header>
+                Change Password
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item style="text-align:right"><button ion-button color="default" clear (click)="chagepass()"><b>CHANGE PASSWORD</b></button></ion-item>
+            </ion-card-content>
+        </ion-card>
+        <button ion-button block (click)="onlogout()" style="background:#009688">LOG-OUT</button>
+    </form>
 </ion-content>
