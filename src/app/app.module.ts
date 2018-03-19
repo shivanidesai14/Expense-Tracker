@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
 import { IonicApp, IonicErrorHandler, IonicModule, FabContainer } from 'ionic-angular';
-import { Camera, CameraOptions } from "@ionic-native/camera";
+//import { Camera, CameraOptions } from "@ionic-native/camera";
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
@@ -106,7 +106,7 @@ import { EdocumentdbProvider } from '../providers/edocumentdb/edocumentdb';
   providers: [
     StatusBar,
     SplashScreen,
-    Camera,
+   // Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     NotesdbProvider,
     UserdbProvider,

@@ -77,10 +77,11 @@ this.testing = "pie";
    this.x=selectedValue;
    this.strdata='';
   this.strlabel='';
-  this.arr=[];
+  this.arr=[]=[];
   this.j=0;
   this.f=1;
-  
+ // this.doughnutCanvas.clear;  
+ this.doughnutChart.destroy();
    this.definechartdata();
 }
   definechartdata()

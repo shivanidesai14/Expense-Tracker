@@ -31,6 +31,7 @@ import { Item } from 'ionic-angular/components/item/item';
 })
 export class SpendsPage {
 
+  //@ViewChild(Slides) slides: Slides;
   dt: any = new Date().getDate();
   x: any = new Date().getMonth();
   y: any = new Date().getFullYear();
@@ -60,6 +61,7 @@ export class SpendsPage {
 
 
   }
+  
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpendsPage');

@@ -41,15 +41,19 @@
 
 </ion-header>
 
-
 <ion-content padding class="card-background-page">
+        
 
-    <ion-card *ngFor="let item of arr">
-        <img src="../assets/imgs/Grey-coloured-brick.jpg" />
+    <div hide-on-scroll="true" class="bar-positive">
+            
+                       <ion-card *ngFor="let item of arr" >
+        <img  src="../assets/imgs/Grey-coloured-brick.jpg" />
         <div class="card-title">Welcome,</div><br><br>
         <div class="card-subtitle" style="font-size:25px;">{{item.user_name}}</div>
     </ion-card>
-
+    </div>
+       
+<div>
     <ion-card>
         <ion-list>
             <ion-card-content>
@@ -139,5 +143,5 @@
         </ion-list>
     </ion-card>
 
-
+</div>
 </ion-content>

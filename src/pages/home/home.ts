@@ -1,6 +1,7 @@
 import { LoanPage } from './../loan/loan';
-import { Component } from '@angular/core';
-import { NavController,PopoverController } from 'ionic-angular';
+import { Component,ViewChild } from '@angular/core';
+import {ElementRef,Renderer } from "@angular/core";
+import { NavController,PopoverController,Content } from 'ionic-angular';
 import { PopoverPage } from '../popover/popover';
 import { SpendsPage } from "../spends/spends";
 import { NewnotePage } from "../newnote/newnote";
@@ -21,14 +22,26 @@ import { importType } from '@angular/compiler/src/output/output_ast';
 
 
 export class HomePage {
+  @ViewChild(Content) content: Content;
+  start = 0;
+  threshold = 100;
+  slideHeaderPrevious = 0;
 eid:string='';
 arr:Users[]=[];
 fk_user_email:string;
+ionScroll:any;
+showheader:boolean;
+hideheader:boolean;
+headercontent:any;
   constructor(public storage:Storage,public popoverCtrl: PopoverController,
-    public navCtrl: NavController,public data:UserdbProvider) {
+    public navCtrl: NavController,public data:UserdbProvider,
+    public renderer: Renderer ,public myElement: ElementRef) {
+      this.showheader =false;
+      this.hideheader = true;
 
   }
   ionViewDidLoad() {
+    
     console.log('ionViewDidLoad LoginPage');
     this.storage.get('name').then((val) => {
       console.log(val);
@@ -52,12 +65,34 @@ fk_user_email:string;
     
 
   }
+  // ngOnInit() {
+
+  //   // Ionic scroll element
+  //   this.ionScroll = this.myElement.nativeElement.getElementsByClassName('scroll-content')[0];
+  //   // On scroll function
+  //   this.ionScroll.addEventListener("scroll", () => {
+  //   if(this.ionScroll.scrollTop - this.start > this.threshold) {
+  //   this.showheader =true;
+  //   this.hideheader = false;
+  //   } else {
+  //   this.showheader =false;
+  //   this.hideheader = true;
+  //   }
+  //   if (this.slideHeaderPrevious >= this.ionScroll.scrollTop - this.start) {
+  //   this.showheader =false;
+  //   this.hideheader = true;
+  //   }
+  //   this.slideHeaderPrevious = this.ionScroll.scrollTop - this.start;
+  //   });
+  // }
+ 
 openPopover(myEvent) {
     let popover = this.popoverCtrl.create(PopoverPage);
     popover.present({
       ev: myEvent
     });
   }
+  
   onReminder()
   {
     this.navCtrl.push(ReminderPage)

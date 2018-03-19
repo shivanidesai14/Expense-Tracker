@@ -4,6 +4,7 @@ page-home {
             position: relative;
             text-align: center;
         }
+        
         .card-title {
             position: absolute;
             top: 36%;
@@ -20,6 +21,8 @@ page-home {
             color: #fff;
         }
     }
+ 
+  
     .slide-image {
         max-height: 20%;
         max-width: 20%;
@@ -36,6 +39,19 @@ page-home {
         width: 95%;
         height: 10%;
     }
+    .scroll-content{
+        top:-56px !important;
+        padding-top: 60px !important;
+        }
+        .hide-header{
+        transition : top 0.99s ease;
+        top: -180px;
+        }
+        .show-header{
+        transition : top 0.99s ease;
+        top: 0px;
+        }
+
     .menu-icon {
         color: yellowgreen;
     }

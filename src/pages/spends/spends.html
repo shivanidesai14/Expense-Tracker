@@ -35,14 +35,14 @@
         <ion-icon name="add"></ion-icon>
       </button>
         <ion-fab-list side="top">
-            <button ion-fab (click)="onClickRec()">
+            <button ion-fab (click)="onClickRec() ">
           <ion-icon name="cloud"></ion-icon>
           <div class="label">Reccuring Spends</div>
         </button>
         </ion-fab-list>
 
         <ion-fab-list side="top">
-            <button ion-fab class="button3" (click)="onClickOne()">
+            <button ion-fab class="button3" (click)="onClickOne() ">
           <ion-icon name="cloud-done"></ion-icon>
           <div class="label">One-time Spends</div>
         </button>
@@ -101,25 +101,28 @@
             </ion-footer>
 
             <ion-card *ngFor="let item of arr">
+                    
+                      <ion-item-sliding  (click)="onClickdesc(item.expense_id)">
+                        <ion-item>
+                        <ion-avatar item-start>
+                          <img src="{{item.icon_image}}">
+                        </ion-avatar>
 
-                <ion-item (click)="onClickdesc(item.expense_id)">
-                    <ion-avatar item-start>
-                        <img src="{{item.icon_image}}">
-                    </ion-avatar>
-
+                   
                     <div class="item row">
-                        <span align="left" class="col col-50">{{item.sub_cat_name}}</span>
-                        <span align="right" class="col col-50"> {{item.expense_amt | currency:'INR':true}}</span>
-                    </div>
-                    <div class="item row">
-                        <span align="left" class="col col-50"><p>{{item.expense_date}}</p></span>
-
-                    </div>
-
-
-                </ion-item>
-            </ion-card>
-
+                            <span align="left" class="col col-50">{{item.sub_cat_name}}</span>
+                            <span align="right" class="col col-50"> {{item.expense_amt | currency:'INR':true}}</span>
+                        </div>
+                            <div class="item row">
+                            <span align="left" class="col col-80">{{item.expense_date}}</span>
+                        </div>
+                        
+                      </ion-item>
+                <ion-item-options>
+                    <button  ion-button color="danger" (click)="showPrompt(item)"><ion-icon name="trash"></ion-icon>Delete</button>
+                  </ion-item-options>
+                </ion-item-sliding>
+                </ion-card>
 
         </ion-list>
         <ion-list *ngSwitchCase="'color'">
