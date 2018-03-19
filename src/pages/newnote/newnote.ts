@@ -52,7 +52,10 @@ fk_user_email:string='';
 
           let l1=this.load.create({
       
-          content:"Loading..."
+            spinner:"hide",
+            content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+            cssClass:"loader",
+            duration:2000
         });
         l1.present();
           this._data.getNoteByColor(item).subscribe(
@@ -88,7 +91,11 @@ fk_user_email:string='';
         
        let l1=this.load.create({
       
-          content:"Loading..."
+        
+        spinner:"hide",
+        content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+        cssClass:"loader",
+        duration:2000
         });
         l1.present();
           this._data.getNotesById(this.fk_user_email).subscribe(

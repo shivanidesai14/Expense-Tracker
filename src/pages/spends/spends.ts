@@ -111,7 +111,7 @@ export class SpendsPage {
       let l1 = this.load.create({
 
         spinner:"hide",
-        content:"<div style='text-align:center;background:black';><img src='../assets/imgs/2.gif' height='80' width='80'></div>",
+        content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
         duration:2000
       });

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserProfilePage } from "../user-profile/user-profile";
 import { LoginPage } from "../login/login";
+import { HelpPage } from "../help/help";
 
 /**
  * Generated class for the PopoverPage page.
@@ -26,6 +27,10 @@ export class PopoverPage {
   onClickUserProfile()
   {
       this.navCtrl.push(UserProfilePage);
+  }
+  onClickHelp()
+  {
+      this.navCtrl.push(HelpPage);
   }
   onlogout()
   {
