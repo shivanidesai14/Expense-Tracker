@@ -102,7 +102,7 @@
 
             <ion-card *ngFor="let item of arr">
                     
-                      <ion-item-sliding  (click)="onClickdesc(item.expense_id)">
+                      <ion-item-sliding >
                         <ion-item>
                         <ion-avatar item-start>
                           <img src="{{item.icon_image}}">
@@ -120,7 +120,9 @@
                       </ion-item>
                 <ion-item-options>
                     <button  ion-button color="danger" (click)="showPrompt(item)"><ion-icon name="trash"></ion-icon>Delete</button>
+                    <button  ion-button color="primary" (click)="onClickdesc(item.expense_id)"><ion-icon name="trash"></ion-icon>View<br> more</button>
                   </ion-item-options>
+
                 </ion-item-sliding>
                 </ion-card>
 

@@ -60,6 +60,7 @@ import { LoandbProvider } from '../providers/loandb/loandb';
 import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
 import { LinechartdbProvider } from '../providers/linechartdb/linechartdb';
 import { EdocumentdbProvider } from '../providers/edocumentdb/edocumentdb';
+import { ChatProvider } from '../providers/chat/chat';
 
 
 
@@ -124,7 +125,8 @@ import { EdocumentdbProvider } from '../providers/edocumentdb/edocumentdb';
     LoandbProvider,
     ReminderdbProvider,
     LinechartdbProvider,
-    EdocumentdbProvider
+    EdocumentdbProvider,
+    ChatProvider
 ]
 })
 export class AppModule { }
