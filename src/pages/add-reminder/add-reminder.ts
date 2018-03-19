@@ -50,10 +50,7 @@ export class AddReminderPage {
     }
     else
     {
-     this.storage.get('name').then((val)=>{
-    console.log( val);
-    this.fk_user_email=val;
-
+      this.fk_user_email=localStorage.getItem('name');
       let l1=this.lo.create({
         content:"loading"
       });
@@ -78,7 +75,8 @@ export class AddReminderPage {
             l1.dismiss();
           }
       )
-         });
+         
   }
+      
   }
 }

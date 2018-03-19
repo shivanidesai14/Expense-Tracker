@@ -6,6 +6,7 @@ import { EdocumentPage } from "../edocument/edocument";
 import { UserProfilePage } from "../user-profile/user-profile";
 import { HomePage } from "../home/home";
 import { LoginPage } from "../login/login";
+import { HelpPage } from "../help/help";
 import { Storage } from '@ionic/storage';
 /**
  * Generated class for the PopoverMenuPage page.
@@ -33,6 +34,10 @@ export class PopoverMenuPage {
       this.navCtrl.push(SpendsPage);
 
   }
+  onClickHelp()
+  {
+    this.navCtrl.push(HelpPage);
+  }
   onClickHome()
   {
       this.navCtrl.push(HomePage);
@@ -53,6 +58,9 @@ this.navCtrl.push(EdocumentPage);
   }
   onlogout()
   {
+    localStorage.clear();
+    localStorage.removeItem('name');
+    localStorage.removeItem('pass');
     this.navCtrl.push(LoginPage);
   }
   

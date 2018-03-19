@@ -31,12 +31,14 @@ export class ReminderPage {
   y: any = new Date().getFullYear();
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReminderPage');
-    this.storage.get('name').then((val) => {
-      console.log(val);
-      this.fk_user_email = val;
+    this.fk_user_email=localStorage.getItem('name');
       let l1 = this.load.create({
 
-        content: "Loading..."
+        
+        spinner:"hide",
+        content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+        cssClass:"loader",
+        duration:2000
       });
       l1.present();
       this._data.getRemindersById(this.fk_user_email).subscribe(
@@ -53,8 +55,6 @@ export class ReminderPage {
         }
 
       );
-
-    });
 
   }
   

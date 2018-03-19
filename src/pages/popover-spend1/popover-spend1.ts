@@ -16,7 +16,7 @@ import { SpendsPage } from "../spends/spends";
   templateUrl: 'popover-spend1.html',
 })
 export class PopoverSpend1Page {
-  flag:number;
+  flag:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public storage:Storage) {
   }
@@ -29,15 +29,15 @@ export class PopoverSpend1Page {
   {
     this.flag=1;
   //  alert(this.flag);
-  this.storage.set('colorname',"black");
-  this.storage.set('colorflag',this.flag);
+  localStorage.setItem('colorname',"black");
+  localStorage.setItem('colorflag',this.flag);
   this.navCtrl.push(SpendsPage);
   }
   onClickYellow()
   {
     this.flag=2;
-    this.storage.set('colorname',"orange");
-  this.storage.set('colorflag',this.flag);
+    localStorage.setItem('colorname',"orange");
+    localStorage.setItem('colorflag',this.flag);
   this.navCtrl.push(SpendsPage);
    // alert(this.flag);
   }
@@ -45,24 +45,24 @@ export class PopoverSpend1Page {
   onClickGreen()
   {
     this.flag=3;
-    this.storage.set('colorname',"lightgreen");    
-  this.storage.set('colorflag',this.flag);
+    localStorage.setItem('colorname',"lightgreen");    
+    localStorage.setItem('colorflag',this.flag);
   this.navCtrl.push(SpendsPage);
   }
 
   onClickBrown()
   {
     this.flag=4;
-    this.storage.set('colorname',"lightcoral");
-  this.storage.set('colorflag',this.flag);
+    localStorage.setItem('colorname',"lightcoral");
+    localStorage.setItem('colorflag',this.flag);
   this.navCtrl.push(SpendsPage);
   }
 
   onClickBlack()
   {
     this.flag=5;
-    this.storage.set('colorname',"darkturquoise");
-  this.storage.set('colorflag',this.flag);
+    localStorage.setItem('colorname',"darkturquoise");
+    localStorage.setItem('colorflag',this.flag);
   this.navCtrl.push(SpendsPage);
   }
 }

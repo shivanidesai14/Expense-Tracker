@@ -32,6 +32,7 @@ user: FormGroup;
   uname:string='';
   umobno:string='';
   udpass:string='';
+  uimg:string="defaultimg.png";
   selectedFile: File = null;
   constructor(public storage:Storage,public _data:Signup1dbProvider,
     public navCtrl: NavController, public navParams: NavParams,
@@ -103,32 +104,61 @@ user: FormGroup;
 
  const fd = new FormData();
 
-    fd.append("user_id",this.uid);
-    fd.append("user_email",this.umail);
-    fd.append("user_name",this.uname);
-    fd.append("user_mob_no",this.umobno);
+    if(this.selectedFile==null)
+    {
+      alert(this.umail);
+            this._data.addNormalUsers(new Users(this.uid,this.umail,this.uname,this.umobno,this.uimg,this.upass,this.udpass)).subscribe(
+              (data)=>{
+       
+             t3.present();
+                localStorage.setItem('name',this.umail);
+                 localStorage.setItem('pass',this.upass);
+             this.navCtrl.push(HomePage);  
+           },
+            function(e)
+           {
+             alert(e);
+           },
+           function()
+           {
+             l1.dismiss();
+           }
+         );
+       }
+    
+    else
+    {
+      fd.append("user_id",this.uid);
+      fd.append("user_email",this.umail);
+      fd.append("user_name",this.uname);
+      fd.append("user_mob_no",this.umobno);
+    
     fd.append("image", this.selectedFile, this.selectedFile.name);
     fd.append("user_pass",this.upass);
     fd.append("user_dpass",this.udpass);
-    
-    
-            
     this._data.addUsers(fd).subscribe(
-       (data)=>{
+      (data)=>{
 
-      t3.present();
-      this.navCtrl.push(LoginPage);  
-    },
-     function(e)
-    {
-      alert(e);
-    },
-    function()
-    {
-      l1.dismiss();
+     t3.present();
+     localStorage.setItem('name',this.umail);
+    localStorage.setItem('pass',this.upass);
+     this.navCtrl.push(HomePage);  
+   },
+    function(e)
+   {
+     alert(e);
+   },
+   function()
+   {
+     l1.dismiss();
+   }
+ );
+
     }
-  );
-}
+    
+    
+    
+  }
 }
  ngOnInit() {
 

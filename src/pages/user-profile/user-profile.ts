@@ -36,6 +36,7 @@ euname:string='';
 eumobno:string='';
 eudpass:string='';
 url:string;
+eimage:string='';
 @ViewChild("fileInput") fileInput;
   constructor(public storage:Storage,public navCtrl: NavController,
      public navParams: NavParams,public data:UserdbProvider,private http:HttpClient
@@ -49,14 +50,12 @@ fk_user_email:string='';
   }
   getdata()
   {
-    this.storage.get('name').then((val) => {
-      console.log(val);
-      this.fk_user_email = val;
+    this.fk_user_email=localStorage.getItem('name');
       this.data.getUsersById(this.fk_user_email).subscribe(
 
         (data: Users[]) => {
           this.arr = data;
-          
+          this.eimage=this.arr[0].user_img;
         },
         function (e) {
           alert(e);
@@ -67,7 +66,6 @@ fk_user_email:string='';
 
       );
 
-    });
   }
   processWebImage(event) {
     let reader = new FileReader();
@@ -120,9 +118,7 @@ fk_user_email:string='';
       duration:3000,
       position:"bottom"
     });
-    this.storage.get('name').then((val) => {
-      console.log(val);
-      this.fk_user_email = val;
+    this.fk_user_email=localStorage.getItem('name');
       this.data.getUsersById(this.fk_user_email).subscribe(
 
         (data: Users[]) => {
@@ -163,12 +159,8 @@ fk_user_email:string='';
 
       );
 
-    });
   }
-  onFileSelected(value) {
-    this.selectedFile = <File>value.target.files[0];
-
-  }
+  
   onAdd(){
     this.fileInput.nativeElement.click();
   }

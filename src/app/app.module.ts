@@ -46,6 +46,7 @@ import { PopoverSpend1Page } from "../pages/popover-spend1/popover-spend1";
 import { AddnewcatPage } from "../pages/addnewcat/addnewcat";
 import { SelectParCatPage } from "../pages/select-par-cat/select-par-cat";
 import { AddedocumentPage } from "../pages/addedocument/addedocument";
+import {HelpPage} from "../pages/help/help";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
@@ -71,7 +72,8 @@ import { EdocumentdbProvider } from '../providers/edocumentdb/edocumentdb';
      PopoverNotePage, EditnotesPage, CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
     SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage,
     PopoverNote1pagePage, ReminderPage, ChangepassPage, AddReminderPage, EditreminderPage, PopoverSpend1Page, AddnewcatPage,
-    SelectParCatPage,PopoverSpend1Page,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage
+    SelectParCatPage,PopoverSpend1Page,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage,
+    HelpPage
 
 ],
 
@@ -99,7 +101,7 @@ import { EdocumentdbProvider } from '../providers/edocumentdb/edocumentdb';
     UserProfilePage,SpendsNotePage,ViewspendsPage,
     PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,
     PopoverNote1pagePage,AddnewcatPage,SelectParCatPage,PopoverSpend1Page,
-    ReminderPage,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage
+    ReminderPage,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage,HelpPage
 
 
   ],

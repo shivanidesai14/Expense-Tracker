@@ -10,7 +10,6 @@ import { EdocumentPage} from "../edocument/edocument";
 import { ReminderPage } from "../reminder/reminder";
 import { Users } from "../../shared/users";
 import { UserdbProvider } from "../../providers/userdb/userdb";
-
 import { SelectcatPage } from "../selectcat/selectcat";
 import { Storage } from '@ionic/storage';
 import { importType } from '@angular/compiler/src/output/output_ast';
@@ -43,9 +42,7 @@ headercontent:any;
   ionViewDidLoad() {
     
     console.log('ionViewDidLoad LoginPage');
-    this.storage.get('name').then((val) => {
-      console.log(val);
-      this.fk_user_email = val;
+      this.fk_user_email=localStorage.getItem('name');
       this.data.getUsersById(this.fk_user_email).subscribe(
 
         (data: Users[]) => {
@@ -58,11 +55,10 @@ headercontent:any;
         function () {
           
         }
-
+      
       );
-
-    });
     
+        
 
   }
   // ngOnInit() {

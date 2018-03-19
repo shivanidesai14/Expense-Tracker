@@ -32,31 +32,30 @@ export class NewnotePage {
  arr1:Notes[]=[];
 fk_user_email:string='';
  txtsearch:string="";
- cflag:number;
+ cflag:any;
  color:string;
  flag:number=0;
   ionViewDidLoad() {
 
     console.log('ionViewDidLoad NewnotePage');
-    this.storage.get('colorflag').then((val)=>{
-      console.log(val);
-      this.cflag=val;
-      this.storage.set('colorflag','null');
+   
+      this.cflag=localStorage.getItem('colorflag');
+      localStorage.setItem('colorflag','null');
       if(this.cflag>0)
       {
-        this.storage.get('colorname').then((val)=>{
-          console.log( val);
-          this.color=val;
-          this.storage.set('colorname','null');
-          this.storage.get('name').then((val)=>{
-            console.log( val);
-            this.fk_user_email=val;
+        
+          this.color=localStorage.getItem('colorname');
+          localStorage.setItem('colorname','null');
+          this.fk_user_email=localStorage.getItem('name');
 
             let item=new Notes(0,this.fk_user_email,'','',this.color);
 
           let l1=this.load.create({
       
-          content:"Loading..."
+            spinner:"hide",
+            content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+            cssClass:"loader",
+            duration:2000
         });
         l1.present();
           this._data.getNoteByColor(item).subscribe(
@@ -78,25 +77,25 @@ fk_user_email:string='';
               }
       
           );
-          });
-   
-          });
-        
+         
        
        
         
       }
       else
       {
-        this.storage.get('name').then((val)=>{
-          console.log( val);
-          this.fk_user_email=val;
+      
+          this.fk_user_email=localStorage.getItem('name');
       
          
         
        let l1=this.load.create({
       
-          content:"Loading..."
+        
+        spinner:"hide",
+        content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+        cssClass:"loader",
+        duration:2000
         });
         l1.present();
           this._data.getNotesById(this.fk_user_email).subscribe(
@@ -116,10 +115,9 @@ fk_user_email:string='';
               }
       
           );
-          });
+          
       }
-    }
-  )
+    
   }
   openPopoverMenu(myEvent) {
     let popover = this.popoverCtrl.create(PopoverMenuPage);
@@ -170,7 +168,7 @@ search()
   }
 }
 openPopover(myEvent,id1:any) {
-  this.storage.set('noteid',id1);
+  localStorage.setItem('noteid',id1);
     let popover = this.popoverCtrl.create(PopoverNotePage);
     popover.present({
       ev: myEvent
@@ -193,70 +191,71 @@ openPopover(myEvent,id1:any) {
         notes_desc:item.notes_desc
       });
   }
-   openMenu() {
+   openMenu(item:string) {
     let actionSheet = this.actionsheetCtrl.create({
       title: 'Albums',
       cssClass: 'action-sheets-basic-page',
       buttons: [
         {
-          text: 'Delete',
-          icon: !this.platform.is('ios') ? 'trash' : null,
+          text: 'Twitter',
+          icon: !this.platform.is('ios') ? 'logo-twitter' : null,
           handler: () => {
-            this.otherShare();
+            this.otherShare(item);
             
           }
         },
         {
-          text: 'Share',
-          icon: !this.platform.is('ios') ? 'share' : null,
+          text: 'Whatsapp',
+          icon: !this.platform.is('ios') ? 'logo-whatsapp' : null,
           handler: () => {
-           this.whatsappShare();
+           this.whatsappShare(item);
           }
         },
         {
-          text: 'Play',
-          icon: !this.platform.is('ios') ? 'arrow-dropright-circle' : null,
+          text: 'Email',
+          icon: !this.platform.is('ios') ? 'mail' : null,
           handler: () => {
-            this.emailShare();
+            this.emailShare(item);
           }
         },
         {
-          text: 'Favorite',
-          icon: !this.platform.is('ios') ? 'heart-outline' : null,
+          text: 'Facebook',
+          icon: !this.platform.is('ios') ? 'logo-facebook' : null,
           handler: () => {
-           this.facebookShare();
+           this.facebookShare(item);
           }
         },
         {
           text: 'Cancel',
-          role: 'cancel', // will always sort to be on the bottom
+          role: 'cancel', 
           icon: !this.platform.is('ios') ? 'close' : null,
           handler: () => {
-            actionSheet.dismiss();
+            this.navCtrl.push(NewnotePage);
           }
         }
       ]
     });
     actionSheet.present();
   }
-  emailShare(){
-    this.socialSharing.shareViaEmail('Hello', 'testing', ['jinalshah999@gmail.com']).then(() => {
-      // Success!
+  emailShare(item){
+    this.socialSharing.shareViaEmail('Hello', 'testing', ['exptracker8@gmail.com']).then(() => {
+      
     }).catch(() => {
-      // Error!
+      
     });
   }
-  whatsappShare(){
-    this.socialSharing.shareViaWhatsApp("Message via WhatsApp", null /*Image*/,  "https://shreejashah.wordpress.com/" /* url */)
+  whatsappShare(item){
+  
+    this.socialSharing.shareViaWhatsApp("Message via WhatsApp", null /*Image*/,  item /* url */)
      
   }
-  facebookShare(){
-    this.socialSharing.shareViaFacebook("Message via Twitter",null /*Image*/,"https://pointdeveloper.com")
+  facebookShare(item){
+    this.socialSharing.shareViaFacebook("Message via FaceBook",null /*Image*/,item)
     
   }
  
-  otherShare(){
-    this.socialSharing.share("Genral message",null/*Subject*/,null/*File*/,"https://shreejashah.wordprss.com");
+  otherShare(item){
+    this.socialSharing.share("Genral message",null/*Subject*/,null/*File*/,item);
    
   }
 }

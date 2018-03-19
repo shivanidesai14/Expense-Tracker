@@ -25,9 +25,7 @@ export class SelectParCatPage {
   ionViewDidLoad() {
     
     console.log('ionViewDidLoad SelectParCatPage');
-    this.storage.get('name').then((val)=>{
-      console.log( val);
-      this.fk_user_email=val;
+    this.fk_user_email=localStorage.getItem('name');
     let l1=this.load.create({
       
       content:"Loading..."
@@ -52,15 +50,15 @@ export class SelectParCatPage {
   
       );
   }
-    )};
+    
 
 
     onClick(item)
   {
    
-      this.storage.set('id',item.cat_id);
-       this.storage.set('na',item.cat_name);
-         this.storage.set('img',item.cicon_image);
+      localStorage.setItem('id',item.cat_id);
+      localStorage.setItem('na',item.cat_name);
+      localStorage.setItem('img',item.cicon_image);
 
         
     this.navCtrl.pop();

@@ -30,7 +30,7 @@ y:any=new Date().getFullYear();
 expense_amt:number=0;
 expense_id:number;
 fk_user_email:string='';
-fk_scat_id:number;
+fk_scat_id:any;
 colour_name:string="white";
 spends_notes:string='';
 tmp_msg:string="this is one time exp";
@@ -52,14 +52,11 @@ url:string='../assets/userimgs/sign-question-icon.png';
   }
 ionViewDidEnter() {
    
-     this.storage.get('na').then((val) => {
-            console.log( val);
-            this.sub_cat_name=val;
-         });
-           this.storage.get('img').then((val) => {
-            console.log( val);
-            this.icon_image=val;
-         });
+            this.sub_cat_name=localStorage.getItem('na');
+        
+         
+            this.icon_image=localStorage.getItem('img');
+         
 }
  
   ionViewDidLoad() {
@@ -67,8 +64,8 @@ ionViewDidEnter() {
     console.log('ionViewDidLoad OnetimePage');
    
      
-        this.storage.set('img',this.url);
-         this.storage.set('na','');
+        localStorage.setItem('img',this.url);
+        localStorage.setItem('na','');
          this.navBar.backButtonClick = () => {
           this.navCtrl.push(SpendsPage);
       };
@@ -111,13 +108,8 @@ ionViewDidEnter() {
       this.month = this.tmp_month.substr(0, 2);
 
       this.year = this.event.finalDate.substr(0, 4);
-
-        this.storage.get('id').then((val) => {
-            console.log( val);
-            this.fk_scat_id=val;
-     this.storage.get('name').then((val)=>{
-    console.log( val);
-    this.fk_user_email=val;
+            this.fk_scat_id=localStorage.getItem('id');
+            this.fk_user_email=localStorage.getItem('name');
     
 
       let l1=this.lo.create({
@@ -146,8 +138,7 @@ ionViewDidEnter() {
             l1.dismiss();
           }
       )
-         });
-           });
+         
   }
   }
   onCLick(no)

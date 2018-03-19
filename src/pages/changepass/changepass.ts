@@ -40,12 +40,8 @@ cuser_id:number;
   changePassword()
   {
    
-    this.storage.get('name').then((val) => {
-      console.log( val);
-      this.fk_user_email=val;
-    this.storage.get('pass').then((val) => {
-      console.log( val);
-      this.pass=val;
+    this.fk_user_email=localStorage.getItem('name');
+      this.pass=localStorage.getItem('pass');
       let to2=this.t1.create({
         message:"Old password is Incorrect",
         duration:3000,
@@ -86,8 +82,9 @@ cuser_id:number;
       this.data.getUsersById(this.fk_user_email).subscribe(
       
         (data:Users[])=>{
-         
+        
           this.arr=data;
+
 
           this.cuser_id=this.arr[0].user_id;
           this.cuser_email=this.arr[0].user_email;
@@ -118,8 +115,6 @@ cuser_id:number;
       )
     }
     
-  });
-});
   }
   public type = 'password';
   public showPass = true;

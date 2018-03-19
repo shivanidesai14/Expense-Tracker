@@ -36,7 +36,7 @@ export class AddnewcatPage {
 
   sub_cat_id:number;
   sub_cat_name:string="";
-  fk_cat_id:number;
+  fk_cat_id:any;
   icon_image:string="";
   s_fk_user_email:string="";
   url:string='../assets/userimgs/sign-question-icon.png';
@@ -48,8 +48,8 @@ export class AddnewcatPage {
 
   ionViewDidLoad() {
 
-    this.storage.set('img',this.url);
-    this.storage.set('na','');
+    localStorage.setItem('img',this.url);
+    localStorage.setItem('na','');
     console.log('ionViewDidLoad AddnewcatPage');
 
     
@@ -57,14 +57,9 @@ export class AddnewcatPage {
   }
   ionViewDidEnter() {
    
-    this.storage.get('na').then((val) => {
-           console.log( val);
-           this.pcat_name=val;
-        });
-          this.storage.get('img').then((val) => {
-           console.log( val);
-           this.picon_image=val;
-        });
+           this.pcat_name=localStorage.getItem('na');
+           this.picon_image=localStorage.getItem('img');
+      
 }
   parCat()
   {
@@ -72,9 +67,8 @@ export class AddnewcatPage {
   }
   oneCatAdd()
   {
-    this.storage.get('name').then((val)=>{
-      console.log( val);
-      this.fk_user_email=val;
+   
+      this.fk_user_email=localStorage.getItem('name');
     if(this.pcat_name=="")
     {
    
@@ -110,10 +104,7 @@ export class AddnewcatPage {
   }
   else{
    
-  
-      this.storage.get('id').then((val)=>{
-        console.log( val);
-        this.fk_cat_id=val;
+        this.fk_cat_id=localStorage.getItem('id');
     
         let l1=this.lo.create({
           content:"loading"
@@ -140,13 +131,12 @@ export class AddnewcatPage {
               l1.dismiss();
             }
         )
-           });
+           
 
          
 
   }
-}
-  );
+
 }
 
 } 

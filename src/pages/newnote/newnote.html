@@ -34,7 +34,7 @@
                     <ion-icon name="trash" (click)="onDel(item)"></ion-icon>
 
                     &nbsp;&nbsp;
-                    <ion-icon name="share" (click)="openMenu()"></ion-icon>
+                    <ion-icon name="share" (click)="openMenu(item.notes_desc)"></ion-icon>
 
                     &nbsp;&nbsp;
                     <ion-icon name="create" (click)="onEditNote(item)"> </ion-icon>
@@ -48,7 +48,7 @@
                 </ion-card-content>
                 <ion-item>
                     <ion-label>Date</ion-label>
-                    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="item.notes_date"></ion-datetime>
+                    <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="item.notes_date"></ion-datetime>
                 </ion-item>
             </div>
         </ion-card>

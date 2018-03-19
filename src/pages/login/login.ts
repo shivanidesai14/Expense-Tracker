@@ -80,15 +80,11 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
           t1.present();
         }
         else{
-          this.storage.set('pass',this.pass);
-          this.storage.set('name',this.email);
-          this.storage.get('name').then((val) => {
-            console.log( val);
-            this.eid=val;
-       
-          });
-      
+          localStorage.setItem('name',this.email);
+          localStorage.setItem('pass',this.pass);
+          this.eid=localStorage.getItem('name');      
           this.navCtrl.push(HomePage);
+        
         }
       },
       function(e)

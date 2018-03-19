@@ -19,7 +19,7 @@ import { Notes } from "../../shared/notes";
 })
 export class PopoverNotePage {
   arr:Notes[]=[];
-  nid:number=0;
+  nid:any=0;
   ndesc:string='';
   ndate:string='';
   ncolor:string='';
@@ -40,9 +40,8 @@ export class PopoverNotePage {
   onClickRed()
   {
    
-    this.storage.get('noteid').then((val) => {
-      console.log( val);
-      this.nid=val;
+  
+      this.nid=localStorage.getItem('noteid');
     
     this._data1.getNoteDesc(this.nid).subscribe(
 
@@ -66,16 +65,14 @@ export class PopoverNotePage {
        }
     )
 
-    });
+    
     
   }
   
   onClickYellow()
   {
     
-    this.storage.get('noteid').then((val) => {
-      console.log( val);
-      this.nid=val;
+    this.nid=localStorage.getItem('noteid');
     
     this._data1.getNoteDesc(this.nid).subscribe(
 
@@ -99,14 +96,12 @@ export class PopoverNotePage {
        }
     )
 
-    });
+    
   }
   onClickGreen()
   {
 
-    this.storage.get('noteid').then((val) => {
-      console.log( val);
-      this.nid=val;
+    this.nid=localStorage.getItem('noteid');
     
     this._data1.getNoteDesc(this.nid).subscribe(
 
@@ -130,14 +125,12 @@ export class PopoverNotePage {
        }
     )
 
-    });
+    
   }
   onClickBrown()
   {
     
-    this.storage.get('noteid').then((val) => {
-      console.log( val);
-      this.nid=val;
+    this.nid=localStorage.getItem('noteid');
     
     this._data1.getNoteDesc(this.nid).subscribe(
 
@@ -161,14 +154,12 @@ export class PopoverNotePage {
        }
     )
 
-    });
+    
   }
   onClickBlack()
   {
     
-    this.storage.get('noteid').then((val) => {
-      console.log( val);
-      this.nid=val;
+    this.nid=localStorage.getItem('noteid');
     
     this._data1.getNoteDesc(this.nid).subscribe(
 
@@ -192,7 +183,7 @@ export class PopoverNotePage {
        }
     )
 
-    });
+  
   }
 
 }
