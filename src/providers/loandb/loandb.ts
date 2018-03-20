@@ -13,7 +13,7 @@ import { loanclass } from "../../shared/loanclass";
 */
 @Injectable()
 export class LoandbProvider {
-  public url:string="http://localhost:3000/loans/";
+  public url:string="http://exptracker1.herokuapp.com/loans/";
   constructor(public http: HttpClient) {
     console.log('Hello LoandbProvider Provider');
   }

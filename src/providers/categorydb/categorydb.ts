@@ -17,7 +17,8 @@ import { Item } from 'ionic-angular/components/item/item';
 */
 @Injectable()
 export class CategorydbProvider {
-  url:string="http://localhost:3000/categories/";
+  
+  url:string="https://exptracker1.herokuapp.com/categories/";
   constructor(public http: HttpClient) {
     console.log('Hello CategorydbProvider Provider');
   }

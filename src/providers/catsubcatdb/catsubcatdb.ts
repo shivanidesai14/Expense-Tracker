@@ -14,7 +14,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class CatsubcatdbProvider {
-url:string="http://localhost:3000/catsubcat/";
+url:string="http://exptracker1.herokuapp.com/catsubcat/";
   constructor(public http: HttpClient) {
     console.log('Hello CatsubcatdbProvider Provider');
   }

@@ -14,8 +14,8 @@ import {Spends } from "../../shared/spends";
 */
 @Injectable()
 export class SpendsdbProvider {
-public url:string="http://localhost:3000/expenses/";
-public url2:string="http://localhost:3000/spendsbyid/";
+public url:string="http://exptracker1.herokuapp.com/expenses/";
+public url2:string="http://exptracker1.herokuapp.com/spendsbyid/";
   constructor(public http: HttpClient) {
     console.log('Hello SpendsdbProvider Provider');
   }

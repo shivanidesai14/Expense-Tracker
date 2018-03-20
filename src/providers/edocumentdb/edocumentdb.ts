@@ -19,7 +19,7 @@ export class EdocumentdbProvider {
   constructor(public http: HttpClient) {
     console.log('Hello EdocumentdbProvider Provider');
   }
-  url:string="http://localhost:3000/edoc/";
+  url:string="http://exptracker1.herokuapp.com/edoc/";
   getEdocById(id:string)
   {
     return this.http.get(this.url+id);

@@ -14,8 +14,8 @@ import 'rxjs/Rx';
 */
 @Injectable()
 export class Signup1dbProvider {
-  public url:string="http://localhost:3000/userss/";
-  public url1:string="http://localhost:3000/signup/";
+  public url:string="http://exptracker1.herokuapp.com/userss/";
+  public url1:string="http://exptracker1.herokuapp.com/signup/";
   constructor(public http: HttpClient) {
     console.log('Hello Signup1dbProvider Provider');
   }

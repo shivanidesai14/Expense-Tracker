@@ -15,8 +15,8 @@ import { SpendsSubcat } from '../../shared/spendsSubcat';
 */
 @Injectable()
 export class SubcatexpdbProvider {
-url:string="http://localhost:3000/subcatexp/"
-url1:string="http://localhost:3000/expbycolor/"
+url:string="http://exptracker1.herokuapp.com/subcatexp/"
+url1:string="http://exptracker1.herokuapp.com/expbycolor/"
 
 
   constructor(public http: HttpClient) {

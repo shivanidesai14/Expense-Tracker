@@ -25,7 +25,7 @@ export class UserdbProvider {
  {
       return this.http.get(this.url+id);
  }
- public url1:string="http://localhost:3000/chagepass/";
+ public url1:string="http://exptracker1.herokuapp.com/chagepass/";
  changePassword(id:string,item:Users)
  {
 alert(id);

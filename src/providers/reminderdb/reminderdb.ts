@@ -16,7 +16,7 @@ import { Reminder } from "../../shared/reminder";
 */
 @Injectable()
 export class ReminderdbProvider {
-public url:string="http://localhost:3000/reminder/"
+public url:string="http://exptracker1.herokuapp.com/reminder/"
   constructor(public http: HttpClient) {
     console.log('Hello ReminderdbProvider Provider');
   }

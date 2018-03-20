@@ -16,8 +16,8 @@ import 'rxjs/Rx';
 */
 @Injectable()
 export class SubcategorydbProvider {
-  url:string="http://localhost:3000/scategories/";
-  url1:string="http://localhost:3000/selectedcat/";
+  url:string="http://exptracker1.herokuapp.com/scategories/";
+  url1:string="http://exptracker1.herokuapp.com/selectedcat/";
   constructor(public http: HttpClient) {
     console.log('Hello SubcategorydbProvider Provider');
   }

@@ -15,9 +15,9 @@ import { Notes } from "../../shared/notes";
 */
 @Injectable()
 export class NotesdbProvider {
-public url:string="http://localhost:3000/notes/";
-public url2:string="http://localhost:3000/notedesc/";
-public url3:string="http://localhost:3000/notecolor/";
+public url:string="http://exptracker1.herokuapp.com/notes/";
+public url2:string="http://exptracker1.herokuapp.com/notedesc/";
+public url3:string="http://exptracker1.herokuapp.com/notecolor/";
   constructor(public http: HttpClient) {
     console.log('Hello NotesdbProvider Provider');
   }

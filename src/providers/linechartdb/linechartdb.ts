@@ -14,9 +14,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LinechartdbProvider {
 str1:any="";
-  url:string="http://localhost:3000/linechart/";
-  urldouchart:string="http://localhost:3000/doughnut/";
-  urlbarchart:string="http://localhost:3000/bchart/";
+  url:string="http://exptracker1.herokuapp.com/linechart/";
+  urldouchart:string="http://exptracker1.herokuapp.com/doughnut/";
+  urlbarchart:string="http://exptracker1.herokuapp.com/bchart/";
   constructor(public http: HttpClient) {
     console.log('Hello LinechartdbProvider Provider');
   }
