@@ -32,7 +32,7 @@
             <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
             <div class="profile-image-wrapper" (click)="getPicture()">
                 <div class="profile-image-placeholder" *ngIf="!this.user.controls.profilePic.value">
-                    <img src="http://localhost:3000/images/{{eimage}}" class="splash-logo" (click)="onAdd()" style="height:90px;width:90px">
+                    <img src="http://exptracker1.herokuapp.com/images/{{eimage}}" class="splash-logo" (click)="onAdd()" style="height:90px;width:90px">
                 </div>
                 <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.user.controls.profilePic.value"></div>
 

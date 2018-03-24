@@ -36,7 +36,7 @@ msg:string;
   constructor(public storage:Storage,
     public _data:LogindbProvider,
     public navCtrl: NavController, public navParams: NavParams,public lo:LoadingController,
-    public to:ToastController, public alert: AlertController,public _da:UserdbProvider) {
+    public to:ToastController, public alert: AlertController,public _da:UserdbProvider,public load:LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -72,6 +72,14 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       }
       else
       {
+        let l1=this.load.create({
+      
+          spinner:"hide",
+          content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+          cssClass:"loader",
+          duration:2000
+      });
+      l1.present();
     let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
     this._data.getUserByLogin(item).subscribe(
       (data)=>{
@@ -90,6 +98,10 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       function(e)
       {
         alert(e);
+      },
+      function()
+      {
+        l1.dismiss();
       }
     );
   }

@@ -32,6 +32,7 @@ ionScroll:any;
 showheader:boolean;
 hideheader:boolean;
 headercontent:any;
+user_name:string='';
   constructor(public storage:Storage,public popoverCtrl: PopoverController,
     public navCtrl: NavController,public data:UserdbProvider,
     public renderer: Renderer ,public myElement: ElementRef) {
@@ -43,11 +44,13 @@ headercontent:any;
     
     console.log('ionViewDidLoad LoginPage');
       this.fk_user_email=localStorage.getItem('name');
+  
       this.data.getUsersById(this.fk_user_email).subscribe(
 
         (data: Users[]) => {
+          console.log(data);
           this.arr = data;
-          
+          this.user_name=data[0].user_name;
         },
         function (e) {
           alert(e);

@@ -56,6 +56,7 @@ fk_user_email:string='';
         (data: Users[]) => {
           this.arr = data;
           this.eimage=this.arr[0].user_img;
+          alert(this.eimage);
         },
         function (e) {
           alert(e);
@@ -129,7 +130,6 @@ fk_user_email:string='';
           this.eumobno=this.arr[0].user_mob_no;
           this.eupass=this.arr[0].user_pass;
           this.eudpass=this.arr[0].user_dpass;
-
           const fd = new FormData();
 
           fd.append("user_id",this.euid);

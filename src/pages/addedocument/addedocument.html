@@ -27,19 +27,19 @@
     <label style="font-size:15px">Choose image one
                 <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected($event)">
 
-                <ion-icon name="add" (click)="onAdd()"></ion-icon>
+                <ion-icon name="add" (click)="onAdd()" (change)="onclick()"></ion-icon>
      </label>
 
     <label style="font-size:15px">Choose image two
                 <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected1($event)">
 
-                <ion-icon name="add" (click)="onAdd()"></ion-icon>
+                <ion-icon name="add" (click)="onAdd1()"></ion-icon>
     </label>
 
-    <label style="font-size:15px">Choose image three
+    <!-- <label style="font-size:15px">Choose image three
         <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected1($event)">
 
         <ion-icon name="add" (click)="onAdd()"></ion-icon>
-</label>
+</label>  -->
 
 </ion-content>

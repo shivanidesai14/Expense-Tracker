@@ -42,65 +42,65 @@
 </ion-header>
 
 <ion-content padding class="card-background-page">
-        
+
 
     <div hide-on-scroll="true" class="bar-positive">
-            
-                       <ion-card *ngFor="let item of arr" >
-        <!-- <img  src="../assets/imgs/Grey-coloured-brick.jpg" /> -->
-        <div class="card-title">Welcome,</div><br><br>
-        <div class="card-subtitle" style="font-size:25px;">{{item.user_name}}</div>
-    </ion-card>
+
+        <ion-card>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcEexc_BgbKeYVpomFjZD1M2nmBYqS8MTZaVxItFP-sPHIVv0-" />
+            <div class="card-title">Welcome,</div><br><br>
+            <div class="card-subtitle" style="font-size:25px;">{{user_name}}</div>
+        </ion-card>
     </div>
-       
-<div>
-    <ion-card>
-        <ion-list>
-            <ion-card-content>
+
+    <div>
+        <ion-card>
+            <ion-list>
+                <ion-card-content>
 
 
-                <button ion-item (click)="onClick()"> <!--(click)="onClick()"-->
+                    <button ion-item (click)="onClick()"> <!--(click)="onClick()"-->
       <ion-icon name="paper-plane"  item-start class="menu-icon3"></ion-icon>
     <p class="tit">  Spends</p>
     <p class="tit2">  Manage your expenses </p>
        <!--<ion-icon name="arrow-forward" style= item-start class="menu-icon3" ></ion-icon>-->
     </button>
-            </ion-card-content>
-        </ion-list>
-    </ion-card>
+                </ion-card-content>
+            </ion-list>
+        </ion-card>
 
-    <ion-card>
-        <ion-list>
-            <ion-card-content>
+        <ion-card>
+            <ion-list>
+                <ion-card-content>
 
 
-                <button ion-item (click)="onCLickDocument()">
+                    <button ion-item (click)="onCLickDocument()">
       <ion-icon name="document" item-start class="menu-icon1"></ion-icon>
      <p class="tit">  E-Document </p>
       <p class="tit2"> Save your Documents copy </p><p class="tit2"> & save your bills  </p>
     </button>
-            </ion-card-content>
-        </ion-list>
-    </ion-card>
+                </ion-card-content>
+            </ion-list>
+        </ion-card>
 
 
 
-    <ion-card>
-        <ion-list>
-            <ion-card-content>
+        <ion-card>
+            <ion-list>
+                <ion-card-content>
 
 
-                <button ion-item (click)="onClickGraph()">
+                    <button ion-item (click)="onClickGraph()">
       <ion-icon name="stats" item-start class="menu-icon"></ion-icon>
       <p class="tit"> Expense Diary </p>
 <p class="tit2"> Track Your bills By </p><p class="tit2">Graphical representation </p>
     </button>
-            </ion-card-content>
-        </ion-list>
-    </ion-card>
+                </ion-card-content>
+            </ion-list>
+        </ion-card>
 
 
-    <!-- <ion-card>
+        <!-- <ion-card>
         <ion-list>
             <ion-card-content>
 
@@ -114,34 +114,34 @@
         </ion-list>
     </ion-card> -->
 
-    <ion-card>
-        <ion-list>
-            <ion-card-content>
+        <ion-card>
+            <ion-list>
+                <ion-card-content>
 
 
-                <button ion-item (click)="onClickNote()"> <!--(click)="onClick()"-->
+                    <button ion-item (click)="onClickNote()"> <!--(click)="onClick()"-->
       <ion-icon name="clipboard"  item-start class="menu-icon2"></ion-icon>
     <p class="tit">  Notes</p>
     <p class="tit2">There is no reason manage your task in separate app</p><p class="tit2">Keep it in Notes. </p>
        <!--<ion-icon name="arrow-forward" style= item-start class="menu-icon3" ></ion-icon>-->
     </button>
-            </ion-card-content>
-        </ion-list>
-    </ion-card>
+                </ion-card-content>
+            </ion-list>
+        </ion-card>
 
-    <ion-card>
-        <ion-list>
-            <ion-card-content>
+        <ion-card>
+            <ion-list>
+                <ion-card-content>
 
 
-                <button ion-item (click)="onClickLoan()">
+                    <button ion-item (click)="onClickLoan()">
       <img src="../assets/imgs/i2.png" style="height:40px;width:40px;"  item-start >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <p class="tit"> Have Loan ??</p>
       <p class="tit2">Track your loan</p>
     </button>
-            </ion-card-content>
-        </ion-list>
-    </ion-card>
+                </ion-card-content>
+            </ion-list>
+        </ion-card>
 
-</div>
+    </div>
 </ion-content>

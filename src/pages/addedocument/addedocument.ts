@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Edocument } from "../../shared/edoc";
 import { EdocumentPage } from '../edocument/edocument';
+import { EdocumentdbProvider } from "../../providers/edocumentdb/edocumentdb";
 
 /**
  * Generated class for the AddedocumentPage page.
@@ -23,6 +24,9 @@ export class AddedocumentPage {
   fk_user_email:string="shivanidesai402@gmail.com";
   edoc_id:any;
   edoc_title:string;
+  image_1:string;
+  image_2:string;
+  image_3:string;
   dt: any = new Date().getDate();
   x: any = new Date().getMonth();
   y: any = new Date().getFullYear();
@@ -32,7 +36,8 @@ export class AddedocumentPage {
   selectedFile1: File = null;
   selectedFile2: File = null;
   constructor(public navCtrl: NavController,public storage:Storage,
-    public navParams: NavParams,public popoverCtrl: PopoverController,private http:HttpClient) {
+    public navParams: NavParams,public popoverCtrl: PopoverController,private http:HttpClient,
+     public data:EdocumentdbProvider) {
   }
 
   ionViewDidLoad() {
@@ -44,11 +49,57 @@ export class AddedocumentPage {
   }
   onFileSelected(value) {
     this.selectedFile = value.target.files[0];
+    this.fk_user_email=localStorage.getItem('name');
+    const fd = new FormData();
 
+  fd.append("edoc_id",this.edoc_id);
+  fd.append("edoc_title",this.edoc_title);
+  fd.append("fk_user_email",this.fk_user_email);
+  fd.append("image", this.selectedFile, this.selectedFile.name);
+  fd.append("image_2","hello");
+  fd.append("image_3","hello2");
+
+  this.http.post("http://localhost:3000/edoc/", fd)
+  .subscribe(res => {
+    console.log(res);
+    alert("inserted");
+   
+  })
   }
+
+  onFileSelected1(value)
+  {
+    this.fk_user_email=localStorage.getItem('name');
+    this.selectedFile1 = value.target.files[1];
+    this.data.getEdocById(this.fk_user_email).subscribe(
+
+      (data: Edocument[]) => {
+        this.arr = data;
+        this.edoc_title=this.arr[0].edoc_title;
+        this.image_1=this.arr[0].image_1;
+        this.image_3=this.arr[0].image_3
+        const fd = new FormData();
+
+ 
+
+    
+      })
+   
+  }
+
+
  
   onAdd(){
     this.fileInput.nativeElement.click();
+
+  }
+  onAdd1(){
+    this.fileInput.nativeElement.click();
+
+  }
+  onclick()
+  {
+    alert(this.selectedFile.name)
   }
   processWebImage(event) {
     let reader = new FileReader();
