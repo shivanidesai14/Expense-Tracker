@@ -101,30 +101,30 @@
             </ion-footer>
 
             <ion-card *ngFor="let item of arr">
-                    
-                      <ion-item-sliding >
-                        <ion-item>
+
+                <ion-item-sliding>
+                    <ion-item>
                         <ion-avatar item-start>
-                          <img src="{{item.icon_image}}">
+                            <img src="{{item.icon_image}}">
                         </ion-avatar>
 
-                   
-                    <div class="item row">
+
+                        <div class="item row">
                             <span align="left" class="col col-50">{{item.sub_cat_name}}</span>
                             <span align="right" class="col col-50"> {{item.expense_amt | currency:'INR':true}}</span>
                         </div>
-                            <div class="item row">
+                        <div class="item row">
                             <span align="left" class="col col-80">{{item.expense_date}}</span>
                         </div>
-                        
-                      </ion-item>
-                <ion-item-options>
-                    <button  ion-button color="danger" (click)="showPrompt(item)"><ion-icon name="trash"></ion-icon>Delete</button>
-                    <button  ion-button color="primary" (click)="onClickdesc(item.expense_id)"><ion-icon name="trash"></ion-icon>View<br> more</button>
-                  </ion-item-options>
+
+                    </ion-item>
+                    <ion-item-options>
+                        <button ion-button color="danger" (click)="showPrompt(item)"><ion-icon name="trash"></ion-icon>Delete</button>
+                        <button ion-button color="primary" (click)="onClickdesc(item.expense_id)"><ion-icon name="trash"></ion-icon>View<br> more</button>
+                    </ion-item-options>
 
                 </ion-item-sliding>
-                </ion-card>
+            </ion-card>
 
         </ion-list>
         <ion-list *ngSwitchCase="'color'">

@@ -56,7 +56,7 @@ fk_user_email:string='';
         (data: Users[]) => {
           this.arr = data;
           this.eimage=this.arr[0].user_img;
-          alert(this.eimage);
+         
         },
         function (e) {
           alert(e);
