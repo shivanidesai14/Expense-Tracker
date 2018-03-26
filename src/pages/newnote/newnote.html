@@ -17,6 +17,15 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
+       
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
     <ion-searchbar [(ngModel)]="txtsearch" (click)="openPopover1($event)" placeholder="Search Or Filter By Color">Search by Color</ion-searchbar>
     <div *ngIf="flag;else demo">
         <ion-card *ngFor="let item of arr">

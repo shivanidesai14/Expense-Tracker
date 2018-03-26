@@ -101,7 +101,8 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       },
       function()
       {
-        l1.dismiss();
+       // l1.dismiss();
+       if(this.loader){ this.loader.dismiss(); this.loader = null; }
       }
     );
   }

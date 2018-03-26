@@ -164,6 +164,8 @@ fk_user_email:string='';
   onAdd(){
     this.fileInput.nativeElement.click();
   }
+ 
+
   onlogout()
   {
     this.navCtrl.push(LoginPage);

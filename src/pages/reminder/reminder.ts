@@ -56,6 +56,7 @@ export class ReminderPage {
 
       );
 
+      
   }
   
   public event = {

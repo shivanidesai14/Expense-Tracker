@@ -6,7 +6,7 @@ page-login {
         height: 42%;
         z-index: 1;
         background-repeat: repeat-x;
-        animation: animatedBackground 5s linear infinite;
+        animation: animatedBackground 0.1ms linear infinite;
     }
     @keyframes animatedBackground {
         from {

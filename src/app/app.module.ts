@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
 import { IonicApp, IonicErrorHandler, IonicModule, FabContainer } from 'ionic-angular';
-//import { Camera, CameraOptions } from "@ionic-native/camera";
+import { Calendar } from '@ionic-native/calendar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
@@ -109,6 +109,7 @@ import { ChatProvider } from '../providers/chat/chat';
   providers: [
     StatusBar,
     SplashScreen,
+    Calendar,
    // Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     NotesdbProvider,
