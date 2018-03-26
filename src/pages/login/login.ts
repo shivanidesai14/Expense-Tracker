@@ -101,7 +101,12 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       },
       function()
       {
+<<<<<<< HEAD
         l1.dismiss("");
+=======
+       // l1.dismiss();
+       if(this.loader){ this.loader.dismiss(); this.loader = null; }
+>>>>>>> 815306561b704c3a727884fd06a8b1c77e322def
       }
     );
   }

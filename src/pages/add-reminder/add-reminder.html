@@ -20,7 +20,7 @@
 
 
         <ion-label floating>Enter Reminder Title</ion-label>
-        <ion-input type="text" style="font-size:15px;" [(ngModel)]="rem_title"></ion-input>
+        <ion-input type="text" style="font-size:15px;" [(ngModel)]="title"></ion-input>
 
 
     </ion-item><br>
@@ -29,5 +29,5 @@
         <ion-label class="style">Select Date</ion-label>
         <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.finalDate"></ion-datetime>
     </ion-item><br><br>
-    <textarea placeholder="Reminder desc.." rows="12" cols="27" style="border:1px solid lightblue;font-size:20px;margin-left:20px;" [(ngModel)]="rem_desc"></textarea>
+    <textarea placeholder="Reminder desc.." rows="12" cols="27" style="border:1px solid lightblue;font-size:20px;margin-left:20px;" [(ngModel)]="notes"></textarea>
 </ion-content>

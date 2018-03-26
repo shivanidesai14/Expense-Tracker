@@ -64,7 +64,7 @@ user_name:string='';
         
 
   }
-
+ 
 openPopover(myEvent) {
     let popover = this.popoverCtrl.create(PopoverPage);
     popover.present({
