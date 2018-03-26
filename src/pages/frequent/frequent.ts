@@ -45,7 +45,7 @@ no:number=1;
 tmp_month:any;
 month:any;
 year:any;
-
+valuee : number;
 url:string='../assets/userimgs/sign-question-icon.png';
   constructor(public storage:Storage,public _data:SpendsdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -80,16 +80,7 @@ ionViewDidEnter() {
   
    
 }
-oncheck()
-{
-  this.expense_amt=this.exp_amt*1;
-  
-}
-oncheck1()
-{
-   this.expense_amt=this.exp_amt*2;
-  
-}
+
 onCLick(no)
 {
   if(this.no==1)
@@ -106,6 +97,13 @@ else
 
  onFrequentAdd()
   {
+    if(this.valuee==1)
+    {
+      this.expense_amt=this.exp_amt*1;
+    }
+    else{
+      this.expense_amt=this.exp_amt*2;
+    }
      this.exp_note=this.tmp_msg +" "+ this.spends_notes;
       let t1=this.to.create({
         message:"Field must not be empty",

@@ -44,18 +44,15 @@
 
         <ion-card-content>
 
-            <ion-list>
-
-                <ion-item class="chk">
-                    <ion-label>One - time</ion-label>
-                    <ion-checkbox value="1" (ionChange)="oncheck()"></ion-checkbox>
+            <ion-list radio-group [(ngModel)]="valuee">
+                <ion-item>
+                    <ion-label>One time</ion-label>
+                    <ion-radio value="1"></ion-radio>
                 </ion-item>
-
-                <ion-item class="chk">
-                    <ion-label>Two - time </ion-label>
-                    <ion-checkbox value="2" (ionChange)="oncheck1()"></ion-checkbox>
+                <ion-item>
+                    <ion-label>Two time</ion-label>
+                    <ion-radio value="2"></ion-radio>
                 </ion-item>
-
             </ion-list>
 
 

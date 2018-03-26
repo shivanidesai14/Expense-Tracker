@@ -104,7 +104,7 @@ this.testing = "pie";
 getLineChart() {
   
   this.str=this.str+"]";
-// alert(this.str)
+
   this.jsonObj =  JSON.parse(this.str);
   var data = {
       labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug","Sep","Oct","Nov","Dec"],
