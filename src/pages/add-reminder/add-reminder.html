@@ -16,6 +16,10 @@
 
 <ion-content padding>
 
+    
+    
+        
+               
     <ion-item>
 
 
@@ -24,6 +28,28 @@
 
 
     </ion-item><br>
+            
+    <ion-card>
+        
+                <ion-card-content>
+        
+                    <ion-list radio-group [(ngModel)]="valuee">
+                        <ion-item>
+                            <ion-label>Single Month</ion-label>
+                            <ion-radio value="1"></ion-radio>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Each Month</ion-label>
+                            <ion-radio value="2"></ion-radio>
+                        </ion-item>
+                    </ion-list>
+        
+        
+                </ion-card-content>
+            </ion-card>
+            <br>
+        
+    
 
     <ion-item class="style">
         <ion-label class="style">Select Date</ion-label>

@@ -26,9 +26,12 @@ export class AddReminderPage {
   startDate:any;
   endDate:any;
   notes:string="";
+  i:number;
+  valuee : number;  
     fk_user_email:string="";
   rem_id:number;
   arr:Reminder[]=[];
+  mon:any;
   constructor(public storage:Storage,private calendar: Calendar,
     public _data:ReminderdbProvider,public lo:LoadingController,public to:ToastController,
     public navCtrl: NavController, public navParams: NavParams) {
@@ -76,14 +79,46 @@ this.endDate= new Date(this.event.finalDate);
               (err) => { console.log(err); }
         
             );
-            this.calendar.createEvent(this.title, this.location, this.notes, this.startDate, this.endDate).then(
-              (value: any) => {
-                alert("thyu");
-              }
-            );
+            if(this.valuee==1)
+            {
+              this.calendar.createEvent(this.title, this.location, this.notes, this.startDate, this.endDate).then(
+                (value: any) => {
+                  t1.present();
+                  this.navCtrl.push(ReminderPage);
+                 
+                }
+              );
+            }
+            else{
+                this.mon=(this.event.finalDate.substr(5,2));
+           //     alert(this.mon);
+                this.i=this.mon;
+                while(this.i<13)
+                {
+                  //alert("welcome");
+                  this.calendar.createEvent(this.title, this.location, this.notes, this.startDate, this.endDate).then(
+                    (value: any) => {
+                 
+                       
+                    }
+                  );
+                  if(this.i==12){
+                    t1.present();
+                   this.navCtrl.push(ReminderPage);
+                    }    
+                 
+                  this.x=(+(this.x)+(+(1)));
+                  this.event.finalDate=this.y +"/"+this.x+"/"+ this.dt;
+        //          alert(this.startDate);
+                  this.startDate = new Date(this.event.finalDate);
+                   this.endDate= new Date(this.event.finalDate);
+                 //  alert(this.startDate);
+                   this.i++;
+                }
+            }
+            
         
-            t1.present();
-            this.navCtrl.push(ReminderPage);
+           
           },
           function(e)
           {

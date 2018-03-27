@@ -45,9 +45,10 @@ no:number=1;
 tmp_month:any;
 month:any;
 year:any;
-valuee : number;
+valuee : number=1;
 url:string='../assets/userimgs/sign-question-icon.png';
-  constructor(public storage:Storage,public _data:SpendsdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public storage:Storage,public _data:SpendsdbProvider,public lo:LoadingController,public to:ToastController,
+    public navCtrl: NavController, public navParams: NavParams) {
   }
 
 
