@@ -77,9 +77,9 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
           spinner:"hide",
           content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
           cssClass:"loader",
-          duration:2000
+          duration:1000
       });
-      l1.present();
+      
     let item=new Users(this.id,this.email,this.name,this.mobno,this.img,this.pass,this.dpass);
     this._data.getUserByLogin(item).subscribe(
       (data)=>{
@@ -88,6 +88,7 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
           t1.present();
         }
         else{
+          l1.present();
           localStorage.setItem('name',this.email);
           localStorage.setItem('pass',this.pass);
           this.eid=localStorage.getItem('name');      
@@ -101,8 +102,15 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       },
       function()
       {
+<<<<<<< HEAD
        
        if(this.loader){ this.loader.dismiss(); this.loader = null; }
+=======
+
+        // l1.dismiss();
+        // this.l1=null;
+        
+>>>>>>> 22656028a6e6d6be60153d211d92c34aad5e4b86
       }
     );
   }

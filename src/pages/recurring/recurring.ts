@@ -351,17 +351,7 @@ monthh:any;
           )
         
     }
-
-
-
-
-
-
-
-
-
-
-  }
+ }
   onClickCategory() {
     this.navCtrl.push(SelectcatPage);
   }
