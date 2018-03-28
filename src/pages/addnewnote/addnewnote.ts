@@ -27,6 +27,7 @@ dt:any=new Date().getDate();
 x:any=new Date().getMonth();
 y:any=new Date().getFullYear();
 
+
 finalDate:any;
 
 colour_name:string="white";
@@ -35,9 +36,15 @@ colour_name:string="white";
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddnewnotePage');
-    
+    if(this.x==1 || this.x==2 || this.x==3 || this.x==4 || this.x==5 || this.x==6 || this.x==7 || this.x==8 || this.x== 9 || this.x==10 || this.x==11)
+  {
+    this.x=this.x+1;
   }
-  
+  else{
+    this.x=1;
+  }
+  }
+   
    onAddNotes()
   {
     if(this.x==1 || this.x==2 || this.x==3 || this.x==4 || this.x==5 || this.x==6 || this.x==7 || this.x==8 || this.x== 9)

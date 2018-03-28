@@ -57,6 +57,7 @@ this.endDate= new Date(this.event.finalDate);
     }
     else
     {
+
       this.fk_user_email=localStorage.getItem('name');
       let l1=this.lo.create({
         content:"loading"

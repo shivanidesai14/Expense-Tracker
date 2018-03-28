@@ -15,15 +15,23 @@ import { LoginPage } from "../login/login";
   templateUrl: 'tutorial.html',
 })
 export class TutorialPage {
-
+  tabBarElement: any;
+  splash = true;
+  style:any="";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TutorialPage');
+    setTimeout(() => {
+      this.splash = false;
+      this.tabBarElement= 'flex';
+    }, 4000);
   }
-startApp() {
+  startApp() {
     this.navCtrl.push(LoginPage);
 }
 
-}
+  }
+
+

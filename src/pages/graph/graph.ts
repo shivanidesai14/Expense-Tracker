@@ -75,6 +75,7 @@ this.testing = "pie";
    console.log('Selected', selectedValue); 
 
    this.x=selectedValue;
+   
    this.strdata='';
   this.strlabel='';
   this.arr=[]=[];
@@ -86,6 +87,7 @@ this.testing = "pie";
 }
   definechartdata()
   {
+ 
     this.strdata="[";
     this.strlabel='[';
     this.f=0;

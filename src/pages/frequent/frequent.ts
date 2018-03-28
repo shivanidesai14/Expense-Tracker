@@ -40,12 +40,11 @@ exp_note:string;
 expense_amt:number=0;
 sub_cat_name:string="";
 icon_image:string="";
-flag:boolean=false;
-no:number=1;
+valuee : number;
 tmp_month:any;
 month:any;
 year:any;
-valuee : number;
+
 url:string='../assets/userimgs/sign-question-icon.png';
   constructor(public storage:Storage,public _data:SpendsdbProvider,public lo:LoadingController,public to:ToastController,public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -80,21 +79,6 @@ ionViewDidEnter() {
   
    
 }
-
-onCLick(no)
-{
-  if(this.no==1)
-  {
-  this.flag=true;
-  this.no=0;
-}
-else
-{
-  this.flag=false;
-  this.no=1;
-}
-}
-
  onFrequentAdd()
   {
     if(this.valuee==1)

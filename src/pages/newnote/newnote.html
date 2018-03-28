@@ -17,15 +17,11 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-       
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content
-          pullingIcon="arrow-dropdown"
-          pullingText="Pull to refresh"
-          refreshingSpinner="circles"
-          refreshingText="Refreshing...">
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
         </ion-refresher-content>
-      </ion-refresher>
+    </ion-refresher>
     <ion-searchbar [(ngModel)]="txtsearch" (click)="openPopover1($event)" placeholder="Search Or Filter By Color">Search by Color</ion-searchbar>
     <div *ngIf="flag;else demo">
         <ion-card *ngFor="let item of arr">
@@ -57,7 +53,7 @@
                 </ion-card-content>
                 <ion-item>
                     <ion-label>Date</ion-label>
-                    <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="item.notes_date"></ion-datetime>
+                    <ion-datetime displayFormat="DD MMM,YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="item.notes_date"></ion-datetime>
                 </ion-item>
             </div>
         </ion-card>
