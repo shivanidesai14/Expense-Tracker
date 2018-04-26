@@ -46,6 +46,7 @@ import { AddnewcatPage } from "../pages/addnewcat/addnewcat";
 import { SelectParCatPage } from "../pages/select-par-cat/select-par-cat";
 import { AddedocumentPage } from "../pages/addedocument/addedocument";
 import {HelpPage} from "../pages/help/help";
+import { EdocpassPage } from "../pages/edocpass/edocpass";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
@@ -73,7 +74,7 @@ import { ChatProvider } from '../providers/chat/chat';
     SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage,
     PopoverNote1pagePage, ReminderPage, ChangepassPage, AddReminderPage, EditreminderPage, PopoverSpend1Page, AddnewcatPage,
     SelectParCatPage,PopoverSpend1Page,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage,
-    HelpPage
+    HelpPage,EdocpassPage
 
 ],
 
@@ -101,7 +102,8 @@ import { ChatProvider } from '../providers/chat/chat';
     UserProfilePage,SpendsNotePage,ViewspendsPage,
     PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,
     PopoverNote1pagePage,AddnewcatPage,SelectParCatPage,PopoverSpend1Page,
-    ReminderPage,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage,HelpPage
+    ReminderPage,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage,
+    HelpPage,EdocpassPage
 
 
   ],
