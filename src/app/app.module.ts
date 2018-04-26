@@ -26,7 +26,6 @@ import { EdocumentPage } from "../pages/edocument/edocument";
 import { EditnotesPage } from "../pages/editnotes/editnotes";
 import { BarChartPage } from "../pages/bar-chart/bar-chart";
 import { LineChartPage } from "../pages/line-chart/line-chart";
-import { CategoryPage } from "../pages/category/category";
 import { TutorialPage } from "../pages/tutorial/tutorial";
 import { UserProfilePage } from "../pages/user-profile/user-profile";
 import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
@@ -70,7 +69,7 @@ import { ChatProvider } from '../providers/chat/chat';
     MyApp,
     SelectcatPage, HomePage, PopoverPage, SpendsPage, LoginPage, SignupPage, NewnotePage,
     AddnewnotePage, GraphPage, FrequentPage, RecurringPage, OnetimePage, EdocumentPage,
-     PopoverNotePage, EditnotesPage, CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
+     PopoverNotePage, EditnotesPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
     SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage,
     PopoverNote1pagePage, ReminderPage, ChangepassPage, AddReminderPage, EditreminderPage, PopoverSpend1Page, AddnewcatPage,
     SelectParCatPage,PopoverSpend1Page,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage,
@@ -98,7 +97,7 @@ import { ChatProvider } from '../providers/chat/chat';
     LoginPage,SignupPage,NewnotePage,AddnewnotePage,
     GraphPage,FrequentPage,RecurringPage,OnetimePage,
     SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
-    CategoryPage,PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
+    PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
     UserProfilePage,SpendsNotePage,ViewspendsPage,
     PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,
     PopoverNote1pagePage,AddnewcatPage,SelectParCatPage,PopoverSpend1Page,

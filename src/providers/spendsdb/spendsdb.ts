@@ -36,7 +36,7 @@ public url2:string="http://exptracker1.herokuapp.com/spendsbyid/";
   {
      return this.http.delete(this.url+item.expense_id,{headers:new HttpHeaders().set('Content-Type','application/json')});
   }
-  public url1:string="http://localhost:3000/spends/";
+  public url1:string="http://exptracker1.herokuapp.com/spends/";
   getExpenseById(id:number)
   {
      return this.http.get(this.url1+id);

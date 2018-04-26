@@ -44,11 +44,6 @@ valuee : number;
 tmp_month:any;
 month:any;
 year:any;
-<<<<<<< HEAD
-
-=======
-valuee : number=1;
->>>>>>> 22656028a6e6d6be60153d211d92c34aad5e4b86
 url:string='../assets/userimgs/sign-question-icon.png';
   constructor(public storage:Storage,public _data:SpendsdbProvider,public lo:LoadingController,public to:ToastController,
     public navCtrl: NavController, public navParams: NavParams) {
@@ -124,7 +119,10 @@ ionViewDidEnter() {
             this.fk_user_email=localStorage.getItem('name');
 
       let l1=this.lo.create({
-        content:"loading"
+        spinner:"hide",
+        content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+        cssClass:"loader",
+        duration:1000,
       });
       l1.present();
       let t1=this.to.create({

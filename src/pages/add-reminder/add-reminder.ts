@@ -63,7 +63,11 @@ this.endDate= new Date(this.event.finalDate);
 
       this.fk_user_email=localStorage.getItem('name');
       let l1=this.lo.create({
-        content:"loading"
+        
+        spinner:"hide",
+        content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+        cssClass:"loader",
+        duration:1000,
       });
       l1.present();
       let t1=this.to.create({
@@ -92,7 +96,7 @@ this.endDate= new Date(this.event.finalDate);
             }
             else{
                 this.mon=(this.event.finalDate.substr(5,2));
-           //     alert(this.mon);
+                 alert(this.mon);
                 this.i=this.mon;
                 while(this.i<13)
                 {
@@ -110,10 +114,10 @@ this.endDate= new Date(this.event.finalDate);
                  
                   this.x=(+(this.x)+(+(1)));
                   this.event.finalDate=this.y +"/"+this.x+"/"+ this.dt;
-        //          alert(this.startDate);
+                   alert(this.startDate);
                   this.startDate = new Date(this.event.finalDate);
                    this.endDate= new Date(this.event.finalDate);
-                 //  alert(this.startDate);
+                   alert(this.startDate);
                    this.i++;
                 }
             }

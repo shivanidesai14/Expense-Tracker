@@ -22,24 +22,42 @@
         <ion-input type="text" [(ngModel)]="edoc_title"></ion-input>
 
 
-    </ion-item><br><br>
+    </ion-item>
+    <ion-label style="font-size:20px">Choose Image 1</ion-label>
+    <form novalidate [formGroup]="form1" *ngIf="form1" (ngSubmit)="createItem1()">
 
-    <label style="font-size:15px">Choose image one
-                <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected($event)">
 
-                <ion-icon name="add" (click)="onAdd()" (change)="onclick()"></ion-icon>
-     </label>
+        <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage1($event)" />
+        <div class="profile-image-wrapper" (click)="onFile1()">
+            <div class="profile-image-placeholder" *ngIf="!this.form1.controls.profilePic.value">
+                <ion-icon name="add" style="margin-top:50px;"></ion-icon>
+            </div>
+            <div class="profile-image" (click)="onFile1()" [style.backgroundImage]="getProfileImageStyle1()" *ngIf="this.form1.controls.profilePic.value"></div>
+        </div>
+    </form>
+    <ion-label style="font-size:20px">Choose Image 2</ion-label>
+    <form novalidate [formGroup]="form2" *ngIf="form2" (ngSubmit)="createItem2()">
 
-    <label style="font-size:15px">Choose image two
-                <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected1($event)">
 
-                <ion-icon name="add" (click)="onAdd1()"></ion-icon>
-    </label>
+        <input type="file" #fileInput2 style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage2($event)" />
+        <div class="profile-image-wrapper" (click)="onFile2()">
+            <div class="profile-image-placeholder" *ngIf="!this.form2.controls.profilePic.value">
+                <ion-icon name="add" style="margin-top:50px;"></ion-icon>
+            </div>
+            <div class="profile-image" (click)="onFile2()" [style.backgroundImage]="getProfileImageStyle2()" *ngIf="this.form2.controls.profilePic.value"></div>
+        </div>
+    </form>
+    <ion-label style="font-size:20px">Choose Image 3</ion-label>
+    <form novalidate [formGroup]="form3" *ngIf="form3" (ngSubmit)="createItem3()">
 
-    <!-- <label style="font-size:15px">Choose image three
-        <input type="file" #fileInput name="file" style="visibility: hidden; height: 0px" (change)="onFileSelected1($event)">
 
-        <ion-icon name="add" (click)="onAdd()"></ion-icon>
-</label>  -->
+        <input type="file" #fileInput3 style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage3($event)" />
+        <div class="profile-image-wrapper" (click)="onFile3()">
+            <div class="profile-image-placeholder" *ngIf="!this.form3.controls.profilePic.value">
+                <ion-icon name="add" style="margin-top:50px;"></ion-icon>
+            </div>
+            <div class="profile-image" (click)="onFile3()" [style.backgroundImage]="getProfileImageStyle3()" *ngIf="this.form3.controls.profilePic.value"></div>
+        </div>
+    </form>
 
 </ion-content>

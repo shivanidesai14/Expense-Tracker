@@ -164,9 +164,9 @@ user: FormGroup;
 
 this.user = new FormGroup({
 email: new FormControl('', [Validators.required,Validators.email]),
-password: new FormControl('', [Validators.required,Validators.minLength(5)]),
+password: new FormControl('', [Validators.required,Validators.minLength(8)]),
 mob: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
-name: new FormControl('', [Validators.required]),
+name: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z ]*')]),
 profilePic:new FormControl('')
 });
 

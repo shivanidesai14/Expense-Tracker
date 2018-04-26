@@ -19,10 +19,14 @@ export class EdocumentdbProvider {
   constructor(public http: HttpClient) {
     console.log('Hello EdocumentdbProvider Provider');
   }
-  url:string="http://exptracker1.herokuapp.com/edoc/";
+  url:string="https://exptracker1.herokuapp.com/edoc/";
   getEdocById(id:string)
   {
     return this.http.get(this.url+id);
+  }
+  deleteEdoc(item:Edocument)
+  {
+    return this.http.delete(this.url+item.edoc_id,{headers:new HttpHeaders().set('Content-Type','application/json')});
   }
 
 }

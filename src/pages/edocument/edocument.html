@@ -24,12 +24,12 @@
 
             <div class="item row">
                 <span align="left" class="col col-50" style="font-size:20px;">{{item.edoc_title}}</span>
-
+                <span align="right" class="col col-50"><ion-icon name="trash" (click)="showPrompt(item)"></ion-icon></span>
             </div>
             <div class="item row">
-                <img src="http://localhost:3000/images/{{item.image_1}}" style="height:80px;width:80px">&nbsp;&nbsp;
-                <img src="http://localhost:3000/images/{{item.image_2}}" style="height:80px;width:80px">&nbsp;&nbsp;
-                <img src="http://localhost:3000/images/{{item.image_3}}" style="height:80px;width:80px">
+                <img src="http://exptracker1.herokuapp.com/images/{{item.image_1}}" style="height:80px;width:80px">&nbsp;&nbsp;
+                <img src="http://exptracker1.herokuapp.com/images/{{item.image_2}}" style="height:80px;width:80px">&nbsp;&nbsp;
+                <img src="http://exptracker1.herokuapp.com/images/{{item.image_3}}" style="height:80px;width:80px">
             </div>
 
 
