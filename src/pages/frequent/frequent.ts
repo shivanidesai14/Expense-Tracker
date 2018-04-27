@@ -40,15 +40,10 @@ exp_note:string;
 expense_amt:number=0;
 sub_cat_name:string="";
 icon_image:string="";
-valuee : number;
 tmp_month:any;
 month:any;
 year:any;
-<<<<<<< HEAD
-
-=======
 valuee : number=1;
->>>>>>> 22656028a6e6d6be60153d211d92c34aad5e4b86
 url:string='../assets/userimgs/sign-question-icon.png';
   constructor(public storage:Storage,public _data:SpendsdbProvider,public lo:LoadingController,public to:ToastController,
     public navCtrl: NavController, public navParams: NavParams) {

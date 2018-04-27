@@ -1,5 +1,4 @@
 import { SpendsPage } from './../spends/spends';
-import { LoanPage } from './../loan/loan';
 import { GraphPage } from './../graph/graph';
 import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams,PopoverController } from 'ionic-angular';
@@ -12,12 +11,7 @@ import { UserdbProvider } from "../../providers/userdb/userdb";
 import { LoginPage } from "../login/login";
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { PopoverMenuPage } from "../popover-menu/popover-menu";
-/**
- * Generated class for the UserProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -106,7 +100,7 @@ fk_user_email:string='';
   }
   onClickLoan()
   {
-    this.navCtrl.push(LoanPage);
+    this.navCtrl.push(GraphPage);
   }
   onClickSpends()
   {
