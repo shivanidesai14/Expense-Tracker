@@ -31,9 +31,7 @@ import { UserProfilePage } from "../pages/user-profile/user-profile";
 import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
 import { PopoverMenuPage } from "../pages/popover-menu/popover-menu";
 import { SpendsNotePage } from "../pages/spends-note/spends-note";
-import { LoanPage } from "../pages/loan/loan";
 import { ReminderPage } from "../pages/reminder/reminder";
-import { CalculateLoanPage } from "../pages/calculate-loan/calculate-loan";
 import { ViewspendsPage } from "../pages/viewspends/viewspends";
 import { ViewCategorySpendsPage } from "../pages/view-category-spends/view-category-spends";
 import { PopoverNote1pagePage } from "../pages/popover-note1page/popover-note1page";
@@ -56,7 +54,6 @@ import { CategorydbProvider } from '../providers/categorydb/categorydb';
 import { SubcategorydbProvider } from '../providers/subcategorydb/subcategorydb';
 import { SpendsdbProvider } from '../providers/spendsdb/spendsdb';
 import { SubcatexpdbProvider } from '../providers/subcatexpdb/subcatexpdb';
-import { LoandbProvider } from '../providers/loandb/loandb';
 import { ReminderdbProvider } from '../providers/reminderdb/reminderdb';
 import { LinechartdbProvider } from '../providers/linechartdb/linechartdb';
 import { EdocumentdbProvider } from '../providers/edocumentdb/edocumentdb';
@@ -71,7 +68,7 @@ import { ChatProvider } from '../providers/chat/chat';
     SelectcatPage, HomePage, PopoverPage, SpendsPage, LoginPage, SignupPage, NewnotePage,
     AddnewnotePage, GraphPage, FrequentPage, RecurringPage, OnetimePage, EdocumentPage,
      PopoverNotePage, EditnotesPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
-    SpendsNotePage, LoanPage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage,
+    SpendsNotePage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage,
     PopoverNote1pagePage, ReminderPage, ChangepassPage, AddReminderPage, EditreminderPage, PopoverSpend1Page, AddnewcatPage,
     SelectParCatPage,PopoverSpend1Page,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage,
     HelpPage,EdocpassPage
@@ -124,11 +121,11 @@ import { ChatProvider } from '../providers/chat/chat';
     SpendsdbProvider,
     SpendsdbProvider, SocialSharing,
     SubcatexpdbProvider,
-    LoandbProvider,
     ReminderdbProvider,
     LinechartdbProvider,
     EdocumentdbProvider,
-    ChatProvider
+    ChatProvider,
+    LogindbProvider
 ]
 })
 export class AppModule { }

@@ -28,7 +28,7 @@ email:string='';
 pass:string='';
 id:number=0;
 img:string='';
-dpass:string='';
+dpass:number;
 name:string='';
 mobno:string='';
 eid:string='';
@@ -102,8 +102,6 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       },
       function()
       {
-       
-       if(this.loader){ this.loader.dismiss(); this.loader = null; }
       }
     );
   }

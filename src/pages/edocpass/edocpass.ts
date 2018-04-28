@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController,ToastController } from 'ionic-angular';
-import { EdocumentPage } from "../edocument/edocument";
-import { Users } from '../../shared/users';
-import { UserdbProvider } from "../../providers/userdb/userdb";
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the EdocpassPage page.
@@ -20,12 +17,8 @@ export class EdocpassPage {
   no1:number=0;
   no2:number=0;
   flag:number=0;
-  num:any;
-  fk_user_email:string="";
-  edocpass:number;
-  arr:Users[]=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    public data:UserdbProvider,public load:LoadingController,public to:ToastController) {
+  num:string="";
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -82,61 +75,64 @@ export class EdocpassPage {
   this.num="";
     this.num=((this.no1*this.no2)/100)+"";
   }
-
+ pressplus()
+ {
+   this.no1=+this.num;
+   this.num="";
+   this.flag=1;
+}
+pressmul()
+ {
+   this.no1=+this.num;
+   this.num="";
+   this.flag=2;
+}
+pressdiv()
+ {
+   this.no1=+this.num;
+   this.num="";
+   this.flag=3;
+}
 pressbackspace()
 {
   this.num=this.num.substring(0,this.num.length-1);
 
 }
-
+pressmin()
+ {
+   this.no1=+this.num;
+   this.num="";
+   this.flag=4;
+}
 
 pressc()
 {
   this.num="";
 }
 
-
-pressgo()
+presseq()
 {
- 
-  this.fk_user_email=localStorage.getItem('name');
-      this.data.getUsersById(this.fk_user_email).subscribe(
+  this.no2=+this.num;
+  this.num="";
+  if(this.flag==1)
+  {
+    this.num=this.no1+this.no2+"";
 
-        (data: Users[]) => {
-          this.arr = data;
-          this.edocpass=this.arr[0].user_dpass;
-          let l1 = this.load.create({
+  }
+  if(this.flag==2)
+  {
+    this.num=this.no1*this.no2+"";
 
-            spinner:"hide",
-            content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
-            cssClass:"loader",
-            duration:2000
-          });
-          let t1=this.to.create({
-            message:"Password Incorrect",
-            duration:3000
-         });
-         
-          if(this.edocpass==this.num)
-          {
-            l1.present();
-                this.navCtrl.push(EdocumentPage)
-                l1.dismiss();
-          }
-          else{
-            t1.present();
-          }
-         
-        },
-        function (e) {
-          alert(e);
-        },
-        function () {
-          
-        }
+  }
+  if(this.flag==3)
+  {
+    this.num=this.no1/this.no2+"";
 
-      );
+  }
+  if(this.flag==4)
+  {
+    this.num=this.no1-this.no2+"";
 
+  }
 }
-
 }

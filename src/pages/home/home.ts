@@ -1,4 +1,3 @@
-import { LoanPage } from './../loan/loan';
 import { Component,ViewChild } from '@angular/core';
 import {ElementRef,Renderer } from "@angular/core";
 import { NavController,PopoverController,Content } from 'ionic-angular';
@@ -14,6 +13,7 @@ import { UserdbProvider } from "../../providers/userdb/userdb";
 import { SelectcatPage } from "../selectcat/selectcat";
 import { Storage } from '@ionic/storage';
 import { importType } from '@angular/compiler/src/output/output_ast';
+import { UserProfilePage } from '../user-profile/user-profile';
 
 @Component({
   selector: 'page-home',
@@ -88,9 +88,9 @@ openPopover(myEvent) {
   {
        this.navCtrl.push(NewnotePage);
   }
-  onClickLoan()
+  onClickUserProfile()
   {
-       this.navCtrl.push(LoanPage);
+       this.navCtrl.push(UserProfilePage);
   }
   onClickGraph()
   {

@@ -28,7 +28,7 @@ cuser_email:string="";
 cuser_name:string="";
 cuser_mob_no:string="";
 cuser_img:string="";
-cuser_dpass:string="";
+cuser_dpass:number;
 cuser_id:number;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public data:UserdbProvider,public l1:LoadingController,public t1:ToastController,public storage:Storage) {
