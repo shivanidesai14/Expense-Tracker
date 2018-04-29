@@ -32,7 +32,10 @@ arr:SpendsSubcat[]=[];
    
       let l1 = this.load.create({
 
-        content: "Loading..."
+        spinner:"hide",
+        content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+        cssClass:"loader",
+        duration:1000,
       });
       l1.present();
       this._data.getExpenseById(this.exp_id).subscribe(
@@ -62,7 +65,10 @@ arr:SpendsSubcat[]=[];
       duration: 3000
     });
     let l1 = this.load.create({
-      content: "deleting..."
+      spinner:"hide",
+        content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+        cssClass:"loader",
+        duration:2000
     });
     l1.present();
     this._data.deleteSpends(item).subscribe(

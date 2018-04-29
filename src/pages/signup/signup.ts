@@ -31,7 +31,7 @@ user: FormGroup;
   upass:string='';
   uname:string='';
   umobno:string='';
-  udpass:string='';
+  udpass:any;
   uimg:string="defaultimg.png";
   selectedFile: File = null;
   constructor(public storage:Storage,public _data:Signup1dbProvider,
@@ -85,6 +85,10 @@ user: FormGroup;
     {
       t2.present();
     }
+    else if(this.udpass=="")
+    {
+      t2.present();
+    }
     else
     {
       let t3=this.to.create({
@@ -93,7 +97,10 @@ user: FormGroup;
         position:"bottom"
       });
     let l1=this.lo.create({
-        content:"loading"
+      spinner:"hide",
+      content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+      cssClass:"loader",
+      duration:2000
       });
       l1.present();
       let t1=this.to.create({
@@ -164,9 +171,10 @@ user: FormGroup;
 
 this.user = new FormGroup({
 email: new FormControl('', [Validators.required,Validators.email]),
-password: new FormControl('', [Validators.required,Validators.minLength(5)]),
+password: new FormControl('', [Validators.required,Validators.minLength(8)]),
 mob: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
-name: new FormControl('', [Validators.required]),
+name: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z ]*')]),
+edpassword: new FormControl('', [Validators.required,Validators.minLength(8)]),
 profilePic:new FormControl('')
 });
 

@@ -59,13 +59,19 @@
                             Password is required
                         </div>
                         <div class="error" *ngIf="user.get('password').hasError('minlength') && user.get('password').touched">
-                            Minimum of 5 characters
+                            Minimum of 8 characters
                         </div>
                     </ion-item>
 
                     <ion-item>
                         <ion-label floating>Name</ion-label>
                         <ion-input type="text" [(ngModel)]="uname" formControlName="name"></ion-input>
+                        <div class="error" *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+                            Name is required
+                        </div>
+                        <div class="error" *ngIf="user.get('name').hasError('pattern') && user.get('name').touched">
+                            Name is invalid
+                        </div>
                     </ion-item>
 
 
@@ -101,6 +107,19 @@
 
                     </ion-item>
 
+                    <ion-item>
+                        <ion-label floating>Edoc-Password</ion-label>
+                        <ion-input type="password" formControlName="edpassword" [(ngModel)]="udpass"></ion-input>
+                    </ion-item>
+                    <ion-item no-lines *ngIf="( user.get('edpassword').hasError('minlength') || user.get('edpassword').hasError('required') ) && user.get('password').touched">
+
+                        <div class="error" *ngIf="user.get('edpassword').hasError('required') && user.get('edpassword').touched">
+                            Password is required
+                        </div>
+                        <div class="error" *ngIf="user.get('edpassword').hasError('minlength') && user.get('edpassword').touched">
+                            Minimum of 8 characters
+                        </div>
+                    </ion-item>
 
                 </div>
             </ion-list>

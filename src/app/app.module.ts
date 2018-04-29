@@ -26,7 +26,6 @@ import { EdocumentPage } from "../pages/edocument/edocument";
 import { EditnotesPage } from "../pages/editnotes/editnotes";
 import { BarChartPage } from "../pages/bar-chart/bar-chart";
 import { LineChartPage } from "../pages/line-chart/line-chart";
-import { CategoryPage } from "../pages/category/category";
 import { TutorialPage } from "../pages/tutorial/tutorial";
 import { UserProfilePage } from "../pages/user-profile/user-profile";
 import { PopoverSpendPage } from "../pages/popover-spend/popover-spend";
@@ -46,6 +45,7 @@ import { AddnewcatPage } from "../pages/addnewcat/addnewcat";
 import { SelectParCatPage } from "../pages/select-par-cat/select-par-cat";
 import { AddedocumentPage } from "../pages/addedocument/addedocument";
 import {HelpPage} from "../pages/help/help";
+import { EdocpassPage } from "../pages/edocpass/edocpass";
 import { NotesdbProvider } from '../providers/notesdb/notesdb';
 import { UserdbProvider } from '../providers/userdb/userdb';
 import { LogindbProvider } from '../providers/logindb/logindb';
@@ -68,11 +68,11 @@ import { ChatProvider } from '../providers/chat/chat';
     MyApp,
     SelectcatPage, HomePage, PopoverPage, SpendsPage, LoginPage, SignupPage, NewnotePage,
     AddnewnotePage, GraphPage, FrequentPage, RecurringPage, OnetimePage, EdocumentPage,
-     PopoverNotePage, EditnotesPage, CategoryPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
-    SpendsNotePage, CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage,
+     PopoverNotePage, EditnotesPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
+    SpendsNotePage,  CalculateLoanPage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage,
     PopoverNote1pagePage, ReminderPage, ChangepassPage, AddReminderPage, EditreminderPage, PopoverSpend1Page, AddnewcatPage,
     SelectParCatPage,PopoverSpend1Page,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage,
-    HelpPage
+    HelpPage,EdocpassPage
 
 ],
 
@@ -96,15 +96,12 @@ import { ChatProvider } from '../providers/chat/chat';
     LoginPage,SignupPage,NewnotePage,AddnewnotePage,
     GraphPage,FrequentPage,RecurringPage,OnetimePage,
     SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
-    CategoryPage,PopoverSpendPage,LineChartPage,
-    BarChartPage,TutorialPage,
+    PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
     UserProfilePage,SpendsNotePage,ViewspendsPage,
-    PopoverMenuPage,TotalSpendsPage,
-    ViewCategorySpendsPage,
-    PopoverNote1pagePage,AddnewcatPage,
-    SelectParCatPage,PopoverSpend1Page,
-    ReminderPage,AddReminderPage,EditreminderPage,
-    ChangepassPage,AddedocumentPage,HelpPage
+    PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,
+    PopoverNote1pagePage,AddnewcatPage,SelectParCatPage,PopoverSpend1Page,
+    ReminderPage,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage,
+    HelpPage,EdocpassPage
 
 
   ],

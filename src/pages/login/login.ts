@@ -102,7 +102,6 @@ password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       },
       function()
       {
-
       }
     );
   }

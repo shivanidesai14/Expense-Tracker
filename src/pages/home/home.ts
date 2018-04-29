@@ -7,6 +7,7 @@ import { NewnotePage } from "../newnote/newnote";
 import { GraphPage } from "../graph/graph";
 import { EdocumentPage} from "../edocument/edocument";
 import { ReminderPage } from "../reminder/reminder";
+import { EdocpassPage } from "../edocpass/edocpass";
 import { Users } from "../../shared/users";
 import { UserdbProvider } from "../../providers/userdb/userdb";
 import { SelectcatPage } from "../selectcat/selectcat";
@@ -96,7 +97,7 @@ openPopover(myEvent) {
   }
   onCLickDocument()
   {
-this.navCtrl.push(EdocumentPage);
+this.navCtrl.push(EdocpassPage);
   
   }
 }

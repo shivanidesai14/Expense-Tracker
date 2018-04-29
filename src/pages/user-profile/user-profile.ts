@@ -28,7 +28,7 @@ eumail:string='';
 eupass:string='';
 euname:string='';
 eumobno:string='';
-eudpass:string='';
+eudpass:number;
 url:string;
 eimage:string='';
 @ViewChild("fileInput") fileInput;

@@ -86,7 +86,10 @@ export class SpendsPage {
             let item=new SpendsSubcat(0,this.fk_user_email,0,"",0,this.color,"","","");
 
           let l1=this.load.create({
-                 content : "Loading .."
+            spinner:"hide",
+            content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+            cssClass:"loader",
+            duration:2000
         });
         l1.present();
           this.data.getExpenseByColor(item).subscribe(
@@ -220,7 +223,10 @@ export class SpendsPage {
       duration: 3000
     });
     let l1 = this.load.create({
-      content: "deleting..."
+      spinner:"hide",
+        content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
+        cssClass:"loader",
+        duration:2000
     });
     l1.present();
     this._data.deleteSpends(item).subscribe(

@@ -63,5 +63,5 @@ this.navCtrl.push(EdocumentPage);
     localStorage.removeItem('pass');
     this.navCtrl.push(LoginPage);
   }
-  
+ 
 }
