@@ -26,7 +26,7 @@ export class FrequentPage {
  dt:any=new Date().getDate();
 x:any=new Date().getMonth();
 y:any=new Date().getFullYear();
-value:number=0;
+valuee:number=0;
 exp_amt:number=0;
 expense_id:number;
 fk_user_email:string='';
@@ -40,7 +40,6 @@ exp_note:string;
 expense_amt:number=0;
 sub_cat_name:string="";
 icon_image:string="";
-valuee : number;
 tmp_month:any;
 month:any;
 year:any;
@@ -122,7 +121,7 @@ ionViewDidEnter() {
         spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
-        duration:1000,
+        duration:500,
       });
       l1.present();
       let t1=this.to.create({
@@ -134,7 +133,7 @@ ionViewDidEnter() {
 
           (data:any)=>{
             t1.present();
-            this.navCtrl.push(SpendsPage);
+            
           },
           function(e)
           {
@@ -142,10 +141,10 @@ ionViewDidEnter() {
           },
           function()
           {
-            l1.dismiss();
+            
           }
       )
-         
+      this.navCtrl.push(SpendsPage);
   }
   }
 

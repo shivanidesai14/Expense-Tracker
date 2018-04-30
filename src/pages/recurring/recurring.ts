@@ -332,7 +332,7 @@ monthh:any;
             spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
-        duration:1000,
+        duration:500,
           });
           l1.present();
           let t1 = this.to.create({
@@ -344,16 +344,16 @@ monthh:any;
 
             (data: any) => {
               t1.present();
-              this.navCtrl.push(SpendsPage);
+           
             },
             function (e) {
               alert(e);
             },
             function () {
-              l1.dismiss();
+             
             }
           )
-        
+          this.navCtrl.push(SpendsPage);
     }
  }
   onClickCategory() {

@@ -58,7 +58,7 @@ s_fk_user_email:string="";
       spinner:"hide",
       content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
       cssClass:"loader",
-      duration:1000,
+      duration:500,
         });
         l1.present();
           this._data1.getCategoriesById(this.fk_user_email).subscribe(
@@ -73,7 +73,7 @@ s_fk_user_email:string="";
               },
               function()
               {
-                l1.dismiss();
+
               }
       
           );
@@ -128,11 +128,12 @@ else
 {
   this.no1=false;
 }
-  let l1=this.load.create({
+  let l2=this.load.create({
     
-        content:"Loading..."
+        content:"Loading...",
+      
       });
-      l1.present();
+     // l2.present();
       let item=new subcategory(this.sub_cat_id,this.sub_cat_name,no,this.icon_image,this.fk_user_email)
         this._data2.getSelectedcats(item).subscribe(
     
@@ -146,7 +147,10 @@ else
             },
             function()
             {
-              l1.dismiss();
+              // if(l2.present())
+              // {
+              //   l2.dismiss();
+              // }
               
             }
     

@@ -12,12 +12,7 @@ import { UserdbProvider } from "../../providers/userdb/userdb";
 import { LoginPage } from "../login/login";
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { PopoverMenuPage } from "../popover-menu/popover-menu";
-/**
- * Generated class for the UserProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({

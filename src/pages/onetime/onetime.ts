@@ -116,7 +116,7 @@ ionViewDidEnter() {
         spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
-        duration:1000,
+        duration:500,
         
       });
       l1.present();
@@ -130,7 +130,8 @@ ionViewDidEnter() {
 
           (data:any)=>{
             t1.present();
-            this.navCtrl.push(SpendsPage);
+          
+          
           },
           function(e)
           {
@@ -138,10 +139,12 @@ ionViewDidEnter() {
           },
           function()
           {
-            l1.dismiss();
-          }
-      )
+           //l1.dismiss();
          
+          }
+          
+      )
+      this.navCtrl.push(SpendsPage);
   }
   }
   onCLick(no)

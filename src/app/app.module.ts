@@ -66,12 +66,12 @@ import { ChatProvider } from '../providers/chat/chat';
   declarations: [
     MyApp,
     SelectcatPage, HomePage, PopoverPage, SpendsPage, LoginPage, SignupPage, NewnotePage,
-    AddnewnotePage, GraphPage, FrequentPage, RecurringPage, OnetimePage, EdocumentPage,
+    AddnewnotePage, GraphPage, FrequentPage, RecurringPage, OnetimePage,
      PopoverNotePage, EditnotesPage, PopoverSpendPage, LineChartPage, BarChartPage, TutorialPage, UserProfilePage,
-    SpendsNotePage, SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage,
+    SpendsNotePage, ViewspendsPage, PopoverMenuPage, TotalSpendsPage, ViewCategorySpendsPage,
     PopoverNote1pagePage, ReminderPage, ChangepassPage, AddReminderPage, EditreminderPage, PopoverSpend1Page, AddnewcatPage,
     SelectParCatPage,PopoverSpend1Page,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage,
-    HelpPage,EdocpassPage
+    HelpPage,EdocpassPage,EdocumentPage
 
 ],
 
@@ -94,13 +94,13 @@ import { ChatProvider } from '../providers/chat/chat';
     HomePage,PopoverPage,SpendsPage,
     LoginPage,SignupPage,NewnotePage,AddnewnotePage,
     GraphPage,FrequentPage,RecurringPage,OnetimePage,
-    SelectcatPage, EdocumentPage,PopoverNotePage,EditnotesPage,
+    SelectcatPage,PopoverNotePage,EditnotesPage,
     PopoverSpendPage,LineChartPage,BarChartPage,TutorialPage,
     UserProfilePage,SpendsNotePage,ViewspendsPage,
     PopoverMenuPage,TotalSpendsPage,ViewCategorySpendsPage,
     PopoverNote1pagePage,AddnewcatPage,SelectParCatPage,PopoverSpend1Page,
     ReminderPage,AddReminderPage,EditreminderPage,ChangepassPage,AddedocumentPage,
-    HelpPage,EdocpassPage
+    HelpPage,EdocpassPage,EdocumentPage
 
 
   ],

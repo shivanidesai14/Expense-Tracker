@@ -17,13 +17,6 @@ import { Storage } from '@ionic/storage';
 import { Item } from 'ionic-angular/components/item/item';
 
 
-/**
- * Generated class for the SpendsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-spends',
@@ -104,15 +97,20 @@ export class SpendsPage {
                 {
                   this.flag=1;
                 }
+            
+                
               },
               function(e)
               {
+                
                 alert(e);
+                if(l1)
+                { l1.dismiss(); l1 = null; }
               },
               function()
               {
-                l1.dismiss();
-              }
+               //  l1.dismiss();
+               }
       
           );
                
@@ -122,14 +120,14 @@ export class SpendsPage {
       else
       {
         this.fk_user_email=localStorage.getItem('name');
-      let l1 = this.load.create({
+      let l2 = this.load.create({
 
         spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
         duration:2000
       });
-      l1.present();
+      l2.present();
       this._data.getALlSpendsById(this.fk_user_email).subscribe(
 
         (data: SpendsSubcat[]) => {
@@ -138,12 +136,12 @@ export class SpendsPage {
           for (var i = 0; i < this.arr.length; i++) {
             this.sumexp = this.sumexp + this.arr[i].expense_amt;
           }
-        },
+          },
         function (e) {
           alert(e);
         },
         function () {
-          l1.dismiss();
+           l2.dismiss();
         }
 
       );
