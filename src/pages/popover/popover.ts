@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserProfilePage } from "../user-profile/user-profile";
 import { LoginPage } from "../login/login";
 import { HelpPage } from "../help/help";
+import { GraphPage } from '../graph/graph';
 
 /**
  * Generated class for the PopoverPage page.
@@ -36,5 +37,8 @@ export class PopoverPage {
   {
     this.navCtrl.push(LoginPage);
   }
-  
+  onClickGraph()
+  {
+    this.navCtrl.push(GraphPage);
+  }
 }

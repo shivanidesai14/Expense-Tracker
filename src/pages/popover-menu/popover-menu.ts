@@ -9,6 +9,7 @@ import { LoginPage } from "../login/login";
 import { HelpPage } from "../help/help";
 import { NewnotePage } from "../newnote/newnote";
 import { Storage } from '@ionic/storage';
+import { EdocpassPage } from '../edocpass/edocpass';
 /**
  * Generated class for the PopoverMenuPage page.
  *
@@ -49,7 +50,7 @@ export class PopoverMenuPage {
   }
   onCLickDocument()
   {
-this.navCtrl.push(EdocumentPage);
+this.navCtrl.push(EdocpassPage);
   
   }
   onClickUserProfile()

@@ -113,7 +113,7 @@ user: FormGroup;
 
     if(this.selectedFile==null)
     {
-      alert(this.umail);
+     
             this._data.addNormalUsers(new Users(this.uid,this.umail,this.uname,this.umobno,this.uimg,this.upass,this.udpass)).subscribe(
               (data)=>{
        
@@ -174,7 +174,7 @@ email: new FormControl('', [Validators.required,Validators.email]),
 password: new FormControl('', [Validators.required,Validators.minLength(8)]),
 mob: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
 name: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z ]*')]),
-edpassword: new FormControl('', [Validators.required,Validators.minLength(8)]),
+edpassword: new FormControl('', [Validators.required,Validators.minLength(5)]),
 profilePic:new FormControl('')
 });
 
