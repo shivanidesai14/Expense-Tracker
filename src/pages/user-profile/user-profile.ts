@@ -139,7 +139,7 @@ fk_user_email:string='';
           fd.append("image", this.selectedFile, this.selectedFile.name);
           fd.append("user_pass",this.eupass);
           fd.append("user_dpass",this.eudpass);
-       
+ 
     this.data.updateUsers(this.fk_user_email,fd).subscribe(
 
       (data: Users[]) => {

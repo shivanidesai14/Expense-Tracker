@@ -109,7 +109,7 @@
 
                     <ion-item>
                         <ion-label floating>Edoc-Password</ion-label>
-                        <ion-input type="password" formControlName="edpassword" [(ngModel)]="udpass"></ion-input>
+                        <ion-input type="number" formControlName="edpassword" [(ngModel)]="udpass"></ion-input>
                     </ion-item>
                     <ion-item no-lines *ngIf="( user.get('edpassword').hasError('minlength') || user.get('edpassword').hasError('required') ) && user.get('password').touched">
 
@@ -117,7 +117,7 @@
                             Password is required
                         </div>
                         <div class="error" *ngIf="user.get('edpassword').hasError('minlength') && user.get('edpassword').touched">
-                            Minimum of 8 characters
+                            Minimum of 5 digits
                         </div>
                     </ion-item>
 

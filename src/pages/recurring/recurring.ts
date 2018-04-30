@@ -71,7 +71,7 @@ monthh:any;
   newdate: any;
 
   spends_notes: string = "";
-  tmp_msg: string = 'this is demo for Recurring expense';
+  tmp_msg: string = 'this is Recurring expense';
 
   exp_note: string;
   
@@ -209,6 +209,7 @@ monthh:any;
   }
    hello:string;
   Recurringadd() {
+    this.exp_note=this.tmp_msg +" "+ this.spends_notes;
     this.date = this.event.finalDate.substr(8, 11);
    
 

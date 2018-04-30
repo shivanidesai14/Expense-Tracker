@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams,LoadingController,ToastController } from 'ionic-angular';
+import { Edocument } from "../../shared/edoc";
+import { EdocumentdbProvider } from "../../providers/edocumentdb/edocumentdb";
+import { Users } from "../../shared/users";
+import { UserdbProvider } from "../../providers/userdb/userdb";
+import { EdocumentPage } from '../edocument/edocument';
 /**
  * Generated class for the EdocpassPage page.
  *
@@ -18,7 +22,10 @@ export class EdocpassPage {
   no2:number=0;
   flag:number=0;
   num:string="";
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  fk_user_email:string='';
+  arr:Users[]=[];
+  eudpass:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public _data:UserdbProvider,public to :ToastController) {
   }
 
   ionViewDidLoad() {
@@ -109,30 +116,46 @@ pressc()
 {
   this.num="";
 }
-
-presseq()
+pressgo()
 {
-  this.no2=+this.num;
-  this.num="";
-  if(this.flag==1)
-  {
-    this.num=this.no1+this.no2+"";
+  let t1=this.to.create({
+    message:"Successfully..",
+    duration:3000,
+    position:"bottom"
+  });
+  let t2=this.to.create({
+    message:"Password incorrect..",
+    duration:3000,
+    position:"bottom"
+  });
+  this.fk_user_email=localStorage.getItem('name');
+    this._data.getUsersById(this.fk_user_email).subscribe(
 
-  }
-  if(this.flag==2)
-  {
-    this.num=this.no1*this.no2+"";
+      (data: Users[]) => {
+        this.arr = data;
+        this.eudpass=this.arr[0].user_dpass;
+       if(this.eudpass==this.num)
+       {
+         t1.present();
+         this.navCtrl.push(EdocumentPage);
+       }
+       else
+       {
+          t2.present();
+       }
 
-  }
-  if(this.flag==3)
-  {
-    this.num=this.no1/this.no2+"";
+        
 
-  }
-  if(this.flag==4)
-  {
-    this.num=this.no1-this.no2+"";
+},
+      function (e) {
+        alert(e);
+      },
+      function () {
+        
+      }
 
-  }
+    );
+
 }
+
 }

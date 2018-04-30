@@ -233,6 +233,23 @@ export class SpendsPage {
       (data: any) => {
         t1.present();
         this.arr.splice(this.arr.indexOf(item), 1);
+        this.data.getExpenseByColor(item).subscribe(
+      
+          (data:SpendsSubcat[])=>{    
+            this.arr=data;
+           
+          },
+          function(e)
+          {
+            alert(e);
+          },
+          function()
+          {
+            l1.dismiss();
+          }
+  
+      );
+           
       },
       function (err) {
         alert(err);

@@ -34,7 +34,7 @@ fk_scat_id:any;
 colour_name:string="white";
 
 spends_notes:string="";
-tmp_msg:string='this is demo for frequent expense';
+tmp_msg:string='this is frequent expense';
 
 exp_note:string;
 expense_amt:number=0;

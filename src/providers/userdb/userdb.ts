@@ -28,7 +28,7 @@ export class UserdbProvider {
  public url1:string="http://exptracker1.herokuapp.com/chagepass/";
  changePassword(id:string,item:Users)
  {
-alert(id);
+
   let body=JSON.stringify(item);
   return this.http.put(this.url1+id,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
  }
