@@ -66,7 +66,7 @@ user: FormGroup;
   {
     let t2=this.to.create({
       message:"Fields must not be empty",
-      duration:3000,
+      duration:2000,
       position:"bottom"
     });
     if(this.umail=="") 
@@ -93,19 +93,19 @@ user: FormGroup;
     {
       let t3=this.to.create({
         message:"Sign up successfully",
-        duration:3000,
+        duration:1000,
         position:"bottom"
       });
     let l1=this.lo.create({
       spinner:"hide",
       content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
       cssClass:"loader",
-      duration:2000
+      duration:200
       });
       l1.present();
       let t1=this.to.create({
         message:"Sign-up Successfully..",
-        duration:3000,
+        duration:1000,
         position:"bottom"
       });
 
@@ -128,7 +128,7 @@ user: FormGroup;
            },
            function()
            {
-             l1.dismiss();
+             
            }
          );
        }
@@ -157,7 +157,7 @@ user: FormGroup;
    },
    function()
    {
-     l1.dismiss();
+     
    }
  );
 

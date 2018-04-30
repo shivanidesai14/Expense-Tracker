@@ -95,7 +95,7 @@ fk_user_email:string='';
         spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
-        duration:2000
+        duration:300
         });
         l1.present();
           this._data.getNotesById(this.fk_user_email).subscribe(
@@ -111,7 +111,7 @@ fk_user_email:string='';
               },
               function()
               {
-                l1.dismiss();
+             
               }
       
           );
@@ -148,7 +148,7 @@ fk_user_email:string='';
       spinner:"hide",
       content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
       cssClass:"loader",
-      duration:1000,
+      duration:300,
    });
    l1.present();
    this._data.deleteNotes(item).subscribe(
@@ -162,7 +162,7 @@ fk_user_email:string='';
       },
       function()
       {
-        l1.dismiss();
+      
       }
 
    );
