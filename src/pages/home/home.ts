@@ -13,6 +13,7 @@ import { UserdbProvider } from "../../providers/userdb/userdb";
 import { SelectcatPage } from "../selectcat/selectcat";
 import { Storage } from '@ionic/storage';
 import { importType } from '@angular/compiler/src/output/output_ast';
+import { UserProfilePage } from '../user-profile/user-profile';
 
 @Component({
   selector: 'page-home',
@@ -87,9 +88,9 @@ openPopover(myEvent) {
   {
        this.navCtrl.push(NewnotePage);
   }
-  onClickLoan()
+  onClickUserProfile()
   {
-       this.navCtrl.push(GraphPage);
+       this.navCtrl.push(UserProfilePage);
   }
   onClickGraph()
   {

@@ -28,7 +28,7 @@ email:string='';
 pass:string='';
 id:number=0;
 img:string='';
-dpass:string='';
+dpass:number;
 name:string='';
 mobno:string='';
 eid:string='';

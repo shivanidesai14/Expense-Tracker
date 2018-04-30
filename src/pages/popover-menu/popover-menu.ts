@@ -7,6 +7,7 @@ import { UserProfilePage } from "../user-profile/user-profile";
 import { HomePage } from "../home/home";
 import { LoginPage } from "../login/login";
 import { HelpPage } from "../help/help";
+import { NewnotePage } from "../newnote/newnote";
 import { Storage } from '@ionic/storage';
 /**
  * Generated class for the PopoverMenuPage page.
@@ -55,6 +56,10 @@ this.navCtrl.push(EdocumentPage);
   {
     this.navCtrl.push(UserProfilePage);
   
+  }
+  onClickNotes()
+  {
+    this.navCtrl.push(NewnotePage);
   }
   onlogout()
   {

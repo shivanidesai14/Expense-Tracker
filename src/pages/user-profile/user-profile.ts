@@ -1,5 +1,6 @@
 import { SpendsPage } from './../spends/spends';
 import { GraphPage } from './../graph/graph';
+import { NewnotePage } from "../newnote/newnote";
 import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams,PopoverController } from 'ionic-angular';
 import { FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
@@ -28,7 +29,7 @@ eumail:string='';
 eupass:string='';
 euname:string='';
 eumobno:string='';
-eudpass:number;
+eudpass:any;
 url:string;
 eimage:string='';
 @ViewChild("fileInput") fileInput;
@@ -98,9 +99,9 @@ fk_user_email:string='';
   {
     this.navCtrl.push(GraphPage);
   }
-  onClickLoan()
+  onClickNotes()
   {
-    this.navCtrl.push(GraphPage);
+    this.navCtrl.push(NewnotePage)
   }
   onClickSpends()
   {

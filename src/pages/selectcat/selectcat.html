@@ -15,23 +15,6 @@
 
 <ion-content padding>
 
-    <!-- <ion-card *ngFor="let item of arr">
-    <h1>              {{item.cat_id}}</h1>;
-    <h1>              {{item.cat_name}}</h1>;
-    <h1>              {{item.sub_cat_name}}</h1>;
-    </ion-card>-->
-
-    <!--<ion-card *ngFor="let item of arr1" (click)="onClick(item.cat_id)">
-    <h1>              {{item.cat_id}}</h1>;
-    <h1>              {{item.cat_name}}</h1>;
-  
-    </ion-card>
-     
-    <p *ngIf="no1">
-        <ion-card *ngFor="let item of arr2">
-         <h1> {{item.sub_cat_name}}</h1>
-         </ion-card>
-       </p>=-->
     <ion-list *ngFor="let item of arr1">
         <ion-item (click)="onClick(item.cat_id)">
             <ion-avatar item-start>
@@ -65,12 +48,5 @@
             </td>
         </tr>
     </table>
-
-
-
-
-
-
-
 
 </ion-content>
