@@ -39,7 +39,7 @@ sumexp:number=0;
           spinner:"hide",
           content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
           cssClass:"loader",
-          duration:1000,
+          duration:300,
       });
       l1.present();
       let item=new subcatexp(0,"",this.cat_id,"","",0,"",0,"",0,"","",0,"","");
@@ -48,14 +48,12 @@ sumexp:number=0;
         (data: subcatexp[]) => {
           
           this.arr = data;
-         
-          
-        },
+         },
         function (e) {
           alert(e);
         },
         function () {
-          l1.dismiss();
+          
         }
 
       );

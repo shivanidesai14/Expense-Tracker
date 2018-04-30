@@ -82,7 +82,7 @@ export class SpendsPage {
             spinner:"hide",
             content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
             cssClass:"loader",
-            duration:2000
+            duration:400
         });
         l1.present();
           this.data.getExpenseByColor(item).subscribe(
@@ -104,12 +104,11 @@ export class SpendsPage {
               {
                 
                 alert(e);
-                if(l1)
-                { l1.dismiss(); l1 = null; }
+             
               },
               function()
               {
-               //  l1.dismiss();
+             
                }
       
           );
@@ -125,7 +124,7 @@ export class SpendsPage {
         spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
-        duration:2000
+        duration:300
       });
       l2.present();
       this._data.getALlSpendsById(this.fk_user_email).subscribe(
@@ -141,7 +140,7 @@ export class SpendsPage {
           alert(e);
         },
         function () {
-           l2.dismiss();
+           
         }
 
       );
@@ -224,7 +223,7 @@ export class SpendsPage {
       spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
-        duration:2000
+        duration:300
     });
     l1.present();
     this._data.deleteSpends(item).subscribe(
@@ -236,7 +235,7 @@ export class SpendsPage {
         alert(err);
       },
       function () {
-        l1.dismiss();
+        
       }
 
     );

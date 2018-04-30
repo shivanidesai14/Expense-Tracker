@@ -41,7 +41,7 @@ export class EditnotesPage {
   onEditNotes(item) {
     let t1=this.to.create({
       message:"Updated..",
-      duration:3000
+      duration:2000
    });
     this._data.getNoteDesc(this.id).subscribe(
       

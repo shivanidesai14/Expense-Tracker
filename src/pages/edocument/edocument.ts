@@ -80,7 +80,7 @@ onclickAddDoc()
       spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
-        duration:2000
+        duration:300
     });
     l1.present();
     this._data.deleteEdoc(item).subscribe(
@@ -92,7 +92,7 @@ onclickAddDoc()
         alert(err);
       },
       function () {
-        l1.dismiss();
+       
       }
 
     );

@@ -5,12 +5,6 @@ import { SpendsSubcat } from "../../shared/spendsSubcat";
 import { SpendsdbProvider} from "../../providers/spendsdb/spendsdb";
 import { Storage } from '@ionic/storage';
 
-/**
- * Generated class for the ViewspendsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -25,8 +19,7 @@ arr:SpendsSubcat[]=[];
   constructor(public storage: Storage,public _data:SpendsdbProvider,public navCtrl: NavController,
      public navParams: NavParams,public load: LoadingController, public to: ToastController,  public alert: AlertController) {
   }
-
-  ionViewDidLoad() {
+ionViewDidLoad() {
     console.log('ionViewDidLoad ViewspendsPage');
     this.exp_id=this.navParams.get('id');
    
@@ -35,7 +28,7 @@ arr:SpendsSubcat[]=[];
         spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
-        duration:1000,
+        duration:300,
       });
       l1.present();
       this._data.getExpenseById(this.exp_id).subscribe(
@@ -48,7 +41,7 @@ arr:SpendsSubcat[]=[];
           alert(e);
         },
         function () {
-          l1.dismiss();
+          
         }
 
       );
@@ -68,7 +61,7 @@ arr:SpendsSubcat[]=[];
       spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
-        duration:2000
+        duration:300
     });
     l1.present();
     this._data.deleteSpends(item).subscribe(
@@ -81,7 +74,7 @@ arr:SpendsSubcat[]=[];
         alert(err);
       },
       function () {
-        l1.dismiss();
+        
       }
 
     );

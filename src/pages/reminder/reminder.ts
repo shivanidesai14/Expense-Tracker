@@ -85,10 +85,11 @@ public load:LoadingController,
   {
     let t1=this.to.create({
       message:"Deleted..",
-      duration:3000
+      duration:2000
    });
    let l1=this.load.create({
-      content:"deleting..."
+      content:"deleting...",
+      duration:300
    });
    l1.present();
    this._data.deleteReminder(item).subscribe(
@@ -117,7 +118,7 @@ public load:LoadingController,
       },
       function()
       {
-        l1.dismiss();
+        
       }
 
    );

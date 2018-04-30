@@ -78,7 +78,7 @@ export class AddnewcatPage {
         spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
-        duration:1000,
+        duration:300,
         });
         l1.present();
         let t1=this.to.create({
@@ -99,7 +99,7 @@ export class AddnewcatPage {
             },
             function()
             {
-              l1.dismiss();
+              
             }
         )
           

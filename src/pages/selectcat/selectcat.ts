@@ -58,7 +58,7 @@ s_fk_user_email:string="";
       spinner:"hide",
       content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
       cssClass:"loader",
-      duration:500,
+      duration:300,
         });
         l1.present();
           this._data1.getCategoriesById(this.fk_user_email).subscribe(
@@ -131,6 +131,7 @@ else
   let l2=this.load.create({
     
         content:"Loading...",
+        duration:400
       
       });
      // l2.present();
@@ -147,11 +148,7 @@ else
             },
             function()
             {
-              // if(l2.present())
-              // {
-              //   l2.dismiss();
-              // }
-              
+            
             }
     
         );

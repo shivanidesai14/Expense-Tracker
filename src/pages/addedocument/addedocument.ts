@@ -48,12 +48,10 @@ export class AddedocumentPage {
      public data:EdocumentdbProvider,formBuilder: FormBuilder) {
       this.form1 = formBuilder.group({
         profilePic: [''],
-  
-      });
+ });
       this.form2 = formBuilder.group({
         profilePic: [''],
-  
-      });
+   });
       this.form3 = formBuilder.group({
         profilePic: [''],
   
@@ -63,15 +61,9 @@ export class AddedocumentPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddedocumentPage');
   }
-   
+    processWebImage1(event) {
+this.selectedFile[0] = <File>event.target.files[0];
 
-  processWebImage1(event) {
-
-    this.selectedFile[0] = <File>event.target.files[0];
-
-
-    //    alert(this.selectedFile.name);
-    //alert(this.selectedFile.name.substr(this.selectedFile.name.indexOf('.')+1));
     if (this.selectedFile[0].name.substr(this.selectedFile[0].name.indexOf('.') + 1) != "jpg" &&
       this.selectedFile[0].name.substr(this.selectedFile[0].name.indexOf('.') + 1) != "png" &&
       this.selectedFile[0].name.substr(this.selectedFile[0].name.indexOf('.') + 1) != "jpeg" &&
@@ -104,10 +96,6 @@ export class AddedocumentPage {
   processWebImage2(event) {
 
     this.selectedFile[1] = <File>event.target.files[0];
-
-
-    //    alert(this.selectedFile.name);
-    //alert(this.selectedFile.name.substr(this.selectedFile.name.indexOf('.')+1));
     if (this.selectedFile[1].name.substr(this.selectedFile[1].name.indexOf('.') + 1) != "jpg" &&
       this.selectedFile[1].name.substr(this.selectedFile[1].name.indexOf('.') + 1) != "png" &&
       this.selectedFile[1].name.substr(this.selectedFile[1].name.indexOf('.') + 1) != "jpeg" &&
@@ -140,10 +128,6 @@ export class AddedocumentPage {
   processWebImage3(event) {
 
     this.selectedFile[2] = <File>event.target.files[0];
-
-
-    //    alert(this.selectedFile.name);
-    //alert(this.selectedFile.name.substr(this.selectedFile.name.indexOf('.')+1));
     if (this.selectedFile[2].name.substr(this.selectedFile[2].name.indexOf('.') + 1) != "jpg" &&
       this.selectedFile[2].name.substr(this.selectedFile[2].name.indexOf('.') + 1) != "png" &&
       this.selectedFile[2].name.substr(this.selectedFile[2].name.indexOf('.') + 1) != "jpeg" &&

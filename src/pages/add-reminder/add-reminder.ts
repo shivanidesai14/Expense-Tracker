@@ -51,7 +51,7 @@ export class AddReminderPage {
 this.endDate= new Date(this.event.finalDate);
     let t2=this.to.create({
       message:"Fields Must Not be empty..",
-      duration:3000,
+      duration:2000,
       position:"bottom"
     });
     if(this.title=="" || this.event.finalDate=="")
@@ -67,7 +67,7 @@ this.endDate= new Date(this.event.finalDate);
         spinner:"hide",
         content:"<div style='text-align:center;background:black';><img src='../assets/imgs/Loading3.gif' height='80' width='80'></div>",
         cssClass:"loader",
-        duration:1000,
+        duration:300,
       });
       l1.present();
       let t1=this.to.create({
@@ -131,7 +131,7 @@ this.endDate= new Date(this.event.finalDate);
           },
           function()
           {
-            l1.dismiss();
+            
           }
       )
          
