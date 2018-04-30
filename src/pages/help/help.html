@@ -33,8 +33,19 @@
          </ng-container>  
         
 
+<!--<ion-footer no-shadow>
+        <ion-toolbar position="bottom">
+                <label for="nameField">Your Message</label>  
+                
+                   <input [(ngModel)]="strMsg" (keyup.enter)="sendMessage()" type="text">  
+                 
+                
+                <button  ion-button round color="primary" (click)="sendMessage()">Send</button>
+        </ion-toolbar>
+    </ion-footer>       -->
+</ion-content>
     <ion-footer>
-        <ion-toolbar>
+        <ion-toolbar position="bottom">
             <ion-input type="text" placeholder="Enter Your Message" [(ngModel)]="strMsg" (keyup.enter)="sendMessage()"></ion-input>
             <ion-buttons end>
                 <button ion-button icon-right color="primary" (click)="sendMessage()">
@@ -44,4 +55,3 @@
             </ion-buttons>
         </ion-toolbar>
     </ion-footer>
-</ion-content>
